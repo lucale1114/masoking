@@ -1,0 +1,41 @@
+Vad Behövs?
+
+"Fiender" Som kastar projektiler
+- projectiler som flyger raktfram
+- projektiler som flyger i vågor
+
+"Fiender" som man kan lägga till hur många projektiler dom kastar, kanske även hur dom kastar den
+
+""
+
+-"Fiender" som går ut och in i leveln
+
+Spelare
+För Top-Down
+- system för att rösa sig genom leveln med y och x axis med tangenter
+
+System för att ta skada
+-En meeter som går upp ju mer "skada" man tar av projektiler
+
+
+Art
+ Characters
+ Background
+ Items
+ Animations
+
+Scenes
+ levels 
+ Menu
+
+Scripts
+ Gameplay
+ Items
+ Characters
+ Menu
+ 
+Prefab
+
+Sound
+ Music
+ Effects
