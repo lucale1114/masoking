@@ -1,21 +1,21 @@
-Vad Behövs?
+Vad Behövs Programmerings vis?
 
 "Fiender" Som kastar projektiler
-- projectiler som flyger raktfram
+- projektiler som flyger raktfram
 - projektiler som flyger i vågor
 
 "Fiender" som man kan lägga till hur många projektiler dom kastar, kanske även hur dom kastar den
 
-Projektiler som flyger ifrån dig långsamnt
+Projektiler som flyger ifrån dig långsamt
 
 -"Fiender" som går ut och in i leveln
 
 Spelare
 För Top-Down
-- system för att rösa sig genom leveln med y och x axis med tangenter
+- system för att rösa sig genom leveln med y och x Axis med tangenter
 
 System för att ta skada
--En meeter som går upp ju mer skada man tar av projektiler
+-En meter som går upp ju mer skada man tar av projektiler
 
 
 Art
