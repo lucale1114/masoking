@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -10,6 +11,14 @@ public class Movement : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 currentVelocity;
     private float currentSpeed = 0f;
+    // Dash Variables
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashTime = 0.2f;
+    private float dashCoolDown;
+
+    [SerializeField]
+    private float dashSpeed = 5f;
 
     void Start()
     {
@@ -18,6 +27,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
         // Capture input
         float axisX = Input.GetAxisRaw("Horizontal");
         float axisY = Input.GetAxisRaw("Vertical");
@@ -26,10 +39,19 @@ public class Movement : MonoBehaviour
         {
             currentVelocity = moveInput;
         }
+
+        if (Input.GetKeyDown(KeyCode.X) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     void FixedUpdate()
     {
+        if (isDashing)
+        {
+            return;
+        }
         // If there's input, accelerate
         if (moveInput.magnitude > 0)
         {
@@ -42,5 +64,16 @@ public class Movement : MonoBehaviour
 
         // Set the velocity of the Rigidbody
         rb.velocity = currentVelocity * currentSpeed;
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        rb.velocity =  currentSpeed * currentVelocity * dashSpeed;
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        yield return new WaitForSeconds(dashCoolDown);
+        canDash = true;
     }
 }
