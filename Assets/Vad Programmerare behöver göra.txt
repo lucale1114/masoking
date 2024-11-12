@@ -6,7 +6,7 @@ Vad Behövs?
 
 "Fiender" som man kan lägga till hur många projektiler dom kastar, kanske även hur dom kastar den
 
-""
+Projektiler som flyger ifrån dig långsamnt
 
 -"Fiender" som går ut och in i leveln
 
@@ -15,7 +15,7 @@ För Top-Down
 - system för att rösa sig genom leveln med y och x axis med tangenter
 
 System för att ta skada
--En meeter som går upp ju mer "skada" man tar av projektiler
+-En meeter som går upp ju mer skada man tar av projektiler
 
 
 Art

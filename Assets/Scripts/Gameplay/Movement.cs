@@ -1,0 +1,46 @@
+using UnityEngine;
+
+public class Movement : MonoBehaviour
+{
+    public float maxSpeed = 5f;
+    public float acceleration = 10f;
+    public float deceleration = 4f;
+
+    private Rigidbody2D rb;
+    private Vector2 moveInput;
+    private Vector2 currentVelocity;
+    private float currentSpeed = 0f;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        // Capture input
+        float axisX = Input.GetAxisRaw("Horizontal");
+        float axisY = Input.GetAxisRaw("Vertical");
+        moveInput = new Vector2(axisX, axisY).normalized;
+        if (moveInput.magnitude > 0)
+        {
+            currentVelocity = moveInput;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // If there's input, accelerate
+        if (moveInput.magnitude > 0)
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, maxSpeed, acceleration * Time.fixedDeltaTime);
+        }
+        else // If no input, decelerate
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
+        }
+
+        // Set the velocity of the Rigidbody
+        rb.velocity = currentVelocity * currentSpeed;
+    }
+}
