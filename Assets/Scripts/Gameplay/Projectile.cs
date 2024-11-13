@@ -7,17 +7,26 @@ public class Projectile : MonoBehaviour
     public GameObject projectileRef;
 
     private float spinSpeed;
+    private Rigidbody2D rb;
 
     public int burst;
     public float burstTimer;
+    public float gravityTimer;
+    public float gravityDir;
+    public int flipAmount = 1;
     public float speed;
     public bool spin;
 
     void Start()
     {
-        if ( burstTimer > 0 )
+        rb = GetComponent<Rigidbody2D>();
+        if ( burstTimer > 0)
         {
             StartCoroutine(Burst());
+        }
+        if (gravityTimer > 0)
+        {
+            StartCoroutine(GravityShift());
         }
         if (spin)
         {
@@ -31,6 +40,19 @@ public class Projectile : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0, 0, spinSpeed);
     }
 
+    IEnumerator GravityShift()
+    {
+        int mult = 2;
+        for (int i = 0; i < flipAmount; i++)
+        {
+            rb.gravityScale = gravityDir;
+            yield return new WaitForSeconds(gravityTimer / mult);
+            rb.gravityScale = -gravityDir;
+            mult = 1;
+            yield return new WaitForSeconds(gravityTimer);
+        }
+    }
+
     IEnumerator Burst()
     {
         yield return new WaitForSeconds(burstTimer);
@@ -42,7 +64,7 @@ public class Projectile : MonoBehaviour
             print(-shot.transform.up * speed);
             shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
             shot.GetComponent<Projectile>().burstTimer = 0;
-            shot.GetComponent<Projectile>().spin = true;
+
             Destroy(shot, 10);
         }
         Destroy(gameObject);

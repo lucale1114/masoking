@@ -30,4 +30,13 @@ public class JesterFire : MonoBehaviour
         shot.burstTimer = time;
         shot.burst = burst;
     }
+
+    public void ShootCurvedShot(float speed, float time, float dir, int wave)
+    {
+        Projectile shot = ShootBasicProjectile(speed, 0);
+        shot.spin = true;
+        shot.gravityTimer = time;
+        shot.gravityDir = dir;
+        shot.flipAmount = wave;
+    }
 }
