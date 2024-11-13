@@ -9,7 +9,8 @@ public class JesterBehaviour : MonoBehaviour
     void Start()
     { 
         jesterFire = GetComponent<JesterFire>();
-        StartCoroutine(FireStorm());
+        //StartCoroutine(FireStorm());
+        FireBurst();
     }
 
     // Update is called once per frame
@@ -24,6 +25,11 @@ public class JesterBehaviour : MonoBehaviour
         StartCoroutine(FireAimedShots());
     }
 
+    public void FireBurst()
+    {
+        jesterFire.ShootBurstShot(2.5f, 1.5f, 8);
+    }
+
     IEnumerator FireStorm()
     {
         int amount = Random.Range(30, 40);
@@ -33,6 +39,5 @@ public class JesterBehaviour : MonoBehaviour
             yield return new WaitForSeconds(0.08f);
         }
         yield return new WaitForSeconds(3);
-        StartCoroutine(FireAimedShots());
     }
 }
