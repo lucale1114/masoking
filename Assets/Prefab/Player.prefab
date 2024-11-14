@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3743546813347916422}
   - component: {fileID: 2903870218911091185}
   - component: {fileID: 444254654661747928}
-  - component: {fileID: 8737081148369212305}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -184,6 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c2f1689a6c47319ec31662ca3e2354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumHeat: 100
+  startHeat: 50
+  heatDecayPerSecond: 1
 --- !u!222 &444254654661747928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -192,15 +194,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8406755913887820411}
   m_CullTransparentMesh: 1
---- !u!114 &8737081148369212305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8406755913887820411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a680956700007d4ab4788c9320fb4e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
