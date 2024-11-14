@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using static WaveData;
 
 public class JesterBehaviour : MonoBehaviour
 {
+
     JesterFire jesterFire;
     int dir;
+    float currentTick;
+    public JesterCommand[] jesterCommands;
+
+
     void Start()
     { 
         jesterFire = GetComponent<JesterFire>();
@@ -17,61 +24,80 @@ public class JesterBehaviour : MonoBehaviour
         {
             dir = -1;
         }
-        StartCoroutine(tempMove());
     }
 
-    // Temporary function. Planned to be replaced by tweening
-    IEnumerator tempMove()
+    public void TimestampTick()
     {
-        for (int i = 0; i < 10; i++)
+        foreach (JesterCommand command in jesterCommands)
         {
-            yield return new WaitForSeconds(0.05f);
-            transform.position += new Vector3(0.15f, 0, 0) * dir;
-        }
-        yield return new WaitForSeconds(0.5f);
-        //FireBurst();
-        //StartCoroutine(FireAimedShots());
-        FireCurvedShot();
-        //StartCoroutine(FireStorm());
-        //FireRow();
-        //FireWavyShot();
-        yield return new WaitForSeconds(2);
-        for (int i = 0; i < 10; i++)
-        {
-            yield return new WaitForSeconds(0.05f);
-            transform.position -= new Vector3(0.5f, 0, 0) * dir;
+            if (Mathf.Approximately(command.timestamp, Timestamp))
+            {
+                print(command.action);
+                PerformAction(command.action, command.shotData);
+            }
         }
     }
 
+    void Update()
+    {
+        if (currentTick != Timestamp) { 
+            currentTick = Timestamp;
+            TimestampTick();
+        }
+    }
+
+    void PerformAction(Actions action, ShotDataObject data)
+    {
+        switch (action)
+        {
+            case Actions.Enter:
+                MoveIntoPlayfield();
+                break;
+            case Actions.Leave:
+                LeavePlayfield();
+                break;
+            case Actions.FireAimed:
+                StartCoroutine(FireAimedShots(data.speed, data.amount, data.fireBetween));
+                break;
+        }
+    }
+
+    void MoveIntoPlayfield()
+    {
+        transform.DOLocalMoveX(transform.position.x + 2 * dir, 2);
+    }
+    void LeavePlayfield()
+    {
+        transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
+    }
     // Shots that are aimed towards the player
-    IEnumerator FireAimedShots()
+    IEnumerator FireAimedShots(float speed, int amount, float delay)
     {
-        int amount = Random.Range(3, 5);
         for (int i = 0; i < amount; i++) {
-            jesterFire.ShootBasicProjectile(5, 0);
-            yield return new WaitForSeconds(0.25f);
+            jesterFire.ShootBasicProjectile(speed, 0);
+            yield return new WaitForSeconds(delay);
         }
     }
 
     // Shots that have gravitation which flips after some time
     public void FireCurvedShot()
     {
-        jesterFire.ShootCurvedShot(5, 0.8f, 0.8f, 1);
+        jesterFire.ShootCurvedShot(15, 0.8f, 0.8f, 1);
     }
     // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
     public void FireWavyShot()
     {
-        jesterFire.ShootWavyShot(5, 4f, 2);
+        jesterFire.ShootWavyShot(15, 4f, 2);
     }
     // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
     public void FireRow()
     {
-        jesterFire.ShootRow(5, 30f, 8);
+        jesterFire.ShootRow(15, 30f, 8);
     }
     // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
     public void FireBurst()
     {
-        jesterFire.ShootBurstShot(2.5f, 5f, 128);
+        jesterFire.ShootBurstShot(7.5f, 5f, 128);
     }
 
     // Fires a storm of shots towards the player.
