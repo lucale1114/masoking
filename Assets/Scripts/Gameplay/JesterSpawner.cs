@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class JesterSpawner : MonoBehaviour
 {
-    const int X_LEFT = -9;
-    const int X_RIGHT = 9;
+    const float X_LEFT = -9.5f;
+    const float X_RIGHT = 9.5f;
 
     public GameObject jester;
 
@@ -20,7 +20,7 @@ public class JesterSpawner : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            int x;
+            float x;
             if (Random.Range(0,2) == 1)
             {
                 x = X_LEFT;
