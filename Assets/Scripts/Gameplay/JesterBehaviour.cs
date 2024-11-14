@@ -28,8 +28,13 @@ public class JesterBehaviour : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             transform.position += new Vector3(0.15f, 0, 0) * dir;
         }
-        yield return new WaitForSeconds(2);
-        FireBurst();
+        yield return new WaitForSeconds(0.5f);
+        //FireBurst();
+        //StartCoroutine(FireAimedShots());
+        FireCurvedShot();
+        //StartCoroutine(FireStorm());
+        //FireRow();
+        //FireWavyShot();
         yield return new WaitForSeconds(2);
         for (int i = 0; i < 10; i++)
         {
@@ -46,26 +51,27 @@ public class JesterBehaviour : MonoBehaviour
             jesterFire.ShootBasicProjectile(5, 0);
             yield return new WaitForSeconds(0.25f);
         }
-        yield return new WaitForSeconds(3);
-        StartCoroutine(FireAimedShots());
     }
 
     // Shots that have gravitation which flips after some time
     public void FireCurvedShot()
     {
-        jesterFire.ShootCurvedShot(5, 0.8f, -0.4f, 1);
+        jesterFire.ShootCurvedShot(5, 0.8f, 0.8f, 1);
     }
-
-    // Shots that have gravitation which gives them wavy movement. Not well implemented and probably needs to be redone
+    // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
     public void FireWavyShot()
     {
-        jesterFire.ShootCurvedShot(5, 0.8f, 1.2f, 99);
+        jesterFire.ShootWavyShot(5, 4f, 2);
     }
-
+    // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
+    public void FireRow()
+    {
+        jesterFire.ShootRow(5, 30f, 8);
+    }
     // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
     public void FireBurst()
     {
-        jesterFire.ShootBurstShot(2.5f, 5f, 16);
+        jesterFire.ShootBurstShot(2.5f, 5f, 128);
     }
 
     // Fires a storm of shots towards the player.

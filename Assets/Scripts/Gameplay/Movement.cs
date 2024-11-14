@@ -10,12 +10,12 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 currentVelocity;
-    private float currentSpeed = 0f;
+    private readonly float currentSpeed = 0f;
     // Dash Variables
     private bool canDash = true;
     private bool isDashing;
-    private float dashTime = 0.2f;
-    private float dashCoolDown;
+    private readonly float dashTime = 0.2f;
+    private readonly float dashCoolDown = 0;
 
     [SerializeField]
     private float dashSpeed = 5f;
@@ -35,10 +35,6 @@ public class Movement : MonoBehaviour
         float axisX = Input.GetAxisRaw("Horizontal");
         float axisY = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(axisX, axisY).normalized;
-        if (moveInput.magnitude > 0)
-        {
-            currentVelocity = moveInput;
-        }
 
         if (Input.GetKeyDown(KeyCode.X) && canDash)
         {
@@ -52,25 +48,37 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        // If there's input, accelerate
-        if (moveInput.magnitude > 0)
+
+        // Set the Rigidbody's velocity
+        rb.velocity = currentVelocity * currentSpeed;
+        float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
+        float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
+
+        // Smoothly update current speed on each axis
+        currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x, acceleration * Time.fixedDeltaTime);
+        currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y, acceleration * Time.fixedDeltaTime);
+
+        // Apply deceleration only when no input is present on that axis
+        if (moveInput.x == 0)
         {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, maxSpeed, acceleration * Time.fixedDeltaTime);
-        }
-        else // If no input, decelerate
-        {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0, deceleration * Time.fixedDeltaTime);
+            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, deceleration * Time.fixedDeltaTime);
         }
 
-        // Set the velocity of the Rigidbody
-        rb.velocity = currentVelocity * currentSpeed;
+        if (moveInput.y == 0)
+        {
+            currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
+        }
+
+        // Set the Rigidbody's velocity
+        rb.velocity = currentVelocity;
+
     }
 
     private IEnumerator Dash()
     {
         canDash = false;
         isDashing = true;
-        rb.velocity =  currentSpeed * currentVelocity * dashSpeed;
+        rb.velocity =  dashSpeed * currentVelocity;
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
         yield return new WaitForSeconds(dashCoolDown);
