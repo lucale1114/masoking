@@ -171,3 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6518f9c3710e4ff428664b82d99f7d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileRef: {fileID: 7494303468764717806}
+  burst: 0
+  burstTimer: 0
+  gravityTimer: 0
+  gravityDir: 0
+  flipAmount: 1
+  speed: 0
+  spin: 0
+  frequency: 0
+  amp: 0
