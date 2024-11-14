@@ -12,7 +12,7 @@ public class HeatSystem : MonoBehaviour
 
     private int _currentHeat;
 
-    private void Awake()
+    private void Start()
     {
         _currentHeat = startHeat;
         StartCoroutine(HeatDecayRoutine());
