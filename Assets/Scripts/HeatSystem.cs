@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HeatSystem : MonoBehaviour
 {
-    public const int MaximumHeat = 100;
+    private const int MaximumHeat = 100;
 
     public event Action<float> HeatChanged;
 
