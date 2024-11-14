@@ -84,4 +84,13 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(dashCoolDown);
         canDash = true;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            currentVelocity = Vector2.zero;
+        }
+    }
+
 }
