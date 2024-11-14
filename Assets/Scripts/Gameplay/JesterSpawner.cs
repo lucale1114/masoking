@@ -1,27 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static WaveData;
 
 public class JesterSpawner : MonoBehaviour
 {
     const float X_LEFT = -9.5f;
     const float X_RIGHT = 9.5f;
+    private float currentTick;
 
     public GameObject jester;
+    public WaveSpawning[] wave1;
 
+    public WaveSpawning[] currentWave;
     // Spawns jesters either on the left side or right side and uses a random Y axis.
     void Start()
     {
-        StartCoroutine(WaveStart());
+        currentWave = wave1;
+
+    }
+
+    public void TimestampTick()
+    {
+        foreach (WaveSpawning wave in currentWave)
+        {
+            if (Mathf.Approximately(wave.timestamp, Timestamp))
+            {
+                SpawnJester(wave.side, wave.y, wave.commands);
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (currentTick != Timestamp)
+        {
+            currentTick = Timestamp;
+            TimestampTick();
+        }
     }
 
     // Temporarily just spawns them in waves now.
-    IEnumerator WaveStart()
+
+    void SpawnJester(Sides side, float y, JesterCommand[] commands)
     {
-        for (int i = 0; i < 8; i++)
+        float x;
+        if (side == Sides.Left)
         {
-            float x;
-            if (Random.Range(0,2) == 1)
+            x = X_LEFT;
+        }
+        else if (side == Sides.Right)
+        {
+            x = X_RIGHT;
+        }
+        else
+        {
+            if (Random.Range(0, 2) == 1)
             {
                 x = X_LEFT;
             }
@@ -29,13 +63,9 @@ public class JesterSpawner : MonoBehaviour
             {
                 x = X_RIGHT;
             }
-            SpawnJester(new Vector3(x, Random.Range(5, -5), 0));
-            yield return new WaitForSeconds(Random.Range(2, 5));
         }
-    }
-    void SpawnJester(Vector3 position)
-    {
-        GameObject newJester = Instantiate(jester, position, jester.transform.rotation);
-        Destroy(newJester, 15);
+
+        GameObject newJester = Instantiate(jester, new Vector3(x, y), jester.transform.rotation);
+        newJester.GetComponent<JesterBehaviour>().jesterCommands = commands;
     }
 }
