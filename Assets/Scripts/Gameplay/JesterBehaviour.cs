@@ -31,11 +31,10 @@ public class JesterBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //FireBurst();
         //StartCoroutine(FireAimedShots());
-        //FireCurvedShot();
-        //FireWavyShot();
+        FireCurvedShot();
         //StartCoroutine(FireStorm());
         //FireRow();
-        FireWavyShot();
+        //FireWavyShot();
         yield return new WaitForSeconds(2);
         for (int i = 0; i < 10; i++)
         {
@@ -67,12 +66,12 @@ public class JesterBehaviour : MonoBehaviour
     // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
     public void FireRow()
     {
-        jesterFire.ShootRow(5, 30f, 16);
+        jesterFire.ShootRow(5, 30f, 8);
     }
     // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
     public void FireBurst()
     {
-        jesterFire.ShootBurstShot(2.5f, 5f, 8);
+        jesterFire.ShootBurstShot(2.5f, 5f, 128);
     }
 
     // Fires a storm of shots towards the player.

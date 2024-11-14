@@ -174,5 +174,10 @@ MonoBehaviour:
   projectileRef: {fileID: 7494303468764717806}
   burst: 0
   burstTimer: 0
+  gravityTimer: 0
+  gravityDir: 0
+  flipAmount: 1
   speed: 0
   spin: 0
+  frequency: 0
+  amp: 0
