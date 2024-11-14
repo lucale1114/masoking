@@ -14,8 +14,8 @@ public class Movement : MonoBehaviour
     // Dash Variables
     private bool canDash = true;
     private bool isDashing;
-    private float dashTime = 0.2f;
-    private float dashCoolDown;
+    private readonly float dashTime = 0.2f;
+    private readonly float dashCoolDown = 4;
 
     [SerializeField]
     private float dashSpeed = 5f;
@@ -70,7 +70,7 @@ public class Movement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        rb.velocity =  currentSpeed * currentVelocity * dashSpeed;
+        rb.velocity =  (currentSpeed * dashSpeed) * currentVelocity;
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
         yield return new WaitForSeconds(dashCoolDown);
