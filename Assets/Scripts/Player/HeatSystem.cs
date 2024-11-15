@@ -6,6 +6,9 @@ namespace Player
 {
     public class HeatSystem : MonoBehaviour
     {
+        public event Action HeatDepleted;
+        public event Action HeatMaxedOut;
+
         [SerializeField] private int maximumHeat = 100;
         [SerializeField] private int startHeat = 50;
         [SerializeField] private int heatDecayPerSecond = 1;
@@ -25,6 +28,18 @@ namespace Player
         {
             _currentHeat += amount;
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
+
+            if (_currentHeat >= maximumHeat)
+            {
+                HeatMaxedOut?.Invoke();
+                return;
+            }
+            if (_currentHeat <= 0)
+            {
+                HeatDepleted?.Invoke();
+                return;
+            }
+
             if (amount > 0)
             {
                 TakenDamage?.Invoke();

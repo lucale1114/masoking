@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
         _heatSystem = FindObjectOfType<HeatSystem>();
 
         _heatSystem.HeatChanged += heat => _heatBar.fillAmount = heat;
+        _heatSystem.HeatMaxedOut += () => { };
+        _heatSystem.HeatDepleted += () => { };
     }
 
     private void Update()
