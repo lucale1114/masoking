@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using static WaveData;
 
-[CustomEditor(typeof(JesterSpawner))]
+//[CustomEditor(typeof(JesterSpawner))]
 public class WaveEditor : Editor
 {
     public VisualTreeAsset m_InspectorXML;
@@ -15,6 +16,7 @@ public class WaveEditor : Editor
 
     public override VisualElement CreateInspectorGUI()
     {
+        Debug.Log("ran");
         // Create a new VisualElement to be the root of our Inspector UI.
         VisualElement myInspector = new VisualElement();
         // Add a simple label.
@@ -52,11 +54,10 @@ public class WaveEditor : Editor
         waveField.RegisterValueChangedCallback(v =>
         {
             spawner.waves = (WaveList)v.newValue;
-            waveField.value = v.newValue;
         });
 
         TreeView treeView = myInspector.Query<TreeView>().First();
-       
+        Debug.Log(spawner.waves);
         b.clickable.clicked += () =>
         CreateNewJester();
 
@@ -69,3 +70,4 @@ public class WaveEditor : Editor
         Debug.Log(spawner.waves);
     }
 }
+#endif

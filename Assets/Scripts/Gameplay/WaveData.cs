@@ -32,18 +32,6 @@ public class WaveData : MonoBehaviour
         public ShotDataObject shotData;
     }
 
-    [CreateAssetMenu(fileName = "Wave", menuName = "Wave")]
-    public class Wave : ScriptableObject
-    {
-        public JesterData[] jesters;
-    }
-
-    [CreateAssetMenu(fileName = "WaveList", menuName = "WaveList")]
-    public class WaveList : ScriptableObject
-    {
-        public Wave[] waves;
-    }
-
     [System.Serializable]
     public class JesterData
     {
