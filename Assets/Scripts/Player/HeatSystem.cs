@@ -8,25 +8,46 @@ namespace Player
     {
         public event Action HeatDepleted;
         public event Action HeatMaxedOut;
+        public event Action<float> HeatChanged;
+        public event Action TakenDamage;
+        public event Action<float> ComboMultiplierChanged;
 
         [SerializeField] private int maximumHeat = 100;
         [SerializeField] private int startHeat = 50;
         [SerializeField] private int heatDecayPerSecond = 1;
-
-        public event Action<float> HeatChanged;
-        public event Action TakenDamage;
+        [SerializeField] private int comboTimeLimit = 1;
+        [SerializeField] private float comboMultiplierIncrease = .1f;
 
         private int _currentHeat;
+
+        private float _timeSinceLastHit;
+        private float _comboMultiplier = 1f;
 
         private void Start()
         {
             _currentHeat = startHeat;
             StartCoroutine(HeatDecayRoutine());
+            StartCoroutine(ComboDecayRoutine());
+        }
+
+        private void Update()
+        {
+            _timeSinceLastHit += Time.deltaTime;
         }
 
         public void ChangeHeat(int amount)
         {
-            _currentHeat += amount;
+            if (amount > 0)
+            {
+                if (_timeSinceLastHit <= comboTimeLimit)
+                {
+                    _comboMultiplier += comboMultiplierIncrease;
+                    ComboMultiplierChanged?.Invoke(_comboMultiplier);
+                }
+                _timeSinceLastHit = 0;
+            }
+
+            _currentHeat += Mathf.RoundToInt(amount * _comboMultiplier);
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
 
             if (_currentHeat >= maximumHeat)
@@ -44,6 +65,11 @@ namespace Player
             {
                 TakenDamage?.Invoke();
             }
+
+            if (_comboMultiplier >= 2)
+            {
+                ComboMultiplierChanged?.Invoke(_comboMultiplier);
+            }
         }
 
         private float GetCurrentHeatNormalized()
@@ -57,6 +83,19 @@ namespace Player
             while (true) {
                 yield return new WaitForSeconds(1f);
                 ChangeHeat(-heatDecayPerSecond);
+            }
+        }
+
+        private IEnumerator ComboDecayRoutine()
+        {
+            ComboMultiplierChanged?.Invoke(_comboMultiplier);
+            while (true) {
+                yield return new WaitForSeconds(comboTimeLimit);
+                if (_timeSinceLastHit > comboTimeLimit)
+                {
+                    _comboMultiplier = 1f;
+                    ComboMultiplierChanged?.Invoke(_comboMultiplier);
+                }
             }
         }
     }

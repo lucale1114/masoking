@@ -1,10 +1,13 @@
 using Managers;
 using Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    private TextMeshProUGUI _comboCounter;
+
     private GameObject _pauseMenu;
     private GameObject _lostMenu;
     private GameObject _wonMenu;
@@ -15,6 +18,8 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
+
         _pauseMenu = GameObject.Find("PauseMenu");
         _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
         _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -55,6 +60,19 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 0;
             _lostMenu.SetActive(true);
+        };
+
+        _heatSystem.ComboMultiplierChanged += comboMultiplier =>
+        {
+            if (Mathf.Approximately(comboMultiplier, 1f))
+            {
+                _comboCounter.enabled = false;
+            }
+            else
+            {
+                _comboCounter.enabled = true;
+                _comboCounter.text = $"{comboMultiplier} Hit Combo!";
+            }
         };
     }
 
