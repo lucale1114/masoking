@@ -32,7 +32,14 @@ public class WaveData : MonoBehaviour
     }
 
     [System.Serializable]
-    public class WaveSpawning
+    [CreateAssetMenu(fileName = "Wave", menuName = "Wave", order = 1)]
+    public class Wave : ScriptableObject
+    {
+        public JesterData[] jesters;
+    }
+
+    [System.Serializable]
+    public class JesterData
     {
         public float timestamp;
         public Sides side;
