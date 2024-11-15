@@ -17,7 +17,7 @@ MonoBehaviour:
     side: 0
     y: 5
     commands:
-    - timestamp: 0
+    - timestamp: 5
       action: 0
       shotData:
         speed: 0

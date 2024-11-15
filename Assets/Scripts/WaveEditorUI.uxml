@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Label tabindex="-1" text="Wave Editor" parse-escape-sequences="true" display-tooltip-when-elided="true" />
-    <uie:ObjectField label="Waves" />
+    <uie:ObjectField label="Waves" name="WaveField" />
     <ui:Slider label="Y" high-value="5" low-value="-5" name="YSlider" />
     <ui:Label tabindex="-1" text="0.2" parse-escape-sequences="true" display-tooltip-when-elided="true" name="YValue" />
     <ui:FloatField label="Timestamp&#10;" value="42.2" name="FloatField" style="height: 20px;" />

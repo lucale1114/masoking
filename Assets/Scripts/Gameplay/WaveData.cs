@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,11 +32,16 @@ public class WaveData : MonoBehaviour
         public ShotDataObject shotData;
     }
 
-    [System.Serializable]
-    [CreateAssetMenu(fileName = "Wave", menuName = "Wave", order = 1)]
+    [CreateAssetMenu(fileName = "Wave", menuName = "Wave")]
     public class Wave : ScriptableObject
     {
         public JesterData[] jesters;
+    }
+
+    [CreateAssetMenu(fileName = "WaveList", menuName = "WaveList")]
+    public class WaveList : ScriptableObject
+    {
+        public Wave[] waves;
     }
 
     [System.Serializable]

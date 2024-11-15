@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
+using static WaveData;
 
 [CustomEditor(typeof(JesterSpawner))]
 public class WaveEditor : Editor
@@ -10,8 +11,7 @@ public class WaveEditor : Editor
     public VisualTreeAsset m_InspectorXML;
     public float y;
     public float timestamp;
-
-    Waves waves;
+    JesterSpawner spawner;
 
     public override VisualElement CreateInspectorGUI()
     {
@@ -23,7 +23,8 @@ public class WaveEditor : Editor
         m_InspectorXML = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/WaveEditorUI.uxml");
         // Instantiate the UXML.
         myInspector = m_InspectorXML.Instantiate();
-   
+        spawner = (JesterSpawner)target;
+
         var b = myInspector.Q<Button>();
         Slider ySlider;
 
@@ -46,12 +47,12 @@ public class WaveEditor : Editor
         {
             timestamp = v.newValue;   
         });
-
-        Debug.Log(serializedObject.FindProperty("Waves").objectReferenceValue);
         ObjectField waveField = myInspector.Query<ObjectField>().First();
+        waveField.value = spawner.waves;
         waveField.RegisterValueChangedCallback(v =>
         {
-            serializedObject.FindProperty("Waves").objectReferenceValue = waveField.value;
+            spawner.waves = (WaveList)v.newValue;
+            waveField.value = v.newValue;
         });
 
         TreeView treeView = myInspector.Query<TreeView>().First();
@@ -65,6 +66,6 @@ public class WaveEditor : Editor
 
     private void CreateNewJester()
     {
-        Debug.Log(waves);
+        Debug.Log(spawner.waves);
     }
 }

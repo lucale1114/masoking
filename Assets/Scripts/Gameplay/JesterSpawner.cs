@@ -15,14 +15,14 @@ public class JesterSpawner : MonoBehaviour
     private float currentTick;
 
     public GameObject jester;
-    public Wave[] waves;
+    public WaveList waves;
 
     public Wave currentWave;
     // Spawns jesters either on the left side or right side and uses a random Y axis.
     void Start()
     {
-        currentWave = waves[0];
-
+        currentWave = waves.waves[0];
+        print(currentWave.name);
     }
 
     public void TimestampTick()
