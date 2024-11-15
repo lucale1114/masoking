@@ -11,9 +11,10 @@ public class WaveData : MonoBehaviour
         Leave,
         FireAimed,
         FireStorm,
+        FireBurst,
         FireCurved,
         FireWavy,
-        FireBurst,
+        FireRow,
     }
     public enum Sides
     {
@@ -43,14 +44,24 @@ public class WaveData : MonoBehaviour
     [System.Serializable]
     public class ShotDataObject
     {
+        [Tooltip("Speed of the projectile. Everything uses this.")]
         public float speed;
-        public float burstTimer;
+        [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
+        public float timer;
+        [Tooltip("Cosine wave settings for wave shot.")]
         public float frequency;
-        public float amp;
-        public float gravityTimer;
+        [Tooltip("Cosine wave settings for wave shot.")]
+        public int amp;
+        [Tooltip("The speed curved shots move at. Set to negative to reverse gravity.")]
         public float gravityDir;
+        [Tooltip("Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
+        [Tooltip("Time inbetween shots for aimed and storm.")]
         public float fireBetween;
+        [Tooltip("Inaccuracy of the shot. Aimed and storm. Magic number-like, higher is just more inaccurate with no specific unit.")]
+        public int inaccuracy;
+        [Tooltip("How much area is in the row shot.")]
+        public int radius;
     }
 
     void Start()
