@@ -27,4 +27,18 @@ public class MasokingSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene(levelNr);
     }
+
+    public static void Restart()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public static void Quit()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+
+        Application.Quit();
+    }
 }
