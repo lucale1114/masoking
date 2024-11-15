@@ -3,7 +3,7 @@ using Cinemachine;
 using Player;
 using UnityEngine;
 
-public class ShakeManager : MonoBehaviour
+public class Shake : MonoBehaviour
 {
     [SerializeField] private float shakeAmplitude = 3f;
     [SerializeField] private float shakeFrequency = 3f;
