@@ -20,8 +20,11 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float dashSpeed = 5f;
 
+    private PlayerAnimator playerAnimator;
+
     void Start()
     {
+        playerAnimator = GetComponent<PlayerAnimator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -39,6 +42,18 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && canDash)
         {
             StartCoroutine(Dash());
+        }
+
+        if (!isDashing)
+        {
+            if (Mathf.Approximately(rb.velocity.magnitude, 0))
+            {
+                playerAnimator.SetIdle();
+            }
+            else
+            {
+                playerAnimator.SetMoving();
+            }
         }
     }
 
@@ -79,6 +94,7 @@ public class Movement : MonoBehaviour
         canDash = false;
         isDashing = true;
         rb.velocity =  dashSpeed * currentVelocity;
+        playerAnimator.TriggerDash();
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
         yield return new WaitForSeconds(dashCoolDown);
