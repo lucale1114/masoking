@@ -32,12 +32,12 @@ public class UIManager : MonoBehaviour
     private static void Restart()
     {
         Time.timeScale = 1;
-        MasokingSceneManager.Restart();
+        GameManager.Restart();
     }
 
     private static void Quit()
     {
-        MasokingSceneManager.Quit();
+        GameManager.Quit();
     }
 
     private void Start()

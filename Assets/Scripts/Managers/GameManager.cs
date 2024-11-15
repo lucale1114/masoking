@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace Managers
 {
-    public class MasokingSceneManager : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        private static MasokingSceneManager _instance;
+        private static GameManager _instance;
 
         private void Awake()
         {

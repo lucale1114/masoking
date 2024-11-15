@@ -8,7 +8,7 @@ namespace Menu
     {
         private void Awake()
         {
-            GameObject.Find("PlayBtn").GetComponent<Button>().onClick.AddListener(() => MasokingSceneManager.LoadLevel(1));
+            GameObject.Find("PlayBtn").GetComponent<Button>().onClick.AddListener(() => GameManager.LoadLevel(1));
         }
     }
 }
