@@ -6,10 +6,10 @@ public class Movement : MonoBehaviour
     public float maxSpeed = 5f;
     public float acceleration = 10f;
     public float deceleration = 4f;
+    public Vector2 currentVelocity;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
-    private Vector2 currentVelocity;
     private readonly float currentSpeed = 0f;
     // Dash Variables
     private bool canDash = true;
@@ -84,4 +84,6 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(dashCoolDown);
         canDash = true;
     }
+
+
 }

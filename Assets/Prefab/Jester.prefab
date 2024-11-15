@@ -111,3 +111,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466c33d50ac67a343b82ea4a6a7037d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jesterCommands:
+  - timestamp: 3
+    action: 0
+    shotData:
+      speed: 0
+      burstTimer: 0
+      frequency: 0
+      amp: 0
+      gravityTimer: 0
+      gravityDir: 0
+      amount: 0
+      fireBetween: 0
+  - timestamp: 5
+    action: 2
+    shotData:
+      speed: 8
+      burstTimer: 0
+      frequency: 0
+      amp: 0
+      gravityTimer: 0
+      gravityDir: 0
+      amount: 7
+      fireBetween: 0.5
+  - timestamp: 12
+    action: 1
+    shotData:
+      speed: 15
+      burstTimer: 0
+      frequency: 0
+      amp: 0
+      gravityTimer: 0
+      gravityDir: 0
+      amount: 7
+      fireBetween: 0.5

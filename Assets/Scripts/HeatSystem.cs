@@ -9,10 +9,11 @@ public class HeatSystem : MonoBehaviour
     [SerializeField] private int heatDecayPerSecond = 1;
 
     public event Action<float> HeatChanged;
+    public event Action TakenDamage;
 
     private int _currentHeat;
 
-    private void Awake()
+    private void Start()
     {
         _currentHeat = startHeat;
         StartCoroutine(HeatDecayRoutine());
@@ -22,6 +23,10 @@ public class HeatSystem : MonoBehaviour
     {
         _currentHeat += amount;
         HeatChanged?.Invoke(GetCurrentHeatNormalized());
+        if (amount > 0)
+        {
+            TakenDamage?.Invoke();
+        }
     }
 
     private float GetCurrentHeatNormalized()
