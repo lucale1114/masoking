@@ -12,13 +12,13 @@ namespace Player
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
 
-        [SerializeField] private int maximumHeat = 100;
-        [SerializeField] private int startHeat = 50;
-        [SerializeField] private int heatDecayPerSecond = 1;
-        [SerializeField] private int comboTimeLimit = 1;
+        [SerializeField] private float maximumHeat = 100;
+        [SerializeField] private float startHeat = 50;
+        [SerializeField] private float heatDecayPerSecond = 1;
+        [SerializeField] private float comboTimeLimit = 1;
         [SerializeField] private float comboMultiplierIncrease = .1f;
 
-        private int _currentHeat;
+        private float _currentHeat;
 
         private float _timeSinceLastHit;
         private float _comboMultiplier = 1f;
@@ -35,7 +35,7 @@ namespace Player
             _timeSinceLastHit += Time.deltaTime;
         }
 
-        public void ChangeHeat(int amount)
+        public void ChangeHeat(float amount)
         {
             if (amount > 0)
             {
@@ -44,10 +44,11 @@ namespace Player
                     _comboMultiplier += comboMultiplierIncrease;
                     ComboMultiplierChanged?.Invoke(_comboMultiplier);
                 }
+
                 _timeSinceLastHit = 0;
             }
 
-            _currentHeat += Mathf.RoundToInt(amount * _comboMultiplier);
+            _currentHeat += amount * _comboMultiplier;
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
 
             if (_currentHeat >= maximumHeat)
@@ -55,6 +56,7 @@ namespace Player
                 HeatMaxedOut?.Invoke();
                 return;
             }
+
             if (_currentHeat <= 0)
             {
                 HeatDepleted?.Invoke();
@@ -74,13 +76,14 @@ namespace Player
 
         private float GetCurrentHeatNormalized()
         {
-            return _currentHeat / (float) maximumHeat;
+            return _currentHeat / maximumHeat;
         }
 
         private IEnumerator HeatDecayRoutine()
         {
             ChangeHeat(0);
-            while (true) {
+            while (true)
+            {
                 yield return new WaitForSeconds(1f);
                 ChangeHeat(-heatDecayPerSecond);
             }
@@ -89,7 +92,8 @@ namespace Player
         private IEnumerator ComboDecayRoutine()
         {
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
-            while (true) {
+            while (true)
+            {
                 yield return new WaitForSeconds(comboTimeLimit);
                 if (_timeSinceLastHit > comboTimeLimit)
                 {
