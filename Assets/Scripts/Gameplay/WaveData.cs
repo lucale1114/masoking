@@ -87,7 +87,7 @@ public class WaveData : MonoBehaviour
         Timestamp += 0.1f;
     }
 
-    void ResetTime()
+    public static void ResetTime()
     {
         Timestamp = 0;
     }
