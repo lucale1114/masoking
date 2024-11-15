@@ -48,12 +48,12 @@ public class UIManager : MonoBehaviour
         _heatSystem.HeatChanged += heat => _heatBar.fillAmount = heat;
         _heatSystem.HeatMaxedOut += () =>
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0;
             _wonMenu.SetActive(true);
         };
         _heatSystem.HeatDepleted += () =>
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0;
             _lostMenu.SetActive(true);
         };
     }
