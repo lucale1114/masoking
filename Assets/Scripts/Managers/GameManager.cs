@@ -1,23 +1,16 @@
+using Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
         private static GameManager _instance;
 
-        private void Awake()
+        private new void Awake()
         {
-            if (_instance == null && _instance != this)
-            {
-                _instance = this;
-                DontDestroyOnLoad(_instance);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            base.Awake();
         }
 
         public static void LoadMenu()
