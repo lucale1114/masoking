@@ -1,44 +1,47 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MasokingSceneManager : MonoBehaviour
+namespace Managers
 {
-    private static MasokingSceneManager _instance;
-
-    private void Awake()
+    public class MasokingSceneManager : MonoBehaviour
     {
-        if (_instance == null && _instance != this)
+        private static MasokingSceneManager _instance;
+
+        private void Awake()
         {
-            _instance = this;
-            DontDestroyOnLoad(_instance);
+            if (_instance == null && _instance != this)
+            {
+                _instance = this;
+                DontDestroyOnLoad(_instance);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        public static void LoadMenu()
         {
-            Destroy(gameObject);
+            LoadLevel(0);
         }
-    }
 
-    public static void LoadMenu()
-    {
-        LoadLevel(0);
-    }
+        public static void LoadLevel(int levelNr)
+        {
+            SceneManager.LoadScene(levelNr);
+        }
 
-    public static void LoadLevel(int levelNr)
-    {
-        SceneManager.LoadScene(levelNr);
-    }
+        public static void Restart()
+        {
+            LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        }
 
-    public static void Restart()
-    {
-        LoadLevel(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public static void Quit()
-    {
-        #if UNITY_EDITOR
+        public static void Quit()
+        {
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
 
-        Application.Quit();
+            Application.Quit();
+        }
     }
 }

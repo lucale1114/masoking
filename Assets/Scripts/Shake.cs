@@ -1,5 +1,6 @@
 using System.Collections;
 using Cinemachine;
+using Player;
 using UnityEngine;
 
 public class ShakeManager : MonoBehaviour
