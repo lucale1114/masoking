@@ -68,8 +68,11 @@ public class JesterBehaviour : MonoBehaviour
             case Actions.FireCurved:
                 FireCurvedShot(data.speed, data.timer, data.gravityDir);
                 break;
+            case Actions.FireWavy:
+                FireWavyShot(data.speed, data.frequency, data.amp);
+                break;
             case Actions.FireRow:
-                FireCurvedShot(data.speed, data.radius, data.amount);
+                FireRow(data.speed, data.radius, data.amount);
                 break;
         }
     }

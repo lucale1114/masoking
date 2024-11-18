@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 3743546813347916422}
   - component: {fileID: 2903870218911091185}
   - component: {fileID: 444254654661747928}
-  - component: {fileID: 1465920567503012750}
+  - component: {fileID: -4396458416746694422}
+  - component: {fileID: 315118431773786427}
+  - component: {fileID: 7511096076424274299}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -187,7 +189,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumHeat: 100
   startHeat: 50
-  heatDecayPerSecond: 1
+  heatDecayPerSecond: 5
+  comboTimeLimit: 1
+  comboMultiplierIncrease: 0.1
 --- !u!222 &444254654661747928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -196,7 +200,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8406755913887820411}
   m_CullTransparentMesh: 1
---- !u!114 &1465920567503012750
+--- !u!95 &-4396458416746694422
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406755913887820411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72a91b91cdf69bb4884dea2acd2d50e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &315118431773786427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,7 +230,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8406755913887820411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbdad6ea1af26dd4890c66b503095e6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 95822853996e471bad4e837bd4bf885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Movement: {fileID: 3743546813347916422}
+  movement: {fileID: 3743546813347916422}
+--- !u!114 &7511096076424274299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406755913887820411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6794ff9f43c448b1a14122e638c877ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

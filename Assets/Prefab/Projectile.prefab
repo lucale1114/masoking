@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5267447521242570707}
   - component: {fileID: 3963013597435265923}
   - component: {fileID: 7769028195296706093}
-  - component: {fileID: -1899077040177517670}
+  - component: {fileID: 5776519899649351191}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Projectile
@@ -182,7 +182,7 @@ MonoBehaviour:
   spin: 0
   frequency: 0
   amp: 0
---- !u!114 &-1899077040177517670
+--- !u!114 &5776519899649351191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,3 +194,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdad6ea1af26dd4890c66b503095e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}

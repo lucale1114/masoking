@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class WaveData : MonoBehaviour
     }
 
     [System.Serializable]
-    public class WaveSpawning
+    public class JesterData
     {
         public float timestamp;
         public Sides side;
@@ -74,7 +75,7 @@ public class WaveData : MonoBehaviour
         Timestamp += 0.1f;
     }
 
-    void ResetTime()
+    public static void ResetTime()
     {
         Timestamp = 0;
     }

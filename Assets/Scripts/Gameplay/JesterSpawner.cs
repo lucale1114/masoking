@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static WaveData;
+using UnityEditor.Rendering;
 
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class JesterSpawner : MonoBehaviour
 {
     const float X_LEFT = -9.5f;
@@ -10,19 +15,19 @@ public class JesterSpawner : MonoBehaviour
     private float currentTick;
 
     public GameObject jester;
-    public WaveSpawning[] wave1;
+    public WaveList waves;
 
-    public WaveSpawning[] currentWave;
+    public Wave currentWave;
     // Spawns jesters either on the left side or right side and uses a random Y axis.
     void Start()
     {
-        currentWave = wave1;
-
+        currentWave = waves.waves[0];
+        print(currentWave.name);
     }
 
     public void TimestampTick()
     {
-        foreach (WaveSpawning wave in currentWave)
+        foreach (JesterData wave in currentWave.jesters)
         {
             if (Mathf.Approximately(wave.timestamp, Timestamp))
             {
@@ -69,3 +74,47 @@ public class JesterSpawner : MonoBehaviour
         newJester.GetComponent<JesterBehaviour>().jesterCommands = commands;
     }
 }
+
+/*#if UNITY_EDITOR
+[CustomEditor(typeof(JesterSpawner))]
+class WaveEditor: Editor {
+    public Actions actions;
+    public float y;
+    public float timestamp;
+
+    SerializedProperty wave1;
+
+    private void OnEnable()
+    {
+        wave1.FindPropertyRelative("wave1");
+    }
+
+
+    int index = 0;
+    public override void OnInspectorGUI()
+    {
+        var waveEdior = (JesterSpawner)target;
+        if (waveEdior == null ) { return; }
+
+        EditorGUI.PropertyField(new Rect(1,1,5,5) ,wave1);
+        if (GUILayout.Button("New Jester Spawn"))
+        {
+            WaveSpawning newJester;
+        }
+
+        EditorGUILayout.LabelField("Y Position", EditorStyles.boldLabel);
+        y = EditorGUILayout.Slider(y, -2, 2);
+        EditorGUILayout.LabelField("Timestamp", EditorStyles.boldLabel);
+        timestamp = EditorGUILayout.FloatField(timestamp);
+
+        *//*// Draw the default inspector
+        DrawDefaultInspector();
+        _choiceIndex = EditorGUILayout.Popup(_choiceIndex, _choices);
+        var someClass = target as SomeClass;
+        // Update the selected choice in the underlying object
+        someClass.choice = _choices[_choiceIndex];
+        // Save the changes back to the object
+        EditorUtility.SetDirty(target);*//*
+    }
+}
+#endif*/
