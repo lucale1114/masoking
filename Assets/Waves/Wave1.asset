@@ -12,4 +12,90 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Wave1
   m_EditorClassIdentifier: Assembly-CSharp::WaveData/Wave
-  jesters: []
+  jesters:
+  - timestamp: 3
+    side: 1
+    y: 2
+    commands:
+    - timestamp: 4
+      action: 0
+      shotData:
+        speed: 10
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        inaccuracy: 0
+        radius: 0
+        spin: 0
+    - timestamp: 5
+      action: 2
+      shotData:
+        speed: 5
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 0.5
+        inaccuracy: 0
+        radius: 0
+        spin: 0
+    - timestamp: 8
+      action: 1
+      shotData:
+        speed: 10
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        inaccuracy: 0
+        radius: 0
+        spin: 0
+  - timestamp: 3
+    side: 0
+    y: -2
+    commands:
+    - timestamp: 4
+      action: 0
+      shotData:
+        speed: 10
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        inaccuracy: 0
+        radius: 0
+        spin: 0
+    - timestamp: 5
+      action: 2
+      shotData:
+        speed: 5
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 0.5
+        inaccuracy: 0
+        radius: 0
+        spin: 0
+    - timestamp: 8
+      action: 1
+      shotData:
+        speed: 10
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        inaccuracy: 0
+        radius: 0
+        spin: 0

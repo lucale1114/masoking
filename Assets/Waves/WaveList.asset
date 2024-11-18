@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: WaveList
   m_EditorClassIdentifier: Assembly-CSharp::WaveData/WaveList
-  waves: []
+  waves:
+  - {fileID: 11400000, guid: c25417be9a19f0b4a94d6a5dd64a3ddd, type: 2}
