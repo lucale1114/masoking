@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Gameplay;
 using static WaveData;
 
 public class JesterBehaviour : MonoBehaviour
@@ -12,14 +13,16 @@ public class JesterBehaviour : MonoBehaviour
     float currentTick;
     public JesterCommand[] jesterCommands;
 
+    private JesterAnimator jesterAnimator;
 
     void Start()
-    { 
+    {
+        jesterAnimator = GetComponent<JesterAnimator>();
         jesterFire = GetComponent<JesterFire>();
         if (transform.position.x < 0)
         {
             dir = 1;
-        } 
+        }
         else
         {
             dir = -1;
@@ -40,7 +43,7 @@ public class JesterBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (currentTick != Timestamp) { 
+        if (currentTick != Timestamp) {
             currentTick = Timestamp;
             TimestampTick();
         }
@@ -48,6 +51,15 @@ public class JesterBehaviour : MonoBehaviour
 
     void PerformAction(Actions action, ShotDataObject data)
     {
+        if (action is Actions.Enter or Actions.Leave)
+        {
+            jesterAnimator.SetMoving();
+        }
+        else
+        {
+            jesterAnimator.SetIdle();
+        }
+
         switch (action)
         {
             case Actions.Enter:
@@ -89,6 +101,7 @@ public class JesterBehaviour : MonoBehaviour
     IEnumerator FireAimedShots(float speed, int amount, float delay)
     {
         for (int i = 0; i < amount; i++) {
+            jesterAnimator.TriggerFire();
             jesterFire.ShootBasicProjectile(speed, 0);
             yield return new WaitForSeconds(delay);
         }
@@ -97,21 +110,25 @@ public class JesterBehaviour : MonoBehaviour
     // Shots that have gravitation which flips after some time
     public void FireCurvedShot(float speed, float time, float dir)
     {
+        jesterAnimator.TriggerFire();
         jesterFire.ShootCurvedShot(speed, time, dir, 1);
     }
     // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
     public void FireWavyShot(float speed, float frequency, int amp)
     {
+        jesterAnimator.TriggerFire();
         jesterFire.ShootWavyShot(speed, frequency, amp);
     }
     // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
     public void FireRow(float speed, float radius, int amount)
     {
+        jesterAnimator.TriggerFire();
         jesterFire.ShootRow(speed, radius, amount);
     }
     // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
     public void FireBurst(float speed, float time, int amount)
     {
+        jesterAnimator.TriggerFire();
         jesterFire.ShootBurstShot(speed, time, amount);
     }
 
