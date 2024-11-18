@@ -4,14 +4,14 @@ namespace Misc
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        private static T _instance;
+        protected static T Instance;
 
         protected void Awake()
         {
-            if (_instance == null)
+            if (Instance == null)
             {
-                _instance = FindObjectOfType<T>();
-                DontDestroyOnLoad(_instance);
+                Instance = FindObjectOfType<T>();
+                DontDestroyOnLoad(Instance);
             }
             else
             {
