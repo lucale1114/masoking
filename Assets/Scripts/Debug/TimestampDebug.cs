@@ -14,6 +14,19 @@ public class TimestampDebug : MonoBehaviour
     public Button heatButton;
     public HeatSystem heat;
 
+    private void Start()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            heat.Invincible = (PlayerPrefs.GetInt("Invi") != 0);
+            SetInvincible();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Update()
     {
         if (Paused)
@@ -32,15 +45,19 @@ public class TimestampDebug : MonoBehaviour
     {
         if (heat.Invincible) { 
             heat.Invincible = false;
+            heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: OFF";
         }
         else
         {
             heat.Invincible = true;
+            heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: ON";
         }
+        PlayerPrefs.SetInt("Invi", heat.Invincible ? 1 : 0);
     }
 
     public void Pause()
     {
+        Paused = !Paused;
         if (Paused)
         {
             pauseButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Paused";
