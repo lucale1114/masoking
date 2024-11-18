@@ -111,7 +111,7 @@ public class JesterBehaviour : MonoBehaviour
         for (int i = 0; i < data.amount; i++) {
             jesterAnimator.TriggerFire();
             jesterFire.ShootBasicProjectile(data.speed, 0, data);
-            yield return new WaitForSeconds(data.timer);
+            yield return new WaitForSeconds(data.fireBetween);
         }
     }
 
@@ -146,7 +146,7 @@ public class JesterBehaviour : MonoBehaviour
         for (int i = 0; i < data.amount; i++)
         {
             jesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data.inaccuracy, data);
-            yield return new WaitForSeconds(data.timer);
+            yield return new WaitForSeconds(data.fireBetween);
         }
         yield return new WaitForSeconds(3);
     }
