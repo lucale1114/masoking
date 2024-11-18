@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static WaveData;
 
 public class Projectile : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Projectile : MonoBehaviour
     public float frequency;
     public float amp;
 
+    public ShotDataObject data;
+
     // Code for projectile behavior.
     void Start()
     {
@@ -36,7 +39,7 @@ public class Projectile : MonoBehaviour
         {
             StartCoroutine(WavyShot());
         }
-        if (spin)   
+        if (spin || data.spin)   
         {
             spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
             InvokeRepeating("Spin", 0, 0.005f);

@@ -60,7 +60,7 @@ public class WaveData : MonoBehaviour
     [System.Serializable]
     public class ShotDataObject
     {
-        [Tooltip("Speed of the projectile. Everything uses float timer")]
+        [Tooltip("Speed of the projectile. Everything uses it in floats.")]
         public float speed;
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;
@@ -78,6 +78,7 @@ public class WaveData : MonoBehaviour
         public int inaccuracy;
         [Tooltip("How much area is in the row shot.")]
         public int radius;
+        [Space(15)]
         [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
         public bool spin;
     }

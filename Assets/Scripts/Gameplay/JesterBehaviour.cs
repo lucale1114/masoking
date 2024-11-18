@@ -14,7 +14,7 @@ public class JesterBehaviour : MonoBehaviour
     public JesterCommand[] jesterCommands;
 
     private JesterAnimator jesterAnimator;
-
+    public ShotDataObject shotDataObject;
     void Start()
     {
         jesterAnimator = GetComponent<JesterAnimator>();
@@ -69,22 +69,22 @@ public class JesterBehaviour : MonoBehaviour
                 LeavePlayfield();
                 break;
             case Actions.FireAimed:
-                StartCoroutine(FireAimedShots(data.speed, data.amount, data.fireBetween));
+                StartCoroutine(FireAimedShots(data));
                 break;
             case Actions.FireStorm:
-                StartCoroutine(FireStorm(data.speed, data.amount, data.inaccuracy, data.fireBetween));
+                StartCoroutine(FireStorm(data));
                 break;
             case Actions.FireBurst:
-                FireBurst(data.speed, data.timer, data.amount);
+                FireBurst(data);
                 break;
             case Actions.FireCurved:
-                FireCurvedShot(data.speed, data.timer, data.gravityDir);
+                FireCurvedShot(data);
                 break;
             case Actions.FireWavy:
-                FireWavyShot(data.speed, data.frequency, data.amp);
+                FireWavyShot(data);
                 break;
             case Actions.FireRow:
-                FireRow(data.speed, data.radius, data.amount);
+                FireRow(data);
                 break;
         }
     }
@@ -98,47 +98,47 @@ public class JesterBehaviour : MonoBehaviour
         transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
     }
     // Shots that are aimed towards the player
-    IEnumerator FireAimedShots(float speed, int amount, float delay)
+    IEnumerator FireAimedShots(ShotDataObject data)
     {
-        for (int i = 0; i < amount; i++) {
+        for (int i = 0; i < data.amount; i++) {
             jesterAnimator.TriggerFire();
-            jesterFire.ShootBasicProjectile(speed, 0);
-            yield return new WaitForSeconds(delay);
+            jesterFire.ShootBasicProjectile(data.speed, 0, data);
+            yield return new WaitForSeconds(data.timer);
         }
     }
 
     // Shots that have gravitation which flips after some time
-    public void FireCurvedShot(float speed, float time, float dir)
+    public void FireCurvedShot(ShotDataObject data)
     {
         jesterAnimator.TriggerFire();
-        jesterFire.ShootCurvedShot(speed, time, dir, 1);
+        jesterFire.ShootCurvedShot(data.speed, data.timer, data.gravityDir, 1, data);
     }
     // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
-    public void FireWavyShot(float speed, float frequency, int amp)
+    public void FireWavyShot(ShotDataObject data)
     {
         jesterAnimator.TriggerFire();
-        jesterFire.ShootWavyShot(speed, frequency, amp);
+        jesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
     }
     // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
-    public void FireRow(float speed, float radius, int amount)
+    public void FireRow(ShotDataObject data)
     {
         jesterAnimator.TriggerFire();
-        jesterFire.ShootRow(speed, radius, amount);
+        jesterFire.ShootRow(data.speed, data.radius, data.amount, data);
     }
     // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
-    public void FireBurst(float speed, float time, int amount)
+    public void FireBurst(ShotDataObject data)
     {
         jesterAnimator.TriggerFire();
-        jesterFire.ShootBurstShot(speed, time, amount);
+        jesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
     }
 
     // Fires a storm of shots towards the player.
-    IEnumerator FireStorm(float speed, int amount, int inaccuracy, float time)
+    IEnumerator FireStorm(ShotDataObject data)
     {
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < data.amount; i++)
         {
-            jesterFire.ShootBasicProjectile(Random.Range(speed / 1.5f, speed * 1.5f), inaccuracy);
-            yield return new WaitForSeconds(time);
+            jesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data.inaccuracy, data);
+            yield return new WaitForSeconds(data.timer);
         }
         yield return new WaitForSeconds(3);
     }

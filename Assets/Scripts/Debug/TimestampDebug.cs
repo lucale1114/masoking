@@ -18,7 +18,7 @@ public class TimestampDebug : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
-            heat.Invincible = (PlayerPrefs.GetInt("Invi") != 0);
+            heat.Invincible = !(PlayerPrefs.GetInt("Invi", 0) != 0);
             SetInvincible();
         }
         else
