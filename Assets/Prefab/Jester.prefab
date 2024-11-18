@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8739294824754787912}
   - component: {fileID: 8886717028465816378}
   - component: {fileID: -2474323719550544348}
+  - component: {fileID: 3118247668702375447}
+  - component: {fileID: 1256570226195499151}
   m_Layer: 0
   m_Name: Jester
   m_TagString: Enemy
@@ -116,32 +118,68 @@ MonoBehaviour:
     action: 0
     shotData:
       speed: 0
-      burstTimer: 0
+      timer: 0
       frequency: 0
       amp: 0
-      gravityTimer: 0
       gravityDir: 0
       amount: 0
       fireBetween: 0
+      inaccuracy: 0
+      radius: 0
   - timestamp: 5
     action: 2
     shotData:
       speed: 8
-      burstTimer: 0
+      timer: 0
       frequency: 0
       amp: 0
-      gravityTimer: 0
       gravityDir: 0
       amount: 7
       fireBetween: 0.5
+      inaccuracy: 0
+      radius: 0
   - timestamp: 12
     action: 1
     shotData:
       speed: 15
-      burstTimer: 0
+      timer: 0
       frequency: 0
       amp: 0
-      gravityTimer: 0
       gravityDir: 0
       amount: 7
       fireBetween: 0.5
+      inaccuracy: 0
+      radius: 0
+--- !u!114 &3118247668702375447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745559563252854211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f25672e3234e9cb4f741bdb43fd1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1256570226195499151
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745559563252854211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47e326c353a08d24db7db4c211b6e28e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
