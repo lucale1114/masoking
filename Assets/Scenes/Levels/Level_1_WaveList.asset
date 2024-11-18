@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: WaveList
-  m_EditorClassIdentifier: Assembly-CSharp::WaveData/WaveList
+  m_Script: {fileID: 11500000, guid: 2ffb2dcd57564491bac269c33314c545, type: 3}
+  m_Name: Level_1_WaveList
+  m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: eff216cd402a5fc489dd21716f514526, type: 2}
+  - {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}

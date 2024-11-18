@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using Gameplay;
 using UnityEngine;
 using static WaveData;
-using UnityEditor.Rendering;
 
 
 #if UNITY_EDITOR
-using UnityEditor;
 #endif
 public class JesterSpawner : MonoBehaviour
 {

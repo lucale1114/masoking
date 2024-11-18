@@ -1,10 +1,9 @@
 #if UNITY_EDITOR
-using System;
+using Gameplay;
 using UnityEditor;
-using UnityEngine;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
-using static WaveData;
 
 //[CustomEditor(typeof(JesterSpawner))]
 public class WaveEditor : Editor
@@ -47,7 +46,7 @@ public class WaveEditor : Editor
         FloatField floatField = (FloatField)myInspector.Query("FloatField").First();
         floatField.RegisterValueChangedCallback<float>(v =>
         {
-            timestamp = v.newValue;   
+            timestamp = v.newValue;
         });
         ObjectField waveField = myInspector.Query<ObjectField>().First();
         waveField.value = spawner.waves;

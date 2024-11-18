@@ -43,20 +43,6 @@ public class WaveData : MonoBehaviour
         public JesterCommand[] commands;
     }
 
-    [Serializable]
-    [CreateAssetMenu(fileName = "Wave", menuName = "Wave")]
-    public class Wave : ScriptableObject
-    {
-        public JesterData[] jesters;
-    }
-
-    [Serializable]
-    [CreateAssetMenu(fileName = "WaveList", menuName = "WaveList")]
-    public class WaveList : ScriptableObject
-    {
-        public Wave[] waves;
-    }
-
     [System.Serializable]
     public class ShotDataObject
     {
@@ -85,7 +71,7 @@ public class WaveData : MonoBehaviour
         [Header("Row Shots")]
         [Tooltip("How much area is in the row shot.")]
         public int radius;
-        
+
         [Space(15)]
         [Header("All Projectiles")]
         [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
