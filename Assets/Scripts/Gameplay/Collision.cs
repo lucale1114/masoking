@@ -13,6 +13,7 @@ namespace Gameplay
             {
                 collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(5);
                 Instantiate(hitVfx, transform.position, Quaternion.identity);
+                SoundManager.PlayHit(transform.position);
                 Destroy(gameObject);
             }
         }
