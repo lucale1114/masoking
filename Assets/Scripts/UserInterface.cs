@@ -22,15 +22,18 @@ public class UIManager : MonoBehaviour
 
         _pauseMenu = GameObject.Find("PauseMenu");
         _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+        _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
         _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
         _pauseMenu.SetActive(false);
 
         _lostMenu = GameObject.Find("LostMenu");
         _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+        _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
         _lostMenu.SetActive(false);
 
         _wonMenu = GameObject.Find("WonMenu");
-        _wonMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
+        _wonMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+        _wonMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
         _wonMenu.SetActive(false);
     }
 
@@ -43,6 +46,11 @@ public class UIManager : MonoBehaviour
     private static void Quit()
     {
         GameManager.Quit();
+    }
+
+    private static void Menu()
+    {
+        GameManager.LoadMenu();
     }
 
     private void Start()
