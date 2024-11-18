@@ -14,6 +14,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveData/Wave
   jesters:
   - timestamp: 3
+    side: 1
+    y: 0
+    commands:
+    - timestamp: 3
+      action: 0
+      shotData:
+        speed: 0
+        inaccuracy: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        radius: 0
+        spin: 1
+    - timestamp: 5
+      action: 2
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 1
+        radius: 0
+        spin: 1
+    - timestamp: 8
+      action: 1
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 1
+        radius: 0
+        spin: 1
+  - timestamp: 3
     side: 0
     y: 0
     commands:
@@ -21,25 +64,68 @@ MonoBehaviour:
       action: 0
       shotData:
         speed: 0
+        inaccuracy: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 1
     - timestamp: 5
       action: 2
       shotData:
         speed: 7
+        inaccuracy: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 2
         fireBetween: 1
-        inaccuracy: 0
         radius: 0
         spin: 1
+    - timestamp: 8
+      action: 1
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 1
+        radius: 0
+        spin: 1
+  - timestamp: 10
+    side: 0
+    y: 0
+    commands:
+    - timestamp: 11
+      action: 0
+      shotData:
+        speed: 0
+        inaccuracy: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        radius: 0
+        spin: 1
+    - timestamp: 14
+      action: 3
+      shotData:
+        speed: 40
+        inaccuracy: 50
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2000
+        fireBetween: 0.0001
+        radius: 0
+        spin: 0

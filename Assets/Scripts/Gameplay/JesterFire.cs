@@ -13,11 +13,11 @@ public class JesterFire : MonoBehaviour
     }
   
     // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
-    public Projectile ShootBasicProjectile(float speed, float inaccuracy, ShotDataObject data)
+    public Projectile ShootBasicProjectile(float speed, ShotDataObject data)
     {
         Vector3 dir = (player.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
-        GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0,0, angle + Random.Range(-inaccuracy, inaccuracy))));
+        GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0,0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
         shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
         Projectile projectileScript = shot.GetComponent<Projectile>();
         projectileScript.data = data;
@@ -27,7 +27,7 @@ public class JesterFire : MonoBehaviour
 
     public void ShootBurstShot(float speed, float time, int burst, ShotDataObject data)
     {
-        Projectile shot = ShootBasicProjectile(speed, 0, data);
+        Projectile shot = ShootBasicProjectile(speed, data);
         shot.speed = speed;
         shot.burstTimer = time;
         shot.burst = burst;
@@ -36,7 +36,7 @@ public class JesterFire : MonoBehaviour
     public void ShootRow(float speed, float radius, int amount, ShotDataObject data)
     {
         Vector3 dir = (player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90 + Random.Range(-data.inaccuracy, data.inaccuracy);
         for (float i = angle - radius; i < angle + radius; i += (radius/amount) * 2)
         {
             print(i);
@@ -46,7 +46,7 @@ public class JesterFire : MonoBehaviour
     }
     public void ShootWavyShot(float speed, float frequency, int amp, ShotDataObject data)
     {
-        Projectile shot = ShootBasicProjectile(speed, 0, data);
+        Projectile shot = ShootBasicProjectile(speed, data);
         shot.spin = true;
         shot.frequency = frequency;
         shot.amp = amp;
@@ -55,7 +55,7 @@ public class JesterFire : MonoBehaviour
 
     public void ShootCurvedShot(float speed, float time, float dir, int wave, ShotDataObject data)
     {
-        Projectile shot = ShootBasicProjectile(speed, 0, data);
+        Projectile shot = ShootBasicProjectile(speed, data);
         shot.spin = true;
         shot.gravityTimer = time;
         shot.gravityDir = dir;

@@ -63,6 +63,8 @@ public class WaveData : MonoBehaviour
         [Header("All Projectiles")]
         [Tooltip("Speed of the projectile. Everything uses it in floats.")]
         public float speed;
+        [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
+        public int inaccuracy;
         [Header("Curved Shots \n Burst Shots")]
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;
@@ -80,8 +82,6 @@ public class WaveData : MonoBehaviour
         [Header("Storm Shots \n Aimed Shots")]
         [Tooltip("Time inbetween shots for aimed and storm.")]
         public float fireBetween;
-        [Tooltip("Inaccuracy of the shot. Aimed and storm. Magic number-like, higher is just more inaccurate with no specific unit.")]
-        public int inaccuracy;
         [Header("Row Shots")]
         [Tooltip("How much area is in the row shot.")]
         public int radius;
