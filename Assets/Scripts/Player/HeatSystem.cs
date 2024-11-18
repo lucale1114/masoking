@@ -18,6 +18,8 @@ namespace Player
         [SerializeField] private float comboTimeLimit = 1;
         [SerializeField] private float comboMultiplierIncrease = .1f;
 
+        public bool Invincible;
+
         private float _currentHeat;
 
         private float _timeSinceLastHit;
@@ -37,6 +39,10 @@ namespace Player
 
         public void ChangeHeat(float amount)
         {
+            if (Invincible)
+            {
+                return;
+            }
             if (amount > 0)
             {
                 if (_timeSinceLastHit <= comboTimeLimit)
