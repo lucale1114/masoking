@@ -8,7 +8,7 @@ using static WaveData;
 
 public class TimestampDebug : MonoBehaviour
 {
-    public TextMeshProUGUI inputFieldResult;
+    public TMP_InputField inputFieldResult;
     public Button pauseButton;
 
     bool paused;
@@ -17,7 +17,7 @@ public class TimestampDebug : MonoBehaviour
     {
         if (Paused)
         {
-            Timestamp = Int32.Parse(inputFieldResult.text);
+            Timestamp = float.Parse(inputFieldResult.text);
         }
         else
         {
