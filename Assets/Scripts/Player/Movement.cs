@@ -41,7 +41,7 @@ namespace Player
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
 
-            if (Input.GetKeyDown(KeyCode.X) && canDash)
+            if (Input.GetKeyDown(KeyCode.Space) && canDash)
             {
                 StartCoroutine(Dash());
             }
