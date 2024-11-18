@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WaveList
   m_EditorClassIdentifier: Assembly-CSharp::WaveData/WaveList
   waves:
-  - {fileID: 11400000, guid: 1faafff65b67a534f967c5f156d4484c, type: 2}
+  - {fileID: 11400000, guid: eff216cd402a5fc489dd21716f514526, type: 2}

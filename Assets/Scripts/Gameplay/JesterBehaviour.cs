@@ -25,8 +25,16 @@ public class JesterBehaviour : MonoBehaviour
         }
         else
         {
+            FlipDirection();
             dir = -1;
         }
+    }
+
+    private void FlipDirection()
+    {
+        var localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 
     public void TimestampTick()
@@ -102,8 +110,8 @@ public class JesterBehaviour : MonoBehaviour
     {
         for (int i = 0; i < data.amount; i++) {
             jesterAnimator.TriggerFire();
-            jesterFire.ShootBasicProjectile(data.speed, 0, data);
-            yield return new WaitForSeconds(data.timer);
+            jesterFire.ShootBasicProjectile(data.speed, data);
+            yield return new WaitForSeconds(data.fireBetween);
         }
     }
 
@@ -137,8 +145,8 @@ public class JesterBehaviour : MonoBehaviour
     {
         for (int i = 0; i < data.amount; i++)
         {
-            jesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data.inaccuracy, data);
-            yield return new WaitForSeconds(data.timer);
+            jesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data);
+            yield return new WaitForSeconds(data.fireBetween);
         }
         yield return new WaitForSeconds(3);
     }

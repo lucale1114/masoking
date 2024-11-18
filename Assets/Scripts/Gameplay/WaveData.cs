@@ -60,25 +60,34 @@ public class WaveData : MonoBehaviour
     [System.Serializable]
     public class ShotDataObject
     {
+        [Header("All Projectiles")]
         [Tooltip("Speed of the projectile. Everything uses it in floats.")]
         public float speed;
+        [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
+        public int inaccuracy;
+        [Header("Curved Shots \n Burst Shots")]
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;
+        [Header("Wave Shots")]
         [Tooltip("Cosine wave settings for wave shot.")]
         public float frequency;
         [Tooltip("Cosine wave settings for wave shot.")]
         public int amp;
+        [Header("Curved Shots")]
         [Tooltip("The speed curved shots move at. Set to negative to reverse gravity.")]
         public float gravityDir;
+        [Header("Aimed Shots \n Burst Shots \n Row Shots \n Storm Shots")]
         [Tooltip("Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
+        [Header("Storm Shots \n Aimed Shots")]
         [Tooltip("Time inbetween shots for aimed and storm.")]
         public float fireBetween;
-        [Tooltip("Inaccuracy of the shot. Aimed and storm. Magic number-like, higher is just more inaccurate with no specific unit.")]
-        public int inaccuracy;
+        [Header("Row Shots")]
         [Tooltip("How much area is in the row shot.")]
         public int radius;
+        
         [Space(15)]
+        [Header("All Projectiles")]
         [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
         public bool spin;
     }
