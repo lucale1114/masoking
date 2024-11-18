@@ -6,6 +6,7 @@ using UnityEngine;
 public class WaveData : MonoBehaviour
 {
     public static float Timestamp;
+    public static bool Paused;
     public enum Actions
     {
         Enter,
@@ -88,8 +89,17 @@ public class WaveData : MonoBehaviour
 
     void IncrementTime()
     {
+        if (Paused)
+        {
+            return;
+        }
         Timestamp += 0.1f;
         Timestamp = Mathf.Round(Timestamp * 10.0f) * 0.1f;
+    }
+
+    public static void DebugPausetime(bool state)
+    {
+        Paused = state;
     }
 
     public static void ResetTime()
