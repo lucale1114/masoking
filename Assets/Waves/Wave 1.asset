@@ -103,7 +103,7 @@ MonoBehaviour:
     side: 0
     y: 0
     commands:
-    - timestamp: 11
+    - timestamp: 12
       action: 0
       shotData:
         speed: 0
