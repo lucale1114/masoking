@@ -42,10 +42,24 @@ public class WaveData : MonoBehaviour
         public JesterCommand[] commands;
     }
 
+    [Serializable]
+    [CreateAssetMenu(fileName = "Wave", menuName = "Wave")]
+    public class Wave : ScriptableObject
+    {
+        public JesterData[] jesters;
+    }
+
+    [Serializable]
+    [CreateAssetMenu(fileName = "WaveList", menuName = "WaveList")]
+    public class WaveList : ScriptableObject
+    {
+        public Wave[] waves;
+    }
+
     [System.Serializable]
     public class ShotDataObject
     {
-        [Tooltip("Speed of the projectile. Everything uses this.")]
+        [Tooltip("Speed of the projectile. Everything uses float timer")]
         public float speed;
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;
@@ -63,6 +77,8 @@ public class WaveData : MonoBehaviour
         public int inaccuracy;
         [Tooltip("How much area is in the row shot.")]
         public int radius;
+        [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
+        public bool spin;
     }
 
     void Start()
@@ -73,6 +89,7 @@ public class WaveData : MonoBehaviour
     void IncrementTime()
     {
         Timestamp += 0.1f;
+        Timestamp = Mathf.Round(Timestamp * 10.0f) * 0.1f;
     }
 
     public static void ResetTime()
