@@ -25,8 +25,16 @@ public class JesterBehaviour : MonoBehaviour
         }
         else
         {
+            FlipDirection();
             dir = -1;
         }
+    }
+
+    private void FlipDirection()
+    {
+        var localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 
     public void TimestampTick()
