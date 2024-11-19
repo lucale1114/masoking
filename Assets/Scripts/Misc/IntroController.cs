@@ -12,7 +12,7 @@ namespace Misc
         void Start()
         {
             _playableDirector = GetComponent<PlayableDirector>();
-            _playableDirector.stopped += _ => { GameManager.LoadLevel(1); };
+            _playableDirector.stopped += _ => { GameManager.LoadLevel(2); };
         }
 
         void Update()

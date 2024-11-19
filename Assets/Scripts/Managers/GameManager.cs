@@ -24,10 +24,10 @@ namespace Managers
             SceneManager.LoadScene(1);
         }
 
-        public static void LoadLevel(int levelNr)
+        public static void LoadLevel(int buildIndex)
         {
             WaveData.ResetTime();
-            SceneManager.LoadScene(levelNr + 1);
+            SceneManager.LoadScene(buildIndex);
         }
 
         public static void Restart()
