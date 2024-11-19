@@ -2,7 +2,7 @@ using Managers;
 using Player;
 using UnityEngine;
 
-namespace Gameplay
+namespace Projectile
 {
     public class Collision : MonoBehaviour
     {
