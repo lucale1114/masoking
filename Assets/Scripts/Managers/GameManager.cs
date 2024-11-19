@@ -1,4 +1,5 @@
 using Misc;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,13 +16,18 @@ namespace Managers
 
         public static void LoadMenu()
         {
-            LoadLevel(0);
+            SceneManager.LoadScene(0);
+        }
+
+        public static void LoadIntro()
+        {
+            SceneManager.LoadScene(1);
         }
 
         public static void LoadLevel(int levelNr)
         {
             WaveData.ResetTime();
-            SceneManager.LoadScene(levelNr);
+            SceneManager.LoadScene(levelNr + 1);
         }
 
         public static void Restart()
@@ -32,7 +38,7 @@ namespace Managers
         public static void Quit()
         {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+            EditorApplication.isPlaying = false;
 #endif
 
             Application.Quit();
