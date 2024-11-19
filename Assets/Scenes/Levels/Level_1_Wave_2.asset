@@ -12,4 +12,224 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Level_1_Wave_2
   m_EditorClassIdentifier: 
-  jesters: []
+  jesters:
+  - timestamp: 3
+    side: 1
+    y: 0
+    commands:
+    - timestamp: 3
+      action: 0
+      shotData:
+        speed: 0
+        inaccuracy: 0
+        x: -2
+        y: 3
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+    - timestamp: 4
+      action: 2
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        x: -3
+        y: 2
+        size: 0
+        damage: 0
+        timer: 1.8
+        frequency: 0
+        amp: 4
+        gravityDir: 0
+        amount: 3
+        fireBetween: 1
+        radius: 0
+        spin: 1
+    - timestamp: 7
+      action: 1
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 0.5
+        radius: 0
+        spin: 1
+  - timestamp: 3
+    side: 0
+    y: 0
+    commands:
+    - timestamp: 3
+      action: 0
+      shotData:
+        speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 1
+        damage: 5
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+    - timestamp: 4
+      action: 2
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 1
+        radius: 0
+        spin: 1
+    - timestamp: 7
+      action: 1
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 0.5
+        radius: 0
+        spin: 1
+  - timestamp: 6
+    side: 0
+    y: 0
+    commands:
+    - timestamp: 6
+      action: 0
+      shotData:
+        speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+    - timestamp: 6.1
+      action: 3
+      shotData:
+        speed: 4
+        inaccuracy: 30
+        x: 0
+        y: 0
+        size: 1
+        damage: 5
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 18
+        fireBetween: 0.1
+        radius: 0
+        spin: 0
+    - timestamp: 9
+      action: 1
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 0.5
+        radius: 0
+        spin: 1
+  - timestamp: 7
+    side: 1
+    y: 4
+    commands:
+    - timestamp: 8
+      action: 0
+      shotData:
+        speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 1
+        damage: 5
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+    - timestamp: 8.8
+      action: 2
+      shotData:
+        speed: 7
+        inaccuracy: 15
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 5
+        fireBetween: 1
+        radius: 0
+        spin: 0
+    - timestamp: 15
+      action: 1
+      shotData:
+        speed: 7
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        fireBetween: 0.5
+        radius: 0
+        spin: 1

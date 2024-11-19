@@ -52,6 +52,7 @@ namespace Misc
 
         private static void Menu()
         {
+            Time.timeScale = 1;
             GameManager.LoadMenu();
         }
 

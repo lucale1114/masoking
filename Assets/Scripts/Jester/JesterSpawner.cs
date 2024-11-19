@@ -32,7 +32,7 @@ namespace Jester
             {
                 if (Mathf.Approximately(wave.timestamp, Timestamp))
                 {
-                    SpawnJester(wave.side, wave.y, wave.commands);
+                    SpawnJester(wave);
                 }
             }
         }
@@ -48,31 +48,58 @@ namespace Jester
 
         // Temporarily just spawns them in waves now.
 
-        void SpawnJester(Sides side, float y, JesterCommand[] commands)
+        void SpawnJester(JesterData wave)
         {
-            float x;
-            if (side == Sides.Left)
+            float x = 0;
+            if (wave.side == Sides.OppositeOfLast)
+            { 
+                if (LastUsed == Sides.Right)
+                {
+                    wave.side = Sides.Left;
+                } 
+                else
+                {
+                    wave.side = Sides.Right;
+                }
+            }
+            else if (wave.side == Sides.CopyLast)
+            {
+                wave.side = LastUsed;
+            }
+            if (wave.side == Sides.Left)
             {
                 x = X_LEFT;
+                LastUsed = Sides.Left;
             }
-            else if (side == Sides.Right)
+            else if (wave.side == Sides.Right)
             {
                 x = X_RIGHT;
+                LastUsed = Sides.Right;
             }
-            else
+            else if (wave.side == Sides.Random)
             {
                 if (Random.Range(0, 2) == 1)
                 {
                     x = X_LEFT;
+                    LastUsed = Sides.Left;
                 }
                 else
                 {
                     x = X_RIGHT;
+                    LastUsed = Sides.Right;
                 }
             }
-
+            float y;
+            if (wave.randomY)
+            {
+                y = Random.Range(-5, 5);
+            }
+            else
+            {
+                y = wave.y;
+            }
             GameObject newJester = Instantiate(jester, new Vector3(x, y), jester.transform.rotation);
-            newJester.GetComponent<JesterBehaviour>().jesterCommands = commands;
+            newJester.GetComponent<JesterBehaviour>().jesterCommands = wave.commands;
         }
     }
 }

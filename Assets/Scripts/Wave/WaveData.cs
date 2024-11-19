@@ -7,6 +7,7 @@ public class WaveData : MonoBehaviour
 {
     public static float Timestamp;
     public static bool Paused;
+    public static Sides LastUsed;
     public enum Actions
     {
         Enter,
@@ -23,6 +24,8 @@ public class WaveData : MonoBehaviour
         Left,
         Right,
         Random,
+        OppositeOfLast,
+        CopyLast,
     }
 
     [System.Serializable]
@@ -40,6 +43,7 @@ public class WaveData : MonoBehaviour
         public Sides side;
         [Range(-5.0f, 5.0f)]
         public float y;
+        public bool randomY;
         public JesterCommand[] commands;
     }
 
