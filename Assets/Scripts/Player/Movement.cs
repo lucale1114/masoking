@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Player
 {
     public class Movement : MonoBehaviour
     {
+        public Action<bool> IsDashing;
+
         public float maxSpeed = 5f;
         public float acceleration = 10f;
         public float deceleration = 4f;
@@ -95,10 +98,12 @@ namespace Player
         {
             canDash = false;
             isDashing = true;
+            IsDashing?.Invoke(true);
             rb.velocity =  dashSpeed * currentVelocity;
             playerAnimator.TriggerDash();
             yield return new WaitForSeconds(dashTime);
             isDashing = false;
+            IsDashing?.Invoke(false);
             yield return new WaitForSeconds(dashCoolDown);
             canDash = true;
         }

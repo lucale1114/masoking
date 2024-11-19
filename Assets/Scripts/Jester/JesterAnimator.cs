@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gameplay
+namespace Jester
 {
     public class JesterAnimator : MonoBehaviour
     {
