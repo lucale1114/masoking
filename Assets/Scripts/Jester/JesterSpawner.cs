@@ -18,12 +18,15 @@ namespace Jester
         public WaveList waves;
 
         public Gameplay.Wave currentWave;
-
+        public float SetDebugTimestamp;
         // Spawns jesters either on the left side or right side and uses a random Y axis.
         void Start()
         {
             currentWave = waves.waves[0];
             print(currentWave.name);
+            #if UNITY_EDITOR
+                Timestamp = SetDebugTimestamp;
+            #endif
         }
 
         public void TimestampTick()
@@ -48,35 +51,37 @@ namespace Jester
 
         // Temporarily just spawns them in waves now.
 
-        void SpawnJester(JesterData wave)
+        void SpawnJester(JesterData waveObject)
         {
             float x = 0;
-            if (wave.side == Sides.OppositeOfLast)
+            Sides wave = waveObject.side;
+            if (wave == Sides.OppositeOfLast)
             { 
                 if (LastUsed == Sides.Right)
                 {
-                    wave.side = Sides.Left;
+                    wave = Sides.Left;
                 } 
                 else
                 {
-                    wave.side = Sides.Right;
+                    wave = Sides.Right;
                 }
             }
-            else if (wave.side == Sides.CopyLast)
+            else if (wave == Sides.CopyLast)
             {
-                wave.side = LastUsed;
+                wave = LastUsed;
             }
-            if (wave.side == Sides.Left)
+                    
+            if (wave == Sides.Left)
             {
                 x = X_LEFT;
                 LastUsed = Sides.Left;
             }
-            else if (wave.side == Sides.Right)
+            else if (wave == Sides.Right)
             {
                 x = X_RIGHT;
                 LastUsed = Sides.Right;
             }
-            else if (wave.side == Sides.Random)
+            else if (wave == Sides.Random)
             {
                 if (Random.Range(0, 2) == 1)
                 {
@@ -90,16 +95,16 @@ namespace Jester
                 }
             }
             float y;
-            if (wave.randomY)
+            if (waveObject.randomY)
             {
                 y = Random.Range(-5, 5);
             }
             else
             {
-                y = wave.y;
+                y = waveObject.y;
             }
             GameObject newJester = Instantiate(jester, new Vector3(x, y), jester.transform.rotation);
-            newJester.GetComponent<JesterBehaviour>().jesterCommands = wave.commands;
+            newJester.GetComponent<JesterBehaviour>().jesterCommands = waveObject.commands;
         }
     }
 }

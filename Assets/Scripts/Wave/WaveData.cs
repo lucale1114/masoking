@@ -89,6 +89,10 @@ public class WaveData : MonoBehaviour
         [Header("All Projectiles")]
         [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
         public bool spin;
+        [Tooltip("Fires forward, based on the jester's position.")]
+        public bool straight;
+
+
     }
 
     void Start()

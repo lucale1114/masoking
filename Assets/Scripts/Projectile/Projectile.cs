@@ -90,8 +90,9 @@ namespace Projectile
             {
                 GameObject shot = Instantiate(projectileRef, transform.position, Quaternion.Euler(0, 0, i));
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
+                shot.GetComponent<Projectile>().data.damage = data.damage / 2;
                 shot.GetComponent<Projectile>().burstTimer = 0;
-
+                shot.GetComponent<Projectile>().data.size = data.size / 1.2f;
                 Destroy(shot, 10);
             }
 

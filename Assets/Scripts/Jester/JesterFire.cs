@@ -17,15 +17,27 @@ namespace Jester
         public Projectile.Projectile ShootBasicProjectile(float speed, ShotDataObject data)
         {
             Vector3 dir;
-            if (data.x != 0 || data.y != 0)
+            float angle = -90;
+            if (data.straight)
             {
-                dir = (new Vector3(data.x, data.y) - transform.position).normalized;
+                if (player.transform.position.x > transform.position.x)
+                {
+                    angle = 90;
+                } 
             }
             else
             {
-                dir = (player.transform.position - transform.position).normalized;
+                if (data.x != 0 || data.y != 0)
+                {
+                    dir = (new Vector3(data.x, data.y) - transform.position).normalized;
+                }
+                else
+                {
+                    dir = (player.transform.position - transform.position).normalized;
+                }
+                angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
             }
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+ 
             GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0,0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
             shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
             Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
