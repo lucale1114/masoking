@@ -51,6 +51,11 @@ public class WaveData : MonoBehaviour
         public float speed;
         [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
         public int inaccuracy;
+
+        [Tooltip("Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
+        public float x;
+        public float y;
+
         [Header("Curved Shots \n Burst Shots")]
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;

@@ -15,7 +15,15 @@ public class JesterFire : MonoBehaviour
     // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
     public Projectile ShootBasicProjectile(float speed, ShotDataObject data)
     {
-        Vector3 dir = (player.transform.position - transform.position).normalized;
+        Vector3 dir;
+        if (data.x != 0 || data.y != 0)
+        {
+            dir = (new Vector3(data.x, data.y) - transform.position).normalized;
+        }
+        else
+        {
+            dir = (player.transform.position - transform.position).normalized;
+        }
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
         GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0,0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
         shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
