@@ -26,6 +26,7 @@ public class Projectile : MonoBehaviour
     // Code for projectile behavior.
     void Start()
     {
+        transform.localScale *= data.size + 1;
         rb = GetComponent<Rigidbody2D>();
         if ( burstTimer > 0)
         {
