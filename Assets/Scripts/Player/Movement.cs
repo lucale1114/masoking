@@ -53,11 +53,11 @@ namespace Player
             {
                 if (Mathf.Approximately(rb.velocity.magnitude, 0))
                 {
-                    playerAnimator.SetIdle();
+                    playerAnimator.PlayIdle();
                 }
                 else
                 {
-                    playerAnimator.SetMoving();
+                    playerAnimator.PlayMoving(moveInput.x, moveInput.y);
                 }
             }
         }
@@ -100,7 +100,7 @@ namespace Player
             isDashing = true;
             IsDashing?.Invoke(true);
             rb.velocity =  dashSpeed * currentVelocity;
-            playerAnimator.TriggerDash();
+            playerAnimator.PlayDash(moveInput.x, moveInput.y);
             yield return new WaitForSeconds(dashTime);
             isDashing = false;
             IsDashing?.Invoke(false);

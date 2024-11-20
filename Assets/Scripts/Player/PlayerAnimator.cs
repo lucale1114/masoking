@@ -4,8 +4,8 @@ namespace Player
 {
     public class PlayerAnimator : MonoBehaviour
     {
-        private static readonly int Dash = Animator.StringToHash("dash");
-        private static readonly int Moving = Animator.StringToHash("moving");
+        private static readonly int MoveX = Animator.StringToHash("moveX");
+        private static readonly int MoveY = Animator.StringToHash("moveY");
 
         private Animator _animator;
 
@@ -14,19 +14,23 @@ namespace Player
             _animator = GetComponent<Animator>();
         }
 
-        public void TriggerDash()
+        public void PlayDash(float x, float y)
         {
-            _animator.SetTrigger(Dash);
+            _animator.SetFloat(MoveX, x);
+            _animator.SetFloat(MoveY, y);
+            _animator.Play("KingDashAnimation");
         }
 
-        public void SetIdle()
+        public void PlayIdle()
         {
-            _animator.SetBool(Moving, false);
+            _animator.Play("KingIdleAnimation");
         }
 
-        public void SetMoving()
+        public void PlayMoving(float x, float y)
         {
-            _animator.SetBool(Moving, true);
+            _animator.SetFloat(MoveX, x);
+            _animator.SetFloat(MoveY, y);
+            _animator.Play("KingMoveAnimation");
         }
     }
 }
