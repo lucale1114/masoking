@@ -91,7 +91,8 @@ public class WaveData : MonoBehaviour
         public bool spin;
         [Tooltip("Fires forward, based on the jester's position.")]
         public bool straight;
-
+        [Tooltip("Bounces off the wall")]
+        public bool rebound;
 
     }
 

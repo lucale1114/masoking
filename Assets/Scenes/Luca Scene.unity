@@ -964,7 +964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4123454846496206666, guid: ad520d16ba6c8fb45b068c3a11745e4d, type: 3}
       propertyPath: SetDebugTimestamp
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4123454846496206666, guid: ad520d16ba6c8fb45b068c3a11745e4d, type: 3}
       propertyPath: waves.Array.data[0]
