@@ -12,7 +12,7 @@ namespace Managers
         {
             base.Awake();
             _audioSource = GetComponent<AudioSource>();
-            _hit = Resources.Load<AudioClip>($"Effects/Hit_placeholder");
+            _hit = Resources.Load<AudioClip>($"Effects/Slash");
         }
 
         public static void PlayHit(Vector3 position)
