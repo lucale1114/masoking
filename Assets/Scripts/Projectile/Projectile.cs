@@ -89,13 +89,12 @@ namespace Projectile
             for (float i = 0; i < 360; i += angle)
             {
                 GameObject shot = Instantiate(projectileRef, transform.position, Quaternion.Euler(0, 0, i));
-                shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
+                shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (data.speed2 + speed);
                 shot.GetComponent<Projectile>().data.damage = data.damage / 2;
                 shot.GetComponent<Projectile>().burstTimer = 0;
-                shot.GetComponent<Projectile>().data.size = data.size / 1.2f;
+                shot.GetComponent<Projectile>().data.size = data.size * 0.75f;
                 Destroy(shot, 10);
             }
-
             Destroy(gameObject);
         }
     }

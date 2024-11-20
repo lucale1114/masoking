@@ -37,6 +37,26 @@ public class WaveData : MonoBehaviour
     }
 
     [System.Serializable]
+    public class AdvancedJester
+    {
+
+    }
+
+    [System.Serializable]
+    public class AdvancedProjectile
+    {
+        [Tooltip("Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
+        public float x;
+        [Tooltip("Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
+        public float y;
+        [Tooltip("Picks a random position on the field to shoot at horizontally. Range: -5 to 5.")]
+        public bool randomX;
+        [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
+        public bool randomY;
+
+    }
+
+    [System.Serializable]
     public class JesterData
     {
         public float timestamp;
@@ -44,6 +64,7 @@ public class WaveData : MonoBehaviour
         [Range(-5.0f, 5.0f)]
         public float y;
         public bool randomY;
+
         public JesterCommand[] commands;
     }
 
@@ -55,14 +76,13 @@ public class WaveData : MonoBehaviour
         public float speed;
         [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
         public int inaccuracy;
-
-        [Tooltip("Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
-        public float x;
-        public float y;
         [Tooltip("Size of projectile... 1 will 2x the size, and -1 will set this to 0 so don't do that!")]
         public float size = 1;
         [Tooltip("How much this fills up the heat meter. This value is actually 5, which means -5 will actually make this 0, so don't do that!")]
         public float damage = 5;
+        [Tooltip("More configuration. Space is valuable!")]
+        public AdvancedProjectile advancedSettings;
+
 
         [Header("Curved Shots \n Burst Shots")]
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
@@ -78,6 +98,9 @@ public class WaveData : MonoBehaviour
         [Header("Aimed Shots \n Burst Shots \n Row Shots \n Storm Shots")]
         [Tooltip("Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
+        [Header("Burst Shots")]
+        [Tooltip("Cloned projectile speed. This is in addition to the normal speed, so setting it negative the same value will turn it 0!")]
+        public float speed2;
         [Header("Storm Shots \n Aimed Shots")]
         [Tooltip("Time inbetween shots for aimed and storm.")]
         public float fireBetween;
@@ -91,7 +114,7 @@ public class WaveData : MonoBehaviour
         public bool spin;
         [Tooltip("Fires forward, based on the jester's position.")]
         public bool straight;
-        [Tooltip("Bounces off the wall")]
+        [Tooltip("Bounces off the walls once.")]
         public bool rebound;
 
     }
