@@ -7,7 +7,6 @@ namespace Player
     public class HeatSystem : MonoBehaviour
     {
         public event Action HeatDepleted;
-        public event Action HeatMaxedOut;
         public event Action<float> HeatChanged;
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
@@ -56,12 +55,6 @@ namespace Player
 
             _currentHeat += amount * _comboMultiplier;
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
-
-            if (_currentHeat >= maximumHeat)
-            {
-                HeatMaxedOut?.Invoke();
-                return;
-            }
 
             if (_currentHeat <= 0)
             {
