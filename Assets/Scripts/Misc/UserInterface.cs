@@ -84,7 +84,7 @@ namespace Misc
                 else
                 {
                     _comboCounter.enabled = true;
-                    _comboCounter.text = $"{comboMultiplier} Hit Combo!";
+                    _comboCounter.text = $"{comboMultiplier:0.0} Hit Combo!";
                 }
             };
         }
