@@ -41,6 +41,7 @@ namespace Jester
 
         private void LaunchNewWave()
         {
+            ResetTime();
             waveEnded = false;
             waveEndTime = 5;
             currentWave = waves.waves[waveNumber];
