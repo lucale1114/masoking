@@ -9,13 +9,13 @@ namespace Misc
     {
         private PlayableDirector _playableDirector;
 
-        void Start()
+        private void Start()
         {
             _playableDirector = GetComponent<PlayableDirector>();
             _playableDirector.stopped += _ => { GameManager.LoadLevel(2); };
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

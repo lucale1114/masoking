@@ -1,3 +1,4 @@
+using System;
 using Gameplay;
 using UnityEngine;
 using static WaveData;
@@ -21,11 +22,21 @@ namespace Jester
         public WaveList waves;
 
         public Gameplay.Wave currentWave;
+        public int debugForceWave;
+
+        public event Action FinishedLevel;
+
         public float SetDebugTimestamp;
         // Spawns jesters either on the left side or right side and uses a random Y axis.
         void Start()
         {
-           LaunchNewWave();
+            #if UNITY_EDITOR
+            if (debugForceWave > 0)
+            {
+                waveNumber = debugForceWave - 1;
+            }
+            #endif
+            LaunchNewWave();
         }
 
         private void LaunchNewWave()
@@ -72,7 +83,16 @@ namespace Jester
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
                     waveNumber++;
-                    LaunchNewWave();
+                    print(waveNumber);
+                    print(waves.waves.Length);
+                    if (waveNumber == waves.waves.Length)
+                    {
+                        FinishedLevel?.Invoke();
+                    } 
+                    else
+                    {
+                        LaunchNewWave();
+                    }
                 }
             }
         }
@@ -120,7 +140,7 @@ namespace Jester
             }
             else if (wave == Sides.Random)
             {
-                if (Random.Range(0, 2) == 1)
+                if (UnityEngine.Random.Range(0, 2) == 1)
                 {
                     x = X_LEFT;
                     LastUsed = Sides.Left;
@@ -134,7 +154,7 @@ namespace Jester
             float y;
             if (waveObject.randomY)
             {
-                y = Random.Range(-5, 5);
+                y = UnityEngine.Random.Range(-5, 5);
             }
             else
             {
