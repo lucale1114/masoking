@@ -16,6 +16,7 @@ namespace Player
         [SerializeField] private float heatDecayPerSecond = 1;
         [SerializeField] private float comboTimeLimit = 1;
         [SerializeField] private float comboMultiplierIncrease = .1f;
+        [SerializeField] private float dashHeatCost = 5;
 
         public bool invincible;
 
@@ -27,6 +28,13 @@ namespace Player
         private void Start()
         {
             _currentHeat = startHeat;
+            GetComponent<Movement>().IsDashing += isDashing =>
+            {
+                if (isDashing)
+                {
+                    ChangeHeat(-dashHeatCost);
+                }
+            };
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
         }
@@ -42,6 +50,7 @@ namespace Player
             {
                 return;
             }
+
             if (amount > 0)
             {
                 if (_timeSinceLastHit <= comboTimeLimit)
