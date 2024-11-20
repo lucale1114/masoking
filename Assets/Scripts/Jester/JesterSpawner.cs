@@ -76,7 +76,6 @@ namespace Jester
             if (Timestamp == waveEndTime)
             {
                 waveEnded = true;
-                print("over");
             }
             if (waveEnded)
             {
@@ -84,8 +83,6 @@ namespace Jester
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
                     waveNumber++;
-                    print(waveNumber);
-                    print(waves.waves.Length);
                     if (waveNumber == waves.waves.Length)
                     {
                         FinishedLevel?.Invoke();
