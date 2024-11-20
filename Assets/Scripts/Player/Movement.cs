@@ -94,7 +94,7 @@ namespace Player
 
         }
 
-        private IEnumerator Dash()
+        public IEnumerator Dash()
         {
             canDash = false;
             isDashing = true;

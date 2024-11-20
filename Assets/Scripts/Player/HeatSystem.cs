@@ -7,7 +7,6 @@ namespace Player
     public class HeatSystem : MonoBehaviour
     {
         public event Action HeatDepleted;
-        public event Action HeatMaxedOut;
         public event Action<float> HeatChanged;
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
@@ -18,7 +17,7 @@ namespace Player
         [SerializeField] private float comboTimeLimit = 1;
         [SerializeField] private float comboMultiplierIncrease = .1f;
 
-        public bool Invincible;
+        public bool invincible;
 
         private float _currentHeat;
 
@@ -39,7 +38,7 @@ namespace Player
 
         public void ChangeHeat(float amount)
         {
-            if (Invincible)
+            if (invincible)
             {
                 return;
             }
@@ -56,12 +55,6 @@ namespace Player
 
             _currentHeat += amount * _comboMultiplier;
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
-
-            if (_currentHeat >= maximumHeat)
-            {
-                HeatMaxedOut?.Invoke();
-                return;
-            }
 
             if (_currentHeat <= 0)
             {
