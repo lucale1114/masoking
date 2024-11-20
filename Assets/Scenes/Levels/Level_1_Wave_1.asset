@@ -21,39 +21,51 @@ MonoBehaviour:
       action: 0
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 5
       action: 2
       shotData:
         speed: 5
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 5
         fireBetween: 0.5
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 8
       action: 1
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
   - timestamp: 1
@@ -64,124 +76,160 @@ MonoBehaviour:
       action: 0
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 3
       action: 2
       shotData:
         speed: 5
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 5
         fireBetween: 0.5
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 5
       action: 1
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
   - timestamp: 1
     side: 1
-    y: 4
+    y: -5
     commands:
     - timestamp: 8
       action: 0
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 10
       action: 2
       shotData:
         speed: 5
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 5
         fireBetween: 0.5
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 14
       action: 1
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
   - timestamp: 1
     side: 0
-    y: 4
+    y: 5
     commands:
     - timestamp: 4
       action: 0
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 6
       action: 2
       shotData:
         speed: 5
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 5
         fireBetween: 0.5
-        inaccuracy: 0
         radius: 0
         spin: 0
     - timestamp: 9
       action: 1
       shotData:
         speed: 0
+        inaccuracy: 0
+        x: 0
+        y: 0
+        size: 0
+        damage: 0
         timer: 0
         frequency: 0
         amp: 0
         gravityDir: 0
         amount: 0
         fireBetween: 0
-        inaccuracy: 0
         radius: 0
         spin: 0
