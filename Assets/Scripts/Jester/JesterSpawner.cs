@@ -11,8 +11,8 @@ namespace Jester
 {
     public class JesterSpawner : MonoBehaviour
     {
-        const float X_LEFT = -9.5f;
-        const float X_RIGHT = 9.5f;
+        const float X_LEFT = -8.5f;
+        const float X_RIGHT = 8.5f;
         private float currentTick;
 
         private float waveEndTime = 5;
@@ -57,8 +57,8 @@ namespace Jester
             foreach (JesterData wave in currentWave.jesters)
             {
                 if (wave.timestamp > highest)
-                { 
-                    highest = wave.timestamp; 
+                {
+                    highest = wave.timestamp;
                 }
             }
             waveEndTime = highest;
@@ -86,7 +86,7 @@ namespace Jester
                     if (waveNumber == waves.waves.Length)
                     {
                         FinishedLevel?.Invoke();
-                    } 
+                    }
                     else
                     {
                         LaunchNewWave();
@@ -111,11 +111,11 @@ namespace Jester
             float x = 0;
             Sides wave = waveObject.side;
             if (wave == Sides.OppositeOfLast)
-            { 
+            {
                 if (LastUsed == Sides.Right)
                 {
                     wave = Sides.Left;
-                } 
+                }
                 else
                 {
                     wave = Sides.Right;
@@ -125,7 +125,7 @@ namespace Jester
             {
                 wave = LastUsed;
             }
-                    
+
             if (wave == Sides.Left)
             {
                 x = X_LEFT;
