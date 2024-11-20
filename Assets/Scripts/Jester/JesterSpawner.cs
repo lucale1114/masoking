@@ -14,6 +14,9 @@ namespace Jester
         const float X_RIGHT = 9.5f;
         private float currentTick;
 
+        private float waveEndTime = 5;
+        private int waveNumber = 0;
+        private bool waveEnded = false;
         public GameObject jester;
         public WaveList waves;
 
@@ -22,11 +25,31 @@ namespace Jester
         // Spawns jesters either on the left side or right side and uses a random Y axis.
         void Start()
         {
-            currentWave = waves.waves[0];
-            print(currentWave.name);
+           LaunchNewWave();
+        }
+
+        private void LaunchNewWave()
+        {
+            waveEnded = false;
+            waveEndTime = 5;
+            currentWave = waves.waves[waveNumber];
             #if UNITY_EDITOR
                 Timestamp = SetDebugTimestamp;
             #endif
+            CalculateWaveTime();
+        }
+
+        private void CalculateWaveTime()
+        {
+            float highest = 0;
+            foreach (JesterData wave in currentWave.jesters)
+            {
+                if (wave.timestamp > highest)
+                { 
+                    highest = wave.timestamp; 
+                }
+            }
+            waveEndTime = highest;
         }
 
         public void TimestampTick()
@@ -36,6 +59,20 @@ namespace Jester
                 if (Mathf.Approximately(wave.timestamp, Timestamp))
                 {
                     SpawnJester(wave);
+                }
+            }
+            if (Timestamp == waveEndTime)
+            {
+                waveEnded = true;
+                print("over");
+            }
+            if (waveEnded)
+            {
+                print(GameObject.FindGameObjectsWithTag("Enemy"));
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    waveNumber++;
+                    LaunchNewWave();
                 }
             }
         }
