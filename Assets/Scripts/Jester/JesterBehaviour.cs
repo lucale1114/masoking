@@ -75,7 +75,6 @@ namespace Jester
             {
                 if (Mathf.Approximately(command.timestamp, Timestamp))
                 {
-                    print(command.action);
                     PerformAction(command.action, command.shotData);
                 }
             }
@@ -140,6 +139,7 @@ namespace Jester
         void LeavePlayfield()
         {
             transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
+            Destroy(gameObject, 2);
         }
         // Shots that are aimed towards the player
         IEnumerator FireAimedShots(ShotDataObject data)
