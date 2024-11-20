@@ -27,9 +27,9 @@ namespace Jester
             }
             else
             {
-                if (data.x != 0 || data.y != 0)
+                if (data.advancedSettings.x != 0 || data.advancedSettings.y != 0)
                 {
-                    dir = (new Vector3(data.x, data.y) - transform.position).normalized;
+                    dir = (new Vector3(data.advancedSettings.x, data.advancedSettings.y) - transform.position).normalized;
                 }
                 else
                 {

@@ -11,10 +11,13 @@ namespace Jester
         JesterFire jesterFire;
         int dir;
         float currentTick;
+        float leaveTime;
         public JesterCommand[] jesterCommands;
 
         private JesterAnimator jesterAnimator;
         public ShotDataObject shotDataObject;
+
+
         void Start()
         {
             jesterAnimator = GetComponent<JesterAnimator>();
@@ -28,6 +31,35 @@ namespace Jester
                 FlipDirection();
                 dir = -1;
             }
+            float timestampEntered = Timestamp;
+            bool foundEnter = false;
+            bool foundLeave = false;
+            foreach (JesterCommand command in jesterCommands)
+            {
+                if (command.action == Actions.Enter) {
+                    foundEnter = true;
+                } 
+                if (command.action == Actions.Leave)
+                {
+                    foundLeave = true;
+                }
+            }
+            if (!foundEnter)
+            {
+                Invoke("ForceEnter", 0.01f);
+            }
+            if (!foundLeave)
+            {
+                foreach (JesterCommand command in jesterCommands)
+                {
+                    ShotDataObject data = command.shotData;
+                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount * data.fireBetween) + 0.5f;
+                }
+            }
+        }
+        void ForceEnter()
+        {
+            PerformAction(Actions.Enter, new ShotDataObject());
         }
 
         private void FlipDirection()
@@ -46,6 +78,10 @@ namespace Jester
                     print(command.action);
                     PerformAction(command.action, command.shotData);
                 }
+            }
+            if (Mathf.Approximately(leaveTime, Timestamp))
+            {
+                PerformAction(Actions.Leave, new ShotDataObject());
             }
         }
 
