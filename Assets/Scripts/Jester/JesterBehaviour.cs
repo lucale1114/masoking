@@ -53,7 +53,7 @@ namespace Jester
                 foreach (JesterCommand command in jesterCommands)
                 {
                     ShotDataObject data = command.shotData;
-                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount * data.fireBetween) + 0.5f;
+                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount * data.fireBetween) + 1f;
                 }
             }
         }

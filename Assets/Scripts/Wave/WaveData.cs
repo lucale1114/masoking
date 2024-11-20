@@ -49,6 +49,11 @@ public class WaveData : MonoBehaviour
         public float x;
         [Tooltip("Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
         public float y;
+        [Tooltip("Picks a random position on the field to shoot at horizontally. Range: -5 to 5.")]
+        public bool randomX;
+        [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
+        public bool randomY;
+
     }
 
     [System.Serializable]
@@ -93,6 +98,9 @@ public class WaveData : MonoBehaviour
         [Header("Aimed Shots \n Burst Shots \n Row Shots \n Storm Shots")]
         [Tooltip("Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
+        [Header("Burst Shots")]
+        [Tooltip("Cloned projectile speed. This is in addition to the normal speed, so setting it negative the same value will turn it 0!")]
+        public float speed2;
         [Header("Storm Shots \n Aimed Shots")]
         [Tooltip("Time inbetween shots for aimed and storm.")]
         public float fireBetween;
