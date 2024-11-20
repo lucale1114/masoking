@@ -5,6 +5,8 @@ namespace Player
     public class Collision : MonoBehaviour
     {
         [SerializeField] private Movement movement;
+        private Player.Movement movementTarget;
+        
 
         private void OnCollisionEnter2D(Collision2D other)
         {
@@ -12,6 +14,12 @@ namespace Player
             {
                 movement.currentVelocity = Vector2.zero;
             }
+            /*if (other.gameObject.CompareTag("Destroy") && movement.IsDashing(true) )
+
+            { 
+             Destroy(other.gameObject);
+            }*/
         }
+ 
     }
 }
