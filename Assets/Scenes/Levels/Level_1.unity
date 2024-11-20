@@ -1130,6 +1130,7 @@ MonoBehaviour:
   jester: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
   waves: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
+  SetDebugTimestamp: 0
 --- !u!1001 &8214112238525444483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1239,6 +1240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8279878330385100057, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34c948c3280301f46aaaabbca34862c8, type: 3}
     - target: {fileID: 8907273767978024009, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
