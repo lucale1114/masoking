@@ -18,7 +18,7 @@ public class TimestampDebug : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
-            heat.Invincible = !(PlayerPrefs.GetInt("Invi", 0) != 0);
+            heat.invincible = !(PlayerPrefs.GetInt("Invi", 0) != 0);
             SetInvincible();
         }
         else
@@ -43,16 +43,16 @@ public class TimestampDebug : MonoBehaviour
 
     public void SetInvincible()
     {
-        if (heat.Invincible) { 
-            heat.Invincible = false;
+        if (heat.invincible) {
+            heat.invincible = false;
             heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: OFF";
         }
         else
         {
-            heat.Invincible = true;
+            heat.invincible = true;
             heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: ON";
         }
-        PlayerPrefs.SetInt("Invi", heat.Invincible ? 1 : 0);
+        PlayerPrefs.SetInt("Invi", heat.invincible ? 1 : 0);
     }
 
     public void Pause()
