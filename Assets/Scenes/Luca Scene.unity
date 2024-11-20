@@ -842,6 +842,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
     - target: {fileID: 4123454846496206666, guid: ad520d16ba6c8fb45b068c3a11745e4d, type: 3}
+      propertyPath: debugForceWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123454846496206666, guid: ad520d16ba6c8fb45b068c3a11745e4d, type: 3}
       propertyPath: wave1.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1171,8 +1175,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: startHeat
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: maximumHeat
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630014588691748394, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name

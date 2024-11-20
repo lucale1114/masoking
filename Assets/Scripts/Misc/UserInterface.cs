@@ -1,3 +1,4 @@
+using Jester;
 using Managers;
 using Player;
 using TMPro;
@@ -13,6 +14,7 @@ namespace Misc
         private GameObject _pauseMenu;
         private GameObject _lostMenu;
         private GameObject _wonMenu;
+        private JesterSpawner _jesterSpawner;
 
         private Image _heatBar;
         private HeatSystem _heatSystem;
@@ -21,7 +23,7 @@ namespace Misc
         private void Awake()
         {
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
-
+            _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
             _pauseMenu = GameObject.Find("PauseMenu");
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
@@ -62,7 +64,7 @@ namespace Misc
             _heatSystem = FindObjectOfType<HeatSystem>();
 
             _heatSystem.HeatChanged += heat => _heatBar.fillAmount = heat;
-            _heatSystem.HeatMaxedOut += () =>
+            _jesterSpawner.FinishedLevel += () =>
             {
                 Time.timeScale = 0;
                 _wonMenu.SetActive(true);
