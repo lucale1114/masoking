@@ -1080,10 +1080,6 @@ PrefabInstance:
       value: BounceObject
       objectReference: {fileID: 0}
     - target: {fileID: 6257916930676127288, guid: 5bcff7a0ddcf4714492b43d2221b74fd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6257916930676127288, guid: 5bcff7a0ddcf4714492b43d2221b74fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5
       objectReference: {fileID: 0}
