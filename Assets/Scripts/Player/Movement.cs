@@ -7,12 +7,12 @@ namespace Player
     public class Movement : MonoBehaviour
     {
         public Action<bool> IsDashing;
-
+        public bool IsCurentlyDashing => isDashing;
         public float maxSpeed = 5f;
         public float acceleration = 10f;
         public float deceleration = 4f;
         public Vector2 currentVelocity;
-
+        
         private Rigidbody2D rb;
         private Vector2 moveInput;
         private readonly float currentSpeed = 0f;
