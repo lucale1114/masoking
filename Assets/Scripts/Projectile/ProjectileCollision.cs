@@ -19,7 +19,8 @@ namespace Projectile
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                var damage = 5 + _projectile.GetShotData().damage;
+                var damage = (5 + _projectile.GetShotData().damage) * _projectile.GetDamageMod();
+                print(damage);
                 var closestPoint = collision.ClosestPoint(transform.position);
                 collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                 Instantiate(hitVfx, closestPoint, Quaternion.identity);

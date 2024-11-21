@@ -22,7 +22,7 @@ namespace Projectile
         private GameObject _reticle;
 
         private float _currentTime;
-
+        private float _damageMod = 1;
         private void Awake()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
@@ -30,6 +30,11 @@ namespace Projectile
             _startPosition = transform.position;
 
             _collider.enabled = false;
+        }
+
+        public float GetDamageMod()
+        {
+            return _damageMod;
         }
 
         public void SetShotData(ShotDataObject shotData, Vector3 playerPosition)
