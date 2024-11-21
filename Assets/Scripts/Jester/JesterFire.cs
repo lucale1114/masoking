@@ -1,4 +1,5 @@
 using System.Collections;
+using Projectile;
 using UnityEngine;
 using static WaveData;
 
@@ -74,7 +75,6 @@ namespace Jester
         public void ShootBurstShot(float speed, float time, int burst, ShotDataObject data)
         {
             Projectile.Projectile shot = ShootBasicProjectile(speed, data);
-            shot.speed = speed;
             shot.burstTimer = time;
             shot.burst = burst;
         }
@@ -82,6 +82,7 @@ namespace Jester
         public void Snipe(ShotDataObject data, float x, float y, GameObject target)
         {
             Projectile.Projectile shot = ShootBasicProjectile(data.speed, data, x, y);
+            shot.gameObject.GetComponent<ProjectileCollision>().enabled = false;
             shot.sniper = true;
             shot.target = target;
         }
@@ -103,7 +104,6 @@ namespace Jester
             shot.spin = true;
             shot.frequency = frequency;
             shot.amp = amp;
-            shot.speed = speed;
         }
 
         public void ShootCurvedShot(float speed, float time, float dir, int wave, ShotDataObject data)

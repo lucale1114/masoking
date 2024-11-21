@@ -8,6 +8,7 @@ namespace Projectile
     public class Projectile : MonoBehaviour
     {
         private Vector3 sniperTrigger;
+        private float sniperM;
 
         public GameObject projectileRef;
         public GameObject player;
@@ -20,7 +21,6 @@ namespace Projectile
         public float gravityTimer;
         public float gravityDir;
         public int flipAmount = 1;
-        public float speed;
         public bool spin;
         public bool sniper;
 
@@ -55,9 +55,9 @@ namespace Projectile
 
             if (sniper)
             {
-                gameObject.GetComponent<Collider2D>().enabled = false;
-                sniperTrigger = new Vector3(x, y);
-                InvokeRepeating("Sniper", 0, 0.0001f);
+                /*gameObject.GetComponent<Collider2D>().enabled = false;
+                sniperTrigger = new Vector3(x, y);*/
+                //InvokeRepeating("Sniper", 0, 0.0001f);
             }
 
             if (spin || data.spin)
@@ -66,19 +66,19 @@ namespace Projectile
                 InvokeRepeating("Spin", 0, 0.005f);
             }
         }
-        void Sniper()
+        /*void Sniper()
         {
             if (!sniper)
             {
                 return;
             }
             Vector3 pos = transform.position;
-            if ((pos - sniperTrigger).magnitude < 3) {
+            if ((pos - sniperTrigger).magnitude < sniperM) {
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 Destroy(target);
                 sniper = false;
             }
-        }
+        }*/
 
         IEnumerator WavyShot()
         {
@@ -88,7 +88,7 @@ namespace Projectile
                 yield return new WaitForSeconds(0.01f);
                 float y = Mathf.Cos(Time.time * frequency) * amp;
                 transform.position = new Vector3(transform.position.x, baseY + y, 0);
-                transform.Translate(Vector3.down * Time.deltaTime * speed);
+                transform.Translate(Vector3.down * Time.deltaTime * data.speed);
             }
         }
 
@@ -117,7 +117,7 @@ namespace Projectile
             for (float i = 0; i < 360; i += angle)
             {
                 GameObject shot = Instantiate(projectileRef, transform.position, Quaternion.Euler(0, 0, i));
-                shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (data.speed2 + speed);
+                shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (data.speed2 + data.speed);
                 shot.GetComponent<Projectile>().data.damage = data.damage / 2;
                 shot.GetComponent<Projectile>().burstTimer = 0;
                 shot.GetComponent<Projectile>().data.size = data.size * 0.75f;
