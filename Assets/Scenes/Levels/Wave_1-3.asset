@@ -589,7 +589,7 @@ MonoBehaviour:
         speed: 5
         inaccuracy: 0
         size: 0.5
-        damage: 5
+        damage: 0
         advancedSettings:
           x: 0
           y: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 8
         size: 0
-        damage: 0
+        damage: -2
         advancedSettings:
           x: 0
           y: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
         speed: 20
         inaccuracy: 0
         size: 1.5
-        damage: 8
+        damage: 5
         advancedSettings:
           x: 0
           y: 3

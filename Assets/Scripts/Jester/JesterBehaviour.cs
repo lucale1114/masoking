@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Misc;
 using Unity.VisualScripting;
 using UnityEngine;
 using static WaveData;
@@ -209,7 +210,7 @@ namespace Jester
             GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
-            jesterFire.Snipe(data, x, y, target);
+            target.GetComponent<Target>().targetProjectile = jesterFire.Snipe(data, x, y, target);
         }
 
         // Fires a storm of shots towards the player.

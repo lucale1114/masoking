@@ -85,11 +85,12 @@ namespace Jester
             shot.burst = burst;
         }
 
-        public void Snipe(ShotDataObject data, float x, float y, GameObject target)
+        public GameObject Snipe(ShotDataObject data, float x, float y, GameObject target)
         {
             DirectProjectile shot = ShootBasicProjectile(data.speed, data, x, y);
             shot.gameObject.GetComponent<Collision>().enabled = false;
             shot.sniper = true;
+            return shot.gameObject;
         }
 
         public void ShootRow(float speed, float radius, int amount, ShotDataObject data)
