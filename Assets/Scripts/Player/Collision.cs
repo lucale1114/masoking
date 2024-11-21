@@ -14,11 +14,11 @@ namespace Player
             {
                 movement.currentVelocity = Vector2.zero;
             }
-            /*if (other.gameObject.CompareTag("Destroy") && movement.IsDashing(true) )
+            if (other.gameObject.CompareTag("Destroy") && movement.IsCurentlyDashing )
 
             { 
              Destroy(other.gameObject);
-            }*/
+            }
         }
  
     }
