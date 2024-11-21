@@ -11,6 +11,8 @@ namespace Misc
     {
         [SerializeField]
         private TextMeshPro moveTextMesh;
+        [SerializeField]
+        private TextMeshPro DashTextMesh;
         private GameObject _pauseMenu;
 
         private void Awake()
@@ -57,7 +59,11 @@ namespace Misc
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
                 }
 
-              
+                if (Input.GetAxisRaw("Vertical") == 0 || Input.GetAxisRaw("Horizontal") == 0)
+            {
+                Destroy(moveTextMesh);
+                
+            }
             
         }
     }
