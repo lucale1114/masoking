@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using static WaveData;
 
@@ -7,6 +8,7 @@ namespace Projectile
     public class Projectile : MonoBehaviour
     {
         public GameObject projectileRef;
+        public GameObject player;
 
         private float spinSpeed;
         private Rigidbody2D rb;
@@ -18,11 +20,16 @@ namespace Projectile
         public int flipAmount = 1;
         public float speed;
         public bool spin;
+        public bool sniper;
 
         public float frequency;
         public float amp;
 
+        public float x;
+        public float y;
+
         public ShotDataObject data;
+        GameObject target;
 
         // Code for projectile behavior.
         void Start()
@@ -44,10 +51,34 @@ namespace Projectile
                 StartCoroutine(WavyShot());
             }
 
+            if (sniper)
+            {
+                if (x == 0 && y == 0)
+                {
+                    x = player.transform.position.x;
+                    y = player.transform.position.y;
+                } 
+                else
+                {
+                    x = data.advancedSettings.x;
+                    y = data.advancedSettings.y;
+                }
+                target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                InvokeRepeating("Sniper", 0, 0.001f);
+            }
+
             if (spin || data.spin)
             {
                 spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
                 InvokeRepeating("Spin", 0, 0.005f);
+            }
+        }
+        void Sniper()
+        {
+            Vector3 pos = transform.position;
+            if (Mathf.Approximately(pos.x, x) && Mathf.Approximately(pos.y, y)) {
+                gameObject.GetComponent<Collider2D>().enabled = true;
             }
         }
 

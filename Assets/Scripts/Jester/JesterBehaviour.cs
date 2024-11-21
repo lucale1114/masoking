@@ -129,6 +129,9 @@ namespace Jester
                 case Actions.FireRow:
                     FireRow(data);
                     break;
+                case Actions.FireSniper:
+                    FireSniper(data);
+                    break;
             }
         }
 
@@ -162,7 +165,7 @@ namespace Jester
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
-        }
+        }   
         // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
         public void FireRow(ShotDataObject data)
         {
@@ -174,6 +177,11 @@ namespace Jester
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
+        }
+        public void FireSniper(ShotDataObject data)
+        {
+            jesterAnimator.TriggerFire();
+            jesterFire.Snipe(data);
         }
 
         // Fires a storm of shots towards the player.
