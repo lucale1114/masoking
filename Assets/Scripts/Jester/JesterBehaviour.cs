@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using static WaveData;
 
@@ -39,7 +40,7 @@ namespace Jester
             {
                 if (command.action == Actions.Enter) {
                     foundEnter = true;
-                } 
+                }
                 if (command.action == Actions.Leave)
                 {
                     foundLeave = true;
@@ -138,6 +139,9 @@ namespace Jester
                 case Actions.FireSniper:
                     StartCoroutine(FireSniper(data));
                     break;
+                case Actions.Throw:
+                    Throw(data);
+                    break;
             }
         }
 
@@ -216,6 +220,12 @@ namespace Jester
                 yield return new WaitForSeconds(data.fireBetween);
             }
             yield return new WaitForSeconds(3);
+        }
+
+        private void Throw(ShotDataObject data)
+        {
+            jesterAnimator.TriggerFire();
+            jesterFire.Throw(data);
         }
     }
 }
