@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Managers;
 using Player;
 using UnityEngine;
@@ -7,20 +8,22 @@ namespace Projectile
     public class Collision : MonoBehaviour
     {
         [SerializeField] private GameObject hitVfx;
-        Projectile projectileScript;
+
+        private Projectile _projectile;
 
         private void Start()
         {
-           projectileScript = GetComponent<Projectile>();
+           _projectile = GetComponent<Projectile>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(projectileScript.data.damage + 5);
-                Instantiate(hitVfx, transform.position, Quaternion.identity);
-                SoundManager.PlayHit(transform.position);
+                var closestPoint = collision.ClosestPoint(transform.position);
+                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(_projectile.data.damage + 5);
+                Instantiate(hitVfx, closestPoint, Quaternion.identity);
+                SoundManager.PlayHit(closestPoint);
                 Destroy(gameObject);
             }
         }

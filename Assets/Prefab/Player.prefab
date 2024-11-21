@@ -248,7 +248,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f6f92112752caeb429ceb70a1273f02f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1521d73225f5f9044bc823077f99cf3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -355,7 +355,8 @@ MonoBehaviour:
   heatDecayPerSecond: 5
   comboTimeLimit: 1
   comboMultiplierIncrease: 0.1
-  Invincible: 0
+  dashHeatCost: 5
+  invincible: 0
 --- !u!222 &444254654661747928
 CanvasRenderer:
   m_ObjectHideFlags: 0
