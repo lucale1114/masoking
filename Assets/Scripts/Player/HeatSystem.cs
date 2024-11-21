@@ -11,7 +11,7 @@ namespace Player
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
 
-        [SerializeField] private float maximumHeat = 100;
+        [SerializeField] private float maximumHeat = 150;
         [SerializeField] private float startHeat = 50;
         [SerializeField] private float heatDecayPerSecond = 1;
         [SerializeField] private float comboTimeLimit = 1;

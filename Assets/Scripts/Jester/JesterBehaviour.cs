@@ -206,7 +206,6 @@ namespace Jester
             {
                 x = Random.Range(-5.0f, 4.0f);
             }
-            print(y);
             GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
