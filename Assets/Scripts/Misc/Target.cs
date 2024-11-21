@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+namespace Misc
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public class Target : MonoBehaviour
     {
-        if (other.CompareTag("Projectile"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            other.gameObject.GetComponent<Projectile.ProjectileCollision>().enabled = true;
-            Destroy(gameObject);
+            if (other.CompareTag("Projectile"))
+            {
+                other.gameObject.GetComponent<Projectile.Collision>().enabled = true;
+                Destroy(gameObject);
+            }
         }
     }
 }

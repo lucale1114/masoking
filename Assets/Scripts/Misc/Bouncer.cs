@@ -8,8 +8,8 @@ public class Bouncer : MonoBehaviour
     {
         Debug.Log("Here");
         // Check if the collided object has the Projectile component
-        Projectile.Projectile projectile = collision.gameObject.GetComponent<Projectile.Projectile>();
-        if (projectile != null)
+        Projectile.DirectProjectile directProjectile = collision.gameObject.GetComponent<Projectile.DirectProjectile>();
+        if (directProjectile != null)
         {
             Debug.Log("nowHere");
 
