@@ -22,6 +22,7 @@ namespace Projectile
         public int flipAmount = 1;
         public bool spin;
         public bool sniper;
+        public float damageMod = 1;
 
         public float frequency;
         public float amp;
@@ -87,6 +88,11 @@ namespace Projectile
             }
         }
 
+        public float GetDamageMod()
+        {
+            return damageMod;
+        }
+
         void Spin()
         {
             transform.rotation *= Quaternion.Euler(0, 0, spinSpeed);
@@ -115,9 +121,9 @@ namespace Projectile
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (_data.speed2 + _data.speed);
                 DirectProjectile projectile = shot.GetComponent<DirectProjectile>();
                 projectile.SetShotData(_data);
-                projectile.GetShotData().damage = _data.damage / 2;
+                projectile.damageMod = 0.35f;
                 projectile.burstTimer = 0;
-                projectile.GetShotData().size = _data.size * 0.75f;
+                shot.transform.localScale *= 0.35f;
                 Destroy(shot, 10);
             }
 

@@ -60,8 +60,9 @@ public class WaveData : MonoBehaviour
         [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
         public bool randomY;
 
-        [Tooltip("Time in air for throws")] public float throwAirTime;
-        [Tooltip("Curve for throws")] public AnimationCurve animationCurve;
+        [Header("Throw")]
+        [Tooltip("Time in air for throws.")] public float throwAirTime;
+        [Tooltip("Curve for throws.")] public AnimationCurve animationCurve;
     }
 
     [Serializable]
