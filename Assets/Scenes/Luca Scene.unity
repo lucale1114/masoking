@@ -1040,7 +1040,7 @@ MonoBehaviour:
   waves: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
   debugForceWave: 3
-  SetDebugTimestamp: 10
+  SetDebugTimestamp: 12
 --- !u!4 &1108085793
 Transform:
   m_ObjectHideFlags: 0
