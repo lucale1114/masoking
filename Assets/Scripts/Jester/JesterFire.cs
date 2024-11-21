@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static WaveData;
 
@@ -16,7 +17,7 @@ namespace Jester
         // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
         public Projectile.Projectile ShootBasicProjectile(float speed, ShotDataObject data)
         {
-            Vector3 dir;
+            Vector3 dir = (player.transform.position - transform.position).normalized;
             float angle = -90;
             if (data.straight)
             {
@@ -31,17 +32,29 @@ namespace Jester
                 {
                     dir = (new Vector3(data.advancedSettings.x, data.advancedSettings.y) - transform.position).normalized;
                 }
-                else
-                {
-                    dir = (player.transform.position - transform.position).normalized;
-                }
                 angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+
             }
  
             GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0,0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
             shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
             Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
             projectileScript.data = data;
+            projectileScript.player = player;
+            Destroy(shot, 10);
+            return projectileScript;
+        }
+
+        public Projectile.Projectile ShootBasicProjectile(float speed, ShotDataObject data, float forceX, float forceY)
+        {
+            Vector3 dir = (new Vector3(forceX, forceY) - transform.position).normalized;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+
+            GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
+            shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
+            Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
+            projectileScript.data = data;
+            projectileScript.player = player;
             Destroy(shot, 10);
             return projectileScript;
         }
@@ -52,6 +65,13 @@ namespace Jester
             shot.speed = speed;
             shot.burstTimer = time;
             shot.burst = burst;
+        }
+
+        public void Snipe(ShotDataObject data, float x, float y, GameObject target)
+        {
+            Projectile.Projectile shot = ShootBasicProjectile(data.speed, data, x, y);
+            shot.sniper = true;
+            shot.target = target;
         }
 
         public void ShootRow(float speed, float radius, int amount, ShotDataObject data)

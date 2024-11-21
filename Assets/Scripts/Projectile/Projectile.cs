@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using static WaveData;
 
@@ -6,7 +7,10 @@ namespace Projectile
 {
     public class Projectile : MonoBehaviour
     {
+        private float sniperTrigger = 3;
+
         public GameObject projectileRef;
+        public GameObject player;
 
         private float spinSpeed;
         private Rigidbody2D rb;
@@ -18,11 +22,16 @@ namespace Projectile
         public int flipAmount = 1;
         public float speed;
         public bool spin;
+        public bool sniper;
 
         public float frequency;
         public float amp;
 
+        public float x;
+        public float y;
+
         public ShotDataObject data;
+        public GameObject target;
 
         // Code for projectile behavior.
         void Start()
@@ -44,10 +53,30 @@ namespace Projectile
                 StartCoroutine(WavyShot());
             }
 
+            if (sniper)
+            {
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                sniperTrigger = (data.speed / 10) * 0.45f;
+                InvokeRepeating("Sniper", 0, 0.0001f);
+            }
+
             if (spin || data.spin)
             {
                 spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
                 InvokeRepeating("Spin", 0, 0.005f);
+            }
+        }
+        void Sniper()
+        {
+            if (!sniper)
+            {
+                return;
+            }
+            Vector3 pos = transform.position;
+            if ((x - sniperTrigger < pos.x && x + sniperTrigger > pos.x) && (y - sniperTrigger < pos.y && y + sniperTrigger > pos.y)) {
+                gameObject.GetComponent<Collider2D>().enabled = true;
+                Destroy(target);
+                sniper = false;
             }
         }
 
@@ -85,7 +114,6 @@ namespace Projectile
         {
             yield return new WaitForSeconds(burstTimer);
             float angle = 360 / burst;
-            print(angle);
             for (float i = 0; i < 360; i += angle)
             {
                 GameObject shot = Instantiate(projectileRef, transform.position, Quaternion.Euler(0, 0, i));
