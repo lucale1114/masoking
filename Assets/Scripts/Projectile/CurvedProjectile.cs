@@ -3,14 +3,14 @@ using static WaveData;
 
 namespace Projectile
 {
-    public class ThrowProjectile : MonoBehaviour
+    public class CurvedProjectile : MonoBehaviour, IProjectile
     {
         [SerializeField] private GameObject reticlePrefab;
         [SerializeField] private GameObject shadowPrefab;
         [SerializeField] private float colliderActivationPercentage = 0.9f;
         [SerializeField] private float curveHeight = 5f;
 
-        public ShotDataObject data;
+        private ShotDataObject _data;
 
         private Vector3 _target;
         private Vector3 _startPosition;
@@ -32,9 +32,9 @@ namespace Projectile
             _collider.enabled = false;
         }
 
-        public void SetData(ShotDataObject shotData, Vector3 playerPosition)
+        public void SetShotData(ShotDataObject shotData, Vector3 playerPosition)
         {
-            data = shotData;
+            _data = shotData;
             _target = playerPosition;
 
             if (shotData.advancedSettings.x != 0)
@@ -58,20 +58,20 @@ namespace Projectile
         {
             _currentTime += Time.deltaTime;
 
-            if (_currentTime > colliderActivationPercentage * data.advancedSettings.throwAirTime)
+            if (_currentTime > colliderActivationPercentage * _data.advancedSettings.throwAirTime)
             {
                 _collider.enabled = true;
             }
 
-            if (_currentTime > data.advancedSettings.throwAirTime)
+            if (_currentTime > _data.advancedSettings.throwAirTime)
             {
                 Destroy(gameObject);
             }
 
-            var airTime = _currentTime / data.advancedSettings.throwAirTime;
+            var airTime = _currentTime / _data.advancedSettings.throwAirTime;
             var position = Vector2.Lerp(_startPosition, _target, airTime);
 
-            position.y += curveHeight * data.advancedSettings.animationCurve.Evaluate(airTime);
+            position.y += curveHeight * _data.advancedSettings.animationCurve.Evaluate(airTime);
             _rigidBody.MovePosition(position);
 
             if (_shadow)
@@ -84,6 +84,11 @@ namespace Projectile
         {
             Destroy(_shadow);
             Destroy(_reticle);
+        }
+
+        public ShotDataObject GetShotData()
+        {
+            return _data;
         }
     }
 }

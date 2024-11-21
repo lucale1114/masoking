@@ -1,7 +1,7 @@
-using System.Collections;
 using Projectile;
 using UnityEngine;
 using static WaveData;
+using Collision = Projectile.Collision;
 
 namespace Jester
 {
@@ -19,7 +19,7 @@ namespace Jester
         }
 
         // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
-        public Projectile.Projectile ShootBasicProjectile(float speed, ShotDataObject data)
+        public DirectProjectile ShootBasicProjectile(float speed, ShotDataObject data)
         {
             Vector3 dir = (player.transform.position - transform.position).normalized;
             float angle = -90;
@@ -39,38 +39,41 @@ namespace Jester
                     x = data.advancedSettings.x;
                     y = data.advancedSettings.y;
                 }
+
                 if (data.advancedSettings.randomY)
                 {
                     y = Random.Range(-40, 40) / 10;
                 }
+
                 if (data.advancedSettings.randomX)
                 {
                     x = Random.Range(-50, 50) / 10;
                 }
+
                 dir = (new Vector3(x, y) - transform.position).normalized;
                 angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
-
             }
 
             GameObject shot = Instantiate(projectile, transform.position,
                 Quaternion.Euler(new Vector3(0, 0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
             shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
-            Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
-            projectileScript.data = data;
+            DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
+            projectileScript.SetShotData(data);
             projectileScript.player = player;
             Destroy(shot, 10);
             return projectileScript;
         }
 
-        public Projectile.Projectile ShootBasicProjectile(float speed, ShotDataObject data, float forceX, float forceY)
+        public DirectProjectile ShootBasicProjectile(float speed, ShotDataObject data, float forceX, float forceY)
         {
             Vector3 dir = (new Vector3(forceX, forceY) - transform.position).normalized;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
 
-            GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
+            GameObject shot = Instantiate(projectile, transform.position,
+                Quaternion.Euler(new Vector3(0, 0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
             shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
-            Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
-            projectileScript.data = data;
+            DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
+            projectileScript.SetShotData(data);
             projectileScript.player = player;
             Destroy(shot, 10);
             return projectileScript;
@@ -78,17 +81,16 @@ namespace Jester
 
         public void ShootBurstShot(float speed, float time, int burst, ShotDataObject data)
         {
-            Projectile.Projectile shot = ShootBasicProjectile(speed, data);
+            DirectProjectile shot = ShootBasicProjectile(speed, data);
             shot.burstTimer = time;
             shot.burst = burst;
         }
 
         public void Snipe(ShotDataObject data, float x, float y, GameObject target)
         {
-            Projectile.Projectile shot = ShootBasicProjectile(data.speed, data, x, y);
-            shot.gameObject.GetComponent<ProjectileCollision>().enabled = false;
+            DirectProjectile shot = ShootBasicProjectile(data.speed, data, x, y);
+            shot.gameObject.GetComponent<Collision>().enabled = false;
             shot.sniper = true;
-            shot.target = target;
         }
 
         public void ShootRow(float speed, float radius, int amount, ShotDataObject data)
@@ -106,7 +108,7 @@ namespace Jester
 
         public void ShootWavyShot(float speed, float frequency, int amp, ShotDataObject data)
         {
-            Projectile.Projectile shot = ShootBasicProjectile(speed, data);
+            DirectProjectile shot = ShootBasicProjectile(speed, data);
             shot.spin = true;
             shot.frequency = frequency;
             shot.amp = amp;
@@ -114,7 +116,7 @@ namespace Jester
 
         public void ShootCurvedShot(float speed, float time, float dir, int wave, ShotDataObject data)
         {
-            Projectile.Projectile shot = ShootBasicProjectile(speed, data);
+            DirectProjectile shot = ShootBasicProjectile(speed, data);
             shot.spin = true;
             shot.gravityTimer = time;
             shot.gravityDir = dir;
@@ -124,7 +126,7 @@ namespace Jester
         public void Throw(ShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
-            throwProjectile.GetComponent<ThrowProjectile>().SetData(shotData, player.transform.position);
+            throwProjectile.GetComponent<CurvedProjectile>().SetShotData(shotData, player.transform.position);
         }
     }
 }
