@@ -173,13 +173,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileRef: {fileID: 7494303468764717806}
+  player: {fileID: 0}
   burst: 0
   burstTimer: 0
   gravityTimer: 0
   gravityDir: 0
   flipAmount: 1
-  speed: 0
   spin: 0
+  sniper: 0
+  damageMod: 1
   frequency: 0
   amp: 0
 --- !u!114 &5776519899649351191

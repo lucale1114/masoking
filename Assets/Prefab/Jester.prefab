@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298c1b78c7f53be4393364e526f4916c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
+  reticlePrefab: {fileID: 5887521283410563986, guid: 647f6615a1f27f04d92bfedf88a2f8e5, type: 3}
   projectile: {fileID: 7494303468764717806, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
 --- !u!114 &-2474323719550544348
 MonoBehaviour:
@@ -118,38 +120,120 @@ MonoBehaviour:
     action: 0
     shotData:
       speed: 0
+      inaccuracy: 0
+      size: 1
+      damage: 5
+      advancedSettings:
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
       timer: 0
       frequency: 0
       amp: 0
       gravityDir: 0
       amount: 0
+      speed2: 0
       fireBetween: 0
-      inaccuracy: 0
       radius: 0
+      spin: 0
+      straight: 0
+      rebound: 0
   - timestamp: 5
     action: 2
     shotData:
       speed: 8
+      inaccuracy: 0
+      size: 1
+      damage: 5
+      advancedSettings:
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
       timer: 0
       frequency: 0
       amp: 0
       gravityDir: 0
       amount: 7
+      speed2: 0
       fireBetween: 0.5
-      inaccuracy: 0
       radius: 0
+      spin: 0
+      straight: 0
+      rebound: 0
   - timestamp: 12
     action: 1
     shotData:
       speed: 15
+      inaccuracy: 0
+      size: 1
+      damage: 5
+      advancedSettings:
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
       timer: 0
       frequency: 0
       amp: 0
       gravityDir: 0
       amount: 7
+      speed2: 0
       fireBetween: 0.5
-      inaccuracy: 0
       radius: 0
+      spin: 0
+      straight: 0
+      rebound: 0
+  shotDataObject:
+    speed: 0
+    inaccuracy: 0
+    size: 1
+    damage: 5
+    advancedSettings:
+      x: 0
+      y: 0
+      randomX: 0
+      randomY: 0
+      throwAirTime: 0
+      animationCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    timer: 0
+    frequency: 0
+    amp: 0
+    gravityDir: 0
+    amount: 0
+    speed2: 0
+    fireBetween: 0
+    radius: 0
+    spin: 0
+    straight: 0
+    rebound: 0
 --- !u!114 &3118247668702375447
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using static WaveData;
 
@@ -39,7 +40,7 @@ namespace Jester
             {
                 if (command.action == Actions.Enter) {
                     foundEnter = true;
-                } 
+                }
                 if (command.action == Actions.Leave)
                 {
                     foundLeave = true;
@@ -59,7 +60,7 @@ namespace Jester
                     {
                         additionIfOnlyFB++;
                     }
-                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount + additionIfOnlyFB * data.fireBetween) + 1f;
+                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 1f;
                 }
             }
         }
@@ -138,6 +139,9 @@ namespace Jester
                 case Actions.FireSniper:
                     StartCoroutine(FireSniper(data));
                     break;
+                case Actions.Throw:
+                    Throw(data);
+                    break;
             }
         }
 
@@ -193,6 +197,15 @@ namespace Jester
                 x = player.transform.position.x;
                 y = player.transform.position.y;
             }
+            if (data.advancedSettings.randomY)
+            {
+
+                y = Random.Range(-4.0f, 4.0f);
+            }
+            if (data.advancedSettings.randomX)
+            {
+                x = Random.Range(-5.0f, 4.0f);
+            }
             GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
@@ -208,6 +221,12 @@ namespace Jester
                 yield return new WaitForSeconds(data.fireBetween);
             }
             yield return new WaitForSeconds(3);
+        }
+
+        private void Throw(ShotDataObject data)
+        {
+            jesterAnimator.TriggerFire();
+            jesterFire.Throw(data);
         }
     }
 }
