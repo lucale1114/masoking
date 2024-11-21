@@ -100,8 +100,8 @@ namespace Jester
                           Random.Range(-data.inaccuracy, data.inaccuracy);
             for (float i = angle - radius; i < angle + radius; i += (radius / amount) * 2)
             {
-                print(i);
                 GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, i)));
+                shot.GetComponent<DirectProjectile>().SetShotData(data);
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
             }
         }
