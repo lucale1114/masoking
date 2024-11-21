@@ -17,7 +17,7 @@ namespace Managers
 
         public static void PlayHit(Vector3 position)
         {
-            AudioSource.PlayClipAtPoint(Instance._hit, position);
+            AudioSource.PlayClipAtPoint(Instance._hit, position, 1f);
         }
     }
 }
