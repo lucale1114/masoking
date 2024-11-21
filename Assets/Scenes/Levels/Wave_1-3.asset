@@ -18,10 +18,10 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 3
+    - timestamp: 2
       action: 8
       shotData:
-        speed: 30
+        speed: 12
         inaccuracy: 0
         size: 0.5
         damage: 5
@@ -40,4 +40,366 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
+        rebound: 0
+    - timestamp: 6
+      action: 8
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        advancedSettings:
+          x: 3
+          y: 0
+          randomX: 0
+          randomY: 1
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 7
+      action: 8
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        advancedSettings:
+          x: 3
+          y: 0
+          randomX: 0
+          randomY: 1
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 7.4
+      action: 8
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        advancedSettings:
+          x: 3
+          y: 0
+          randomX: 0
+          randomY: 1
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 8.4
+      action: 8
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        advancedSettings:
+          x: 3
+          y: 0
+          randomX: 0
+          randomY: 1
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 9.4
+      action: 8
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        advancedSettings:
+          x: 3
+          y: 0
+          randomX: 0
+          randomY: 1
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 10.4
+      action: 8
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        advancedSettings:
+          x: 3
+          y: 0
+          randomX: 0
+          randomY: 1
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 11
+    side: 0
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 11.5
+      action: 6
+      shotData:
+        speed: 4
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 11
+    side: 1
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 11.5
+      action: 6
+      shotData:
+        speed: 4
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 13
+    side: 3
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 13.5
+      action: 6
+      shotData:
+        speed: 6
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 13
+    side: 3
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 13.5
+      action: 6
+      shotData:
+        speed: 6
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 14
+    side: 3
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 14.5
+      action: 6
+      shotData:
+        speed: 6
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 14
+    side: 3
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 14.5
+      action: 6
+      shotData:
+        speed: 6
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 16
+    side: 2
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 16
+      action: 3
+      shotData:
+        speed: 9
+        inaccuracy: 50
+        size: -0.65
+        damage: -3
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 60
+        speed2: 0
+        fireBetween: 0.05
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 17.5
+    side: 3
+    y: -4
+    randomY: 0
+    commands:
+    - timestamp: 18.5
+      action: 2
+      shotData:
+        speed: 5
+        inaccuracy: 0
+        size: 1.5
+        damage: 10
+        advancedSettings:
+          x: 0
+          y: 0
+          randomX: 0
+          randomY: 0
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 1
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
         rebound: 0

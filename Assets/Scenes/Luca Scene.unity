@@ -988,7 +988,7 @@ Transform:
   m_GameObject: {fileID: 1010115508}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.98, y: 4.09, z: 0}
+  m_LocalPosition: {x: 2.97, y: -4.02, z: 0}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   waves: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
   debugForceWave: 3
-  SetDebugTimestamp: 0
+  SetDebugTimestamp: 10
 --- !u!4 &1108085793
 Transform:
   m_ObjectHideFlags: 0

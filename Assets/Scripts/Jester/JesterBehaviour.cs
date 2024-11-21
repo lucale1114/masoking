@@ -59,7 +59,7 @@ namespace Jester
                     {
                         additionIfOnlyFB++;
                     }
-                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount + additionIfOnlyFB * data.fireBetween) + 1f;
+                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 1f;
                 }
             }
         }
