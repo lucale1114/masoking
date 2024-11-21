@@ -30,6 +30,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -58,6 +65,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -86,6 +100,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -114,6 +135,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -142,6 +170,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -170,6 +205,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -198,6 +240,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -226,6 +275,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -254,6 +310,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -282,6 +345,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -310,6 +380,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -338,6 +415,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -366,6 +450,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -387,13 +478,20 @@ MonoBehaviour:
       shotData:
         speed: 20
         inaccuracy: 0
-        size: 0
+        size: 1
         damage: -1
         advancedSettings:
           x: 5
           y: 4
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0.6
         frequency: 0
         amp: 0
@@ -410,13 +508,20 @@ MonoBehaviour:
       shotData:
         speed: 20
         inaccuracy: 0
-        size: 0
+        size: 1
         damage: -1
         advancedSettings:
           x: 5
           y: 2
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0.6
         frequency: 0
         amp: 0
@@ -433,13 +538,20 @@ MonoBehaviour:
       shotData:
         speed: 20
         inaccuracy: 0
-        size: 0
+        size: 1
         damage: -1
         advancedSettings:
           x: 5
           y: -1
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0.6
         frequency: 0
         amp: 0
@@ -468,6 +580,13 @@ MonoBehaviour:
           y: 0
           randomX: 0
           randomY: 0
+          throwAirTime: 0
+          animationCurve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0

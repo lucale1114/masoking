@@ -21,7 +21,6 @@ namespace Jester
         // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
         public DirectProjectile ShootBasicProjectile(float speed, ShotDataObject data)
         {
-            Vector3 dir = (player.transform.position - transform.position).normalized;
             float angle = -90;
             if (data.straight)
             {
@@ -32,8 +31,8 @@ namespace Jester
             }
             else
             {
-                float x = 0;
-                float y = 0;
+                float x = player.transform.position.x;
+                float y = player.transform.position.y;
                 if (data.advancedSettings.x != 0 || data.advancedSettings.y != 0)
                 {
                     x = data.advancedSettings.x;
@@ -50,7 +49,7 @@ namespace Jester
                     x = Random.Range(-50, 50) / 10;
                 }
 
-                dir = (new Vector3(x, y) - transform.position).normalized;
+                Vector3 dir = (new Vector3(x, y) - transform.position).normalized;
                 angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
             }
 

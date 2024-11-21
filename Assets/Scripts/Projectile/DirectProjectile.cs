@@ -123,7 +123,7 @@ namespace Projectile
                 projectile.SetShotData(_data);
                 projectile.damageMod = 0.35f;
                 projectile.burstTimer = 0;
-                shot.transform.localScale *= 0.35f;
+                shot.transform.localScale *= 0.25f;
                 Destroy(shot, 10);
             }
 

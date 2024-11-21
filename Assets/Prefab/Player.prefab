@@ -333,9 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75928539b6841344dbf25984a1a1da8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  acceleration: 15
-  deceleration: 19
+  maxSpeed: 7
+  acceleration: 30
+  deceleration: 27
   currentVelocity: {x: 0, y: 0}
   dashSpeed: 5
 --- !u!114 &2903870218911091185
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c2f1689a6c47319ec31662ca3e2354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHeat: 100
+  maximumHeat: 150
   startHeat: 50
   heatDecayPerSecond: 5
   comboTimeLimit: 1
