@@ -18,6 +18,7 @@ public class WaveData : MonoBehaviour
         FireCurved,
         FireWavy,
         FireRow,
+        FireSniper,
     }
     public enum Sides
     {
@@ -101,8 +102,8 @@ public class WaveData : MonoBehaviour
         [Header("Burst Shots")]
         [Tooltip("Cloned projectile speed. This is in addition to the normal speed, so setting it negative the same value will turn it 0!")]
         public float speed2;
-        [Header("Storm Shots \n Aimed Shots")]
-        [Tooltip("Time inbetween shots for aimed and storm.")]
+        [Header("Storm Shots \n Aimed Shots \n Sniper Shots")]
+        [Tooltip("Time inbetween shots for aimed and storm. For snipe, when it should shoot.")]
         public float fireBetween;
         [Header("Row Shots")]
         [Tooltip("How much area is in the row shot.")]
