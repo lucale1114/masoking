@@ -7,8 +7,11 @@ namespace Jester
 {
     public class JesterFire : MonoBehaviour
     {
+        [SerializeField] private GameObject throwProjectilePrefab;
+
         private GameObject player;
         public GameObject projectile;
+
         // A shoot function for the jesters that can be called whenever.
         private void Start()
         {
@@ -25,7 +28,7 @@ namespace Jester
                 if (player.transform.position.x > transform.position.x)
                 {
                     angle = 90;
-                } 
+                }
             }
             else
             {
@@ -48,8 +51,9 @@ namespace Jester
                 angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
 
             }
- 
-            GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0,0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
+
+            GameObject shot = Instantiate(projectile, transform.position,
+                Quaternion.Euler(new Vector3(0, 0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
             shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
             Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
             projectileScript.data = data;
@@ -90,14 +94,16 @@ namespace Jester
         public void ShootRow(float speed, float radius, int amount, ShotDataObject data)
         {
             Vector3 dir = (player.transform.position - transform.position).normalized;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90 + Random.Range(-data.inaccuracy, data.inaccuracy);
-            for (float i = angle - radius; i < angle + radius; i += (radius/amount) * 2)
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90 +
+                          Random.Range(-data.inaccuracy, data.inaccuracy);
+            for (float i = angle - radius; i < angle + radius; i += (radius / amount) * 2)
             {
                 print(i);
                 GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, i)));
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
             }
         }
+
         public void ShootWavyShot(float speed, float frequency, int amp, ShotDataObject data)
         {
             Projectile.Projectile shot = ShootBasicProjectile(speed, data);
@@ -113,6 +119,12 @@ namespace Jester
             shot.gravityTimer = time;
             shot.gravityDir = dir;
             shot.flipAmount = wave;
+        }
+
+        public void Throw(ShotDataObject shotData)
+        {
+            var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
+            throwProjectile.GetComponent<ThrowProjectile>().SetData(shotData, player.transform.position);
         }
     }
 }

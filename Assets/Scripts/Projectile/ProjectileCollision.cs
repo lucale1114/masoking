@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Managers;
 using Player;
 using UnityEngine;
@@ -10,10 +9,12 @@ namespace Projectile
         [SerializeField] private GameObject hitVfx;
 
         private Projectile _projectile;
+        private ThrowProjectile _throwProjectile;
 
         private void Start()
         {
-           _projectile = GetComponent<Projectile>();
+            _projectile = GetComponent<Projectile>();
+            _throwProjectile = GetComponent<ThrowProjectile>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -22,10 +23,12 @@ namespace Projectile
             {
                 return;
             }
+
             if (collision.gameObject.CompareTag("Player"))
             {
+                var damage = 5 + (_projectile ? _projectile.data.damage : _throwProjectile.data.damage);
                 var closestPoint = collision.ClosestPoint(transform.position);
-                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(_projectile.data.damage + 5);
+                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                 Instantiate(hitVfx, closestPoint, Quaternion.identity);
                 SoundManager.PlayHit(closestPoint);
                 Destroy(gameObject);
