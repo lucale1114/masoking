@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Wave_1-3
   m_EditorClassIdentifier: 
   jesters:
-  - timestamp: 0
+  - timestamp: 2
     side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 0
-      action: 0
+    - timestamp: 3
+      action: 8
       shotData:
-        speed: 0
+        speed: 30
         inaccuracy: 0
-        size: 0
-        damage: 0
+        size: 0.5
+        damage: 5
         advancedSettings:
           x: 0
           y: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 0
+        fireBetween: 2
         radius: 0
         spin: 0
         straight: 0

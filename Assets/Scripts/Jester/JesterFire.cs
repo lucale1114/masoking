@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static WaveData;
 
@@ -44,6 +45,20 @@ namespace Jester
             return projectileScript;
         }
 
+        public Projectile.Projectile ShootBasicProjectile(float speed, ShotDataObject data, float forceX, float forceY)
+        {
+            Vector3 dir = (new Vector3(forceX, forceY) - transform.position).normalized;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
+
+            GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, angle + Random.Range(-data.inaccuracy, data.inaccuracy))));
+            shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
+            Projectile.Projectile projectileScript = shot.GetComponent<Projectile.Projectile>();
+            projectileScript.data = data;
+            projectileScript.player = player;
+            Destroy(shot, 10);
+            return projectileScript;
+        }
+
         public void ShootBurstShot(float speed, float time, int burst, ShotDataObject data)
         {
             Projectile.Projectile shot = ShootBasicProjectile(speed, data);
@@ -52,10 +67,11 @@ namespace Jester
             shot.burst = burst;
         }
 
-        public void Snipe(ShotDataObject data)
+        public void Snipe(ShotDataObject data, float x, float y, GameObject target)
         {
-            Projectile.Projectile shot = ShootBasicProjectile(data.speed, data);
+            Projectile.Projectile shot = ShootBasicProjectile(data.speed, data, x, y);
             shot.sniper = true;
+            shot.target = target;
         }
 
         public void ShootRow(float speed, float radius, int amount, ShotDataObject data)

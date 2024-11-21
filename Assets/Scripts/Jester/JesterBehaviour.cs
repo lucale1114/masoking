@@ -12,14 +12,15 @@ namespace Jester
         int dir;
         float currentTick;
         float leaveTime;
+        private GameObject player;
         public JesterCommand[] jesterCommands;
-
         private JesterAnimator jesterAnimator;
         public ShotDataObject shotDataObject;
 
 
         void Start()
         {
+            player = GameObject.FindGameObjectWithTag("Player");
             jesterAnimator = GetComponent<JesterAnimator>();
             jesterFire = GetComponent<JesterFire>();
             if (transform.position.x < 0)
@@ -53,7 +54,12 @@ namespace Jester
                 foreach (JesterCommand command in jesterCommands)
                 {
                     ShotDataObject data = command.shotData;
-                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount * data.fireBetween) + 1f;
+                    int additionIfOnlyFB = 0;
+                    if (data.amount == 0)
+                    {
+                        additionIfOnlyFB++;
+                    }
+                    leaveTime = (timestampEntered + (command.timestamp - timestampEntered)) + (data.amount + additionIfOnlyFB * data.fireBetween) + 1f;
                 }
             }
         }
@@ -130,7 +136,7 @@ namespace Jester
                     FireRow(data);
                     break;
                 case Actions.FireSniper:
-                    FireSniper(data);
+                    StartCoroutine(FireSniper(data));
                     break;
             }
         }
@@ -155,33 +161,42 @@ namespace Jester
         }
 
         // Shots that have gravitation which flips after some time
-        public void FireCurvedShot(ShotDataObject data)
+        private void FireCurvedShot(ShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootCurvedShot(data.speed, data.timer, data.gravityDir, 1, data);
         }
         // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
-        public void FireWavyShot(ShotDataObject data)
+        private void FireWavyShot(ShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
-        }   
+        }
         // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
-        public void FireRow(ShotDataObject data)
+        private void FireRow(ShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootRow(data.speed, data.radius, data.amount, data);
         }
         // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
-        public void FireBurst(ShotDataObject data)
+        private void FireBurst(ShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
         }
-        public void FireSniper(ShotDataObject data)
+        private IEnumerator FireSniper(ShotDataObject data)
         {
+            float x = data.advancedSettings.x;
+            float y = data.advancedSettings.y;
+            if (x == 0 && y == 0)
+            {
+                x = player.transform.position.x;
+                y = player.transform.position.y;
+            }
+            GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
+            yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
-            jesterFire.Snipe(data);
+            jesterFire.Snipe(data, x, y, target);
         }
 
         // Fires a storm of shots towards the player.
