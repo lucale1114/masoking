@@ -18,19 +18,19 @@ namespace Player
         {
             _animator.SetFloat(MoveX, x);
             _animator.SetFloat(MoveY, y);
-            _animator.Play("KingDashAnimation");
+            //_animator.Play("KingDashAnimation");
         }
 
         public void PlayIdle()
         {
-            _animator.Play("KingIdleAnimation");
+            //_animator.Play("KingIdleAnimation");
         }
 
         public void PlayMoving(float x, float y)
         {
             _animator.SetFloat(MoveX, x);
             _animator.SetFloat(MoveY, y);
-            _animator.Play("KingMoveAnimation");
+            //_animator.Play("KingMoveAnimation");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Misc
         private GameObject _wonMenu;
         private JesterSpawner _jesterSpawner;
 
-        private Image _heatBar;
+        private Slider _heatBar;
         private HeatSystem _heatSystem;
 
 
@@ -39,6 +39,8 @@ namespace Misc
             _wonMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _wonMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _wonMenu.SetActive(false);
+
+            _heatBar = GameObject.Find("HeatBar").GetComponent<Slider>();
         }
 
         private static void Restart()
@@ -60,10 +62,9 @@ namespace Misc
 
         private void Start()
         {
-            _heatBar = GameObject.Find("HeatBar").GetComponent<Image>();
             _heatSystem = FindObjectOfType<HeatSystem>();
 
-            _heatSystem.HeatChanged += heat => _heatBar.fillAmount = heat;
+            _heatSystem.HeatChanged += heat => _heatBar.value = heat;
             _jesterSpawner.FinishedLevel += () =>
             {
                 Time.timeScale = 0;

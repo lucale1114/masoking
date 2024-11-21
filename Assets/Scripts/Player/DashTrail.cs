@@ -13,7 +13,7 @@ namespace Player
 
             GetComponentInParent<Movement>().IsDashing += isDashing =>
             {
-                _trailRenderer.enabled = isDashing;
+                //_trailRenderer.enabled = isDashing;
             };
         }
     }
