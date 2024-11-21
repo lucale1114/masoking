@@ -193,6 +193,14 @@ namespace Jester
                 x = player.transform.position.x;
                 y = player.transform.position.y;
             }
+            if (data.advancedSettings.randomY)
+            {
+                y = Random.Range(-40, 40) / 10;
+            }
+            if (data.advancedSettings.randomX)
+            {
+                x = Random.Range(-50, 50) / 10;
+            }
             GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();

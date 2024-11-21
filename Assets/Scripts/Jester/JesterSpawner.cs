@@ -151,7 +151,7 @@ namespace Jester
             float y;
             if (waveObject.randomY)
             {
-                y = UnityEngine.Random.Range(-5, 5);
+                y = UnityEngine.Random.Range(-50, 50) / 10;
             }
             else
             {

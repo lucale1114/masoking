@@ -28,10 +28,22 @@ namespace Jester
             }
             else
             {
+                float x = 0;
+                float y = 0;
                 if (data.advancedSettings.x != 0 || data.advancedSettings.y != 0)
                 {
-                    dir = (new Vector3(data.advancedSettings.x, data.advancedSettings.y) - transform.position).normalized;
+                    x = data.advancedSettings.x;
+                    y = data.advancedSettings.y;
                 }
+                if (data.advancedSettings.randomY)
+                {
+                    y = Random.Range(-40, 40) / 10;
+                }
+                if (data.advancedSettings.randomX)
+                {
+                    x = Random.Range(-50, 50) / 10;
+                }
+                dir = (new Vector3(x, y) - transform.position).normalized;
                 angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
 
             }

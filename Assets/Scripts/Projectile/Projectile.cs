@@ -7,7 +7,7 @@ namespace Projectile
 {
     public class Projectile : MonoBehaviour
     {
-        private float sniperTrigger = 3;
+        private Vector3 sniperTrigger;
 
         public GameObject projectileRef;
         public GameObject player;
@@ -56,7 +56,7 @@ namespace Projectile
             if (sniper)
             {
                 gameObject.GetComponent<Collider2D>().enabled = false;
-                sniperTrigger = (data.speed / 10) * 0.45f;
+                sniperTrigger = new Vector3(x, y);
                 InvokeRepeating("Sniper", 0, 0.0001f);
             }
 
@@ -73,7 +73,7 @@ namespace Projectile
                 return;
             }
             Vector3 pos = transform.position;
-            if ((x - sniperTrigger < pos.x && x + sniperTrigger > pos.x) && (y - sniperTrigger < pos.y && y + sniperTrigger > pos.y)) {
+            if ((pos - sniperTrigger).magnitude < 3) {
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 Destroy(target);
                 sniper = false;
