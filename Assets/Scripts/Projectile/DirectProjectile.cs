@@ -113,9 +113,11 @@ namespace Projectile
             {
                 GameObject shot = Instantiate(projectileRef, transform.position, Quaternion.Euler(0, 0, i));
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (_data.speed2 + _data.speed);
-                shot.GetComponent<IProjectile>().GetShotData().damage = _data.damage / 2;
-                shot.GetComponent<IProjectile>().GetShotData().timer = 0;
-                shot.GetComponent<IProjectile>().GetShotData().size = _data.size * 0.75f;
+                DirectProjectile projectile = shot.GetComponent<DirectProjectile>();
+                projectile.SetShotData(_data);
+                projectile.GetShotData().damage = _data.damage / 2;
+                projectile.burstTimer = 0;
+                projectile.GetShotData().size = _data.size * 0.75f;
                 Destroy(shot, 10);
             }
 

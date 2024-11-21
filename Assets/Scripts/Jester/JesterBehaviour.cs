@@ -199,11 +199,12 @@ namespace Jester
             }
             if (data.advancedSettings.randomY)
             {
-                y = Random.Range(-40, 40) / 10;
+
+                y = Random.Range(-4.0f, 4.0f);
             }
             if (data.advancedSettings.randomX)
             {
-                x = Random.Range(-50, 50) / 10;
+                x = Random.Range(-5.0f, 4.0f);
             }
             GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
             yield return new WaitForSeconds(data.fireBetween);
