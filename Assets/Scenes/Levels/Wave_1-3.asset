@@ -747,7 +747,7 @@ MonoBehaviour:
         amp: 5
         gravityDir: 0
         amount: 16
-        speed2: -18
+        speed2: -15.5
         fireBetween: 0
         radius: 0
         spin: 0

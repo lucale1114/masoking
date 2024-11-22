@@ -1130,7 +1130,7 @@ MonoBehaviour:
   jester: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
   waves: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
-  debugForceWave: 3
+  debugForceWave: 0
   SetDebugTimestamp: 0
 --- !u!1001 &8214112238525444483
 PrefabInstance:
@@ -1141,12 +1141,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: startHeat
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: maximumHeat
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: heatDecayPerSecond
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: acceleration
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: deceleration
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name
