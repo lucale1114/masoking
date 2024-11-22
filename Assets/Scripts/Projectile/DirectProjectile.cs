@@ -121,7 +121,7 @@ namespace Projectile
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (_data.speed2 + _data.speed);
                 DirectProjectile projectile = shot.GetComponent<DirectProjectile>();
                 projectile.SetShotData(_data);
-                projectile.damageMod = 0.35f;
+                projectile.damageMod = 0.5f;
                 projectile.burstTimer = 0;
                 shot.transform.localScale *= 0.25f;
                 Destroy(shot, 10);
