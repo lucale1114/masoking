@@ -63,6 +63,8 @@ namespace Player
             }
 
             _currentHeat += amount * _comboMultiplier;
+            _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
+
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
 
             if (_currentHeat <= 0)
@@ -76,10 +78,7 @@ namespace Player
                 TakenDamage?.Invoke();
             }
 
-            if (_comboMultiplier >= 2)
-            {
-                ComboMultiplierChanged?.Invoke(_comboMultiplier);
-            }
+            ComboMultiplierChanged?.Invoke(_comboMultiplier);
         }
 
         private float GetCurrentHeatNormalized()

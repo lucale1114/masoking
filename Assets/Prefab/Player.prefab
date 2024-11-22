@@ -333,9 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75928539b6841344dbf25984a1a1da8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
-  acceleration: 30
-  deceleration: 27
+  maxSpeed: 5
+  acceleration: 75
+  deceleration: 75
   currentVelocity: {x: 0, y: 0}
   dashSpeed: 5
 --- !u!114 &2903870218911091185
@@ -350,12 +350,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c2f1689a6c47319ec31662ca3e2354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHeat: 250
+  maximumHeat: 100
   startHeat: 50
-  heatDecayPerSecond: 6
+  heatDecayPerSecond: 4
   comboTimeLimit: 1
   comboMultiplierIncrease: 0.1
-  dashHeatCost: 5
+  dashHeatCost: 3
   invincible: 0
 --- !u!222 &444254654661747928
 CanvasRenderer:
