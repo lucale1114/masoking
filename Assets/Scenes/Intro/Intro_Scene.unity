@@ -142,6 +142,7 @@ MonoBehaviour:
   moveTextMesh: {fileID: 1268850764}
   DashTextMesh: {fileID: 65355457}
   dashwallTextMesh: {fileID: 679095713}
+  movement: {fileID: 1993662373}
 --- !u!224 &14378992 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6132910908955807006, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
@@ -1814,6 +1815,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1993662373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+  m_PrefabInstance: {fileID: 542414023}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75928539b6841344dbf25984a1a1da8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2145938190
 GameObject:
   m_ObjectHideFlags: 0
