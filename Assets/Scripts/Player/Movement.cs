@@ -9,10 +9,10 @@ namespace Player
         public Action<bool> IsDashing;
         public bool IsCurentlyDashing => isDashing;
         public float maxSpeed = 5f;
-        public float acceleration = 10f;
-        public float deceleration = 4f;
+        public float acceleration = 75f;
+        public float deceleration = 75f;
         public Vector2 currentVelocity;
-        
+
         private Rigidbody2D rb;
         private Vector2 moveInput;
         private readonly float currentSpeed = 0f;
@@ -22,8 +22,7 @@ namespace Player
         private readonly float dashTime = 0.2f;
         private readonly float dashCoolDown = 0;
 
-        [SerializeField]
-        private float dashSpeed = 5f;
+        [SerializeField] private float dashSpeed = 5f;
 
         private PlayerAnimator playerAnimator;
 
