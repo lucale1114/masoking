@@ -14,6 +14,7 @@ namespace Jester
         int dir;
         float currentTick;
         float leaveTime;
+        public float enterTimestamp;
         private GameObject player;
         public JesterCommand[] jesterCommands;
         private JesterAnimator jesterAnimator;
@@ -81,7 +82,7 @@ namespace Jester
         {
             foreach (JesterCommand command in jesterCommands)
             {
-                if (Mathf.Approximately(command.timestamp, Timestamp))
+                if (Mathf.Approximately(command.timestamp + enterTimestamp, Timestamp))
                 {
                     PerformAction(command.action, command.shotData);
                 }
@@ -153,7 +154,7 @@ namespace Jester
         void LeavePlayfield()
         {
             transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
-            Destroy(gameObject, 2);
+            Destroy(gameObject, 1.5f);
         }
         // Shots that are aimed towards the player
         IEnumerator FireAimedShots(ShotDataObject data)

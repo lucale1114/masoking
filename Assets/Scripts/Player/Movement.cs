@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using static WaveData;
 
 namespace Player
 {
@@ -12,7 +13,6 @@ namespace Player
         public float acceleration = 10f;
         public float deceleration = 4f;
         public Vector2 currentVelocity;
-        
         private Rigidbody2D rb;
         private Vector2 moveInput;
         private readonly float currentSpeed = 0f;
@@ -21,6 +21,8 @@ namespace Player
         private bool isDashing;
         private readonly float dashTime = 0.2f;
         private readonly float dashCoolDown = 0;
+        private float currentTimestamp = 0f;
+        public float dashPower;
 
         [SerializeField]
         private float dashSpeed = 5f;
@@ -48,7 +50,10 @@ namespace Player
             {
                 StartCoroutine(Dash());
             }
+            if (currentTimestamp != Timestamp)
+            {
 
+            }
             if (!isDashing)
             {
                 if (Mathf.Approximately(rb.velocity.magnitude, 0))
