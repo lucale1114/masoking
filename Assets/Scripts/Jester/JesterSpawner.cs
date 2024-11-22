@@ -37,11 +37,11 @@ namespace Jester
                     float timestampspawn = command.timestamp;
                     foreach (JesterCommand com in command.commands)
                     {
-                        com.timestamp = Mathf.Round(com.timestamp - timestampspawn);
+                        com.timestamp = Mathf.Round((com.timestamp - timestampspawn) * 10.0f) * 0.1f;
                     }
                 }
             }*/
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugForceWave > 0)
             {
                 waveNumber = debugForceWave - 1;

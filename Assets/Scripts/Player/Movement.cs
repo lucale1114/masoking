@@ -22,7 +22,7 @@ namespace Player
         private readonly float dashTime = 0.2f;
         private readonly float dashCoolDown = 0;
         private float currentTimestamp = 0f;
-        public float dashPower;
+        public float dashPower = 3.0f;
 
         [SerializeField]
         private float dashSpeed = 5f;
@@ -45,14 +45,16 @@ namespace Player
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
-
-            if (Input.GetKeyDown(KeyCode.Space) && canDash)
+            print(dashPower);
+            if (Input.GetKeyDown(KeyCode.Space) && canDash && dashPower >= 1)
             {
+                dashPower -= 1f;
                 StartCoroutine(Dash());
             }
             if (currentTimestamp != Timestamp)
             {
-
+                currentTimestamp = Timestamp;
+                dashPower = Mathf.Min(dashPower + 0.025f, 3);
             }
             if (!isDashing)
             {
