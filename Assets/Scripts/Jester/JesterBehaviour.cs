@@ -36,39 +36,23 @@ namespace Jester
                 dir = -1;
             }
             float timestampEntered = Timestamp;
-            bool foundEnter = false;
-            bool foundLeave = false;
+
+            Invoke("ForceEnter", 0.01f);
             foreach (JesterCommand command in jesterCommands)
             {
-                if (command.action == Actions.Enter) {
-                    foundEnter = true;
-                }
-                if (command.action == Actions.Leave)
+                ShotDataObject data = command.shotData;
+                int additionIfOnlyFB = 0;
+                if (data.amount == 0)
                 {
-                    foundLeave = true;
+                    additionIfOnlyFB++;
                 }
-            }
-            if (!foundEnter)
-            {
-                Invoke("ForceEnter", 0.01f);
-            }
-            if (!foundLeave)
-            {
-                foreach (JesterCommand command in jesterCommands)
-                {
-                    ShotDataObject data = command.shotData;
-                    int additionIfOnlyFB = 0;
-                    if (data.amount == 0)
-                    {
-                        additionIfOnlyFB++;
-                    }
-                    leaveTime = (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 1f);
-                }
+                leaveTime = (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 1f);
             }
         }
         void ForceEnter()
         {
-            PerformAction(Actions.Enter, new ShotDataObject());
+            jesterAnimator.SetMoving();
+            MoveIntoPlayfield();
         }
 
         private void FlipDirection()
@@ -89,7 +73,8 @@ namespace Jester
             }
             if (Mathf.Approximately(leaveTime, Timestamp))
             {
-                PerformAction(Actions.Leave, new ShotDataObject());
+                jesterAnimator.SetMoving();
+                LeavePlayfield();
             }
         }
 
@@ -103,23 +88,10 @@ namespace Jester
 
         void PerformAction(Actions action, ShotDataObject data)
         {
-            if (action is Actions.Enter or Actions.Leave)
-            {
-                jesterAnimator.SetMoving();
-            }
-            else
-            {
-                jesterAnimator.SetIdle();
-            }
+            jesterAnimator.SetIdle();
 
             switch (action)
             {
-                case Actions.Enter:
-                    MoveIntoPlayfield();
-                    break;
-                case Actions.Leave:
-                    LeavePlayfield();
-                    break;
                 case Actions.FireAimed:
                     StartCoroutine(FireAimedShots(data));
                     break;
@@ -147,11 +119,11 @@ namespace Jester
             }
         }
 
-        void MoveIntoPlayfield()
+        private void MoveIntoPlayfield()
         {
             transform.DOLocalMoveX(transform.position.x + 2 * dir, 2);
         }
-        void LeavePlayfield()
+        private void LeavePlayfield()
         {
             transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
             Destroy(gameObject, 1.5f);

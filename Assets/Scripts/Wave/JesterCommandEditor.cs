@@ -34,9 +34,6 @@ namespace Wave
 
             switch (jesterCommand!.action)
             {
-                case WaveData.Actions.Enter:
-                case WaveData.Actions.Leave:
-                    break;
                 case WaveData.Actions.FireAimed:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
                     AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
