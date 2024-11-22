@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8691529261452495159
+--- !u!114 &-4906238334314196026
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TwirlMaterial
+  m_Name: EBborder
   m_Shader: {fileID: -6465566751694194690, guid: db8a9f5fa60a9fe4bb10340fb503d6f2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8bcb489860c930d449ea304df4017f39, type: 3}
+        m_Texture: {fileID: 2800000, guid: 456d248a564158744a13d95d6431b478, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -54,27 +54,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 1
-    - _AlphaToMask: 1
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
     - _MoveX: 0
     - _MoveY: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _Twirl: 2.44
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
+    - _Twirl: 0
     m_Colors:
-    - _Color_1: {r: 0.3274546, g: 0.36174902, b: 0.4264151, a: 0}
-    - _Color_2: {r: 0.21494482, g: 0.23760816, b: 0.3283019, a: 0}
-    - _Color_3: {r: 0.46776077, g: 0.54351455, b: 0.690566, a: 0}
-    - _Color_4: {r: 0.36688453, g: 0.30814523, b: 0.4264151, a: 0}
-    - _Direction: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_2: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_3: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_4: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
