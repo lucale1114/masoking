@@ -30,7 +30,18 @@ namespace Jester
         // Spawns jesters either on the left side or right side and uses a random Y axis.
         void Start()
         {
-            #if UNITY_EDITOR
+            /*foreach (Gameplay.Wave wave in waves.waves)
+            {
+                foreach (JesterData command in wave.jesters)
+                {
+                    float timestampspawn = command.timestamp;
+                    foreach (JesterCommand com in command.commands)
+                    {
+                        com.timestamp = Mathf.Round((com.timestamp - timestampspawn) * 10.0f) * 0.1f;
+                    }
+                }
+            }*/
+#if UNITY_EDITOR
             if (debugForceWave > 0)
             {
                 waveNumber = debugForceWave - 1;
@@ -79,7 +90,7 @@ namespace Jester
             }
             if (waveEnded)
             {
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && Timestamp > waveEndTime + 6)
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && Timestamp > waveEndTime + 2)
                 {
                     waveNumber++;
                     if (waveNumber == waves.waves.Length)
@@ -158,6 +169,7 @@ namespace Jester
                 y = waveObject.y;
             }
             GameObject newJester = Instantiate(jester, new Vector3(x, y), jester.transform.rotation);
+            newJester.GetComponent<JesterBehaviour>().enterTimestamp = Timestamp;
             newJester.GetComponent<JesterBehaviour>().jesterCommands = waveObject.commands;
         }
     }

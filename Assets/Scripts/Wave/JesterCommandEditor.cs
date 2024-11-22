@@ -30,12 +30,10 @@ namespace Wave
                 visualElement.RemoveAt(1);
             }
 
+            AddProperty(property, visualElement, "timestamp", "Timestamp");
+
             switch (jesterCommand!.action)
             {
-                case WaveData.Actions.Enter:
-                case WaveData.Actions.Leave:
-                    AddProperty(property, visualElement, "timestamp", "Timestamp");
-                    break;
                 case WaveData.Actions.FireAimed:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
                     AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");

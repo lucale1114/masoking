@@ -14,7 +14,7 @@ namespace Projectile
         private void Start()
         {
             _projectile = GetComponent<IProjectile>();
-        }
+        } 
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

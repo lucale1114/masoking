@@ -9,8 +9,6 @@ public class WaveData : MonoBehaviour
 
     public enum Actions
     {
-        Enter,
-        Leave,
         FireAimed,
         FireStorm,
         FireBurst,

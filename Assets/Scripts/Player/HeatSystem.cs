@@ -11,12 +11,12 @@ namespace Player
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
 
-        [SerializeField] private float maximumHeat = 150;
+        [SerializeField] private float maximumHeat = 100;
         [SerializeField] private float startHeat = 50;
-        [SerializeField] private float heatDecayPerSecond = 1;
+        [SerializeField] private float heatDecayPerSecond = 4;
         [SerializeField] private float comboTimeLimit = 1;
         [SerializeField] private float comboMultiplierIncrease = .1f;
-        [SerializeField] private float dashHeatCost = 5;
+        [SerializeField] private float dashHeatCost = 3;
 
         public bool invincible;
 
@@ -32,7 +32,7 @@ namespace Player
             {
                 if (isDashing)
                 {
-                    ChangeHeat(-dashHeatCost);
+                    //ChangeHeat(-dashHeatCost);
                 }
             };
             StartCoroutine(HeatDecayRoutine());
@@ -63,6 +63,8 @@ namespace Player
             }
 
             _currentHeat += amount * _comboMultiplier;
+            _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
+
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
 
             if (_currentHeat <= 0)
@@ -76,10 +78,7 @@ namespace Player
                 TakenDamage?.Invoke();
             }
 
-            if (_comboMultiplier >= 2)
-            {
-                ComboMultiplierChanged?.Invoke(_comboMultiplier);
-            }
+            ComboMultiplierChanged?.Invoke(_comboMultiplier);
         }
 
         private float GetCurrentHeatNormalized()
