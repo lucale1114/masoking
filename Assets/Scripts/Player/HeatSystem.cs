@@ -32,7 +32,7 @@ namespace Player
             {
                 if (isDashing)
                 {
-                    ChangeHeat(-dashHeatCost);
+                    //ChangeHeat(-dashHeatCost);
                 }
             };
             StartCoroutine(HeatDecayRoutine());
