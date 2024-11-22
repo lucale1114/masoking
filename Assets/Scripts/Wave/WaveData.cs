@@ -60,7 +60,6 @@ public class WaveData : MonoBehaviour
         [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
         public bool randomY;
 
-        [Header("Throw")]
         [Tooltip("Time in air for throws.")] public float throwAirTime;
         [Tooltip("Curve for throws.")] public AnimationCurve animationCurve;
     }
@@ -79,7 +78,7 @@ public class WaveData : MonoBehaviour
     [Serializable]
     public class ShotDataObject
     {
-        [Header("All Projectiles")] [Tooltip("Speed of the projectile. Everything uses it in floats.")]
+        [Tooltip("Speed of the projectile. Everything uses it in floats.")]
         public float speed;
 
         [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
@@ -95,39 +94,32 @@ public class WaveData : MonoBehaviour
         [Tooltip("More configuration. Space is valuable!")]
         public AdvancedProjectile advancedSettings;
 
-
-        [Header("Curved Shots \n Burst Shots")]
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;
 
-        [Header("Wave Shots")] [Tooltip("Cosine wave settings for wave shot.")]
+        [Tooltip("Cosine wave settings for wave shot.")]
         public float frequency;
 
         [Tooltip("Cosine wave settings for wave shot.")]
         public int amp;
 
-        [Header("Curved Shots")] [Tooltip("The speed curved shots move at. Set to negative to reverse gravity.")]
+        [Tooltip("The speed curved shots move at. Set to negative to reverse gravity.")]
         public float gravityDir;
 
-        [Header("Aimed Shots \n Burst Shots \n Row Shots \n Storm Shots")]
         [Tooltip(
             "Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
 
-        [Header("Burst Shots")]
         [Tooltip(
             "Cloned projectile speed. This is in addition to the normal speed, so setting it negative the same value will turn it 0!")]
         public float speed2;
 
-        [Header("Storm Shots \n Aimed Shots \n Sniper Shots")]
         [Tooltip("Time inbetween shots for aimed and storm. For snipe, when it should shoot.")]
         public float fireBetween;
 
-        [Header("Row Shots")] [Tooltip("How much area is in the row shot.")]
+        [Tooltip("How much area is in the row shot.")]
         public int radius;
 
-        [Space(15)]
-        [Header("All Projectiles")]
         [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
         public bool spin;
 
