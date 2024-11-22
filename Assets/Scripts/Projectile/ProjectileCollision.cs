@@ -7,6 +7,7 @@ namespace Projectile
     public class Collision : MonoBehaviour
     {
         [SerializeField] private GameObject hitVfx;
+        [SerializeField] private AudioClip[] Slashes;
 
         private IProjectile _projectile;
 
@@ -24,7 +25,8 @@ namespace Projectile
                 var closestPoint = collision.ClosestPoint(transform.position);
                 collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                 Instantiate(hitVfx, closestPoint, Quaternion.identity);
-                SoundManager.PlayHit(closestPoint);
+                //SoundManager.PlayHit(closestPoint);
+                SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f );
                 Destroy(gameObject);
             }
         }
