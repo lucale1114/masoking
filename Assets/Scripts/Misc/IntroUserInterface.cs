@@ -4,6 +4,7 @@ using Player;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Misc
@@ -19,6 +20,8 @@ namespace Misc
         private GameObject _pauseMenu;
         private bool hasMoved;
         private bool hasDashed;
+        public Movement movement;
+        public GameManager gameManager;
 
         private void Awake()
         {
@@ -102,5 +105,20 @@ namespace Misc
             hasMoved = true;
 
         }
+        public void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Wall"))
+            {
+                movement.currentVelocity = Vector2.zero;
+            }
+            if (other.gameObject.CompareTag("Destroy") && movement.IsCurentlyDashing)
+
+            {
+                Destroy(other.gameObject);
+               // gameManager.LoadLevel(); 
+            }
+        }
+
+       
     }
 }
