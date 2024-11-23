@@ -18,7 +18,7 @@ MonoBehaviour:
     y: 2
     commands:
     - timestamp: 5
-      action: 2
+      action: 0
       shotData:
         speed: 5
         inaccuracy: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     y: 2
     commands:
     - timestamp: 3
-      action: 2
+      action: 0
       shotData:
         speed: 5
         inaccuracy: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
     y: -5
     commands:
     - timestamp: 10
-      action: 2
+      action: 0
       shotData:
         speed: 5
         inaccuracy: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     y: 5
     commands:
     - timestamp: 6
-      action: 2
+      action: 0
       shotData:
         speed: 5
         inaccuracy: 0

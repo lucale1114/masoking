@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave_1-3
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   jesters:
   - timestamp: 2
     side: 0
@@ -19,7 +19,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 2
-      action: 8
+      action: 6
       shotData:
         speed: 12
         inaccuracy: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
         straight: 0
         rebound: 0
     - timestamp: 6
-      action: 8
+      action: 6
       shotData:
         speed: 25
         inaccuracy: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
         straight: 0
         rebound: 0
     - timestamp: 7
-      action: 8
+      action: 6
       shotData:
         speed: 25
         inaccuracy: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
         straight: 0
         rebound: 0
     - timestamp: 7.4
-      action: 8
+      action: 6
       shotData:
         speed: 25
         inaccuracy: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
         straight: 0
         rebound: 0
     - timestamp: 8.4
-      action: 8
+      action: 6
       shotData:
         speed: 25
         inaccuracy: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
         straight: 0
         rebound: 0
     - timestamp: 9.4
-      action: 8
+      action: 6
       shotData:
         speed: 25
         inaccuracy: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
         straight: 0
         rebound: 0
     - timestamp: 10.4
-      action: 8
+      action: 6
       shotData:
         speed: 25
         inaccuracy: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 13.5
-      action: 6
+      action: 4
       shotData:
         speed: 4
         inaccuracy: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 13.5
-      action: 6
+      action: 4
       shotData:
         speed: 4
         inaccuracy: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 14.5
-      action: 6
+      action: 4
       shotData:
         speed: 6
         inaccuracy: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 14.5
-      action: 6
+      action: 4
       shotData:
         speed: 6
         inaccuracy: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 15.5
-      action: 6
+      action: 4
       shotData:
         speed: 6
         inaccuracy: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 15.5
-      action: 6
+      action: 4
       shotData:
         speed: 6
         inaccuracy: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 18
-      action: 3
+      action: 1
       shotData:
         speed: 9
         inaccuracy: 50
@@ -479,7 +479,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 20
-      action: 2
+      action: 0
       shotData:
         speed: 5
         inaccuracy: 0
@@ -514,7 +514,7 @@ MonoBehaviour:
     randomY: 1
     commands:
     - timestamp: 22
-      action: 7
+      action: 5
       shotData:
         speed: 6
         inaccuracy: 8
@@ -549,7 +549,7 @@ MonoBehaviour:
     randomY: 1
     commands:
     - timestamp: 24
-      action: 7
+      action: 5
       shotData:
         speed: 6
         inaccuracy: 8
@@ -584,7 +584,7 @@ MonoBehaviour:
     randomY: 1
     commands:
     - timestamp: 24.5
-      action: 2
+      action: 0
       shotData:
         speed: 5
         inaccuracy: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
     randomY: 1
     commands:
     - timestamp: 26
-      action: 7
+      action: 5
       shotData:
         speed: 6
         inaccuracy: 8
@@ -654,7 +654,7 @@ MonoBehaviour:
     randomY: 1
     commands:
     - timestamp: 28
-      action: 7
+      action: 5
       shotData:
         speed: 6
         inaccuracy: 8
@@ -689,7 +689,7 @@ MonoBehaviour:
     randomY: 1
     commands:
     - timestamp: 29
-      action: 8
+      action: 6
       shotData:
         speed: 20
         inaccuracy: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 32
-      action: 4
+      action: 2
       shotData:
         speed: 20
         inaccuracy: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 35
-      action: 2
+      action: 0
       shotData:
         speed: 6
         inaccuracy: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 35
-      action: 2
+      action: 0
       shotData:
         speed: 6
         inaccuracy: 0
