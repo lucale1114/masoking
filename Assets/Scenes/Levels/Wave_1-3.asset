@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave_1-3
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   jesters:
   - timestamp: 2
     side: 0
@@ -25,18 +25,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -55,18 +54,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 3
-          y: 0
-          randomX: 0
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -85,18 +83,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 3
-          y: 0
-          randomX: 0
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -115,18 +112,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 3
-          y: 0
-          randomX: 0
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -145,18 +141,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 3
-          y: 0
-          randomX: 0
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -175,18 +170,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 3
-          y: 0
-          randomX: 0
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -205,18 +199,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 5
-        advancedSettings:
-          x: 3
-          y: 0
-          randomX: 0
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -240,18 +233,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -275,18 +267,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -310,18 +301,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -345,18 +335,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -380,18 +369,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -415,18 +403,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -450,18 +437,17 @@ MonoBehaviour:
         inaccuracy: 50
         size: -0.65
         damage: -4
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -485,18 +471,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1.5
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -520,18 +505,17 @@ MonoBehaviour:
         inaccuracy: 8
         size: 0
         damage: 0
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -555,18 +539,17 @@ MonoBehaviour:
         inaccuracy: 8
         size: 0
         damage: 0
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -590,18 +573,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0.5
         damage: 0
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -625,18 +607,17 @@ MonoBehaviour:
         inaccuracy: 8
         size: 0
         damage: -2
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -660,18 +641,17 @@ MonoBehaviour:
         inaccuracy: 8
         size: 0
         damage: 0
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -695,18 +675,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1
         damage: 10
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 1
-          randomY: 1
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 1
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 3
         amp: 5
@@ -730,18 +709,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 1.5
         damage: 5
-        advancedSettings:
-          x: 0
-          y: 3
-          randomX: 1
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 3
+        randomX: 1
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0.3
         frequency: 3
         amp: 5
@@ -765,18 +743,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0
         damage: 0
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0.3
         frequency: 3
         amp: 5
@@ -800,18 +777,17 @@ MonoBehaviour:
         inaccuracy: 0
         size: 0
         damage: 0
-        advancedSettings:
-          x: 0
-          y: 0
-          randomX: 0
-          randomY: 0
-          throwAirTime: 0
-          animationCurve:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0.3
         frequency: 3
         amp: 5

@@ -37,32 +37,6 @@ public class WaveData : MonoBehaviour
     }
 
     [Serializable]
-    public class AdvancedJester
-    {
-    }
-
-    [Serializable]
-    public class AdvancedProjectile
-    {
-        [Tooltip(
-            "Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
-        public float x;
-
-        [Tooltip(
-            "Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
-        public float y;
-
-        [Tooltip("Picks a random position on the field to shoot at horizontally. Range: -5 to 5.")]
-        public bool randomX;
-
-        [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
-        public bool randomY;
-
-        [Tooltip("Time in air for throws.")] public float throwAirTime;
-        [Tooltip("Curve for throws.")] public AnimationCurve animationCurve;
-    }
-
-    [Serializable]
     public class JesterData
     {
         public float timestamp;
@@ -89,8 +63,25 @@ public class WaveData : MonoBehaviour
             "How much this fills up the heat meter. This value is actually 5, which means -5 will actually make this 0, so don't do that!")]
         public float damage = 5;
 
-        [Tooltip("More configuration. Space is valuable!")]
-        public AdvancedProjectile advancedSettings;
+        [Tooltip(
+            "Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
+        public float x;
+
+        [Tooltip(
+            "Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]
+        public float y;
+
+        [Tooltip("Picks a random position on the field to shoot at horizontally. Range: -5 to 5.")]
+        public bool randomX;
+
+        [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
+        public bool randomY;
+
+        [Tooltip("Time in air for throws.")]
+        public float throwAirTime;
+
+        [Tooltip("Curve for throws.")]
+        public AnimationCurve animationCurve;
 
         [Tooltip("For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
         public float timer;

@@ -33,18 +33,18 @@ namespace Jester
             {
                 float x = player.transform.position.x;
                 float y = player.transform.position.y;
-                if (data.advancedSettings.x != 0 || data.advancedSettings.y != 0)
+                if (data.x != 0 || data.y != 0)
                 {
-                    x = data.advancedSettings.x;
-                    y = data.advancedSettings.y;
+                    x = data.x;
+                    y = data.y;
                 }
 
-                if (data.advancedSettings.randomY)
+                if (data.randomY)
                 {
                     y = Random.Range(-40, 40) / 10;
                 }
 
-                if (data.advancedSettings.randomX)
+                if (data.randomX)
                 {
                     x = Random.Range(-50, 50) / 10;
                 }
