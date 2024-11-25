@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using static WaveData;
 
 namespace Player
@@ -23,15 +24,21 @@ namespace Player
         private readonly float dashCoolDown = 0;
         private float currentTimestamp = 0f;
         public float dashPower = 3.0f;
+        private float dashUnitBar = 174f;
+        private Slider dashFill1;
+        private Slider dashFill2;
+        private Slider dashFill3;
 
         [SerializeField] private float dashSpeed = 5f;
 
         private PlayerAnimator playerAnimator;
-
         void Start()
         {
             playerAnimator = GetComponent<PlayerAnimator>();
             rb = GetComponent<Rigidbody2D>();
+            dashFill1 = GameObject.Find("Fill1").transform.parent.GetComponent<Slider>();
+            dashFill2 = GameObject.Find("Fill2").transform.parent.GetComponent<Slider>();
+            dashFill3 = GameObject.Find("Fill3").transform.parent.GetComponent<Slider>();
         }
 
         void Update()
@@ -44,16 +51,17 @@ namespace Player
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
-            print(dashPower);
             if (Input.GetKeyDown(KeyCode.Space) && canDash && dashPower >= 1)
             {
                 dashPower -= 1f;
+                UpdateBars();
                 StartCoroutine(Dash());
             }
             if (currentTimestamp != Timestamp)
             {
                 currentTimestamp = Timestamp;
                 dashPower = Mathf.Min(dashPower + 0.025f, 3);
+                UpdateBars();
             }
             if (!isDashing)
             {
@@ -66,6 +74,13 @@ namespace Player
                     playerAnimator.PlayMoving(moveInput.x, moveInput.y);
                 }
             }
+        }
+
+        void UpdateBars()
+        {
+            dashFill1.value = dashPower - 2;
+            dashFill2.value = dashPower - 1;
+            dashFill3.value = dashPower;
         }
 
         void FixedUpdate()
