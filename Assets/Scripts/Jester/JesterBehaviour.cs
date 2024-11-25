@@ -164,19 +164,19 @@ namespace Jester
         }
         private IEnumerator FireSniper(ShotDataObject data)
         {
-            float x = data.advancedSettings.x;
-            float y = data.advancedSettings.y;
+            float x = data.x;
+            float y = data.y;
             if (x == 0 && y == 0)
             {
                 x = player.transform.position.x;
                 y = player.transform.position.y;
             }
-            if (data.advancedSettings.randomY)
+            if (data.randomY)
             {
 
                 y = Random.Range(-4.0f, 4.0f);
             }
-            if (data.advancedSettings.randomX)
+            if (data.randomX)
             {
                 x = Random.Range(-5.0f, 4.0f);
             }
