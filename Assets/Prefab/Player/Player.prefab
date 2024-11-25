@@ -275,7 +275,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f1cf04eecdb9d084daced465e22890ee, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   acceleration: 75
   deceleration: 75
   currentVelocity: {x: 0, y: 0}
+  dashPower: 3
   dashSpeed: 5
 --- !u!114 &2903870218911091185
 MonoBehaviour:

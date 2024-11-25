@@ -139,6 +139,14 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
+                case WaveData.Actions.ThrowAndRoll:
+                    AddProperty(property, visualElement, "shotData.damage", "Damage");
+                    AddProperty(property, visualElement, "shotData.speed", "Speed");
+                    AddProperty(property, visualElement, "shotData.x", "X");
+                    AddProperty(property, visualElement, "shotData.y", "Y");
+                    AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
+                    AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
+                    break;
             }
         }
 

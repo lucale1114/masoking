@@ -16,7 +16,8 @@ public class WaveData : MonoBehaviour
         FireWavy,
         FireRow,
         FireSniper,
-        Throw
+        Throw,
+        ThrowAndRoll
     }
 
     public enum Sides

@@ -1,4 +1,5 @@
 using Projectile;
+using Unity.VisualScripting;
 using UnityEngine;
 using static WaveData;
 using Collision = Projectile.Collision;
@@ -8,6 +9,7 @@ namespace Jester
     public class JesterFire : MonoBehaviour
     {
         [SerializeField] private GameObject throwProjectilePrefab;
+        [SerializeField] private GameObject throwAndRollProjectilePrefab;
 
         private GameObject player;
         public GameObject projectile;
@@ -126,7 +128,13 @@ namespace Jester
         public void Throw(ShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
-            throwProjectile.GetComponent<CurvedProjectile>().SetShotData(shotData, player.transform.position);
+            throwProjectile.GetComponent<Pin>().SetShotData(shotData, player.transform.position);
+        }
+
+        public void ThrowAndRoll(ShotDataObject shotData)
+        {
+            var throwProjectile = Instantiate(throwAndRollProjectilePrefab, transform.position, Quaternion.identity);
+            throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, player.transform.position);
         }
     }
 }
