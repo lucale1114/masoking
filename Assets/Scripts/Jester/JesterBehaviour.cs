@@ -116,6 +116,9 @@ namespace Jester
                 case Actions.Throw:
                     Throw(data);
                     break;
+                case Actions.ThrowAndRoll:
+                    ThrowAndRoll(data);
+                    break;
             }
         }
 
@@ -202,5 +205,12 @@ namespace Jester
             jesterAnimator.TriggerFire();
             jesterFire.Throw(data);
         }
+
+        private void ThrowAndRoll(ShotDataObject data)
+        {
+            jesterAnimator.TriggerFire();
+            jesterFire.ThrowAndRoll(data);
+        }
+
     }
 }

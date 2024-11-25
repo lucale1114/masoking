@@ -19,12 +19,12 @@ namespace Projectile
         private Collider2D _collider;
 
         private GameObject _shadow;
-        private GameObject _reticle;
+        protected GameObject Reticle;
 
         protected float CurrentTime;
         private readonly float _damageMod = 1;
 
-        private Vector2 _direction;
+        protected Vector2 Direction;
 
         private void Awake()
         {
@@ -65,10 +65,10 @@ namespace Projectile
             Destroy(_shadow, shotData.throwAirTime);
         }
 
-        private void InstantiateReticle(ShotDataObject shotData)
+        protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
-            _reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            Destroy(_reticle, shotData.throwAirTime);
+            Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
+            Destroy(Reticle, shotData.throwAirTime);
         }
 
         private void Update()
@@ -95,7 +95,7 @@ namespace Projectile
         private void OnDestroy()
         {
             Destroy(_shadow);
-            Destroy(_reticle);
+            Destroy(Reticle);
         }
 
         public ShotDataObject GetShotData()
