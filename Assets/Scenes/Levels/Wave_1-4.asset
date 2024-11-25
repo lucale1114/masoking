@@ -18,7 +18,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 3
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -52,7 +52,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 3
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -86,7 +86,7 @@ MonoBehaviour:
     y: -2
     randomY: 0
     commands:
-    - timestamp: 5
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -120,7 +120,7 @@ MonoBehaviour:
     y: -2
     randomY: 0
     commands:
-    - timestamp: 5
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -154,7 +154,7 @@ MonoBehaviour:
     y: -3
     randomY: 0
     commands:
-    - timestamp: 6.5
+    - timestamp: 1.5
       action: 0
       shotData:
         speed: 2
@@ -188,7 +188,7 @@ MonoBehaviour:
     y: 2
     randomY: 0
     commands:
-    - timestamp: 7
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -222,7 +222,7 @@ MonoBehaviour:
     y: 2
     randomY: 0
     commands:
-    - timestamp: 7
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -256,7 +256,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 9
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -290,7 +290,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 9
+    - timestamp: 1
       action: 5
       shotData:
         speed: 5
@@ -324,7 +324,7 @@ MonoBehaviour:
     y: 0.69
     randomY: 0
     commands:
-    - timestamp: 13
+    - timestamp: 3
       action: 0
       shotData:
         speed: 5
@@ -358,7 +358,7 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 16.5
+    - timestamp: 0.5
       action: 4
       shotData:
         speed: 5
@@ -392,7 +392,7 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 17.5
+    - timestamp: 0.5
       action: 4
       shotData:
         speed: 5
@@ -426,7 +426,7 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 18.5
+    - timestamp: 0.5
       action: 4
       shotData:
         speed: 5
@@ -460,7 +460,7 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 19.5
+    - timestamp: 0.5
       action: 4
       shotData:
         speed: 5

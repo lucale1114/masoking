@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Wave_1-2
   m_EditorClassIdentifier: 
   jesters:
-  - timestamp: 3
+  - timestamp: 2
     side: 1
     y: 0
     randomY: 0
     commands:
-    - timestamp: 4
+    - timestamp: 1
       action: 0
       shotData:
         speed: 7
@@ -47,12 +47,12 @@ MonoBehaviour:
         spin: 1
         straight: 0
         rebound: 0
-  - timestamp: 3
+  - timestamp: 2
     side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 4
+    - timestamp: 1
       action: 0
       shotData:
         speed: 7
@@ -86,7 +86,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 6.1
+    - timestamp: 0.1
       action: 1
       shotData:
         speed: 2.2
@@ -120,7 +120,7 @@ MonoBehaviour:
     y: 4
     randomY: 0
     commands:
-    - timestamp: 6.9
+    - timestamp: 0.7
       action: 0
       shotData:
         speed: 7
@@ -151,10 +151,10 @@ MonoBehaviour:
         rebound: 0
   - timestamp: 13
     side: 0
-    y: 4
+    y: 3
     randomY: 0
     commands:
-    - timestamp: 14
+    - timestamp: 1
       action: 0
       shotData:
         speed: 6.5
@@ -188,7 +188,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 14
+    - timestamp: 1
       action: 0
       shotData:
         speed: 6.5
@@ -219,10 +219,10 @@ MonoBehaviour:
         rebound: 0
   - timestamp: 13
     side: 0
-    y: -4
+    y: -3
     randomY: 0
     commands:
-    - timestamp: 14
+    - timestamp: 1
       action: 0
       shotData:
         speed: 6.5
@@ -253,10 +253,10 @@ MonoBehaviour:
         rebound: 0
   - timestamp: 13
     side: 1
-    y: -2
+    y: -1.5
     randomY: 0
     commands:
-    - timestamp: 14
+    - timestamp: 1
       action: 0
       shotData:
         speed: 6.5
@@ -287,10 +287,10 @@ MonoBehaviour:
         rebound: 0
   - timestamp: 13
     side: 1
-    y: 2
+    y: 1.5
     randomY: 0
     commands:
-    - timestamp: 14
+    - timestamp: 1
       action: 0
       shotData:
         speed: 6.5
@@ -324,7 +324,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 22.3
+    - timestamp: 0.3
       action: 1
       shotData:
         speed: 3
@@ -358,7 +358,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 24.2
+    - timestamp: 0.2
       action: 1
       shotData:
         speed: 4
@@ -392,7 +392,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 26.2
+    - timestamp: 0.2
       action: 1
       shotData:
         speed: 3
@@ -426,7 +426,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 28.3
+    - timestamp: 0.3
       action: 1
       shotData:
         speed: 3
@@ -460,7 +460,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 34.5
+    - timestamp: 1.5
       action: 2
       shotData:
         speed: 20
@@ -489,7 +489,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 35
+    - timestamp: 2
       action: 2
       shotData:
         speed: 20
@@ -518,7 +518,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 35.5
+    - timestamp: 2.5
       action: 2
       shotData:
         speed: 20
@@ -552,7 +552,7 @@ MonoBehaviour:
     y: 1
     randomY: 0
     commands:
-    - timestamp: 37
+    - timestamp: 1
       action: 1
       shotData:
         speed: 5

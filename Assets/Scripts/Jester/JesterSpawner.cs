@@ -41,7 +41,7 @@ namespace Jester
                     }
                 }
             }*/
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugForceWave > 0)
             {
                 waveNumber = debugForceWave - 1;
