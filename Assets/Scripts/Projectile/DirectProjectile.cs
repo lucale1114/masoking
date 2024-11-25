@@ -37,6 +37,7 @@ namespace Projectile
             if (burstTimer > 0)
             {
                 StartCoroutine(Burst());
+                GetComponent<Collision>().noStabbing = true;
             }
 
             if (gravityTimer > 0)
@@ -120,6 +121,8 @@ namespace Projectile
                 GameObject shot = Instantiate(projectileRef, transform.position, Quaternion.Euler(0, 0, i));
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (_data.speed2 + _data.speed);
                 DirectProjectile projectile = shot.GetComponent<DirectProjectile>();
+                shot.GetComponent<Collision>().noStabbing = false;
+                rb.gravityScale = 0;
                 projectile.SetShotData(_data);
                 projectile.damageMod = 0.5f;
                 projectile.burstTimer = 0;

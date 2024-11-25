@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave_1-3
   m_EditorClassIdentifier: 
   jesters:
-  - timestamp: 2
+  - timestamp: 1
     side: 0
     y: 0
     randomY: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
     - timestamp: 0
       action: 6
       shotData:
-        speed: 12
+        speed: 15
         inaccuracy: 0
         size: 0.5
         damage: 5
@@ -47,7 +47,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 4
+    - timestamp: 3
       action: 6
       shotData:
         speed: 25
@@ -76,7 +76,36 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 5
+    - timestamp: 3.8
+      action: 6
+      shotData:
+        speed: 25
+        inaccuracy: 0
+        size: 0.5
+        damage: 5
+        x: 3
+        y: 0
+        randomX: 0
+        randomY: 1
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 4.6
       action: 6
       shotData:
         speed: 25
@@ -134,7 +163,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 6.4
+    - timestamp: 6.2
       action: 6
       shotData:
         speed: 25
@@ -163,7 +192,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 7.4
+    - timestamp: 7
       action: 6
       shotData:
         speed: 25
@@ -192,36 +221,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 8.4
-      action: 6
-      shotData:
-        speed: 25
-        inaccuracy: 0
-        size: 0.5
-        damage: 5
-        x: 3
-        y: 0
-        randomX: 0
-        randomY: 1
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1.5
-        radius: 0
-        spin: 0
-        straight: 0
-        rebound: 0
-  - timestamp: 13
+  - timestamp: 11
     side: 0
     y: 0
     randomY: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 13
+  - timestamp: 11
     side: 1
     y: 0
     randomY: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 14
+  - timestamp: 12
     side: 3
     y: 0
     randomY: 0
@@ -323,7 +323,75 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 14
+  - timestamp: 12
+    side: 3
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 0.5
+      action: 4
+      shotData:
+        speed: 6
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 13
+    side: 3
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 0.5
+      action: 4
+      shotData:
+        speed: 6
+        inaccuracy: 0
+        size: 1
+        damage: 10
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+  - timestamp: 13
     side: 3
     y: 0
     randomY: 0
@@ -358,74 +426,6 @@ MonoBehaviour:
         straight: 0
         rebound: 0
   - timestamp: 15
-    side: 3
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 0.5
-      action: 4
-      shotData:
-        speed: 6
-        inaccuracy: 0
-        size: 1
-        damage: 10
-        x: 0
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 3
-        amp: 5
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
-        rebound: 0
-  - timestamp: 15
-    side: 3
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 0.5
-      action: 4
-      shotData:
-        speed: 6
-        inaccuracy: 0
-        size: 1
-        damage: 10
-        x: 0
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 3
-        amp: 5
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
-        rebound: 0
-  - timestamp: 18
     side: 2
     y: 0
     randomY: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 19.5
+  - timestamp: 17.5
     side: 3
     y: -4
     randomY: 0
@@ -493,8 +493,42 @@ MonoBehaviour:
         spin: 0
         straight: 1
         rebound: 0
-  - timestamp: 21
+  - timestamp: 19
     side: 2
+    y: -4
+    randomY: 1
+    commands:
+    - timestamp: 1
+      action: 5
+      shotData:
+        speed: 6
+        inaccuracy: 8
+        size: 0
+        damage: 0
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 3
+        amp: 5
+        gravityDir: 0
+        amount: 8
+        speed2: 0
+        fireBetween: 0
+        radius: 80
+        spin: 0
+        straight: 1
+        rebound: 0
+  - timestamp: 21
+    side: 4
     y: -4
     randomY: 1
     commands:
@@ -528,40 +562,6 @@ MonoBehaviour:
         straight: 1
         rebound: 0
   - timestamp: 23
-    side: 4
-    y: -4
-    randomY: 1
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 6
-        inaccuracy: 8
-        size: 0
-        damage: 0
-        x: 0
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 3
-        amp: 5
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 80
-        spin: 0
-        straight: 1
-        rebound: 0
-  - timestamp: 24
     side: 2
     y: -4
     randomY: 1
@@ -595,7 +595,7 @@ MonoBehaviour:
         spin: 0
         straight: 1
         rebound: 0
-  - timestamp: 25
+  - timestamp: 24
     side: 4
     y: -4
     randomY: 1
@@ -629,7 +629,7 @@ MonoBehaviour:
         spin: 0
         straight: 1
         rebound: 0
-  - timestamp: 27
+  - timestamp: 25
     side: 4
     y: -4
     randomY: 1
@@ -663,7 +663,7 @@ MonoBehaviour:
         spin: 0
         straight: 1
         rebound: 0
-  - timestamp: 28
+  - timestamp: 26.5
     side: 2
     y: -4
     randomY: 1
@@ -697,7 +697,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 31
+  - timestamp: 29
     side: 2
     y: -4
     randomY: 0
@@ -731,9 +731,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 34
+  - timestamp: 32
     side: 2
-    y: 1.2
+    y: 1.35
     randomY: 0
     commands:
     - timestamp: 1
@@ -765,9 +765,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         rebound: 0
-  - timestamp: 34
+  - timestamp: 32
     side: 4
-    y: -1.2
+    y: -1.35
     randomY: 0
     commands:
     - timestamp: 1

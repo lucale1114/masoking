@@ -24,7 +24,6 @@ namespace Player
         private readonly float dashCoolDown = 0;
         private float currentTimestamp = 0f;
         public float dashPower = 3.0f;
-        private float dashUnitBar = 174f;
         private Slider dashFill1;
         private Slider dashFill2;
         private Slider dashFill3;
