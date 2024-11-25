@@ -42,41 +42,41 @@ namespace Projectile
             _data = shotData;
             _target = playerPosition;
 
-            if (shotData.advancedSettings.x != 0)
+            if (shotData.x != 0)
             {
-                _target.x = shotData.advancedSettings.x;
+                _target.x = shotData.x;
             }
 
-            if (shotData.advancedSettings.y != 0)
+            if (shotData.y != 0)
             {
-                _target.y = shotData.advancedSettings.y;
+                _target.y = shotData.y;
             }
 
             _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
-            Destroy(_shadow, shotData.advancedSettings.throwAirTime);
+            Destroy(_shadow, shotData.throwAirTime);
 
             _reticle = Instantiate(reticlePrefab, _target, Quaternion.identity);
-            Destroy(_reticle, shotData.advancedSettings.throwAirTime);
+            Destroy(_reticle, shotData.throwAirTime);
         }
 
         private void Update()
         {
             _currentTime += Time.deltaTime;
 
-            if (_currentTime > colliderActivationPercentage * _data.advancedSettings.throwAirTime)
+            if (_currentTime > colliderActivationPercentage * _data.throwAirTime)
             {
                 _collider.enabled = true;
             }
 
-            if (_currentTime > _data.advancedSettings.throwAirTime)
+            if (_currentTime > _data.throwAirTime)
             {
                 Destroy(gameObject);
             }
 
-            var airTime = _currentTime / _data.advancedSettings.throwAirTime;
+            var airTime = _currentTime / _data.throwAirTime;
             var position = Vector2.Lerp(_startPosition, _target, airTime);
 
-            position.y += curveHeight * _data.advancedSettings.animationCurve.Evaluate(airTime);
+            position.y += curveHeight * _data.animationCurve.Evaluate(airTime);
             _rigidBody.MovePosition(position);
 
             if (_shadow)
