@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Wall
   - Destroy
+  - DestroyIntro
   layers:
   - Default
   - TransparentFX

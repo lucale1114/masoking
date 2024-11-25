@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 namespace Player
 {
@@ -19,7 +22,21 @@ namespace Player
             { 
              Destroy(other.gameObject);
             }
+
+            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurentlyDashing)
+
+            {
+                Destroy(other.gameObject);
+                StartCoroutine(SwitchSceneDelay());
+            }
         }
- 
+
+        private IEnumerator SwitchSceneDelay()
+        {
+
+            yield return new WaitForSeconds(2f); // Wait for 2 seconds
+            SceneManager.LoadScene("Level_1");
+
+        }
     }
 }

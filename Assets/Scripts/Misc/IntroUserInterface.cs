@@ -56,11 +56,6 @@ namespace Misc
             GameManager.LoadMenu();
         }
 
-        private void Start()
-        {
-        
-        
-        }
 
         private void Update()
         {
@@ -105,19 +100,7 @@ namespace Misc
             hasMoved = true;
 
         }
-        public void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("Wall"))
-            {
-                movement.currentVelocity = Vector2.zero;
-            }
-            if (other.gameObject.CompareTag("Destroy") && movement.IsCurentlyDashing)
-
-            {
-                Destroy(other.gameObject);
-               // gameManager.LoadLevel(); 
-            }
-        }
+   
 
        
     }
