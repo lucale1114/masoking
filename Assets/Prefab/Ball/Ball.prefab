@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8244464839647999584}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   Slashes: []
+  noStabbing: 0
 --- !u!114 &-1800233311766370647
 MonoBehaviour:
   m_ObjectHideFlags: 0
