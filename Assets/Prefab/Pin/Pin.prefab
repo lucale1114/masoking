@@ -144,7 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
-  Slashes: []
+  Slashes:
+  - {fileID: 8300000, guid: af7b37b0e36ec5b438edf800e5142d2b, type: 3}
+  - {fileID: 8300000, guid: 96d991c16afb0b4429d22db6d182fc16, type: 3}
+  - {fileID: 8300000, guid: 559893a5da58d4a42aedd10b12016031, type: 3}
   noStabbing: 0
 --- !u!70 &5860243259572653286
 CapsuleCollider2D:
