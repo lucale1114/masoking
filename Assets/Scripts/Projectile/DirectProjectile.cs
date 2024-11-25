@@ -122,7 +122,11 @@ namespace Projectile
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * (_data.speed2 + _data.speed);
                 DirectProjectile projectile = shot.GetComponent<DirectProjectile>();
                 shot.GetComponent<Collision>().noStabbing = false;
-                rb.gravityScale = 0;
+                shot.GetComponent<Rigidbody2D>().gravityScale = 0;
+                if (shot.TryGetComponent<PolygonCollider2D>(out PolygonCollider2D col))
+                {
+                    col.enabled = false;
+                }
                 projectile.SetShotData(_data);
                 projectile.damageMod = 0.5f;
                 projectile.burstTimer = 0;

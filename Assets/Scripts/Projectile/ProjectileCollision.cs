@@ -32,8 +32,9 @@ namespace Projectile
                     Destroy(gameObject);
                     return;
                 }
-                gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                gameObject.GetComponent<Rigidbody2D>().velocity *= -0.5f;
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                gameObject.AddComponent<PolygonCollider2D>();
             }
 
         }
