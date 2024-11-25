@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Projectile
 {
-    public class CurvedProjectile : AbstractThrownProjectile
+    public class Pin : AbstractThrownProjectile
     {
         protected override void OnUpdate(float airTime)
         {

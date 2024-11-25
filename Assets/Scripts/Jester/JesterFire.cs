@@ -128,7 +128,7 @@ namespace Jester
         public void Throw(ShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
-            throwProjectile.GetComponent<CurvedProjectile>().SetShotData(shotData, player.transform.position);
+            throwProjectile.GetComponent<Pin>().SetShotData(shotData, player.transform.position);
         }
 
         public void ThrowAndRoll(ShotDataObject shotData)
