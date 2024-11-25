@@ -198,5 +198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   Slashes:
-  - {fileID: 8300000, guid: 23b4e87e8c452ca4f8781ec9fde9f049, type: 3}
+  - {fileID: 8300000, guid: af7b37b0e36ec5b438edf800e5142d2b, type: 3}
   - {fileID: 8300000, guid: 96d991c16afb0b4429d22db6d182fc16, type: 3}
+  - {fileID: 8300000, guid: 559893a5da58d4a42aedd10b12016031, type: 3}
