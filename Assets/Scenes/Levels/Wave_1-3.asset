@@ -733,7 +733,7 @@ MonoBehaviour:
         rebound: 0
   - timestamp: 34
     side: 2
-    y: 2
+    y: 1.2
     randomY: 0
     commands:
     - timestamp: 1
@@ -767,7 +767,7 @@ MonoBehaviour:
         rebound: 0
   - timestamp: 34
     side: 4
-    y: -2
+    y: -1.2
     randomY: 0
     commands:
     - timestamp: 1

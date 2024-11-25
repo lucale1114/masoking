@@ -581,3 +581,37 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
+  - timestamp: 36
+    side: 3
+    y: 1
+    randomY: 0
+    commands:
+    - timestamp: 1.5
+      action: 4
+      shotData:
+        speed: 5
+        inaccuracy: 0
+        size: 1
+        damage: 5
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 5
+        amp: 4
+        gravityDir: 0
+        amount: 40
+        speed2: 0
+        fireBetween: 0.02
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
