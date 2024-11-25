@@ -46,7 +46,7 @@ namespace Jester
                 {
                     additionIfOnlyFB++;
                 }
-                leaveTime = (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 1f);
+                leaveTime = (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f);
             }
         }
         void ForceEnter()
