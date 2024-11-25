@@ -24,7 +24,6 @@ namespace Player
         private readonly float dashCoolDown = 0;
         private float currentTimestamp = 0f;
         public float dashPower = 3.0f;
-        private float dashUnitBar = 174f;
         private Slider dashFill1;
         private Slider dashFill2;
         private Slider dashFill3;
@@ -53,9 +52,12 @@ namespace Player
             moveInput = new Vector2(axisX, axisY).normalized;
             if (Input.GetKeyDown(KeyCode.Space) && canDash && dashPower >= 1)
             {
-                dashPower -= 1f;
-                UpdateBars();
-                StartCoroutine(Dash());
+                if (rb.velocity.x != 0 || rb.velocity.y != 0)
+                {
+                    dashPower -= 1f;
+                    UpdateBars();
+                    StartCoroutine(Dash());
+                }
             }
             if (currentTimestamp != Timestamp)
             {

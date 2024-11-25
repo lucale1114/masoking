@@ -90,6 +90,7 @@ namespace Jester
             }
             if (waveEnded)
             {
+                print("ended");
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && Timestamp > waveEndTime + 2)
                 {
                     waveNumber++;

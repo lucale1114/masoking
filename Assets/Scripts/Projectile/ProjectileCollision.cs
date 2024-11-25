@@ -10,6 +10,7 @@ namespace Projectile
         [SerializeField] private AudioClip[] Slashes;
 
         private IProjectile _projectile;
+        public bool noStabbing = false;
 
         private void Start()
         {
@@ -20,15 +21,22 @@ namespace Projectile
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                var damage = (5 + _projectile.GetShotData().damage) * _projectile.GetDamageMod();
-                print(damage);
-                var closestPoint = collision.ClosestPoint(transform.position);
-                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-                Instantiate(hitVfx, closestPoint, Quaternion.identity);
-                //SoundManager.PlayHit(closestPoint);
-                SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f );
-                Destroy(gameObject);
+                if (!noStabbing)
+                {
+                    var damage = (5 + _projectile.GetShotData().damage) * _projectile.GetDamageMod();
+                    var closestPoint = collision.ClosestPoint(transform.position);
+                    collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
+                    Instantiate(hitVfx, closestPoint, Quaternion.identity);
+                    //SoundManager.PlayHit(closestPoint);
+                    SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
+                    Destroy(gameObject);
+                    return;
+                }
+                gameObject.GetComponent<Rigidbody2D>().velocity *= -0.5f;
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                gameObject.AddComponent<PolygonCollider2D>();
             }
+
         }
     }
 }
