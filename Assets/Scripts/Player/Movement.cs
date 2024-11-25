@@ -52,9 +52,12 @@ namespace Player
             moveInput = new Vector2(axisX, axisY).normalized;
             if (Input.GetKeyDown(KeyCode.Space) && canDash && dashPower >= 1)
             {
-                dashPower -= 1f;
-                UpdateBars();
-                StartCoroutine(Dash());
+                if (rb.velocity.x != 0 || rb.velocity.y != 0)
+                {
+                    dashPower -= 1f;
+                    UpdateBars();
+                    StartCoroutine(Dash());
+                }
             }
             if (currentTimestamp != Timestamp)
             {
