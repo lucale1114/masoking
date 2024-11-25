@@ -22,6 +22,7 @@ namespace Misc
         private bool hasDashed;
         public Movement movement;
         public GameManager gameManager;
+       // public bool haveDash => hasDash;
 
         private void Awake()
         {
