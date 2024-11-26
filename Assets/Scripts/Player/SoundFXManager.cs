@@ -16,6 +16,11 @@ public class SoundFXManager : MonoBehaviour
             Instance = this;
         }
         soundFXObjectnew = GetComponent<AudioSource>();
+
+        if (soundFXObjectnew == null)
+        {
+            soundFXObjectnew = GetComponent<AudioSource>();
+        }
     }
 
     public void PlaySoundFX(AudioClip audioClip, Transform spawnTransform, float volume)
@@ -35,7 +40,14 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlayRandomSoundFX(AudioClip[] audioClip, Transform spawnTransform, float volume)
     {
+        if (spawnTransform is null)
+        {
+            throw new System.ArgumentNullException(nameof(spawnTransform));
+        }
+
         int rand = Random.Range(0, audioClip.Length);
+
+       
 
         soundFXObjectnew.PlayOneShot(audioClip[rand], volume);
 
