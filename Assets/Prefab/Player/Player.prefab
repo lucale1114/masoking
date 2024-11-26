@@ -337,7 +337,9 @@ MonoBehaviour:
   acceleration: 75
   deceleration: 75
   currentVelocity: {x: 0, y: 0}
+  isDashing: 0
   dashPower: 3
+  dashFest: 0
   dashSpeed: 5
 --- !u!114 &2903870218911091185
 MonoBehaviour:
@@ -351,13 +353,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c2f1689a6c47319ec31662ca3e2354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHeat: 100
+  maximumHeat: 200
   startHeat: 50
-  heatDecayPerSecond: 4
+  heatDecayPerSecond: 6
   comboTimeLimit: 1
   comboMultiplierIncrease: 0.1
-  dashHeatCost: 3
   invincible: 0
+  CanMaxHeat: 1
 --- !u!222 &444254654661747928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -400,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3743546813347916422}
+  intro: {fileID: 0}
 --- !u!114 &7511096076424274299
 MonoBehaviour:
   m_ObjectHideFlags: 0

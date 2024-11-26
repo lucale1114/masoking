@@ -20,6 +20,7 @@ namespace Player
 
         public bool invincible;
         public bool CanMaxHeat = true;
+
         private float _currentHeat;
 
         private float _timeSinceLastHit;
@@ -43,6 +44,27 @@ namespace Player
         private void Update()
         {
             _timeSinceLastHit += Time.deltaTime;
+        }
+        IEnumerator MaxHeatReward()
+        {
+            switch(UnityEngine.Random.Range(0,2))
+            {
+                case 0:
+                    GetComponent<Movement>().dashFest = true;
+                    yield return new WaitForSeconds(5);
+
+                    GetComponent<Movement>().dashFest = false;
+                    break;
+
+                case 1:
+                    GetComponent<Movement>().maxSpeed *= 3;
+                    yield return new WaitForSeconds(5);
+                    GetComponent<Movement>().maxSpeed /= 3;
+                    break;
+            }
+    
+            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
+                GetComponent<SpriteRenderer>().color = col;
         }
 
         public void ChangeHeat(float amount)
@@ -82,7 +104,11 @@ namespace Player
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
             if (_currentHeat >= maximumHeat && CanMaxHeat)
             {
+                if (ColorUtility.TryParseHtmlString("#3D63FE", out Color col))
+                    GetComponent<SpriteRenderer>().color = col;
+
                 MaxHeat?.Invoke();
+                StartCoroutine(MaxHeatReward()); 
             }
         }
 

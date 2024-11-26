@@ -24,6 +24,7 @@ namespace Player
         private readonly float dashCoolDown = 0;
         private float currentTimestamp = 0f;
         public float dashPower = 3.0f;
+        public bool dashFest;
         private Slider dashFill1;
         private Slider dashFill2;
         private Slider dashFill3;
@@ -50,13 +51,18 @@ namespace Player
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
-            if (Input.GetKeyDown(KeyCode.Space) && canDash && dashPower >= 1)
-            {
-                if (rb.velocity.x != 0 || rb.velocity.y != 0)
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                if (canDash && (dashPower >= 1 || dashFest))
                 {
-                    dashPower -= 1f;
-                    UpdateBars();
-                    StartCoroutine(Dash());
+                    if (rb.velocity.x != 0 || rb.velocity.y != 0)
+                    {
+                        if (!dashFest)
+                        {
+                            dashPower -= 1f;
+                        }
+                        UpdateBars();
+                        StartCoroutine(Dash());
+                    }
                 }
             }
             if (currentTimestamp != Timestamp)
