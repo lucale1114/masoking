@@ -6,7 +6,8 @@ public class SoundFXManager : MonoBehaviour
 {
     public static SoundFXManager Instance;
 
-    [SerializeField] private AudioSource soundFXObject;
+    [SerializeField] private AudioSource soundFXObject2;
+    [SerializeField] AudioSource soundFXObjectnew;
 
     public void Awake()
     {
@@ -14,11 +15,12 @@ public class SoundFXManager : MonoBehaviour
         {
             Instance = this;
         }
+        soundFXObjectnew = GetComponent<AudioSource>();
     }
 
     public void PlaySoundFX(AudioClip audioClip, Transform spawnTransform, float volume)
     {
-        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundFXObject2, spawnTransform.position, Quaternion.identity);
 
         audioSource.clip = audioClip;
 
@@ -35,16 +37,7 @@ public class SoundFXManager : MonoBehaviour
     {
         int rand = Random.Range(0, audioClip.Length);
 
-        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+        soundFXObjectnew.PlayOneShot(audioClip[rand], volume);
 
-        audioSource.clip = audioClip[rand];
-
-        audioSource.volume = volume;
-
-        audioSource.Play();
-
-        float clipLength = audioSource.clip.length;
-
-        Destroy(audioSource.gameObject, clipLength);
     }
 }

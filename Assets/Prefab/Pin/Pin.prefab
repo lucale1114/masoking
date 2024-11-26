@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5860243259572653286}
   m_Layer: 0
   m_Name: Pin
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,34 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticlePrefab: {fileID: 5887521283410563986, guid: 647f6615a1f27f04d92bfedf88a2f8e5, type: 3}
   shadowPrefab: {fileID: 4541097288492365035, guid: 0786f50e4ec506249843b6861b229ec1, type: 3}
-  data:
-    speed: 0
-    inaccuracy: 0
-    size: 1
-    damage: 5
-    advancedSettings:
-      x: 0
-      y: 0
-      randomX: 0
-      randomY: 0
-      throwAirTime: 0
-      animationCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    timer: 0
-    frequency: 0
-    amp: 0
-    gravityDir: 0
-    amount: 0
-    speed2: 0
-    fireBetween: 0
-    radius: 0
-    spin: 0
-    straight: 0
-    rebound: 0
+  colliderActivationPercentage: 0.9
+  curveHeight: 5
 --- !u!50 &2963602016623128581
 Rigidbody2D:
   serializedVersion: 4
@@ -170,6 +144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
+  Slashes:
+  - {fileID: 8300000, guid: af7b37b0e36ec5b438edf800e5142d2b, type: 3}
+  - {fileID: 8300000, guid: 96d991c16afb0b4429d22db6d182fc16, type: 3}
+  - {fileID: 8300000, guid: 559893a5da58d4a42aedd10b12016031, type: 3}
+  noStabbing: 0
 --- !u!70 &5860243259572653286
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
