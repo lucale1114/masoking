@@ -19,7 +19,7 @@ namespace Player
         private readonly float currentSpeed = 0f;
         // Dash Variables
         private bool canDash = true;
-        private bool isDashing;
+        public bool isDashing;
         private readonly float dashTime = 0.2f;
         private readonly float dashCoolDown = 0;
         private float currentTimestamp = 0f;

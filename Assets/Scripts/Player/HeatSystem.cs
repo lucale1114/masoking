@@ -10,20 +10,21 @@ namespace Player
         public event Action<float> HeatChanged;
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
+        public event Action MaxHeat;
 
         [SerializeField] private float maximumHeat = 100;
         [SerializeField] private float startHeat = 50;
         [SerializeField] private float heatDecayPerSecond = 4;
         [SerializeField] private float comboTimeLimit = 1;
         [SerializeField] private float comboMultiplierIncrease = .1f;
-        [SerializeField] private float dashHeatCost = 3;
 
         public bool invincible;
-
+        public bool CanMaxHeat = true;
         private float _currentHeat;
 
         private float _timeSinceLastHit;
         private float _comboMultiplier = 1f;
+
 
         private void Start()
         {
@@ -79,6 +80,10 @@ namespace Player
             }
 
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
+            if (_currentHeat >= maximumHeat && CanMaxHeat)
+            {
+                MaxHeat?.Invoke();
+            }
         }
 
         private float GetCurrentHeatNormalized()
