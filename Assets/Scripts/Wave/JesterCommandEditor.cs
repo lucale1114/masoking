@@ -1,4 +1,6 @@
+using System.Text.RegularExpressions;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using PopupWindow = UnityEngine.UIElements.PopupWindow;
@@ -12,13 +14,20 @@ namespace Wave
         {
             var myInspector = new VisualElement();
 
-            var popup = new PopupWindow();
+            var foldout = new Foldout();
             var propertyField = new PropertyField(property.FindPropertyRelative("action"), "Action");
-            propertyField.RegisterValueChangeCallback(_ => Populate(property, popup));
-            AddProperty(property, popup, "timestamp", "Timestamp");
-            popup.Add(propertyField);
+            propertyField.RegisterValueChangeCallback(_ =>
+            {
 
-            myInspector.Add(popup);
+                foldout.text = Regex.Replace(
+                    property.FindPropertyRelative("action").GetEnumName<WaveData.Actions>(),
+                    "([a-z])([A-Z])", "$1 $2");
+                Populate(property, foldout);
+            });
+            AddProperty(property, foldout, "timestamp", "Timestamp");
+            foldout.Add(propertyField);
+
+            myInspector.Add(foldout);
             return myInspector;
         }
 
