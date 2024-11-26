@@ -2542,6 +2542,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1222488021064527193, guid: 88e9828facea2a94daaef0b3a5e0b788, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 1371242968473667409, guid: 2c55e04e778a6f540b7f28c3d15fb0e8, type: 2}
     - target: {fileID: 3862278975132523392, guid: 88e9828facea2a94daaef0b3a5e0b788, type: 3}
       propertyPath: m_Name
       value: SoundFXManager
@@ -2549,7 +2553,7 @@ PrefabInstance:
     - target: {fileID: 7125121323338499789, guid: 88e9828facea2a94daaef0b3a5e0b788, type: 3}
       propertyPath: soundFXObjectnew
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8624981655973931544, guid: e4032f46747e4804fad767f2024724f2, type: 3}
     - target: {fileID: 7681968211085535405, guid: 88e9828facea2a94daaef0b3a5e0b788, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
