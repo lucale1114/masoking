@@ -46,7 +46,8 @@ namespace Jester
                 {
                     additionIfOnlyFB++;
                 }
-                leaveTime = (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f);
+                leaveTime = Mathf.Max(timestampEntered + command.timestamp + 2f, (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f));
+                print(leaveTime);
             }
         }
         void ForceEnter()

@@ -37,7 +37,7 @@ namespace Projectile
 
                     gameObject.GetComponent<Rigidbody2D>().velocity *= -0.5f;
                     gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                    gameObject.AddComponent<PolygonCollider2D>();
+                    //gameObject.AddComponent<PolygonCollider2D>();
                 }
 
                 if (collision.gameObject.CompareTag("Wall"))
@@ -45,10 +45,6 @@ namespace Projectile
                     if (_projectile.GetNumberOfBounces() > 0)
                     {
                         _projectile.Bounce(collision.gameObject.GetComponent<Wall>().normal);
-                    }
-                    else
-                    {
-                        Destroy(gameObject);
                     }
                 }
             }

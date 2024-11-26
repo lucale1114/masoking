@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave_1-5
   m_EditorClassIdentifier: 
   jesters:
-  - timestamp: 1
+  - timestamp: 1.5
     side: 0
     y: 0
     randomY: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-  - timestamp: 1
+  - timestamp: 1.5
     side: 1
     y: 0
     randomY: 0

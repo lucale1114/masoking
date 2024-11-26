@@ -13,6 +13,7 @@ public class TimestampDebug : MonoBehaviour
     public Button pauseButton;
     public Button heatButton;
     public HeatSystem heat;
+    public bool mousePositionCall;
 
     private void Start()
     {
@@ -38,6 +39,10 @@ public class TimestampDebug : MonoBehaviour
         else
         {
             inputFieldResult.text = Timestamp.ToString();
+        }
+        if (mousePositionCall && Input.GetMouseButtonDown(0))
+        {
+            print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
 
