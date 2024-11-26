@@ -15,6 +15,7 @@ namespace Wave
             var popup = new PopupWindow();
             var propertyField = new PropertyField(property.FindPropertyRelative("action"), "Action");
             propertyField.RegisterValueChangeCallback(_ => Populate(property, popup));
+            AddProperty(property, popup, "timestamp", "Timestamp");
             popup.Add(propertyField);
 
             myInspector.Add(popup);
@@ -25,12 +26,10 @@ namespace Wave
         {
             var jesterCommand = property.boxedValue as WaveData.JesterCommand;
 
-            while (visualElement.childCount > 1)
+            while (visualElement.childCount > 2)
             {
-                visualElement.RemoveAt(1);
+                visualElement.RemoveAt(2);
             }
-
-            AddProperty(property, visualElement, "timestamp", "Timestamp");
 
             switch (jesterCommand!.action)
             {
