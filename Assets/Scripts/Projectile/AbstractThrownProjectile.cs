@@ -16,7 +16,6 @@ namespace Projectile
         protected Vector3 StartPosition;
 
         protected Rigidbody2D RigidBody;
-        private Collider2D _collider;
 
         private GameObject _shadow;
         protected GameObject Reticle;
@@ -25,14 +24,14 @@ namespace Projectile
         private readonly float _damageMod = 1;
 
         protected Vector2 Direction;
+        private bool _active;
+        private int _numberOfBounces;
 
         private void Awake()
         {
             RigidBody = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<Collider2D>();
-            StartPosition = transform.position;
 
-            _collider.enabled = false;
+            StartPosition = transform.position;
         }
 
         public float GetDamageMod()
@@ -40,10 +39,35 @@ namespace Projectile
             return _damageMod;
         }
 
+        public void SetActive()
+        {
+            _active = true;
+        }
+
+        public bool CanHitThings()
+        {
+            return _active && CurrentTime / Data.throwAirTime > colliderActivationPercentage;
+        }
+
+        public int GetNumberOfBounces()
+        {
+            return _numberOfBounces;
+        }
+
+        public void Bounce(Vector2 normal)
+        {
+            if (!(normal.x * Direction.x >= 0 && normal.y * Direction.y >= 0))
+            {
+                _numberOfBounces--;
+                Direction = Vector2.Reflect(Direction, normal);
+            }
+        }
+
         public void SetShotData(ShotDataObject shotData, Vector3 playerPosition)
         {
             Data = shotData;
             Target = playerPosition;
+            _numberOfBounces = Data.numberOfBounces;
 
             if (shotData.x != 0)
             {
@@ -74,11 +98,6 @@ namespace Projectile
         private void Update()
         {
             CurrentTime += Time.deltaTime;
-
-            if (CurrentTime > colliderActivationPercentage * Data.throwAirTime)
-            {
-                _collider.enabled = true;
-            }
 
             var airTime = CurrentTime / Data.throwAirTime;
 
