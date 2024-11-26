@@ -169,6 +169,7 @@ namespace Jester
         {
             float x = data.x;
             float y = data.y;
+            float rotation = 0;
             if (x == 0 && y == 0)
             {
                 x = player.transform.position.x;
@@ -176,14 +177,17 @@ namespace Jester
             }
             if (data.randomY)
             {
-
                 y = Random.Range(-4.0f, 4.0f);
             }
             if (data.randomX)
             {
                 x = Random.Range(-5.0f, 4.0f);
             }
-            GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), transform.rotation);
+            if (transform.position.x > 3)
+            {
+                rotation = 180;
+            }
+            GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), Quaternion.Euler(0,0,rotation));
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
             target.GetComponent<Target>().targetProjectile = jesterFire.Snipe(data, x, y, target);

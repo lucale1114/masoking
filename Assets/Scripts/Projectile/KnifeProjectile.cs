@@ -6,9 +6,6 @@ namespace Projectile
 {
     public class DirectProjectile : MonoBehaviour, IProjectile
     {
-        private Vector3 sniperTrigger;
-        private float sniperM;
-
         public GameObject projectileRef;
         public GameObject player;
 
@@ -21,7 +18,6 @@ namespace Projectile
         public float gravityDir;
         public int flipAmount = 1;
         public bool spin;
-        public bool sniper;
         public float damageMod = 1;
 
         public float frequency;
@@ -50,32 +46,12 @@ namespace Projectile
                 StartCoroutine(WavyShot());
             }
 
-            if (sniper)
-            {
-                /*gameObject.GetComponent<Collider2D>().enabled = false;
-                sniperTrigger = new Vector3(x, y);*/
-                //InvokeRepeating("Sniper", 0, 0.0001f);
-            }
-
             if (spin || _data.spin)
             {
                 spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
                 InvokeRepeating("Spin", 0, 0.005f);
             }
         }
-        /*void Sniper()
-        {
-            if (!sniper)
-            {
-                return;
-            }
-            Vector3 pos = transform.position;
-            if ((pos - sniperTrigger).magnitude < sniperM) {
-                gameObject.GetComponent<Collider2D>().enabled = true;
-                Destroy(target);
-                sniper = false;
-            }
-        }*/
 
         IEnumerator WavyShot()
         {

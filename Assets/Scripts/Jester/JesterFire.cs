@@ -91,7 +91,6 @@ namespace Jester
         {
             DirectProjectile shot = ShootBasicProjectile(data.speed, data, x, y);
             shot.gameObject.GetComponent<Collision>().enabled = false;
-            shot.sniper = true;
             return shot.gameObject;
         }
 
