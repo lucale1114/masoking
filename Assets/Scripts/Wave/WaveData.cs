@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WaveData : MonoBehaviour
 {
@@ -116,8 +117,8 @@ public class WaveData : MonoBehaviour
         [Tooltip("Fires forward, based on the jester's position.")]
         public bool straight;
 
-        [Tooltip("Bounces off the walls once.")]
-        public bool rebound;
+        [Tooltip("Number of bounces on walls")]
+        public int numberOfBounces;
     }
 
     void Start()

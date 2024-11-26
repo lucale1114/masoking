@@ -159,7 +159,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &7769028195296706093
 MonoBehaviour:
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6518f9c3710e4ff428664b82d99f7d02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   projectileRef: {fileID: 7494303468764717806}
   player: {fileID: 0}
   burst: 0
@@ -181,7 +181,6 @@ MonoBehaviour:
   gravityDir: 0
   flipAmount: 1
   spin: 0
-  sniper: 0
   damageMod: 1
   frequency: 0
   amp: 0
@@ -195,8 +194,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbdad6ea1af26dd4890c66b503095e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   Slashes:
   - {fileID: 8300000, guid: af7b37b0e36ec5b438edf800e5142d2b, type: 3}

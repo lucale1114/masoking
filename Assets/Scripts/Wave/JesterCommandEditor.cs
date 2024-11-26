@@ -53,6 +53,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireStorm:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
@@ -67,6 +68,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireBurst:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
@@ -82,6 +84,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.speed2", "Burst projectile speed");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireCurved:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
@@ -96,6 +99,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.gravityDir", "Gravity Direction");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireWavy:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
@@ -110,6 +114,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.amp", "Amplitude");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireRow:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
@@ -124,6 +129,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.radius", "Radius");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireSniper:
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
@@ -137,11 +143,13 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.Throw:
                     AddProperty(property, visualElement, "shotData.damage", "Damage");
                     AddProperty(property, visualElement, "shotData.x", "X");
                     AddProperty(property, visualElement, "shotData.y", "Y");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
@@ -150,6 +158,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.speed", "Speed");
                     AddProperty(property, visualElement, "shotData.x", "X");
                     AddProperty(property, visualElement, "shotData.y", "Y");
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
