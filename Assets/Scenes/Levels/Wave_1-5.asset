@@ -18,39 +18,10 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 3
-      action: 6
-      shotData:
-        speed: 0
-        inaccuracy: 0
-        size: 0
-        damage: 0
-        x: -3.5
-        y: -0.45
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        rebound: 0
     - timestamp: 1.5
       action: 6
       shotData:
-        speed: 0
+        speed: 15
         inaccuracy: 0
         size: 0
         damage: 0
@@ -76,15 +47,160 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
+    - timestamp: 3
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -3.5
+        y: -0.45
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.3
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.3
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -3
+        y: -1
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.6
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.6
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -2.4
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.9
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.9
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -3
+        y: -0.7
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.2
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 4.2
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -2.5
+        y: -1
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
   - timestamp: 1
-    side: 0
+    side: 1
     y: 0
     randomY: 0
     commands:
     - timestamp: 1.5
       action: 6
       shotData:
-        speed: 0
+        speed: 15
         inaccuracy: 0
         size: 0
         damage: 0
