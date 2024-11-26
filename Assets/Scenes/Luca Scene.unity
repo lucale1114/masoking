@@ -621,8 +621,8 @@ MonoBehaviour:
   jester: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
   waves: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
-  debugForceWave: 2
-  SetDebugTimestamp: 0
+  debugForceWave: 4
+  SetDebugTimestamp: 10
 --- !u!4 &251690077
 Transform:
   m_ObjectHideFlags: 0
@@ -774,6 +774,10 @@ PrefabInstance:
       propertyPath: heat
       value: 
       objectReference: {fileID: 932682008}
+    - target: {fileID: 4643449480913525260, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
+      propertyPath: mousePositionCall
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4739158642391049088, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -55.80896
@@ -800,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5076230649490950755, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5872467811847420688, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
       propertyPath: m_AnchorMax.y

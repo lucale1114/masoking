@@ -96,9 +96,37 @@ namespace Jester
 
         public void ShootRow(float speed, float radius, int amount, ShotDataObject data)
         {
-            Vector3 dir = (player.transform.position - transform.position).normalized;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90 +
-                          Random.Range(-data.inaccuracy, data.inaccuracy);
+            float angle = -90;
+            if (data.straight)
+            {
+                if (player.transform.position.x > transform.position.x)
+                {
+                    angle = 90;
+                }
+            }
+            else
+            {
+                float x = player.transform.position.x;
+                float y = player.transform.position.y;
+                if (data.x != 0 || data.y != 0)
+                {
+                    x = data.x;
+                    y = data.y;
+                }
+
+                if (data.randomY)
+                {
+                    y = Random.Range(-40, 40) / 10;
+                }
+
+                if (data.randomX)
+                {
+                    x = Random.Range(-50, 50) / 10;
+                }
+
+                Vector3 dir = (new Vector3(x, y) - transform.position).normalized;
+                angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90 + Random.Range(-data.inaccuracy, data.inaccuracy);
+            }
             for (float i = angle - radius; i < angle + radius; i += (radius / amount) * 2)
             {
                 GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, i)));
