@@ -35,10 +35,10 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurentlyDashing)
+            /*if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurentlyDashing)
             {
                 StartCoroutine(FallOverCoroutine(collision.gameObject));
-            }
+            }*/
         }
 
         private IEnumerator FallOverCoroutine(GameObject obj)

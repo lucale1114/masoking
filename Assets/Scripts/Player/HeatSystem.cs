@@ -44,6 +44,14 @@ namespace Player
         {
             _timeSinceLastHit += Time.deltaTime;
         }
+        IEnumerator MaxHeatReward()
+        {
+            GetComponent<Movement>().dashFest = true;
+            yield return new WaitForSeconds(5);
+            GetComponent<Movement>().dashFest = false;
+            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
+                GetComponent<SpriteRenderer>().color = col;
+        }
 
         public void ChangeHeat(float amount)
         {
@@ -82,7 +90,11 @@ namespace Player
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
             if (_currentHeat >= maximumHeat && CanMaxHeat)
             {
+                if (ColorUtility.TryParseHtmlString("#3D63FE", out Color col))
+                    GetComponent<SpriteRenderer>().color = col;
+
                 MaxHeat?.Invoke();
+                StartCoroutine(MaxHeatReward()); 
             }
         }
 
