@@ -1073,6 +1073,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: startHeat
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: CanMaxHeat
       value: 1
       objectReference: {fileID: 0}
@@ -1082,7 +1086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: heatDecayPerSecond
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: dashPower

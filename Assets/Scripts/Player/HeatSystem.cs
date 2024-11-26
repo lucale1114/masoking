@@ -20,6 +20,7 @@ namespace Player
 
         public bool invincible;
         public bool CanMaxHeat = true;
+
         private float _currentHeat;
 
         private float _timeSinceLastHit;
@@ -46,9 +47,22 @@ namespace Player
         }
         IEnumerator MaxHeatReward()
         {
-            GetComponent<Movement>().dashFest = true;
-            yield return new WaitForSeconds(5);
-            GetComponent<Movement>().dashFest = false;
+            switch(UnityEngine.Random.Range(0,2))
+            {
+                case 0:
+                    GetComponent<Movement>().dashFest = true;
+                    yield return new WaitForSeconds(5);
+
+                    GetComponent<Movement>().dashFest = false;
+                    break;
+
+                case 1:
+                    GetComponent<Movement>().maxSpeed *= 3;
+                    yield return new WaitForSeconds(5);
+                    GetComponent<Movement>().maxSpeed /= 3;
+                    break;
+            }
+    
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
                 GetComponent<SpriteRenderer>().color = col;
         }
