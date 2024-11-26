@@ -3,7 +3,6 @@ using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
-using PopupWindow = UnityEngine.UIElements.PopupWindow;
 
 namespace Wave
 {
@@ -18,7 +17,6 @@ namespace Wave
             var propertyField = new PropertyField(property.FindPropertyRelative("action"), "Action");
             propertyField.RegisterValueChangeCallback(_ =>
             {
-
                 foldout.text = Regex.Replace(
                     property.FindPropertyRelative("action").GetEnumName<WaveData.Actions>(),
                     "([a-z])([A-Z])", "$1 $2");
