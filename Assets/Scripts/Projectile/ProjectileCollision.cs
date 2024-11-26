@@ -46,10 +46,6 @@ namespace Projectile
                     {
                         _projectile.Bounce(collision.gameObject.GetComponent<Wall>().normal);
                     }
-                    else
-                    {
-                        Destroy(gameObject);
-                    }
                 }
             }
         }
