@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Misc;
 
 
 namespace Player
@@ -8,7 +9,8 @@ namespace Player
     public class Collision : MonoBehaviour
     {
         [SerializeField] private Movement movement;
-        private Player.Movement movementTarget;
+        [SerializeField] private IntroUserInterface intro;
+       
         
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -23,11 +25,34 @@ namespace Player
              Destroy(other.gameObject);
             }
 
-            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurentlyDashing)
+            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurentlyDashing && intro.HaveDash)
 
             {
                 Destroy(other.gameObject);
                 StartCoroutine(SwitchSceneDelay());
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurentlyDashing)
+            {
+                StartCoroutine(FallOverCoroutine(collision.gameObject));
+            }
+        }
+
+        private IEnumerator FallOverCoroutine(GameObject obj)
+        {
+            float rotationTime = 0.3f; // Duration of the fall
+            float elapsed = 0f;
+            Quaternion startRotation = obj.transform.rotation;
+            Quaternion endRotation = Quaternion.Euler(0, 0, 90); // Rotate 90 degrees
+
+            while (elapsed < rotationTime)
+            {
+                elapsed += Time.deltaTime;
+                obj.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsed / rotationTime);
+                yield return null;
             }
         }
 

@@ -1,6 +1,7 @@
 using Jester;
 using Managers;
 using Player;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,8 @@ namespace Misc
         private bool hasDashed;
         public Movement movement;
         public GameManager gameManager;
-       // public bool haveDash => hasDash;
+
+        public bool HaveDash => hasDashed;
 
         private void Awake()
         {
@@ -55,6 +57,12 @@ namespace Misc
         {
             Time.timeScale = 1;
             GameManager.LoadMenu();
+        }
+
+        public static void Sound()
+        {
+            Time.timeScale = 1;
+
         }
 
 
