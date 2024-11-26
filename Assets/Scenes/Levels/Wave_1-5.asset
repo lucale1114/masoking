@@ -42,12 +42,12 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 2
         radius: 0
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 3
+    - timestamp: 2.5
       action: 6
       shotData:
         speed: 15
@@ -71,12 +71,12 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1.3
+        fireBetween: 1.6
         radius: 0
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 3.3
+    - timestamp: 2.6
       action: 6
       shotData:
         speed: 15
@@ -100,12 +100,12 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1.6
+        fireBetween: 1.7
         radius: 0
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 3.6
+    - timestamp: 2.7
       action: 6
       shotData:
         speed: 15
@@ -113,6 +113,35 @@ MonoBehaviour:
         size: 0
         damage: 0
         x: -2.4
+        y: -1.3
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.8
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 2.8
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -1.7
         y: -1.4
         randomX: 0
         randomY: 0
@@ -134,15 +163,73 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 3.9
+    - timestamp: 2.9
       action: 6
       shotData:
         speed: 15
         inaccuracy: 0
         size: 0
         damage: 0
-        x: -3
-        y: -0.7
+        x: -1
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: -0.4
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.1
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.1
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: 0.3
+        y: -1.4
         randomX: 0
         randomY: 0
         throwAirTime: 0
@@ -163,15 +250,73 @@ MonoBehaviour:
         spin: 0
         straight: 0
         rebound: 0
-    - timestamp: 4.2
+    - timestamp: 3.2
       action: 6
       shotData:
         speed: 15
         inaccuracy: 0
         size: 0
         damage: 0
-        x: -2.5
-        y: -1
+        x: 1
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.3
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.3
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: 1.7
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.4
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.4
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: 2.3
+        y: -1.1
         randomX: 0
         randomY: 0
         throwAirTime: 0
@@ -188,6 +333,64 @@ MonoBehaviour:
         amount: 0
         speed2: 0
         fireBetween: 2.5
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.5
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: 2.9
+        y: -0.7
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.6
+        radius: 0
+        spin: 0
+        straight: 0
+        rebound: 0
+    - timestamp: 3.6
+      action: 6
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        size: 0
+        damage: 0
+        x: 3.5
+        y: -0.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.7
         radius: 0
         spin: 0
         straight: 0
@@ -221,7 +424,7 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 2
         radius: 0
         spin: 0
         straight: 0

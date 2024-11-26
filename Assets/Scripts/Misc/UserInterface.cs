@@ -1,3 +1,4 @@
+using System.Collections;
 using Jester;
 using Managers;
 using Player;
@@ -18,6 +19,7 @@ namespace Misc
 
         private Image _heatBar;
         private HeatSystem _heatSystem;
+        private Image _maxHeat;
 
 
         private void Awake()
@@ -25,6 +27,8 @@ namespace Misc
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
             _pauseMenu = GameObject.Find("PauseMenu");
+            _maxHeat = GameObject.Find("MaxHeat").GetComponent<Image>();
+            _maxHeat.gameObject.SetActive(false);
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -74,7 +78,10 @@ namespace Misc
                 Time.timeScale = 0;
                 _lostMenu.SetActive(true);
             };
-
+            _heatSystem.MaxHeat += () =>
+            {
+                StartCoroutine(MaxHeatGained());
+            };
             _heatSystem.ComboMultiplierChanged += comboMultiplier =>
             {
                 if (Mathf.Approximately(comboMultiplier, 1f))
@@ -87,6 +94,18 @@ namespace Misc
                     _comboCounter.text = $"{comboMultiplier:0.0} Hit Combo!";
                 }
             };
+        }
+
+        IEnumerator MaxHeatGained()
+        {
+            _heatSystem.CanMaxHeat = false;
+            _maxHeat.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(2);
+            Time.timeScale = 1;
+            _maxHeat.gameObject.SetActive(false);
+            yield return new WaitForSeconds(5);
+            _heatSystem.CanMaxHeat = true;
         }
 
         private void Update()
