@@ -114,7 +114,7 @@ namespace Jester
                 spawnDebounce = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (false) {
                 if (!JesterFever && spawnDebounce)
                 {
                     spawnDebounce = false;
