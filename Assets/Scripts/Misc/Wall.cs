@@ -7,11 +7,11 @@ namespace Misc
     {
         public Vector2 normal;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (other.CompareTag("Projectile"))
+            if (collision.collider.CompareTag("Projectile"))
             {
-                var projectile = other.GetComponent<IProjectile>();
+                var projectile = collision.collider.GetComponent<IProjectile>();
 
                 if (projectile.GetNumberOfBounces() > 0)
                 {
