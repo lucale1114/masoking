@@ -112,6 +112,22 @@ namespace Jester
                 currentTick = Timestamp;
                 TimestampTick();
             }
+            if (Input.GetKeyDown(KeyCode.Space)) { 
+                if (!JesterFever)
+                {
+                    JesterData jesterData = new JesterData();
+                    jesterData.timestamp = currentTick = 0.5f;
+                    jesterData.commands[0] = new JesterCommand();
+
+                    jesterData.randomY = true;
+                    jesterData.side = Sides.Random;
+
+                    jesterData.commands[0].action = Actions.FireAimed;
+                    jesterData.commands[0].shotData.fireBetween = UnityEngine.Random.Range(0.1f, 0.3f);
+
+                    SpawnJester(jesterData);
+                }
+            }
         }
 
         // Temporarily just spawns them in waves now.

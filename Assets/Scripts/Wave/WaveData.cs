@@ -7,6 +7,7 @@ public class WaveData : MonoBehaviour
     public static float Timestamp;
     public static bool Paused;
     public static Sides LastUsed;
+    public static bool JesterFever;
 
     public enum Actions
     {

@@ -154,7 +154,6 @@ namespace Jester
 
         public void Throw(ShotDataObject shotData)
         {
-            print(throwProjectilePrefab);
             var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
             throwProjectile.GetComponent<Pin>().SetShotData(shotData, player.transform.position);
         }
@@ -165,4 +164,4 @@ namespace Jester
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, player.transform.position);
         }
     }
-}
+}   

@@ -39,6 +39,7 @@ namespace Projectile
         {
             Invoke("Enable", Data.fireBetween);
             InstantiateReticle(Data);
+            transform.localScale *= Data.size;
         }
 
         private void Enable() 
@@ -88,17 +89,27 @@ namespace Projectile
             {
                 Target.y = shotData.y;
             }
+            if (shotData.randomY)
+            {
+                Target.y = Random.Range(-4.0f, 4.0f);
+            }
+            if (shotData.randomX)
+            {
+                Target.x = Random.Range(-5.0f, 4.0f);
+            }
         }
 
         private void InstantiateShadow(ShotDataObject shotData)
         {
             _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
+            _shadow.transform.localScale *= Data.size;
             Destroy(_shadow, shotData.throwAirTime);
         }
 
         protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
+            Reticle.transform.localScale *= Data.size;
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 
