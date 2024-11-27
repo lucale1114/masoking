@@ -16,6 +16,7 @@ namespace Player
         [SerializeField] private float dashSpeed = 5f;
         [SerializeField] private float dashTime = 0.2f;
         [SerializeField] private float dashCoolDown;
+        [SerializeField] private float dashRechargeRate = 0.025f;
 
         public bool IsCurrentlyDashing { get; private set; }
 
@@ -68,7 +69,7 @@ namespace Player
             if (currentTimestamp != Timestamp)
             {
                 currentTimestamp = Timestamp;
-                dashPower = Mathf.Min(dashPower + 0.025f, 3);
+                dashPower = Mathf.Min(dashPower + dashRechargeRate, 3);
                 UpdateBars();
             }
             if (!IsCurrentlyDashing)
