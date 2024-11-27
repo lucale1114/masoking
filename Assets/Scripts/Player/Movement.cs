@@ -110,7 +110,7 @@ namespace Player
             currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y, acceleration * Time.fixedDeltaTime);
 
             // Apply deceleration only when no input is present on that axis
-            if (moveInput.x == 0)
+            if (Mathf.Approximately(moveInput.x, 0))
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, deceleration * Time.fixedDeltaTime);
             }
@@ -119,7 +119,7 @@ namespace Player
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
-            if (moveInput.y == 0)
+            if (Mathf.Approximately(moveInput.x, 0))
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
             }
