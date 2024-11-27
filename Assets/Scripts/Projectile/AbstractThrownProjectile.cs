@@ -23,18 +23,30 @@ namespace Projectile
 
         protected float CurrentTime;
         private readonly float _damageMod = 1;
-
+        private bool _isOn;
         protected Vector2 Direction;
 
         private int _numberOfBounces;
-
         private void Awake()
         {
             RigidBody = GetComponent<Rigidbody2D>();
             _collider = GetComponent<Collider2D>();
             _collider.enabled = false;
-
             StartPosition = transform.position;
+        }
+
+        private void Start()
+        {
+            Invoke("Enable", Data.fireBetween);
+            InstantiateReticle(Data);
+        }
+
+        private void Enable() 
+        { 
+            _isOn = true;
+
+            InstantiateShadow(Data);
+            GetComponent<SpriteRenderer>().enabled = true;
         }
 
         public float GetDamageMod()
@@ -76,9 +88,6 @@ namespace Projectile
             {
                 Target.y = shotData.y;
             }
-
-            InstantiateShadow(shotData);
-            InstantiateReticle(shotData);
         }
 
         private void InstantiateShadow(ShotDataObject shotData)
@@ -90,25 +99,29 @@ namespace Projectile
         protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            Destroy(Reticle, shotData.throwAirTime);
+            Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 
         private void Update()
         {
-            CurrentTime += Time.deltaTime;
-
-            var airTime = CurrentTime / Data.throwAirTime;
-
-            if (airTime >= colliderActivationPercentage)
+            if (_isOn)
             {
-                _collider.enabled = true;
-            }
+                CurrentTime += Time.deltaTime;
 
-            OnUpdate(airTime);
+                var airTime = CurrentTime / Data.throwAirTime;
 
-            if (_shadow)
-            {
-                _shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
+                if (airTime >= colliderActivationPercentage)
+                {
+                    _collider.enabled = true;
+                }
+            
+                OnUpdate(airTime);
+            
+
+                if (_shadow)
+                {
+                    _shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
+                }
             }
         }
 

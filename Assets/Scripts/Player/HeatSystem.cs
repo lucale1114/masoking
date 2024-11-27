@@ -25,18 +25,14 @@ namespace Player
 
         private float _timeSinceLastHit;
         private float _comboMultiplier = 1f;
+        private Movement _movement;
 
 
         private void Start()
         {
             _currentHeat = startHeat;
-            GetComponent<Movement>().IsDashing += isDashing =>
-            {
-                if (isDashing)
-                {
-                    //ChangeHeat(-dashHeatCost);
-                }
-            };
+            _movement = GetComponent<Movement>();
+
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
         }
@@ -45,24 +41,24 @@ namespace Player
         {
             _timeSinceLastHit += Time.deltaTime;
         }
-        IEnumerator MaxHeatReward()
+        private IEnumerator MaxHeatReward()
         {
             switch(UnityEngine.Random.Range(0,2))
             {
                 case 0:
-                    GetComponent<Movement>().dashFest = true;
+                    _movement.DashFest(true);
                     yield return new WaitForSeconds(5);
 
-                    GetComponent<Movement>().dashFest = false;
+                    _movement.DashFest(false);
                     break;
 
                 case 1:
-                    GetComponent<Movement>().maxSpeed *= 3;
+                    _movement.ChangeVelocity(3);
                     yield return new WaitForSeconds(5);
-                    GetComponent<Movement>().maxSpeed /= 3;
+                    _movement.ChangeVelocity(1/3f);
                     break;
             }
-    
+
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
                 GetComponent<SpriteRenderer>().color = col;
         }
@@ -108,7 +104,7 @@ namespace Player
                     GetComponent<SpriteRenderer>().color = col;
 
                 MaxHeat?.Invoke();
-                StartCoroutine(MaxHeatReward()); 
+                StartCoroutine(MaxHeatReward());
             }
         }
 

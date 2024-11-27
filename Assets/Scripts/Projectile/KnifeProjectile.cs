@@ -123,10 +123,6 @@ namespace Projectile
                 DirectProjectile projectile = shot.GetComponent<DirectProjectile>();
                 shot.GetComponent<Collision>().noStabbing = false;
                 shot.GetComponent<Rigidbody2D>().gravityScale = 0;
-                if (shot.TryGetComponent<PolygonCollider2D>(out PolygonCollider2D col))
-                {
-                    col.enabled = false;
-                }
 
                 projectile.SetShotData(_data);
                 projectile.damageMod = 0.5f;

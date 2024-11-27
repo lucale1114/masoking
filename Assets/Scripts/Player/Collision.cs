@@ -23,25 +23,14 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Wall") && !movement.isDashing)
-            {
-                if (movement.currentVelocity.x < 15 || movement.currentVelocity.y < 15)
-                {
-                    movement.currentVelocity *= -2.5f;
-                }
-                else
-                {
-                    movement.currentVelocity *= -0.1f;
-                }
-            }
-            if (other.gameObject.CompareTag("Destroy") && movement.IsCurentlyDashing )
+            if (other.gameObject.CompareTag("Destroy") && movement.IsCurrentlyDashing )
 
-            { 
+            {
                 Destroy(other.gameObject);
                 SoundFXManager.Instance.PlaySoundFX(boom, transform, 1f);
             }
 
-            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurentlyDashing && intro.HaveDash)
+            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurrentlyDashing && intro.HaveDash)
 
             {
                 Destroy(other.gameObject);
@@ -52,7 +41,7 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurentlyDashing)
+            if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurrentlyDashing)
             {
                 StartCoroutine(FallOver(collision.gameObject, movement.transform.position));
                
