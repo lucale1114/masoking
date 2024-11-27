@@ -3,6 +3,7 @@ using Jester;
 using Managers;
 using Player;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ namespace Misc
         private GameObject _pauseMenu;
         private GameObject _lostMenu;
         private GameObject _wonMenu;
+        private GameObject _soundMenu;
         private JesterSpawner _jesterSpawner;
 
         private Image _heatBar;
@@ -27,12 +29,15 @@ namespace Misc
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
             _pauseMenu = GameObject.Find("PauseMenu");
+            _soundMenu = GameObject.Find("SoundMenu");
             _maxHeat = GameObject.Find("MaxHeat").GetComponent<Image>();
             _maxHeat.gameObject.SetActive(false);
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
+            _pauseMenu.transform.Find("Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
             _pauseMenu.SetActive(false);
+            _soundMenu.SetActive(false);
 
             _lostMenu = GameObject.Find("LostMenu");
             _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
@@ -60,6 +65,14 @@ namespace Misc
         {
             Time.timeScale = 1;
             GameManager.LoadMenu();
+        }
+
+        public void Sound()
+        {
+            Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
+            _soundMenu.SetActive(!_soundMenu.activeSelf);
+            _pauseMenu.SetActive(false);
+
         }
 
         private void Start()
@@ -116,6 +129,7 @@ namespace Misc
                 {
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
+                    _soundMenu.SetActive(false);
                 }
             }
         }
