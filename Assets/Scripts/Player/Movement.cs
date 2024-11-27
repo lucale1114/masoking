@@ -9,7 +9,7 @@ namespace Player
     public class Movement : MonoBehaviour
     {
         public Action<bool> IsDashing;
-        public bool IsCurentlyDashing => isDashing;
+
         public float maxSpeed = 5f;
         public float acceleration = 75f;
         public float deceleration = 75f;
@@ -123,7 +123,9 @@ namespace Player
 
         }
 
-        public IEnumerator Dash()
+        public bool IsCurrentlyDashing => isDashing;
+
+        private IEnumerator Dash()
         {
             canDash = false;
             isDashing = true;
@@ -136,7 +138,5 @@ namespace Player
             yield return new WaitForSeconds(dashCoolDown);
             canDash = true;
         }
-
-
     }
 }
