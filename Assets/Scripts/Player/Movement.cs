@@ -76,7 +76,7 @@ namespace Player
             }
             if (!IsCurrentlyDashing)
             {
-                if (Mathf.Approximately(rb.velocity.magnitude, 0))
+                if (Mathf.Approximately(moveInput.magnitude, 0))
                 {
                     playerAnimator.PlayIdle();
                 }
@@ -134,7 +134,8 @@ namespace Player
         {
             IsCurrentlyDashing = true;
             IsDashing?.Invoke(true);
-            rb.velocity =  Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
+            currentVelocity = Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
+            rb.velocity =  currentVelocity;
             playerAnimator.PlayDash(moveInput.x, moveInput.y);
             yield return new WaitForSeconds(dashTime);
             IsCurrentlyDashing = false;
