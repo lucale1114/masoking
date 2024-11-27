@@ -150,7 +150,7 @@ namespace Player
 
         public void ChangeVelocity(float multiplier)
         {
-            currentVelocity *= multiplier;
+            maxSpeed *= multiplier;
         }
 
         public void AttemptBounce(Vector2 normal)
