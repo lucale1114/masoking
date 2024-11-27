@@ -19,6 +19,7 @@ namespace Misc
         [SerializeField]
         private TextMeshProUGUI dashwallTextMesh;
         private GameObject _pauseMenu;
+        private GameObject _soundMenu;
         private bool hasMoved;
         private bool hasDashed;
         public Movement movement;
@@ -30,10 +31,13 @@ namespace Misc
         {
          
             _pauseMenu = GameObject.Find("PauseMenu");
+            _soundMenu = GameObject.Find("SoundMenu");
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
+            _pauseMenu.transform.Find("Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
             _pauseMenu.SetActive(false);
+            _soundMenu.SetActive(false);
             DashTextMesh.enabled = false;
             dashwallTextMesh.enabled = false;
             hasMoved = false;
@@ -59,9 +63,11 @@ namespace Misc
             GameManager.LoadMenu();
         }
 
-        public static void Sound()
+        public void Sound()
         {
-            Time.timeScale = 1;
+            Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
+            _soundMenu.SetActive(!_soundMenu.activeSelf);
+            _pauseMenu.SetActive(false);
 
         }
 
@@ -73,7 +79,9 @@ namespace Misc
             {
                 Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                 _pauseMenu.SetActive(!_pauseMenu.activeSelf);
+                _soundMenu.SetActive(false);
             }
+            
 
             if (Input.GetAxisRaw("Vertical") != 0 && hasMoved != true || Input.GetAxisRaw("Horizontal") != 0 && hasMoved != true )
             {
