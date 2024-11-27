@@ -99,18 +99,19 @@ namespace Misc
                 StartCoroutine(SwitchTextEnemyWithDelay());
             }
 
-            if (projectileCollision.BeenHit == true) 
+            if (projectileCollision.BeenHit) 
             {
-                StartCoroutine(SwitchTextEnemyWithDelay());
+                StartCoroutine(SwitchTextDashWithDelay());
+
             }
-            
+
         }
 
         private IEnumerator SwitchTextDashWithDelay()
         {
-            DashTextMesh.enabled = true; // Show DashTextMesh
+            EnemyTextMesh.enabled = false; // Show DashTextMesh
             yield return new WaitForSeconds(2f); // Wait for seconds
-            DashTextMesh.enabled = false; // Hide DashTextMesh
+           
             dashwallTextMesh.enabled = true; // Show dashwallTextMesh
             hasDashed = true;
 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: IntroWave
   m_EditorClassIdentifier: 
   jesters:
-  - timestamp: 1
-    side: 3
+  - timestamp: 10
+    side: 2
     y: 0
     randomY: 0
     commands:
@@ -47,16 +47,16 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
-  - timestamp: 4
-    side: 3
+  - timestamp: 10
+    side: 2
     y: 0
     randomY: 0
     commands:
     - timestamp: 1
-      action: 4
+      action: 3
       shotData:
         speed: 6
-        inaccuracy: 0
+        inaccuracy: 44
         size: 0
         damage: 5
         x: 0
