@@ -68,7 +68,7 @@ namespace Player
                     }
                 }
             }
-            if (currentTimestamp != Timestamp)
+            if (!Mathf.Approximately(currentTimestamp, Timestamp))
             {
                 currentTimestamp = Timestamp;
                 dashPower = Mathf.Min(dashPower + dashRechargeRate, 3);
