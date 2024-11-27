@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Misc;
 using static UnityEditor.Rendering.FilterWindow;
+using Projectile;
+using Unity.Burst.CompilerServices;
 
 
 namespace Player
@@ -12,6 +14,10 @@ namespace Player
         [SerializeField] private Movement movement;
         [SerializeField] private IntroUserInterface intro;
         [SerializeField] private AudioClip boom;
+        bool hasDashed = false;
+        public bool HasDashed => hasDashed;
+
+
 
 
 
@@ -48,31 +54,88 @@ namespace Player
         {
             if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurentlyDashing)
             {
-                StartCoroutine(FallOverCoroutine(collision.gameObject, movement.transform.position));
+                StartCoroutine(FallOver(collision.gameObject, movement.transform.position));
+               
             }
         }
 
-        private IEnumerator FallOverCoroutine(GameObject obj, Vector3 playerPosition)
+        private IEnumerator FallOver(GameObject obj, Vector2 playerPosition)
         {
-            float rotationTime = 0.5f; // Duration of the fall
-            float elapsed = 0f;
-            Quaternion startRotation = obj.transform.rotation;
 
-            // Determine the fall direction
-            Vector3 objectPosition = obj.transform.position;
-            bool fallToRight = movement.transform.position.x < objectPosition.x; // Change to y for vertical fall
+            hasDashed = true;
 
-            // Set the target rotation based on the direction
-            Quaternion endRotation = fallToRight
-                ? Quaternion.Euler(0, 0, -90) // Fall to the right (clockwise)
-                : Quaternion.Euler(0, 0, 90); // Fall to the left (counterclockwise)
 
-            while (elapsed < rotationTime)
+            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+            if (rb != null)
             {
-                elapsed += Time.deltaTime;
-                obj.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsed / rotationTime);
-                yield return null;
+                if (hasDashed != false)
+                {
+
+
+                    // Temporarily disable Rigidbody2D to manually animate the fall
+                    rb.isKinematic = true;
+
+                    // Calculate the fall direction based on player position
+                    Vector2 impactDirection = (obj.transform.position - (Vector3)playerPosition).normalized;
+                    float fallAngle = impactDirection.x > 0 ? -90f : 90f; // Right or left fall
+                    float rotationTime = 0.8f; // Time it takes to fall
+                    Quaternion startRotation = obj.transform.rotation;
+                    Quaternion endRotation = Quaternion.Euler(0, 0, fallAngle);
+
+                    float wiggleAngle = 10;
+                    float wiggleCount = 4f;
+                    float wiggleDuration = 0.2f;
+
+
+
+                    for (int i = 0; i < wiggleCount; i++)
+                    {
+                        // Wiggle to the right
+                        Quaternion rightRotation = startRotation * Quaternion.Euler(0, 0, wiggleAngle);
+                        float elapsed = 0f;
+
+                        while (elapsed < wiggleDuration)
+                        {
+                            elapsed += Time.deltaTime;
+                            obj.transform.rotation = Quaternion.Lerp(startRotation, rightRotation, elapsed / wiggleDuration);
+                            yield return null;
+                        }
+
+                        // Wiggle to the left
+                        Quaternion leftRotation = startRotation * Quaternion.Euler(0, 0, -wiggleAngle);
+                        elapsed = 0f;
+
+                        while (elapsed < wiggleDuration)
+                        {
+                            elapsed += Time.deltaTime;
+                            obj.transform.rotation = Quaternion.Lerp(rightRotation, leftRotation, elapsed / wiggleDuration);
+                            yield return null;
+                        }
+                    }
+
+
+                    // Rotate the object smoothly over time
+                    float elapsedTime = 0f;
+                    while (elapsedTime < rotationTime)
+                    {
+                        elapsedTime += Time.deltaTime;
+                        obj.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / rotationTime);
+                        yield return null;
+                    }
+
+                    // Ensure the final rotation matches exactly
+                    obj.transform.rotation = endRotation;
+
+                    // Optionally re-enable physics
+                    rb.isKinematic = false;
+
+                    // (Optional) Freeze position constraints if it should stay down
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+                    Destroy(obj);
+                }
             }
+
         }
 
         private IEnumerator SwitchSceneDelay()
