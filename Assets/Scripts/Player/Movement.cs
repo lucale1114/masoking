@@ -100,16 +100,12 @@ namespace Player
                 return;
             }
 
-            // Set the Rigidbody's velocity
-            rb.velocity = currentVelocity;
             float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
             float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
-            // Smoothly update current speed on each axis
             currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x, acceleration * Time.fixedDeltaTime);
             currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y, acceleration * Time.fixedDeltaTime);
 
-            // Apply deceleration only when no input is present on that axis
             if (Mathf.Approximately(moveInput.x, 0))
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, deceleration * Time.fixedDeltaTime);
@@ -128,9 +124,9 @@ namespace Player
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
-            // Set the Rigidbody's velocity
-            rb.velocity = currentVelocity;
+            currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
 
+            rb.velocity = currentVelocity;
         }
 
         private IEnumerator Dash()
