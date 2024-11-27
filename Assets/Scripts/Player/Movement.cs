@@ -12,25 +12,24 @@ namespace Player
 
         [SerializeField] private float maxSpeed = 5f;
         [SerializeField] private float acceleration = 75f;
-        [SerializeField] private float deceleration = 75f;
+        [SerializeField] private float deceleration = 25f;
         [SerializeField] private float dashSpeed = 5f;
         [SerializeField] private float dashTime = 0.2f;
         [SerializeField] private float dashCoolDown;
+
+        public bool IsCurrentlyDashing { get; private set; }
 
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
         private Vector2 moveInput;
         private readonly float currentSpeed = 0f;
-        // Dash Variables
-        private bool canDash = true;
-        private bool isDashing;
+
         private float currentTimestamp = 0f;
         private float dashPower = 3.0f;
         private bool dashFest;
         private Slider dashFill1;
         private Slider dashFill2;
         private Slider dashFill3;
-
 
         private PlayerAnimator playerAnimator;
 
@@ -45,7 +44,7 @@ namespace Player
 
         void Update()
         {
-            if (isDashing)
+            if (IsCurrentlyDashing)
             {
                 return;
             }
@@ -54,7 +53,7 @@ namespace Player
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
             if (Input.GetKeyDown(KeyCode.Space)) {
-                if (canDash && (dashPower >= 1 || dashFest))
+                if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
                 {
                     if (rb.velocity.x != 0 || rb.velocity.y != 0)
                     {
@@ -73,7 +72,7 @@ namespace Player
                 dashPower = Mathf.Min(dashPower + 0.025f, 3);
                 UpdateBars();
             }
-            if (!isDashing)
+            if (!IsCurrentlyDashing)
             {
                 if (Mathf.Approximately(rb.velocity.magnitude, 0))
                 {
@@ -95,7 +94,7 @@ namespace Player
 
         void FixedUpdate()
         {
-            if (isDashing)
+            if (IsCurrentlyDashing)
             {
                 return;
             }
@@ -125,20 +124,16 @@ namespace Player
 
         }
 
-        public bool IsCurrentlyDashing => isDashing;
-
         private IEnumerator Dash()
         {
-            canDash = false;
-            isDashing = true;
+            IsCurrentlyDashing = true;
             IsDashing?.Invoke(true);
             rb.velocity =  dashSpeed * currentVelocity;
             playerAnimator.PlayDash(moveInput.x, moveInput.y);
             yield return new WaitForSeconds(dashTime);
-            isDashing = false;
+            IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
             yield return new WaitForSeconds(dashCoolDown);
-            canDash = true;
         }
 
         public void DashFest(bool isDashFest)
