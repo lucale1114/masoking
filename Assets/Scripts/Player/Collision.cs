@@ -75,8 +75,6 @@ namespace Player
                     float wiggleCount = 4f;
                     float wiggleDuration = 0.2f;
 
-
-
                     for (int i = 0; i < wiggleCount; i++)
                     {
                         // Wiggle to the right
@@ -121,7 +119,7 @@ namespace Player
                     // (Optional) Freeze position constraints if it should stay down
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(3f);
                     Destroy(obj);
                 }
             }
