@@ -17,16 +17,9 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Wall") && !movement.isDashing)
+            if (other.gameObject.CompareTag("Wall") && !movement.IsCurrentlyDashing)
             {
-                if (movement.currentVelocity.x < 15 || movement.currentVelocity.y < 15)
-                {
-                    movement.currentVelocity *= -2.5f;
-                }
-                else
-                {
-                    movement.currentVelocity *= -0.1f;
-                }
+                movement.ChangeVelocity(-2.5f);
             }
             if (other.gameObject.CompareTag("Destroy") && movement.IsCurrentlyDashing )
 

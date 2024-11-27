@@ -10,28 +10,30 @@ namespace Player
     {
         public Action<bool> IsDashing;
 
-        public float maxSpeed = 5f;
-        public float acceleration = 75f;
-        public float deceleration = 75f;
-        public Vector2 currentVelocity;
+        [SerializeField] private float maxSpeed = 5f;
+        [SerializeField] private float acceleration = 75f;
+        [SerializeField] private float deceleration = 75f;
+        [SerializeField] private float dashSpeed = 5f;
+        [SerializeField] private float dashTime = 0.2f;
+        [SerializeField] private float dashCoolDown;
+
+        private Vector2 currentVelocity;
         private Rigidbody2D rb;
         private Vector2 moveInput;
         private readonly float currentSpeed = 0f;
         // Dash Variables
         private bool canDash = true;
-        public bool isDashing;
-        private readonly float dashTime = 0.2f;
-        private readonly float dashCoolDown = 0;
+        private bool isDashing;
         private float currentTimestamp = 0f;
-        public float dashPower = 3.0f;
-        public bool dashFest;
+        private float dashPower = 3.0f;
+        private bool dashFest;
         private Slider dashFill1;
         private Slider dashFill2;
         private Slider dashFill3;
 
-        [SerializeField] private float dashSpeed = 5f;
 
         private PlayerAnimator playerAnimator;
+
         void Start()
         {
             playerAnimator = GetComponent<PlayerAnimator>();
@@ -137,6 +139,16 @@ namespace Player
             IsDashing?.Invoke(false);
             yield return new WaitForSeconds(dashCoolDown);
             canDash = true;
+        }
+
+        public void DashFest(bool isDashFest)
+        {
+            dashFest = isDashFest;
+        }
+
+        public void ChangeVelocity(float multiplier)
+        {
+            currentVelocity *= multiplier;
         }
     }
 }
