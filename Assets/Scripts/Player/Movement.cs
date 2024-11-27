@@ -35,6 +35,8 @@ namespace Player
 
         private PlayerAnimator playerAnimator;
 
+        private Vector2 _lastNonZeroVelocity = new(0, 1);
+
         void Start()
         {
             playerAnimator = GetComponent<PlayerAnimator>();
@@ -76,13 +78,18 @@ namespace Player
             }
             if (!IsCurrentlyDashing)
             {
-                if (Mathf.Approximately(moveInput.magnitude, 0))
+                if (!(Mathf.Approximately(currentVelocity.x, 0) && Mathf.Approximately(currentVelocity.y, 0)))
                 {
-                    playerAnimator.PlayIdle();
+                    _lastNonZeroVelocity = currentVelocity;
+                }
+
+                if (Mathf.Approximately(currentVelocity.magnitude, 0))
+                {
+                    playerAnimator.PlayIdle(_lastNonZeroVelocity.x, _lastNonZeroVelocity.y);
                 }
                 else
                 {
-                    playerAnimator.PlayMoving(moveInput.x, moveInput.y);
+                    playerAnimator.PlayMoving(_lastNonZeroVelocity.x, _lastNonZeroVelocity.y);
                 }
             }
         }

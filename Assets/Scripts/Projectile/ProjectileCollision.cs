@@ -7,6 +7,8 @@ namespace Projectile
     {
         [SerializeField] private GameObject hitVfx;
         [SerializeField] private AudioClip[] Slashes;
+        private bool beenHit = false;
+        public bool BeenHit => beenHit;
 
         private IProjectile _projectile;
         public bool noStabbing = false;
@@ -22,6 +24,7 @@ namespace Projectile
             {
                 if (collision.gameObject.CompareTag("Player"))
                 {
+
                     if (!noStabbing)
                     {
                         var damage = (5 + _projectile.GetShotData().damage) * _projectile.GetDamageMod();
@@ -29,6 +32,7 @@ namespace Projectile
                         collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                         Instantiate(hitVfx, closestPoint, Quaternion.identity);
                         //SoundManager.PlayHit(closestPoint);
+                        beenHit = true;
                         SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
                         Destroy(gameObject);
                         return;

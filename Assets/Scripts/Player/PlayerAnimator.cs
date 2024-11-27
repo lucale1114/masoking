@@ -21,8 +21,10 @@ namespace Player
             _animator.Play("KingDashAnimation");
         }
 
-        public void PlayIdle()
+        public void PlayIdle(float x, float y)
         {
+            _animator.SetFloat(MoveX, x);
+            _animator.SetFloat(MoveY, y);
             _animator.Play("KingIdleAnimation");
         }
 
