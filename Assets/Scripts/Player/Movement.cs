@@ -133,7 +133,7 @@ namespace Player
         {
             IsCurrentlyDashing = true;
             IsDashing?.Invoke(true);
-            rb.velocity =  dashSpeed * currentVelocity;
+            rb.velocity =  Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
             playerAnimator.PlayDash(moveInput.x, moveInput.y);
             yield return new WaitForSeconds(dashTime);
             IsCurrentlyDashing = false;
