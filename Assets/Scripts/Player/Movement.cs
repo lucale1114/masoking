@@ -22,7 +22,6 @@ namespace Player
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
         private Vector2 moveInput;
-        private readonly float currentSpeed = 0f;
 
         private float currentTimestamp = 0f;
         private float dashPower = 3.0f;
@@ -100,7 +99,7 @@ namespace Player
             }
 
             // Set the Rigidbody's velocity
-            rb.velocity = currentVelocity * currentSpeed;
+            rb.velocity = currentVelocity;
             float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
             float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
