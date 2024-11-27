@@ -18,11 +18,14 @@ namespace Misc
         private TextMeshProUGUI DashTextMesh;
         [SerializeField]
         private TextMeshProUGUI dashwallTextMesh;
+        [SerializeField]
+        private TextMeshProUGUI EnemyTextMesh;
         private GameObject _pauseMenu;
         private GameObject _soundMenu;
         private bool hasMoved;
         private bool hasDashed;
         public Movement movement;
+        public Projectile.Collision projectileCollision;
 
         public bool HaveDash => hasDashed;
 
@@ -39,6 +42,7 @@ namespace Misc
             _soundMenu.SetActive(false);
             DashTextMesh.enabled = false;
             dashwallTextMesh.enabled = false;
+            EnemyTextMesh.enabled = false;
             hasMoved = false;
             hasDashed = false;
 
@@ -92,7 +96,12 @@ namespace Misc
             if (Input.GetKeyDown(KeyCode.Space) && hasDashed != true)
             {
                
-                StartCoroutine(SwitchTextDashWithDelay());
+                StartCoroutine(SwitchTextEnemyWithDelay());
+            }
+
+            if (projectileCollision.BeenHit == true) 
+            {
+                StartCoroutine(SwitchTextEnemyWithDelay());
             }
             
         }
@@ -114,6 +123,14 @@ namespace Misc
             DashTextMesh.enabled = true;
             moveTextMesh.enabled = false;
             hasMoved = true;
+
+        }
+
+        private IEnumerator SwitchTextEnemyWithDelay()
+        {
+            yield return new WaitForSeconds(2f);
+            EnemyTextMesh.enabled = true;
+            DashTextMesh.enabled = false;
 
         }
    
