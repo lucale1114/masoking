@@ -90,7 +90,7 @@ namespace Jester
         public GameObject Snipe(ShotDataObject data, float x, float y, GameObject target)
         {
             DirectProjectile shot = ShootBasicProjectile(data.speed, data, x, y);
-            shot.gameObject.GetComponent<Collision>().enabled = false;
+            shot._canHit = false;
             return shot.gameObject;
         }
 

@@ -1,3 +1,4 @@
+using Projectile;
 using UnityEngine;
 
 namespace Misc
@@ -9,7 +10,7 @@ namespace Misc
         {
             if (targetProjectile == other.gameObject)
             {
-                other.gameObject.GetComponent<Projectile.Collision>().enabled = true;
+                other.gameObject.GetComponent<DirectProjectile>()._canHit = true;
                 Destroy(gameObject);
             }
         }

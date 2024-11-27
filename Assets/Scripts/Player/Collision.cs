@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Misc;
+using static UnityEditor.Rendering.FilterWindow;
 
 
 namespace Player
@@ -18,7 +19,14 @@ namespace Player
         {
             if (other.gameObject.CompareTag("Wall") && !movement.isDashing)
             {
-                movement.currentVelocity *= -2.5f;
+                if (movement.currentVelocity.x < 15 || movement.currentVelocity.y < 15)
+                {
+                    movement.currentVelocity *= -2.5f;
+                }
+                else
+                {
+                    movement.currentVelocity *= -0.1f;
+                }
             }
             if (other.gameObject.CompareTag("Destroy") && movement.IsCurentlyDashing )
 

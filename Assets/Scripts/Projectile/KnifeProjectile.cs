@@ -25,6 +25,7 @@ namespace Projectile
 
         private ShotDataObject _data;
 
+        public bool _canHit = true;
         private int _numberOfBounces;
 
         // Code for projectile behavior.
@@ -74,7 +75,7 @@ namespace Projectile
 
         public bool CanHitThings()
         {
-            return true;
+            return _canHit;
         }
 
         public int GetNumberOfBounces()
