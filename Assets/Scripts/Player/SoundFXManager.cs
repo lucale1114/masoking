@@ -6,8 +6,7 @@ public class SoundFXManager : MonoBehaviour
 {
     public static SoundFXManager Instance;
 
-    [SerializeField] private AudioSource soundFXObject2;
-    [SerializeField] AudioSource soundFXObjectnew;
+    [SerializeField] AudioSource soundFXObject;
 
     public void Awake()
     {
@@ -15,27 +14,33 @@ public class SoundFXManager : MonoBehaviour
         {
             Instance = this;
         }
-        soundFXObjectnew = GetComponent<AudioSource>();
+        soundFXObject = GetComponent<AudioSource>();
 
-        if (soundFXObjectnew == null)
+        if (soundFXObject == null)
         {
-            soundFXObjectnew = GetComponent<AudioSource>();
+            soundFXObject = GetComponent<AudioSource>();
         }
     }
 
     public void PlaySoundFX(AudioClip audioClip, Transform spawnTransform, float volume)
     {
-        AudioSource audioSource = Instantiate(soundFXObjectnew, spawnTransform.position, Quaternion.identity);
+        /* AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
-        audioSource.clip = audioClip;
+         audioSource.clip = audioClip;
 
-        audioSource.volume = volume;
+         audioSource.volume = volume;
 
-        audioSource.Play();
+         audioSource.Play();
 
-        float clipLength = audioSource.clip.length;
+         float clipLength = audioSource.clip.length;
 
-        Destroy(audioSource.gameObject, clipLength);
+         Destroy(audioSource.gameObject, clipLength);*/
+        if (spawnTransform is null)
+        {
+            throw new System.ArgumentNullException(nameof(spawnTransform));
+        }
+
+        soundFXObject.PlayOneShot(audioClip, volume);
     }
 
     public void PlayRandomSoundFX(AudioClip[] audioClip, Transform spawnTransform, float volume)
@@ -49,7 +54,7 @@ public class SoundFXManager : MonoBehaviour
 
        
 
-        soundFXObjectnew.PlayOneShot(audioClip[rand], volume);
+        soundFXObject.PlayOneShot(audioClip[rand], volume);
 
     }
 }
