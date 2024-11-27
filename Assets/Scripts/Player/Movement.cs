@@ -9,29 +9,32 @@ namespace Player
     public class Movement : MonoBehaviour
     {
         public Action<bool> IsDashing;
-        public bool IsCurentlyDashing => isDashing;
-        public float maxSpeed = 5f;
-        public float acceleration = 75f;
-        public float deceleration = 75f;
-        public Vector2 currentVelocity;
+
+        [SerializeField] private float maxSpeed = 5f;
+        [SerializeField] private float acceleration = 75f;
+        [SerializeField] private float deceleration = 25f;
+        [SerializeField] private float turnDeceleration = 75f;
+        [SerializeField] private float dashSpeed = 5f;
+        [SerializeField] private float dashTime = 0.2f;
+        [SerializeField] private float dashCoolDown;
+        [SerializeField] private float dashRechargeRate = 0.025f;
+        [SerializeField] private float wallBounceOffFactor = 3;
+
+        public bool IsCurrentlyDashing { get; private set; }
+
+        private Vector2 currentVelocity;
         private Rigidbody2D rb;
         private Vector2 moveInput;
-        private readonly float currentSpeed = 0f;
-        // Dash Variables
-        private bool canDash = true;
-        public bool isDashing;
-        private readonly float dashTime = 0.2f;
-        private readonly float dashCoolDown = 0;
+
         private float currentTimestamp = 0f;
-        public float dashPower = 3.0f;
-        public bool dashFest;
+        private float dashPower = 3.0f;
+        private bool dashFest;
         private Slider dashFill1;
         private Slider dashFill2;
         private Slider dashFill3;
 
-        [SerializeField] private float dashSpeed = 5f;
-
         private PlayerAnimator playerAnimator;
+
         void Start()
         {
             playerAnimator = GetComponent<PlayerAnimator>();
@@ -43,7 +46,7 @@ namespace Player
 
         void Update()
         {
-            if (isDashing)
+            if (IsCurrentlyDashing)
             {
                 return;
             }
@@ -52,7 +55,7 @@ namespace Player
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
             if (Input.GetKeyDown(KeyCode.Space)) {
-                if (canDash && (dashPower >= 1 || dashFest))
+                if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
                 {
                     if (rb.velocity.x != 0 || rb.velocity.y != 0)
                     {
@@ -68,12 +71,12 @@ namespace Player
             if (currentTimestamp != Timestamp)
             {
                 currentTimestamp = Timestamp;
-                dashPower = Mathf.Min(dashPower + 0.025f, 3);
+                dashPower = Mathf.Min(dashPower + dashRechargeRate, 3);
                 UpdateBars();
             }
-            if (!isDashing)
+            if (!IsCurrentlyDashing)
             {
-                if (Mathf.Approximately(rb.velocity.magnitude, 0))
+                if (Mathf.Approximately(moveInput.magnitude, 0))
                 {
                     playerAnimator.PlayIdle();
                 }
@@ -93,50 +96,76 @@ namespace Player
 
         void FixedUpdate()
         {
-            if (isDashing)
+            if (IsCurrentlyDashing)
             {
                 return;
             }
 
-            // Set the Rigidbody's velocity
-            rb.velocity = currentVelocity * currentSpeed;
             float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
             float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
-            // Smoothly update current speed on each axis
             currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x, acceleration * Time.fixedDeltaTime);
             currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y, acceleration * Time.fixedDeltaTime);
 
-            // Apply deceleration only when no input is present on that axis
-            if (moveInput.x == 0)
+            if (Mathf.Approximately(moveInput.x, 0))
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, deceleration * Time.fixedDeltaTime);
             }
+            else if (moveInput.x * currentVelocity.x < 0)
+            {
+                currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+            }
 
-            if (moveInput.y == 0)
+            if (Mathf.Approximately(moveInput.x, 0))
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
             }
+            else if (moveInput.y * currentVelocity.y < 0)
+            {
+                currentVelocity.y = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+            }
 
-            // Set the Rigidbody's velocity
+            currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
+
             rb.velocity = currentVelocity;
-
         }
 
-        public IEnumerator Dash()
+        private IEnumerator Dash()
         {
-            canDash = false;
-            isDashing = true;
+            IsCurrentlyDashing = true;
             IsDashing?.Invoke(true);
-            rb.velocity =  dashSpeed * currentVelocity;
+            currentVelocity = Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
+            rb.velocity =  currentVelocity;
             playerAnimator.PlayDash(moveInput.x, moveInput.y);
             yield return new WaitForSeconds(dashTime);
-            isDashing = false;
+            IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
             yield return new WaitForSeconds(dashCoolDown);
-            canDash = true;
         }
 
+        public void DashFest(bool isDashFest)
+        {
+            dashFest = isDashFest;
+        }
 
+        public void ChangeVelocity(float multiplier)
+        {
+            currentVelocity *= multiplier;
+        }
+
+        public void AttemptBounce(Vector2 normal)
+        {
+            if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
+            {
+                currentVelocity = Vector2.Reflect(currentVelocity, normal);
+            }
+
+            if (Mathf.Approximately(currentVelocity.magnitude, 0))
+            {
+                currentVelocity = wallBounceOffFactor * normal;
+            }
+
+            rb.velocity = currentVelocity;
+        }
     }
 }
