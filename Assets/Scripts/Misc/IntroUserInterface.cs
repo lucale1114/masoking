@@ -23,7 +23,6 @@ namespace Misc
         private bool hasMoved;
         private bool hasDashed;
         public Movement movement;
-        public GameManager gameManager;
 
         public bool HaveDash => hasDashed;
 
