@@ -113,7 +113,8 @@ namespace Jester
                 TimestampTick();
                 spawnDebounce = true;
             }
-            if (Input.GetKeyDown(KeyCode.Space)) { 
+
+            if (false) {
                 if (!JesterFever && spawnDebounce)
                 {
                     spawnDebounce = false;
