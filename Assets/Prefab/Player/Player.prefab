@@ -334,13 +334,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  acceleration: 75
-  deceleration: 75
-  turnDeceleration: 75
-  dashSpeed: 5
+  acceleration: 4
+  deceleration: 2
+  turnDeceleration: 20
+  dashSpeed: 20
   dashTime: 0.2
   dashCoolDown: 0
   dashRechargeRate: 0.025
+  wallBounceOffFactor: 3
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
