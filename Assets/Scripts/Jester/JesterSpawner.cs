@@ -18,9 +18,9 @@ namespace Jester
         private float waveEndTime = 5;
         private int waveNumber = 0;
         private bool waveEnded = false;
+        private bool spawnDebounce;
         public GameObject jester;
         public WaveList waves;
-
         public Gameplay.Wave currentWave;
         public int debugForceWave;
 
@@ -111,20 +111,30 @@ namespace Jester
             {
                 currentTick = Timestamp;
                 TimestampTick();
+                spawnDebounce = true;
             }
             if (Input.GetKeyDown(KeyCode.Space)) { 
-                if (!JesterFever)
+                if (!JesterFever && spawnDebounce)
                 {
+                    spawnDebounce = false;
                     JesterData jesterData = new JesterData();
-                    jesterData.timestamp = currentTick = 0.5f;
-                    jesterData.commands[0] = new JesterCommand();
-
+                    jesterData.timestamp = currentTick + 0.5f;
                     jesterData.randomY = true;
                     jesterData.side = Sides.Random;
 
-                    jesterData.commands[0].action = Actions.FireAimed;
-                    jesterData.commands[0].shotData.fireBetween = UnityEngine.Random.Range(0.1f, 0.3f);
+                    ShotDataObject shotData = new ShotDataObject();
+                    shotData.fireBetween = UnityEngine.Random.Range(0.5f, 1.5f);
+                    shotData.speed = UnityEngine.Random.Range(7, 15);
+                    shotData.amount = 99;
+                    shotData.damage = 1;
 
+                    jesterData.commands = new[] {
+                        new JesterCommand()
+                        {
+                            action = Actions.FireAimed,
+                            shotData = shotData
+                        }
+                    };
                     SpawnJester(jesterData);
                 }
             }

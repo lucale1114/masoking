@@ -60,7 +60,7 @@ public class WaveData : MonoBehaviour
         public int inaccuracy;
 
         [Tooltip("Size of projectile... 1 will 2x the size, and -1 will set this to 0 so don't do that!")]
-        public float size = 1;
+        public float size = 0;
 
         [Tooltip(
             "How much this fills up the heat meter. This value is actually 5, which means -5 will actually make this 0, so don't do that!")]
