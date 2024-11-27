@@ -121,6 +121,7 @@ namespace Player
                     // (Optional) Freeze position constraints if it should stay down
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
+                    yield return new WaitForSeconds(0.5f);
                     Destroy(obj);
                 }
             }
