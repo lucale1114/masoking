@@ -13,6 +13,7 @@ namespace Player
         [SerializeField] private float maxSpeed = 5f;
         [SerializeField] private float acceleration = 75f;
         [SerializeField] private float deceleration = 25f;
+        [SerializeField] private float turnDeceleration = 75f;
         [SerializeField] private float dashSpeed = 5f;
         [SerializeField] private float dashTime = 0.2f;
         [SerializeField] private float dashCoolDown;
@@ -113,10 +114,18 @@ namespace Player
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, deceleration * Time.fixedDeltaTime);
             }
+            else if (moveInput.x * currentVelocity.x < 0)
+            {
+                currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+            }
 
             if (moveInput.y == 0)
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
+            }
+            else if (moveInput.y * currentVelocity.y < 0)
+            {
+                currentVelocity.y = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
             // Set the Rigidbody's velocity
