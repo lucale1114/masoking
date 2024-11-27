@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static WaveData;
 
 namespace Misc
 {
@@ -22,16 +23,18 @@ namespace Misc
         private Image _heatBar;
         private HeatSystem _heatSystem;
         private Image _maxHeat;
-
+        private TextMeshProUGUI _mashSpace;
 
         private void Awake()
         {
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
+            _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _pauseMenu = GameObject.Find("PauseMenu");
             _soundMenu = GameObject.Find("SoundMenu");
             _maxHeat = GameObject.Find("MaxHeat").GetComponent<Image>();
             _maxHeat.gameObject.SetActive(false);
+            _mashSpace.gameObject.SetActive(false);
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -72,7 +75,6 @@ namespace Misc
             Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
             _soundMenu.SetActive(!_soundMenu.activeSelf);
             _pauseMenu.SetActive(false);
-
         }
 
         private void Start()
@@ -83,8 +85,9 @@ namespace Misc
             _heatSystem.HeatChanged += heat => _heatBar.fillAmount = heat;
             _jesterSpawner.FinishedLevel += () =>
             {
-                Time.timeScale = 0;
-                _wonMenu.SetActive(true);
+                JesterFever = true;
+                _mashSpace.gameObject.SetActive(true);
+                Invoke("EndGame", 10);
             };
             _heatSystem.HeatDepleted += () =>
             {
@@ -94,7 +97,7 @@ namespace Misc
             _heatSystem.MaxHeat += () =>
             {
                 StartCoroutine(MaxHeatGained());
-            };
+            };         
             _heatSystem.ComboMultiplierChanged += comboMultiplier =>
             {
                 if (Mathf.Approximately(comboMultiplier, 1f))
@@ -107,6 +110,13 @@ namespace Misc
                     _comboCounter.text = $"{comboMultiplier:0.0} Hit Combo!";
                 }
             };
+        }
+
+        private void EndGame()
+        {
+            JesterFever = false;
+            Time.timeScale = 0;
+            _wonMenu.SetActive(true);
         }
 
         IEnumerator MaxHeatGained()

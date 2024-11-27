@@ -19,6 +19,7 @@ namespace Jester
         private int waveNumber = 0;
         private bool waveEnded = false;
         private bool spawnDebounce;
+        private bool finished;
         public GameObject jester;
         public WaveList waves;
         public Gameplay.Wave currentWave;
@@ -77,6 +78,10 @@ namespace Jester
 
         public void TimestampTick()
         {
+            if (finished)
+            {
+                return;
+            }
             foreach (JesterData wave in currentWave.jesters)
             {
                 if (Mathf.Approximately(wave.timestamp, Timestamp))
@@ -96,6 +101,7 @@ namespace Jester
                     if (waveNumber == waves.waves.Length)
                     {
                         FinishedLevel?.Invoke();
+                        finished = true;
                     }
                     else
                     {
@@ -113,9 +119,8 @@ namespace Jester
                 TimestampTick();
                 spawnDebounce = true;
             }
-
-            if (false) {
-                if (!JesterFever && spawnDebounce)
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                if (JesterFever && spawnDebounce)
                 {
                     spawnDebounce = false;
                     JesterData jesterData = new JesterData();
@@ -127,7 +132,7 @@ namespace Jester
                     shotData.fireBetween = UnityEngine.Random.Range(0.5f, 1.5f);
                     shotData.speed = UnityEngine.Random.Range(7, 15);
                     shotData.amount = 99;
-                    shotData.damage = 1;
+                    shotData.damage = -4;
 
                     jesterData.commands = new[] {
                         new JesterCommand()

@@ -23,6 +23,7 @@ namespace Projectile
 
         protected float CurrentTime;
         private readonly float _damageMod = 1;
+        private float _spinSpeed;
         private bool _isOn;
         protected Vector2 Direction;
 
@@ -32,6 +33,7 @@ namespace Projectile
             RigidBody = GetComponent<Rigidbody2D>();
             _collider = GetComponent<Collider2D>();
             _collider.enabled = false;
+            _spinSpeed = Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1);
             StartPosition = transform.position;
         }
 
@@ -39,7 +41,8 @@ namespace Projectile
         {
             Invoke("Enable", Data.fireBetween);
             InstantiateReticle(Data);
-            transform.localScale *= Data.size;
+            transform.localScale *= Data.size + 1;
+            InvokeRepeating("Spin", 0, 0.005f);
         }
 
         private void Enable() 
@@ -48,6 +51,11 @@ namespace Projectile
 
             InstantiateShadow(Data);
             GetComponent<SpriteRenderer>().enabled = true;
+        }
+
+        void Spin()
+        {
+            transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
         }
 
         public float GetDamageMod()
@@ -102,14 +110,14 @@ namespace Projectile
         private void InstantiateShadow(ShotDataObject shotData)
         {
             _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
-            _shadow.transform.localScale *= Data.size;
+            _shadow.transform.localScale *= Data.size + 1;
             Destroy(_shadow, shotData.throwAirTime);
         }
 
         protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            Reticle.transform.localScale *= Data.size;
+            Reticle.transform.localScale *= Data.size + 1;
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 
