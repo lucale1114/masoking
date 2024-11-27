@@ -33,7 +33,7 @@ namespace Projectile
             RigidBody = GetComponent<Rigidbody2D>();
             _collider = GetComponent<Collider2D>();
             _collider.enabled = false;
-            _spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
+            _spinSpeed = Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1);
             StartPosition = transform.position;
         }
 
