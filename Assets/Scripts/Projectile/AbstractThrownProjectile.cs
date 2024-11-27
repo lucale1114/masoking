@@ -16,6 +16,7 @@ namespace Projectile
         protected Vector3 StartPosition;
 
         protected Rigidbody2D RigidBody;
+        private Collider2D _collider;
 
         private GameObject _shadow;
         protected GameObject Reticle;
@@ -24,12 +25,14 @@ namespace Projectile
         private readonly float _damageMod = 1;
 
         protected Vector2 Direction;
-        private bool _active;
+
         private int _numberOfBounces;
 
         private void Awake()
         {
             RigidBody = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+            _collider.enabled = false;
 
             StartPosition = transform.position;
         }
@@ -39,14 +42,9 @@ namespace Projectile
             return _damageMod;
         }
 
-        public void SetActive()
-        {
-            _active = true;
-        }
-
         public bool CanHitThings()
         {
-            return _active && CurrentTime / Data.throwAirTime > colliderActivationPercentage;
+            return _collider.enabled;
         }
 
         public int GetNumberOfBounces()
@@ -54,7 +52,7 @@ namespace Projectile
             return _numberOfBounces;
         }
 
-        public void Bounce(Vector2 normal)
+        public void AttemptBounce(Vector2 normal)
         {
             if (!(normal.x * Direction.x >= 0 && normal.y * Direction.y >= 0))
             {
@@ -100,6 +98,11 @@ namespace Projectile
             CurrentTime += Time.deltaTime;
 
             var airTime = CurrentTime / Data.throwAirTime;
+
+            if (airTime >= colliderActivationPercentage)
+            {
+                _collider.enabled = true;
+            }
 
             OnUpdate(airTime);
 

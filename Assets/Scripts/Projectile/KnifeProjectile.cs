@@ -24,7 +24,7 @@ namespace Projectile
         public float amp;
 
         private ShotDataObject _data;
-        private bool _active;
+
         private int _numberOfBounces;
 
         // Code for projectile behavior.
@@ -72,14 +72,9 @@ namespace Projectile
             return damageMod;
         }
 
-        public void SetActive()
-        {
-            _active = true;
-        }
-
         public bool CanHitThings()
         {
-            return _active;
+            return true;
         }
 
         public int GetNumberOfBounces()
@@ -87,7 +82,7 @@ namespace Projectile
             return _numberOfBounces;
         }
 
-        public void Bounce(Vector2 normal)
+        public void AttemptBounce(Vector2 normal)
         {
             var component = GetComponent<Rigidbody2D>();
 
@@ -131,6 +126,7 @@ namespace Projectile
                 {
                     col.enabled = false;
                 }
+
                 projectile.SetShotData(_data);
                 projectile.damageMod = 0.5f;
                 projectile.burstTimer = 0;

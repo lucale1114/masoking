@@ -1,4 +1,3 @@
-using Misc;
 using Player;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ namespace Projectile
             _projectile = GetComponent<IProjectile>();
         }
 
-        private void OnTriggerStay2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (_projectile.CanHitThings())
             {
@@ -38,14 +37,6 @@ namespace Projectile
                     gameObject.GetComponent<Rigidbody2D>().velocity *= -0.5f;
                     gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
                     //gameObject.AddComponent<PolygonCollider2D>();
-                }
-
-                if (collision.gameObject.CompareTag("Wall"))
-                {
-                    if (_projectile.GetNumberOfBounces() > 0)
-                    {
-                        _projectile.Bounce(collision.gameObject.GetComponent<Wall>().normal);
-                    }
                 }
             }
         }

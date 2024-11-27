@@ -6,9 +6,8 @@ namespace Projectile
     {
         public WaveData.ShotDataObject GetShotData();
         public float GetDamageMod();
-        public void SetActive();
         public bool CanHitThings();
         public int GetNumberOfBounces();
-        public void Bounce(Vector2 normal);
+        public void AttemptBounce(Vector2 normal);
     }
 }
