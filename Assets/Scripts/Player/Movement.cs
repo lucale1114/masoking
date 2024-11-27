@@ -18,6 +18,7 @@ namespace Player
         [SerializeField] private float dashTime = 0.2f;
         [SerializeField] private float dashCoolDown;
         [SerializeField] private float dashRechargeRate = 0.025f;
+        [SerializeField] private float wallBounceOffFactor = 3;
 
         public bool IsCurrentlyDashing { get; private set; }
 
@@ -149,6 +150,21 @@ namespace Player
         public void ChangeVelocity(float multiplier)
         {
             currentVelocity *= multiplier;
+        }
+
+        public void AttemptBounce(Vector2 normal)
+        {
+            if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
+            {
+                currentVelocity = Vector2.Reflect(currentVelocity, normal);
+            }
+
+            if (Mathf.Approximately(currentVelocity.magnitude, 0))
+            {
+                currentVelocity = wallBounceOffFactor * normal;
+            }
+
+            rb.velocity = currentVelocity;
         }
     }
 }

@@ -275,7 +275,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: f1cf04eecdb9d084daced465e22890ee, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -336,11 +336,11 @@ MonoBehaviour:
   maxSpeed: 5
   acceleration: 75
   deceleration: 75
-  currentVelocity: {x: 0, y: 0}
-  isDashing: 0
-  dashPower: 3
-  dashFest: 0
+  turnDeceleration: 75
   dashSpeed: 5
+  dashTime: 0.2
+  dashCoolDown: 0
+  dashRechargeRate: 0.025
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 3743546813347916422}
   intro: {fileID: 0}
+  boom: {fileID: 0}
 --- !u!114 &7511096076424274299
 MonoBehaviour:
   m_ObjectHideFlags: 0

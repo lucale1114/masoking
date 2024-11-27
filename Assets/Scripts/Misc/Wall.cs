@@ -1,3 +1,4 @@
+using Player;
 using Projectile;
 using UnityEngine;
 
@@ -17,6 +18,21 @@ namespace Misc
                 {
                     projectile.AttemptBounce(normal);
                 }
+            }
+
+            if (collision.collider.CompareTag("Player"))
+            {
+                var movement = collision.collider.GetComponent<Movement>();
+                movement.AttemptBounce(normal);
+            }
+        }
+
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            if (collision.collider.CompareTag("Player"))
+            {
+                var movement = collision.collider.GetComponent<Movement>();
+                movement.AttemptBounce(normal);
             }
         }
     }
