@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
+using static WaveData;
 
 namespace Player
 {
@@ -26,7 +28,6 @@ namespace Player
         private float _timeSinceLastHit;
         private float _comboMultiplier = 1f;
         private Movement _movement;
-
 
         private void Start()
         {
@@ -60,7 +61,7 @@ namespace Player
             }
 
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
-                GetComponent<SpriteRenderer>().color = col;
+                GetComponent<SpriteRenderer>().DOColor(col, 1);
         }
 
         public void ChangeHeat(float amount)
@@ -99,9 +100,18 @@ namespace Player
 
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
             if (_currentHeat >= maximumHeat && CanMaxHeat)
-            {
-                if (ColorUtility.TryParseHtmlString("#3D63FE", out Color col))
-                    GetComponent<SpriteRenderer>().color = col;
+            {   
+                if (JesterFever)
+                {
+                    if (ColorUtility.TryParseHtmlString("#3D63FE", out Color col))
+                        GetComponent<SpriteRenderer>().DOColor(col, 1);
+                }
+                else
+                {
+                    if (ColorUtility.TryParseHtmlString("#FF0000", out Color col))
+                        GetComponent<SpriteRenderer>().DOColor(col, 1);
+                }
+                    
 
                 MaxHeat?.Invoke();
                 StartCoroutine(MaxHeatReward());

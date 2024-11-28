@@ -340,8 +340,8 @@ MonoBehaviour:
   jester: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
   waves: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
-  debugForceWave: 0
-  SetDebugTimestamp: 0
+  debugForceWave: 3
+  SetDebugTimestamp: 30
 --- !u!4 &1223045845
 Transform:
   m_ObjectHideFlags: 0
@@ -935,6 +935,22 @@ PrefabInstance:
     - target: {fileID: 6132910908955807006, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167490263864180281, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 453.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167490263864180281, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 341.242
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167490263864180281, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 565
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167490263864180281, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -369.05
       objectReference: {fileID: 0}
     - target: {fileID: 6647662874291245596, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
       propertyPath: m_AnchorMax.y

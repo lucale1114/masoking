@@ -123,11 +123,9 @@ namespace Misc
         {
             _heatSystem.CanMaxHeat = false;
             _maxHeat.gameObject.SetActive(true);
-            Time.timeScale = 0;
-            yield return new WaitForSecondsRealtime(2);
-            Time.timeScale = 1;
-            _maxHeat.gameObject.SetActive(false);
             yield return new WaitForSeconds(5);
+            _maxHeat.gameObject.SetActive(false);
+            yield return new WaitForSeconds(2);
             _heatSystem.CanMaxHeat = true;
         }
 
