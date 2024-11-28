@@ -9,29 +9,33 @@ namespace Player
 
         private Animator _animator;
 
+        private Vector2 _lastNonZeroVelocity = Vector2.up;
+
         private void Start()
         {
             _animator = GetComponent<Animator>();
         }
 
-        public void PlayDash(float x, float y)
+        public void PlayDash(Vector2 velocity)
         {
-            _animator.SetFloat(MoveX, x);
-            _animator.SetFloat(MoveY, y);
+            _lastNonZeroVelocity = velocity;
+            _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
+            _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
             _animator.Play("KingDashAnimation");
         }
 
-        public void PlayIdle(float x, float y)
+        public void PlayIdle()
         {
-            _animator.SetFloat(MoveX, x);
-            _animator.SetFloat(MoveY, y);
+            _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
+            _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
             _animator.Play("KingIdleAnimation");
         }
 
-        public void PlayMoving(float x, float y)
+        public void PlayMoving(Vector2 velocity)
         {
-            _animator.SetFloat(MoveX, x);
-            _animator.SetFloat(MoveY, y);
+            _lastNonZeroVelocity = velocity;
+            _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
+            _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
             _animator.Play("KingMoveAnimation");
         }
     }

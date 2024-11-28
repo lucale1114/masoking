@@ -38,8 +38,6 @@ namespace Player
 
         private PlayerAnimator playerAnimator;
 
-        private Vector2 _lastNonZeroVelocity = new(0, 1);
-
         void Start()
         {
             playerAnimator = GetComponent<PlayerAnimator>();
@@ -55,11 +53,13 @@ namespace Player
             {
                 return;
             }
+
             // Capture input
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
                 {
                     if (rb.velocity.x != 0 || rb.velocity.y != 0)
@@ -68,6 +68,7 @@ namespace Player
                         {
                             dashPower -= 1f;
                         }
+
                         UpdateBars();
                         StartCoroutine(Dash());
                     }
@@ -86,20 +87,16 @@ namespace Player
                 dashPower = Mathf.Min(dashPower + dashRechargeRate, 3);
                 UpdateBars();
             }
+
             if (!IsCurrentlyDashing)
             {
-                if (!(Mathf.Approximately(currentVelocity.x, 0) && Mathf.Approximately(currentVelocity.y, 0)))
-                {
-                    _lastNonZeroVelocity = currentVelocity;
-                }
-
                 if (Mathf.Approximately(currentVelocity.magnitude, 0))
                 {
-                    playerAnimator.PlayIdle(_lastNonZeroVelocity.x, _lastNonZeroVelocity.y);
+                    playerAnimator.PlayIdle();
                 }
                 else
                 {
-                    playerAnimator.PlayMoving(_lastNonZeroVelocity.x, _lastNonZeroVelocity.y);
+                    playerAnimator.PlayMoving(currentVelocity);
                 }
             }
         }
@@ -122,8 +119,10 @@ namespace Player
             float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
             float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
-            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x, acceleration * Time.fixedDeltaTime);
-            currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y, acceleration * Time.fixedDeltaTime);
+            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x,
+                acceleration * Time.fixedDeltaTime);
+            currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y,
+                acceleration * Time.fixedDeltaTime);
 
             if (Mathf.Approximately(moveInput.x, 0))
             {
@@ -153,8 +152,8 @@ namespace Player
             IsCurrentlyDashing = true;
             IsDashing?.Invoke(true);
             currentVelocity = Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
-            rb.velocity =  currentVelocity;
-            playerAnimator.PlayDash(moveInput.x, moveInput.y);
+            rb.velocity = currentVelocity;
+            playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(dashTime);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
