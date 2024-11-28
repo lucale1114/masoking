@@ -454,7 +454,8 @@ MonoBehaviour:
 
     If out of heat - game over
 
-    Else - game won
+    Level complete -
+    game won
 
 '
   m_isRightToLeft: 0
