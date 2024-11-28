@@ -77,25 +77,28 @@ namespace Player
 
                     float wiggleAngle = 7;
                     float wiggleCount = 6f;
-                    float wiggleDuration = 0.2f;
+                    float wiggleDuration = 0.25f;
 
                     lineRenderer.enabled = true;
+                    lineRenderer.transform.rotation = Quaternion.identity;
+               
+
 
                     for (int i = 0; i < wiggleCount; i++)
                     {
                         // Wiggle to the right
                         Quaternion rightRotation = startRotation * Quaternion.Euler(0, 0, wiggleAngle);
                         float elapsed = 0f;
+                        Quaternion leftRotation = startRotation * Quaternion.Euler(0, 0, -wiggleAngle);
 
                         while (elapsed < wiggleDuration)
                         {
                             elapsed += Time.deltaTime;
-                            obj.transform.rotation = Quaternion.Lerp(startRotation, rightRotation, elapsed / wiggleDuration);
+                            obj.transform.rotation = Quaternion.Lerp(leftRotation, rightRotation, elapsed / wiggleDuration);
                             yield return null;
                         }
 
                         // Wiggle to the left
-                        Quaternion leftRotation = startRotation * Quaternion.Euler(0, 0, -wiggleAngle);
                         elapsed = 0f;
 
                         while (elapsed < wiggleDuration)
