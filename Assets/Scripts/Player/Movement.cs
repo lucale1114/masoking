@@ -128,13 +128,13 @@ namespace Player
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
-            if (Mathf.Approximately(moveInput.x, 0))
+            if (Mathf.Approximately(moveInput.y, 0))
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
             }
             else if (moveInput.y * currentVelocity.y < 0)
             {
-                currentVelocity.y = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+                currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
@@ -177,8 +177,14 @@ namespace Player
             if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
             {
                 StartCoroutine(BounceRoutine());
-
-                currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
+                if (IsCurrentlyDashing)
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                }
+                else
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
+                }
             }
 
             rb.velocity = currentVelocity;
