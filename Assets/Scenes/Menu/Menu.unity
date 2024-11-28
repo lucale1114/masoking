@@ -448,12 +448,12 @@ MonoBehaviour:
     Get hit to increase heat
 
     Dash
-    with space (costs heat)
+    with space (recharges over time)
 
     Run out of heat - game over
 
-    have heat left
-    at end - game won
+    have heat
+    left at end - game won
 
 '
   m_isRightToLeft: 0
