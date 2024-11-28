@@ -63,16 +63,6 @@ namespace Player
                 GetComponent<SpriteRenderer>().color = col;
         }
 
-        public void Hit()
-        {
-            if (_timeSinceLastHit <= comboTimeLimit)
-            {
-                ComboMultiplierChanged?.Invoke(_comboMultiplier);
-                _comboMultiplier += comboMultiplierIncrease;
-            }
-            _timeSinceLastHit = 0;
-        }
-
         public void ChangeHeat(float amount)
         {
             if (invincible)
@@ -82,7 +72,13 @@ namespace Player
 
             if (amount > 0)
             {
-                Hit();
+                if (_timeSinceLastHit <= comboTimeLimit)
+                {
+                    _comboMultiplier += comboMultiplierIncrease;
+                    ComboMultiplierChanged?.Invoke(_comboMultiplier);
+                }
+
+                _timeSinceLastHit = 0;
             }
 
             _currentHeat += amount * _comboMultiplier / 10;

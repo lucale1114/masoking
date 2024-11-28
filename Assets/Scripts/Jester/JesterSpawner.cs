@@ -42,7 +42,7 @@ namespace Jester
 
         private void SpawnJugglingBall()
         {
-            GameObject ball = Instantiate(Resources.Load($"Misc/Target") as GameObject);
+            GameObject ball = Instantiate(Resources.Load($"Misc/CircusBall") as GameObject);
         }
         private void LaunchNewWave()
         {
@@ -53,7 +53,10 @@ namespace Jester
             #if UNITY_EDITOR
                 Timestamp = SetDebugTimestamp;
             #endif
-            SpawnJugglingBall();
+            if (!GameObject.Find("CircusBall"))
+            {
+                SpawnJugglingBall();
+            }
             CalculateWaveTime();
         }
 

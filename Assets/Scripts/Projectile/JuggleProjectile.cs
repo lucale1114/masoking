@@ -22,10 +22,10 @@ public class JuggleProjectile : MonoBehaviour
     {
         if (other.transform == player && debounce)
         {
-            if (transform.position.y - 1 > player.transform.position.y)
+            if (transform.position.y - 0.75f > player.transform.position.y)
             {
                 debounce = false;
-                heatSystem.Hit();
+                heatSystem.ChangeHeat(1);
                 sound.Play();
                 Invoke("DebounceFunction", DEBOUNCE_TIME);
             }
