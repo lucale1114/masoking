@@ -443,17 +443,19 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'For playtesters:
 
+
     Move with arrow keys
 
     Get hit to increase heat
 
     Dash
-    with space (recharges over time)
+    with space (recharges)
 
-    Run out of heat - game over
 
-    have heat
-    left at end - game won
+    If out of heat - game over
+
+    Level complete -
+    game won
 
 '
   m_isRightToLeft: 0
@@ -897,8 +899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000030517578, y: 400.00006}
-  m_SizeDelta: {x: 800, y: 300}
+  m_AnchoredPosition: {x: -0.000030517578, y: 300}
+  m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751330010
 MonoBehaviour:
