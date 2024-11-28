@@ -51,9 +51,8 @@ namespace Player
 
         void Update()
         {
-            if (IsCurrentlyDashing || IsBouncing)
+            if (IsCurrentlyDashing)
             {
-                moveInput = Vector2.zero;
                 return;
             }
             // Capture input
@@ -74,6 +73,13 @@ namespace Player
                     }
                 }
             }
+
+            if (IsBouncing)
+            {
+                moveInput = Vector2.zero;
+                return;
+            }
+
             if (!Mathf.Approximately(currentTimestamp, Timestamp))
             {
                 currentTimestamp = Timestamp;
