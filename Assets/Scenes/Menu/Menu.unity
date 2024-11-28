@@ -443,18 +443,18 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'For playtesters:
 
+
     Move with arrow keys
 
     Get hit to increase heat
 
     Dash
-    with space (recharges over time)
+    with space (recharges)
 
 
     If out of heat - game over
 
-    Else -
-    game won
+    Else - game won
 
 '
   m_isRightToLeft: 0
