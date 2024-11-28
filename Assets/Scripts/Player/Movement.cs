@@ -21,9 +21,12 @@ namespace Player
         [SerializeField] private float wallBounceOffFactor = 2;
         [SerializeField] private float bounceCooldown;
         [SerializeField] private float bounceAbsorption;
+        [SerializeField] private int maxNumberOfWallBounces = 2;
 
         public bool IsCurrentlyDashing { get; private set; }
         private bool IsBouncing { get; set; }
+
+        private int _numberOfWallBounces;
 
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
@@ -116,6 +119,8 @@ namespace Player
                 return;
             }
 
+            _numberOfWallBounces = maxNumberOfWallBounces;
+
             float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
             float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
@@ -172,6 +177,22 @@ namespace Player
 
         public void AttemptBounce(Vector2 normal)
         {
+            if (IsCurrentlyDashing)
+            {
+                if (_numberOfWallBounces == 0)
+                {
+                    if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
+                    {
+                        StartCoroutine(BounceRoutine());
+                        currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                        currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
+                        rb.velocity = currentVelocity;
+                    }
+
+                    return;
+                }
+            }
+
             if (Mathf.Approximately(currentVelocity.magnitude, 0))
             {
                 StartCoroutine(BounceRoutine());
@@ -184,6 +205,7 @@ namespace Player
                 if (IsCurrentlyDashing)
                 {
                     currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                    _numberOfWallBounces--;
                 }
                 else
                 {

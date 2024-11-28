@@ -341,7 +341,7 @@ MonoBehaviour:
   dashTime: 0.2
   dashCoolDown: 0
   dashRechargeRate: 0.025
-  wallBounceOffFactor: 4
+  wallBounceOffFactor: 3
   bounceCooldown: 0.15
   bounceAbsorption: 0.5
 --- !u!114 &2903870218911091185
@@ -359,7 +359,7 @@ MonoBehaviour:
   maximumHeat: 200
   startHeat: 50
   heatDecayPerSecond: 6
-  comboTimeLimit: 1
+  comboTimeLimit: 1.5
   comboMultiplierIncrease: 1
   invincible: 0
   CanMaxHeat: 1
@@ -407,6 +407,7 @@ MonoBehaviour:
   movement: {fileID: 3743546813347916422}
   intro: {fileID: 0}
   boom: {fileID: 0}
+  lineRenderer: {fileID: 0}
 --- !u!114 &7511096076424274299
 MonoBehaviour:
   m_ObjectHideFlags: 0

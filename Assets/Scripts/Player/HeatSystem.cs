@@ -128,7 +128,7 @@ namespace Player
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
             while (true)
             {
-                yield return new WaitForSeconds(comboTimeLimit);
+                yield return new WaitForSeconds(0.01f);
                 if (_timeSinceLastHit > comboTimeLimit)
                 {
                     _comboMultiplier = 1f;

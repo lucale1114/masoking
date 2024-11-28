@@ -46,7 +46,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
     - timestamp: 3
       action: 6
       shotData:
@@ -75,7 +75,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
     - timestamp: 3.8
       action: 6
       shotData:
@@ -104,7 +104,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
     - timestamp: 4.6
       action: 6
       shotData:
@@ -133,7 +133,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
     - timestamp: 5.4
       action: 6
       shotData:
@@ -162,7 +162,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
     - timestamp: 6.2
       action: 6
       shotData:
@@ -191,7 +191,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
     - timestamp: 7
       action: 6
       shotData:
@@ -220,7 +220,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 11
     side: 0
     y: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 11
     side: 1
     y: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 12
     side: 3
     y: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 12
     side: 3
     y: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 13
     side: 3
     y: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 13
     side: 3
     y: 0
@@ -424,7 +424,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 15
     side: 2
     y: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 17.5
     side: 3
     y: -4
@@ -492,7 +492,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 19
     side: 2
     y: -4
@@ -526,7 +526,7 @@ MonoBehaviour:
         radius: 80
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 21
     side: 4
     y: -4
@@ -560,7 +560,7 @@ MonoBehaviour:
         radius: 80
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 23
     side: 2
     y: -4
@@ -594,7 +594,7 @@ MonoBehaviour:
         radius: 80
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 24
     side: 4
     y: -4
@@ -628,7 +628,7 @@ MonoBehaviour:
         radius: 80
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 25
     side: 4
     y: -4
@@ -662,7 +662,7 @@ MonoBehaviour:
         radius: 80
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 26.5
     side: 2
     y: -4
@@ -696,7 +696,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 29
     side: 2
     y: -4
@@ -730,7 +730,7 @@ MonoBehaviour:
         radius: 0
         spin: 0
         straight: 0
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 32
     side: 2
     y: 1.35
@@ -758,13 +758,13 @@ MonoBehaviour:
         frequency: 3
         amp: 5
         gravityDir: 0
-        amount: 10
+        amount: 7
         speed2: 0
         fireBetween: 0.65
         radius: 0
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
   - timestamp: 32
     side: 4
     y: -1.35
@@ -792,10 +792,10 @@ MonoBehaviour:
         frequency: 3
         amp: 5
         gravityDir: 0
-        amount: 10
+        amount: 7
         speed2: 0
         fireBetween: 0.65
         radius: 0
         spin: 0
         straight: 1
-        rebound: 0
+        numberOfBounces: 0
