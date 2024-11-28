@@ -55,7 +55,7 @@ namespace Jester
             #endif
             if (!GameObject.Find("CircusBall"))
             {
-                SpawnJugglingBall();
+                //SpawnJugglingBall();
             }
             CalculateWaveTime();
         }
