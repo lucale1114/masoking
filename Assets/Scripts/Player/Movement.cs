@@ -121,13 +121,8 @@ namespace Player
 
             _numberOfWallBounces = maxNumberOfWallBounces;
 
-            float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
-            float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
-
-            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x,
-                acceleration * Time.fixedDeltaTime);
-            currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y,
-                acceleration * Time.fixedDeltaTime);
+            var targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
+            var targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
             if (Mathf.Approximately(moveInput.x, 0))
             {
@@ -137,6 +132,11 @@ namespace Player
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
+            else
+            {
+                currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x,
+                    acceleration * Time.fixedDeltaTime);
+            }
 
             if (Mathf.Approximately(moveInput.y, 0))
             {
@@ -145,6 +145,11 @@ namespace Player
             else if (moveInput.y * currentVelocity.y < 0)
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, turnDeceleration * Time.fixedDeltaTime);
+            }
+            else
+            {
+                currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y,
+                    acceleration * Time.fixedDeltaTime);
             }
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);

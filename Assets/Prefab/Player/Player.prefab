@@ -335,8 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   acceleration: 28
-  deceleration: 6
-  turnDeceleration: 10
+  deceleration: 15
+  turnDeceleration: 50
   dashSpeed: 20
   dashTime: 0.2
   dashCoolDown: 0
@@ -408,7 +408,6 @@ MonoBehaviour:
   movement: {fileID: 3743546813347916422}
   intro: {fileID: 0}
   boom: {fileID: 0}
-  lineRenderer: {fileID: 0}
 --- !u!114 &7511096076424274299
 MonoBehaviour:
   m_ObjectHideFlags: 0
