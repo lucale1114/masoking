@@ -6,8 +6,6 @@ namespace Misc
 {
     public class Wall : MonoBehaviour
     {
-        public Vector2 normal;
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Projectile"))
@@ -16,14 +14,14 @@ namespace Misc
 
                 if (projectile.GetNumberOfBounces() > 0)
                 {
-                    projectile.AttemptBounce(normal);
+                    projectile.AttemptBounce(-collision.contacts[0].normal);
                 }
             }
 
             if (collision.collider.CompareTag("Player"))
             {
                 var movement = collision.collider.GetComponent<Movement>();
-                movement.AttemptBounce(normal);
+                movement.AttemptBounce(-collision.contacts[0].normal);
             }
         }
 
@@ -32,7 +30,7 @@ namespace Misc
             if (collision.collider.CompareTag("Player"))
             {
                 var movement = collision.collider.GetComponent<Movement>();
-                movement.AttemptBounce(normal);
+                movement.AttemptBounce(-collision.contacts[0].normal);
             }
         }
     }

@@ -77,7 +77,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 9.255414, y: -0.08254787, z: 0}
-  - {x: 0.2565472, y: -0.058306396, z: 1}
+  - {x: 0.053447723, y: 0.016737923, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -85,8 +85,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.036972046
-        value: 0.124261856
+        time: 0.022888184
+        value: 0.46746254
         inSlope: 0.34638333
         outSlope: 0.34638333
         tangentMode: 0
@@ -94,8 +94,17 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.42856446
       - serializedVersion: 3
-        time: 0.36004755
-        value: 0.4595618
+        time: 0.82361716
+        value: 0.47382087
+        inSlope: -0.6436439
+        outSlope: -0.6436439
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.108477116
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -332,5 +341,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   intro: {fileID: 0}
-  boom: {fileID: 8300000, guid: 695a154f10cc59a4db63e865e889a14e, type: 3}
   lineRenderer: {fileID: 8567057565367364087}
