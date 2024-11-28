@@ -324,11 +324,6 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
-  - timestamp: 15
-    side: 0
-    y: -5
-    randomY: 0
-    commands: []
   - timestamp: 8.2
     side: 0
     y: -5
@@ -641,7 +636,7 @@ MonoBehaviour:
         y: 1
         randomX: 0
         randomY: 0
-        throwAirTime: 3.6
+        throwAirTime: 3.5
         animationCurve:
           serializedVersion: 2
           m_Curve:
