@@ -760,7 +760,7 @@ MonoBehaviour:
         gravityDir: 0
         amount: 7
         speed2: 0
-        fireBetween: 0.65
+        fireBetween: 0.6
         radius: 0
         spin: 0
         straight: 1
@@ -794,7 +794,7 @@ MonoBehaviour:
         gravityDir: 0
         amount: 7
         speed2: 0
-        fireBetween: 0.65
+        fireBetween: 0.6
         radius: 0
         spin: 0
         straight: 1
