@@ -70,7 +70,6 @@ namespace Player
             {
                 return;
             }
-
             if (amount > 0)
             {
                 if (_timeSinceLastHit <= comboTimeLimit)
@@ -82,7 +81,7 @@ namespace Player
                 _timeSinceLastHit = 0;
             }
 
-            _currentHeat += amount * _comboMultiplier / 10;
+            _currentHeat += amount * ((_comboMultiplier / 10) + 1);
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
 
             HeatChanged?.Invoke(GetCurrentHeatNormalized());

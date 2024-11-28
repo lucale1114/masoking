@@ -145,6 +145,7 @@ public class WaveData : MonoBehaviour
 
     public static void ResetTime()
     {
+        JesterFever = false;
         Timestamp = 0;
     }
 }
