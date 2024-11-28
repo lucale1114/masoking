@@ -71,8 +71,8 @@ namespace Player
                     Quaternion startRotation = obj.transform.rotation;
                     Quaternion endRotation = Quaternion.Euler(0, 0, fallAngle);
 
-                    float wiggleAngle = 10;
-                    float wiggleCount = 4f;
+                    float wiggleAngle = 7;
+                    float wiggleCount = 6f;
                     float wiggleDuration = 0.2f;
 
                     for (int i = 0; i < wiggleCount; i++)
