@@ -97,7 +97,7 @@ namespace Misc
             _heatSystem.MaxHeat += () =>
             {
                 StartCoroutine(MaxHeatGained());
-            };         
+            };
             _heatSystem.ComboMultiplierChanged += comboMultiplier =>
             {
                 if (Mathf.Approximately(comboMultiplier, 1f))
@@ -107,7 +107,7 @@ namespace Misc
                 else
                 {
                     _comboCounter.enabled = true;
-                    _comboCounter.text = $"{comboMultiplier:0.0} Hit Combo!";
+                    _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
                 }
             };
         }

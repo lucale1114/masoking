@@ -360,7 +360,7 @@ MonoBehaviour:
   startHeat: 50
   heatDecayPerSecond: 6
   comboTimeLimit: 1
-  comboMultiplierIncrease: 0.1
+  comboMultiplierIncrease: 1
   invincible: 0
   CanMaxHeat: 1
 --- !u!222 &444254654661747928

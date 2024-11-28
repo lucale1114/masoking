@@ -867,6 +867,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: comboMultiplierIncrease
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name
       value: Player
