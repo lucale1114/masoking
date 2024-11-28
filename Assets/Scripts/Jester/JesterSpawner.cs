@@ -31,18 +31,7 @@ namespace Jester
         // Spawns jesters either on the left side or right side and uses a random Y axis.
         void Start()
         {
-            /*foreach (Gameplay.Wave wave in waves.waves)
-            {
-                foreach (JesterData command in wave.jesters)
-                {
-                    float timestampspawn = command.timestamp;
-                    foreach (JesterCommand com in command.commands)
-                    {
-                        com.timestamp = Mathf.Round((com.timestamp - timestampspawn) * 10.0f) * 0.1f;
-                    }
-                }
-            }*/
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             if (debugForceWave > 0)
             {
                 waveNumber = debugForceWave - 1;
@@ -51,6 +40,10 @@ namespace Jester
             LaunchNewWave();
         }
 
+        private void SpawnJugglingBall()
+        {
+            GameObject ball = Instantiate(Resources.Load($"Misc/Target") as GameObject);
+        }
         private void LaunchNewWave()
         {
             ResetTime();
@@ -60,6 +53,7 @@ namespace Jester
             #if UNITY_EDITOR
                 Timestamp = SetDebugTimestamp;
             #endif
+            SpawnJugglingBall();
             CalculateWaveTime();
         }
 
