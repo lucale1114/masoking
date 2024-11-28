@@ -128,13 +128,13 @@ namespace Player
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
-            if (Mathf.Approximately(moveInput.x, 0))
+            if (Mathf.Approximately(moveInput.y, 0))
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
             }
             else if (moveInput.y * currentVelocity.y < 0)
             {
-                currentVelocity.y = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+                currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
