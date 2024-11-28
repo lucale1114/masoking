@@ -96,7 +96,7 @@ namespace Misc
 
             if (Input.GetKeyDown(KeyCode.Space) && hasDashed != true)
             {
-                Debug.Log("Hello");
+          
                 StartCoroutine(SwitchTextDashWithDelay());
             }
 
@@ -126,6 +126,8 @@ namespace Misc
 
         private IEnumerator SwitchTextEnemyWithDelay()
         {
+
+
             yield return new WaitForSeconds(2f);
             EnemyTextMesh.enabled = true;
             DashTextMesh.enabled = false;

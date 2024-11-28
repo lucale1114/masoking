@@ -1018,7 +1018,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 315118431773786427, guid: 1380161edd9f36746b4180a474563963, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1574,6 +1575,7 @@ GameObject:
   - component: {fileID: 1583695378}
   - component: {fileID: 1583695377}
   - component: {fileID: 1583695376}
+  - component: {fileID: 1583695379}
   m_Layer: 0
   m_Name: DestroyWall
   m_TagString: DestroyIntro
@@ -1693,23 +1695,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1684100764 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 291662019340120517, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-  m_PrefabInstance: {fileID: 1256056521718688891}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1684100766
+--- !u!114 &1583695379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684100764}
+  m_GameObject: {fileID: 1583695375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f73141946c6c014ab69d2c327c30a51, type: 3}
+  m_Script: {fileID: 11500000, guid: b5a938d3f93ebad478a48df0e1639eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 1993662373}
+  intro: {fileID: 14378988}
+  boom: {fileID: 8300000, guid: 695a154f10cc59a4db63e865e889a14e, type: 3}
 --- !u!1 &1714223776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
@@ -1804,10 +1804,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 291662019340120517, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 2421025850659811155, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.58
@@ -1852,17 +1848,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingObject
       objectReference: {fileID: 0}
-    - target: {fileID: 8567057565367364087, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: m_UseWorldSpace
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+      propertyPath: intro
+      value: 
+      objectReference: {fileID: 14378988}
+    - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1993662373}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 291662019340120517, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1684100766}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
 --- !u!114 &4123454845004006269
 MonoBehaviour:
