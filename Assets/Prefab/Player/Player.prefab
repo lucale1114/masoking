@@ -341,7 +341,9 @@ MonoBehaviour:
   dashTime: 0.2
   dashCoolDown: 0
   dashRechargeRate: 0.025
-  wallBounceOffFactor: 3
+  wallBounceOffFactor: 4
+  bounceCooldown: 0.15
+  bounceAbsorption: 0.75
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
