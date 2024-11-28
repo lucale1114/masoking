@@ -1,11 +1,7 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using Misc;
-using static UnityEditor.Rendering.FilterWindow;
-using Projectile;
-using Unity.Burst.CompilerServices;
-
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -14,11 +10,19 @@ namespace Player
         [SerializeField] private Movement movement;
         [SerializeField] private IntroUserInterface intro;
         [SerializeField] private AudioClip boom;
+        [SerializeField] private LineRenderer lineRenderer;
+
+        
         bool hasDashed = false;
+        
         public bool HasDashed => hasDashed;
 
 
-
+        private void Awake()
+        {
+            
+            lineRenderer.enabled = false;
+        }
 
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -44,7 +48,7 @@ namespace Player
             if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurrentlyDashing)
             {
                 StartCoroutine(FallOver(collision.gameObject, movement.transform.position));
-               
+
             }
         }
 
@@ -71,9 +75,11 @@ namespace Player
                     Quaternion startRotation = obj.transform.rotation;
                     Quaternion endRotation = Quaternion.Euler(0, 0, fallAngle);
 
-                    float wiggleAngle = 10;
-                    float wiggleCount = 4f;
+                    float wiggleAngle = 7;
+                    float wiggleCount = 6f;
                     float wiggleDuration = 0.2f;
+
+                    lineRenderer.enabled = true;
 
                     for (int i = 0; i < wiggleCount; i++)
                     {
@@ -118,6 +124,8 @@ namespace Player
 
                     // (Optional) Freeze position constraints if it should stay down
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+                    lineRenderer.enabled = false;
 
                     yield return new WaitForSeconds(3f);
                     Destroy(obj);
