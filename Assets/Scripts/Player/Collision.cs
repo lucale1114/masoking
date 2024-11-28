@@ -14,11 +14,19 @@ namespace Player
         [SerializeField] private Movement movement;
         [SerializeField] private IntroUserInterface intro;
         [SerializeField] private AudioClip boom;
+        [SerializeField] private LineRenderer lineRenderer;
+
+        
         bool hasDashed = false;
+        
         public bool HasDashed => hasDashed;
 
 
-
+        private void Awake()
+        {
+            
+            lineRenderer.enabled = false;
+        }
 
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -75,6 +83,8 @@ namespace Player
                     float wiggleCount = 6f;
                     float wiggleDuration = 0.2f;
 
+                    lineRenderer.enabled = true;
+
                     for (int i = 0; i < wiggleCount; i++)
                     {
                         // Wiggle to the right
@@ -118,6 +128,8 @@ namespace Player
 
                     // (Optional) Freeze position constraints if it should stay down
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+                    lineRenderer.enabled = false;
 
                     yield return new WaitForSeconds(3f);
                     Destroy(obj);
