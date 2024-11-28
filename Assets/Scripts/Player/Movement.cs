@@ -177,8 +177,14 @@ namespace Player
             if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
             {
                 StartCoroutine(BounceRoutine());
-
-                currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
+                if (IsCurrentlyDashing)
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                }
+                else
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
+                }
             }
 
             rb.velocity = currentVelocity;
