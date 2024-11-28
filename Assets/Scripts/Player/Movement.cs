@@ -18,9 +18,12 @@ namespace Player
         [SerializeField] private float dashTime = 0.2f;
         [SerializeField] private float dashCoolDown;
         [SerializeField] private float dashRechargeRate = 0.025f;
-        [SerializeField] private float wallBounceOffFactor = 3;
+        [SerializeField] private float wallBounceOffFactor = 2;
+        [SerializeField] private float bounceCooldown;
+        [SerializeField] private float bounceAbsorption;
 
         public bool IsCurrentlyDashing { get; private set; }
+        private bool IsBouncing { get; set; }
 
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
@@ -48,8 +51,9 @@ namespace Player
 
         void Update()
         {
-            if (IsCurrentlyDashing)
+            if (IsCurrentlyDashing || IsBouncing)
             {
+                moveInput = Vector2.zero;
                 return;
             }
             // Capture input
@@ -103,8 +107,9 @@ namespace Player
 
         void FixedUpdate()
         {
-            if (IsCurrentlyDashing)
+            if (IsCurrentlyDashing || IsBouncing)
             {
+                moveInput = Vector2.zero;
                 return;
             }
 
@@ -162,17 +167,28 @@ namespace Player
 
         public void AttemptBounce(Vector2 normal)
         {
-            if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
-            {
-                currentVelocity = Vector2.Reflect(currentVelocity, normal);
-            }
-
             if (Mathf.Approximately(currentVelocity.magnitude, 0))
             {
+                StartCoroutine(BounceRoutine());
+                IsBouncing = true;
                 currentVelocity = wallBounceOffFactor * normal;
             }
 
+            if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
+            {
+                StartCoroutine(BounceRoutine());
+
+                currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
+            }
+
             rb.velocity = currentVelocity;
+        }
+
+        private IEnumerator BounceRoutine()
+        {
+            IsBouncing = true;
+            yield return new WaitForSeconds(bounceCooldown);
+            IsBouncing = false;
         }
     }
 }
