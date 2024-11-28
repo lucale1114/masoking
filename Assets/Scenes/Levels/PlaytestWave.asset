@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlaytestWave
   m_EditorClassIdentifier: 
   waves:
+  - {fileID: 11400000, guid: de94666400dfb8f499d4362c2c5a42c2, type: 2}
+  - {fileID: 11400000, guid: 72023ad662e8bcd4d83bf193f39a3e5f, type: 2}
   - {fileID: 11400000, guid: 64e139890ab820747a943368a1f454df, type: 2}
   - {fileID: 11400000, guid: 34febf92084c583418149c2b43953307, type: 2}
-  - {fileID: 11400000, guid: 72023ad662e8bcd4d83bf193f39a3e5f, type: 2}
