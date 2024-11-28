@@ -59,9 +59,24 @@ public class FallingObjectCollision : MonoBehaviour
                 float wiggleCount = 6f;
                 float wiggleDuration = 0.25f;
 
-                 lineRenderer.enabled = true;
-                 lineRenderer.transform.rotation = Quaternion.identity;
+                //lineRenderer.enabled = true;
+               // lineRenderer.useWorldSpace = true;
 
+               /* if (impactDirection.x > 0) // Dash from left
+                {
+                    lineRenderer.SetPosition(0, transform.position + transform.right * 5f); // Extend line to the left
+                    lineRenderer.SetPosition(1, transform.position);
+                }
+                else // Dash from right
+                {
+                    lineRenderer.SetPosition(0, transform.position - transform.right * 5f); // Extend line to the right
+                }
+
+                // The second position stays anchored to the object
+                lineRenderer.SetPosition(1, transform.position);
+
+                lineRenderer.SetPosition(0, transform.position + Vector3.right * (impactDirection.x > 0 ? 5f : -5f)); // Adjust for dash side
+                lineRenderer.SetPosition(1, transform.position);*/
 
 
                 for (int i = 0; i < wiggleCount; i++)
@@ -75,6 +90,9 @@ public class FallingObjectCollision : MonoBehaviour
                     {
                         elapsed += Time.deltaTime;
                         transform.rotation = Quaternion.Lerp(leftRotation, rightRotation, elapsed / wiggleDuration);
+
+                       
+
                         yield return null;
                     }
 
@@ -85,6 +103,9 @@ public class FallingObjectCollision : MonoBehaviour
                     {
                         elapsed += Time.deltaTime;
                         transform.rotation = Quaternion.Lerp(rightRotation, leftRotation, elapsed / wiggleDuration);
+
+
+
                         yield return null;
                     }
                 }
@@ -108,7 +129,7 @@ public class FallingObjectCollision : MonoBehaviour
                 // (Optional) Freeze position constraints if it should stay down
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-                lineRenderer.enabled = false;
+               // lineRenderer.enabled = false;
 
                 yield return new WaitForSeconds(3f);
                
