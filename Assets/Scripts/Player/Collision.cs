@@ -10,7 +10,7 @@ namespace Player
         [SerializeField] private Movement movement;
         [SerializeField] private IntroUserInterface intro;
         [SerializeField] private AudioClip boom;
-        [SerializeField] private LineRenderer lineRenderer;
+        //[SerializeField] private LineRenderer lineRenderer;
 
         
         bool hasDashed = false;
@@ -21,7 +21,7 @@ namespace Player
         private void Awake()
         {
             
-            lineRenderer.enabled = false;
+           // lineRenderer.enabled = false;
         }
 
 
@@ -79,8 +79,8 @@ namespace Player
                     float wiggleCount = 6f;
                     float wiggleDuration = 0.25f;
 
-                    lineRenderer.enabled = true;
-                    lineRenderer.transform.rotation = Quaternion.identity;
+                   // lineRenderer.enabled = true;
+                   // lineRenderer.transform.rotation = Quaternion.identity;
                
 
 
@@ -128,7 +128,7 @@ namespace Player
                     // (Optional) Freeze position constraints if it should stay down
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-                    lineRenderer.enabled = false;
+                   // lineRenderer.enabled = false;
 
                     yield return new WaitForSeconds(3f);
                     Destroy(obj);
