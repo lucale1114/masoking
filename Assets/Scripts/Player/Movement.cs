@@ -170,7 +170,6 @@ namespace Player
             if (Mathf.Approximately(currentVelocity.magnitude, 0))
             {
                 StartCoroutine(BounceRoutine());
-                IsBouncing = true;
                 currentVelocity = wallBounceOffFactor * normal;
             }
 
