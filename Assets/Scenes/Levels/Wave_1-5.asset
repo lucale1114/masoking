@@ -1724,7 +1724,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        size: 1
         damage: 100
         x: 0.01
         y: 0
@@ -2297,8 +2297,3 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
-  - timestamp: 32
-    side: 0
-    y: 0
-    randomY: 0
-    commands: []
