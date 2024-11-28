@@ -1,11 +1,7 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using Misc;
-using static UnityEditor.Rendering.FilterWindow;
-using Projectile;
-using Unity.Burst.CompilerServices;
-
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -44,7 +40,7 @@ namespace Player
             if (collision.gameObject.CompareTag("DashableObject") && movement.IsCurrentlyDashing)
             {
                 StartCoroutine(FallOver(collision.gameObject, movement.transform.position));
-               
+
             }
         }
 
