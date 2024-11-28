@@ -335,15 +335,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   acceleration: 28
-  deceleration: 6
-  turnDeceleration: 10
+  deceleration: 15
+  turnDeceleration: 50
   dashSpeed: 20
   dashTime: 0.2
   dashCoolDown: 0
   dashRechargeRate: 0.025
-  wallBounceOffFactor: 3
+  wallBounceOffFactor: 10
   bounceCooldown: 0.15
-  bounceAbsorption: 0.5
+  bounceAbsorption: 0.3
+  maxNumberOfWallBounces: 2
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +408,6 @@ MonoBehaviour:
   movement: {fileID: 3743546813347916422}
   intro: {fileID: 0}
   boom: {fileID: 0}
-  lineRenderer: {fileID: 0}
 --- !u!114 &7511096076424274299
 MonoBehaviour:
   m_ObjectHideFlags: 0
