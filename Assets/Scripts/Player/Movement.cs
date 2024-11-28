@@ -18,9 +18,12 @@ namespace Player
         [SerializeField] private float dashTime = 0.2f;
         [SerializeField] private float dashCoolDown;
         [SerializeField] private float dashRechargeRate = 0.025f;
-        [SerializeField] private float wallBounceOffFactor = 3;
+        [SerializeField] private float wallBounceOffFactor = 2;
+        [SerializeField] private float bounceCooldown;
+        [SerializeField] private float bounceAbsorption;
 
         public bool IsCurrentlyDashing { get; private set; }
+        private bool IsBouncing { get; set; }
 
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
@@ -34,8 +37,6 @@ namespace Player
         private Slider dashFill3;
 
         private PlayerAnimator playerAnimator;
-
-        private Vector2 _lastNonZeroVelocity = new(0, 1);
 
         void Start()
         {
@@ -52,11 +53,13 @@ namespace Player
             {
                 return;
             }
+
             // Capture input
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
                 {
                     if (rb.velocity.x != 0 || rb.velocity.y != 0)
@@ -65,31 +68,35 @@ namespace Player
                         {
                             dashPower -= 1f;
                         }
+
                         UpdateBars();
                         StartCoroutine(Dash());
                     }
                 }
             }
+
+            if (IsBouncing)
+            {
+                moveInput = Vector2.zero;
+                return;
+            }
+
             if (!Mathf.Approximately(currentTimestamp, Timestamp))
             {
                 currentTimestamp = Timestamp;
                 dashPower = Mathf.Min(dashPower + dashRechargeRate, 3);
                 UpdateBars();
             }
+
             if (!IsCurrentlyDashing)
             {
-                if (!(Mathf.Approximately(currentVelocity.x, 0) && Mathf.Approximately(currentVelocity.y, 0)))
-                {
-                    _lastNonZeroVelocity = currentVelocity;
-                }
-
                 if (Mathf.Approximately(currentVelocity.magnitude, 0))
                 {
-                    playerAnimator.PlayIdle(_lastNonZeroVelocity.x, _lastNonZeroVelocity.y);
+                    playerAnimator.PlayIdle();
                 }
                 else
                 {
-                    playerAnimator.PlayMoving(_lastNonZeroVelocity.x, _lastNonZeroVelocity.y);
+                    playerAnimator.PlayMoving(currentVelocity);
                 }
             }
         }
@@ -103,16 +110,19 @@ namespace Player
 
         void FixedUpdate()
         {
-            if (IsCurrentlyDashing)
+            if (IsCurrentlyDashing || IsBouncing)
             {
+                moveInput = Vector2.zero;
                 return;
             }
 
             float targetSpeedX = moveInput.x != 0 ? maxSpeed : 0;
             float targetSpeedY = moveInput.y != 0 ? maxSpeed : 0;
 
-            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x, acceleration * Time.fixedDeltaTime);
-            currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y, acceleration * Time.fixedDeltaTime);
+            currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, targetSpeedX * moveInput.x,
+                acceleration * Time.fixedDeltaTime);
+            currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, targetSpeedY * moveInput.y,
+                acceleration * Time.fixedDeltaTime);
 
             if (Mathf.Approximately(moveInput.x, 0))
             {
@@ -123,13 +133,13 @@ namespace Player
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
-            if (Mathf.Approximately(moveInput.x, 0))
+            if (Mathf.Approximately(moveInput.y, 0))
             {
                 currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, deceleration * Time.fixedDeltaTime);
             }
             else if (moveInput.y * currentVelocity.y < 0)
             {
-                currentVelocity.y = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+                currentVelocity.y = Mathf.MoveTowards(currentVelocity.y, 0, turnDeceleration * Time.fixedDeltaTime);
             }
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
@@ -142,8 +152,8 @@ namespace Player
             IsCurrentlyDashing = true;
             IsDashing?.Invoke(true);
             currentVelocity = Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
-            rb.velocity =  currentVelocity;
-            playerAnimator.PlayDash(moveInput.x, moveInput.y);
+            rb.velocity = currentVelocity;
+            playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(dashTime);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
@@ -162,17 +172,33 @@ namespace Player
 
         public void AttemptBounce(Vector2 normal)
         {
-            if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
-            {
-                currentVelocity = Vector2.Reflect(currentVelocity, normal);
-            }
-
             if (Mathf.Approximately(currentVelocity.magnitude, 0))
             {
+                StartCoroutine(BounceRoutine());
                 currentVelocity = wallBounceOffFactor * normal;
             }
 
+            if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
+            {
+                StartCoroutine(BounceRoutine());
+                if (IsCurrentlyDashing)
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                }
+                else
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
+                }
+            }
+
             rb.velocity = currentVelocity;
+        }
+
+        private IEnumerator BounceRoutine()
+        {
+            IsBouncing = true;
+            yield return new WaitForSeconds(bounceCooldown);
+            IsBouncing = false;
         }
     }
 }

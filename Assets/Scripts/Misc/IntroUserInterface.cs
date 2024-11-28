@@ -1,6 +1,7 @@
 using Jester;
 using Managers;
 using Player;
+using Projectile;
 using System;
 using System.Collections;
 using TMPro;
@@ -95,25 +96,21 @@ namespace Misc
 
             if (Input.GetKeyDown(KeyCode.Space) && hasDashed != true)
             {
-               
-                StartCoroutine(SwitchTextEnemyWithDelay());
-            }
-
-            if (projectileCollision.BeenHit) 
-            {
+                Debug.Log("Hello");
                 StartCoroutine(SwitchTextDashWithDelay());
-
             }
+
+        
 
         }
 
         private IEnumerator SwitchTextDashWithDelay()
         {
-            EnemyTextMesh.enabled = false; // Show DashTextMesh
+            hasDashed = true;
+            DashTextMesh.enabled = false; // Show DashTextMesh
             yield return new WaitForSeconds(2f); // Wait for seconds
            
             dashwallTextMesh.enabled = true; // Show dashwallTextMesh
-            hasDashed = true;
 
         }
 

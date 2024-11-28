@@ -16,7 +16,7 @@ namespace Player
         [SerializeField] private float startHeat = 50;
         [SerializeField] private float heatDecayPerSecond = 4;
         [SerializeField] private float comboTimeLimit = 1;
-        [SerializeField] private float comboMultiplierIncrease = .1f;
+        [SerializeField] private float comboMultiplierIncrease = 1f;
 
         public bool invincible;
         public bool CanMaxHeat = true;
@@ -81,7 +81,7 @@ namespace Player
                 _timeSinceLastHit = 0;
             }
 
-            _currentHeat += amount * _comboMultiplier;
+            _currentHeat += amount * _comboMultiplier / 10;
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
 
             HeatChanged?.Invoke(GetCurrentHeatNormalized());

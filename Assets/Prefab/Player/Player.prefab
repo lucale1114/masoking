@@ -341,7 +341,9 @@ MonoBehaviour:
   dashTime: 0.2
   dashCoolDown: 0
   dashRechargeRate: 0.025
-  wallBounceOffFactor: 3
+  wallBounceOffFactor: 4
+  bounceCooldown: 0.15
+  bounceAbsorption: 0.5
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +360,7 @@ MonoBehaviour:
   startHeat: 50
   heatDecayPerSecond: 6
   comboTimeLimit: 1
-  comboMultiplierIncrease: 0.1
+  comboMultiplierIncrease: 1
   invincible: 0
   CanMaxHeat: 1
 --- !u!222 &444254654661747928
