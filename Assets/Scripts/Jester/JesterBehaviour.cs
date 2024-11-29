@@ -28,11 +28,11 @@ namespace Jester
             jesterFire = GetComponent<JesterFire>();
             if (transform.position.x < 0)
             {
+                FlipDirection();
                 dir = 1;
             }
             else
             {
-                FlipDirection();
                 dir = -1;
             }
             float timestampEntered = Timestamp;
