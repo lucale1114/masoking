@@ -11,9 +11,13 @@ public class FallingObjectCollision : MonoBehaviour
     [SerializeField] private Movement movement;
     [SerializeField] private IntroUserInterface intro;
     [SerializeField] private LineRenderer lineRenderer;
+    private Collider2D triggerCollider;
+
 
 
     bool hasDashed = false;
+    bool dashed = false;
+    bool isFalling = false;
 
     public bool HasDashed => hasDashed;
 
@@ -21,15 +25,22 @@ public class FallingObjectCollision : MonoBehaviour
     private void Awake()
     {
 
-         lineRenderer.enabled = false;
+        lineRenderer.enabled = false;
+        triggerCollider = GetComponent<Collider2D>();
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
         {
-            StartCoroutine(FallOver(collision.gameObject, movement.transform.position));
+            StartCoroutine(FallOver(this.gameObject, collision.transform.position));
+        }
 
+        if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true)
+        {
+                Debug.Log("Hit");
+                var damage = 10;
+                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
         }
     }
 
@@ -42,10 +53,10 @@ public class FallingObjectCollision : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            if (hasDashed != false)
+            if (hasDashed != false && dashed != true)
             {
 
-
+                dashed = true;
                 // Temporarily disable Rigidbody2D to manually animate the fall
                 rb.isKinematic = true;
 
@@ -63,22 +74,25 @@ public class FallingObjectCollision : MonoBehaviour
                 lineRenderer.enabled = true;
                 lineRenderer.useWorldSpace = true;
 
+                triggerCollider.enabled = false;
+                isFalling = true;
+   
                 if (impactDirection.x > 0) // Dash from left
                 {
                     Debug.Log("Got here");
-                    lineRenderer.SetPosition(0, transform.position + transform.right * 5f); // Extend line to the left
+                    lineRenderer.SetPosition(0, transform.position + transform.right * 3f); // Extend line to the left
                     lineRenderer.SetPosition(1, transform.position);
                 }
                 else // Dash from right
                 {
                     Debug.Log("Got here now");
-                    lineRenderer.SetPosition(0, transform.position - transform.right * 5f); // Extend line to the right
+                    lineRenderer.SetPosition(0, transform.position - transform.right * 3f); // Extend line to the right
                 }
 
                 // The second position stays anchored to the object
                 lineRenderer.SetPosition(1, transform.position);
 
-                lineRenderer.SetPosition(0, transform.position + Vector3.right * (impactDirection.x > 0 ? 5f : -5f)); // Adjust for dash side
+                lineRenderer.SetPosition(0, transform.position + Vector3.right * (impactDirection.x > 0 ? 3f : -3f)); // Adjust for dash side
                 lineRenderer.SetPosition(1, transform.position);
 
 
@@ -92,9 +106,8 @@ public class FallingObjectCollision : MonoBehaviour
                     while (elapsed < wiggleDuration)
                     {
                         elapsed += Time.deltaTime;
-                        transform.rotation = Quaternion.Lerp(leftRotation, rightRotation, elapsed / wiggleDuration);
 
-                       
+                        transform.rotation = Quaternion.Lerp(leftRotation, rightRotation, elapsed / wiggleDuration);
 
                         yield return null;
                     }
@@ -105,14 +118,12 @@ public class FallingObjectCollision : MonoBehaviour
                     while (elapsed < wiggleDuration)
                     {
                         elapsed += Time.deltaTime;
+
                         transform.rotation = Quaternion.Lerp(rightRotation, leftRotation, elapsed / wiggleDuration);
-
-
 
                         yield return null;
                     }
                 }
-
 
                 // Rotate the object smoothly over time
                 float elapsedTime = 0f;
@@ -133,9 +144,9 @@ public class FallingObjectCollision : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
                 lineRenderer.enabled = false;
-                var damage = 10;
-                gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-                Debug.Log("Hit");
+                triggerCollider.enabled = true;
+                isFalling = false;
+
                 yield return new WaitForSeconds(3f);
                
                 Destroy(rb.gameObject);
