@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using static WaveData;
+using Color = UnityEngine.Color;
 
 namespace Player
 {
@@ -98,7 +99,7 @@ namespace Player
 
             ComboMultiplierChanged?.Invoke(_comboMultiplier);
             if (_currentHeat >= maximumHeat && CanMaxHeat)
-            {   
+            {
                 if (JesterFever)
                 {
                     if (ColorUtility.TryParseHtmlString("#3D63FE", out Color col))
@@ -109,7 +110,7 @@ namespace Player
                     if (ColorUtility.TryParseHtmlString("#FF0000", out Color col))
                         GetComponent<SpriteRenderer>().DOColor(col, 1);
                 }
-                    
+
 
                 MaxHeat?.Invoke();
                 StartCoroutine(MaxHeatReward());

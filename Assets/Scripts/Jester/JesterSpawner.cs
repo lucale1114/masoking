@@ -112,7 +112,7 @@ namespace Jester
                     }
                     else
                     {
-                        LaunchNewWave();          
+                        LaunchNewWave();
                     }
                 }
             }
@@ -210,6 +210,7 @@ namespace Jester
             GameObject newJester = Instantiate(jester, new Vector3(x, y), jester.transform.rotation);
             newJester.GetComponent<JesterBehaviour>().enterTimestamp = Timestamp;
             newJester.GetComponent<JesterBehaviour>().jesterCommands = waveObject.commands;
+            newJester.GetComponent<JesterAnimator>().SetColor(waveObject.color);
         }
     }
 }
