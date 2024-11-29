@@ -49,7 +49,6 @@ namespace Player
                 case 0:
                     _movement.DashFest(true);
                     yield return new WaitForSeconds(5);
-
                     _movement.DashFest(false);
                     break;
 
@@ -60,7 +59,7 @@ namespace Player
                     break;
             }
 
-            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
+            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFever)
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
         }
 

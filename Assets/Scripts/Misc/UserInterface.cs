@@ -133,6 +133,7 @@ namespace Misc
             if (JesterFever)
             {
                 ChangeKingPortrait(2);
+                yield break;
             }
             else
             {
