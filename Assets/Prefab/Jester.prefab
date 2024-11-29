@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.03, y: 0.21, z: 0}
-  m_LocalScale: {x: 0.5744, y: 1.1135, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3481358d9cc07144097e42b795006750, type: 3}
-  m_Color: {r: 0.690566, g: 0.690566, b: 0.690566, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 15bc639fabdc6cf4cb667af1fb4fc002, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
       radius: 0
       spin: 0
       straight: 0
-      rebound: 0
+      numberOfBounces: 0
   - timestamp: 5
     action: 2
     shotData:
@@ -174,7 +174,7 @@ MonoBehaviour:
       radius: 0
       spin: 0
       straight: 0
-      rebound: 0
+      numberOfBounces: 0
   - timestamp: 12
     action: 1
     shotData:
@@ -203,7 +203,7 @@ MonoBehaviour:
       radius: 0
       spin: 0
       straight: 0
-      rebound: 0
+      numberOfBounces: 0
   shotDataObject:
     speed: 0
     inaccuracy: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
     radius: 0
     spin: 0
     straight: 0
-    rebound: 0
+    numberOfBounces: 0
 --- !u!114 &3118247668702375447
 MonoBehaviour:
   m_ObjectHideFlags: 0

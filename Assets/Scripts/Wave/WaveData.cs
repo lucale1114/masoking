@@ -6,6 +6,7 @@ public class WaveData : MonoBehaviour
 {
     public static float Timestamp;
     public static bool Paused;
+    public static bool PausedByWave;
     public static Sides LastUsed;
     public static bool JesterFever;
 
@@ -129,7 +130,7 @@ public class WaveData : MonoBehaviour
 
     void IncrementTime()
     {
-        if (Paused)
+        if (Paused || PausedByWave)
         {
             return;
         }

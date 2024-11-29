@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Gameplay;
 using UnityEngine;
 using static WaveData;
@@ -44,6 +45,7 @@ namespace Jester
         {
             GameObject ball = Instantiate(Resources.Load($"Misc/CircusBall") as GameObject);
         }
+
         private void LaunchNewWave()
         {
             ResetTime();
@@ -52,12 +54,13 @@ namespace Jester
             currentWave = waves.waves[waveNumber];
             #if UNITY_EDITOR
                 Timestamp = SetDebugTimestamp;
-            #endif
-            if (!GameObject.Find("CircusBall"))
+#endif
+            if (!GameObject.Find("CircusBall") && waves.waves[waveNumber].SpawnBall)
             {
-                //SpawnJugglingBall();
+                SpawnJugglingBall();
             }
             CalculateWaveTime();
+            StartCoroutine(PauseTimestamp(currentWave.StartDelay));
         }
 
         private void CalculateWaveTime()
@@ -71,6 +74,13 @@ namespace Jester
                 }
             }
             waveEndTime = highest;
+        }
+
+        IEnumerator PauseTimestamp(float delay)
+        {
+            PausedByWave = true;
+            yield return new WaitForSeconds(delay);
+            PausedByWave = false;
         }
 
         public void TimestampTick()
@@ -102,7 +112,7 @@ namespace Jester
                     }
                     else
                     {
-                        LaunchNewWave();
+                        LaunchNewWave();          
                     }
                 }
             }
@@ -203,47 +213,3 @@ namespace Jester
         }
     }
 }
-
-/*#if UNITY_EDITOR
-[CustomEditor(typeof(JesterSpawner))]
-class WaveEditor: Editor {
-    public Actions actions;
-    public float y;
-    public float timestamp;
-
-    SerializedProperty wave1;
-
-    private void OnEnable()
-    {
-        wave1.FindPropertyRelative("wave1");
-    }
-
-
-    int index = 0;
-    public override void OnInspectorGUI()
-    {
-        var waveEdior = (JesterSpawner)target;
-        if (waveEdior == null ) { return; }
-
-        EditorGUI.PropertyField(new Rect(1,1,5,5) ,wave1);
-        if (GUILayout.Button("New Jester Spawn"))
-        {
-            WaveSpawning newJester;
-        }
-
-        EditorGUILayout.LabelField("Y Position", EditorStyles.boldLabel);
-        y = EditorGUILayout.Slider(y, -2, 2);
-        EditorGUILayout.LabelField("Timestamp", EditorStyles.boldLabel);
-        timestamp = EditorGUILayout.FloatField(timestamp);
-
-        */ /*// Draw the default inspector
-        DrawDefaultInspector();
-        _choiceIndex = EditorGUILayout.Popup(_choiceIndex, _choices);
-        var someClass = target as SomeClass;
-        // Update the selected choice in the underlying object
-        someClass.choice = _choices[_choiceIndex];
-        // Save the changes back to the object
-        EditorUtility.SetDirty(target);*/ /*
-    }
-}
-#endif*/
