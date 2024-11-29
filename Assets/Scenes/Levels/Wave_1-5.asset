@@ -16,6 +16,7 @@ MonoBehaviour:
   SpawnBall: 0
   jesters:
   - timestamp: 3
+    color: 0
     side: 2
     y: -5
     randomY: 0
@@ -50,6 +51,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 1.5
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -432,6 +434,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 1.5
+    color: 0
     side: 1
     y: 0
     randomY: 0
@@ -466,6 +469,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 9
+    color: 0
     side: 1
     y: 0
     randomY: 0
@@ -847,6 +851,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 12.5
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -881,6 +886,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 17
+    color: 0
     side: 2
     y: 0
     randomY: 0
@@ -1591,6 +1597,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 25
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -1654,6 +1661,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 25
+    color: 0
     side: 1
     y: 0
     randomY: 0
@@ -1717,6 +1725,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 30.5
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -2300,6 +2309,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
   - timestamp: 43
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -2896,7 +2906,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
-    - timestamp: 4
+    - timestamp: 12
       action: 0
       shotData:
         speed: 35
