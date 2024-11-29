@@ -12,6 +12,9 @@ namespace Misc
 {
     public class UserInterface : MonoBehaviour
     {
+        [SerializeField]
+        private Sprite[] kingPortraits;
+
         private TextMeshProUGUI _comboCounter;
 
         private GameObject _pauseMenu;
@@ -22,8 +25,9 @@ namespace Misc
 
         private Image _heatBar;
         private HeatSystem _heatSystem;
-        private Image _maxHeat;
+        private Image _portrait;
         private TextMeshProUGUI _mashSpace;
+        
 
         private void Awake()
         {
@@ -32,8 +36,8 @@ namespace Misc
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _pauseMenu = GameObject.Find("PauseMenu");
             _soundMenu = GameObject.Find("SoundMenu");
-            _maxHeat = GameObject.Find("MaxHeat").GetComponent<Image>();
-            _maxHeat.gameObject.SetActive(false);
+            _portrait = GameObject.Find("Portrait").GetComponent<Image>();
+            //_maxHeat.gameObject.SetActive(false);
             _mashSpace.gameObject.SetActive(false);
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
@@ -119,12 +123,23 @@ namespace Misc
             _wonMenu.SetActive(true);
         }
 
+        private void ChangeKingPortrait(int index)
+        {
+            _portrait.sprite = kingPortraits[index];
+        }
         IEnumerator MaxHeatGained()
         {
             _heatSystem.CanMaxHeat = false;
-            _maxHeat.gameObject.SetActive(true);
+            if (JesterFever)
+            {
+                ChangeKingPortrait(2);
+            }
+            else
+            {
+                ChangeKingPortrait(1);
+            }
             yield return new WaitForSeconds(5);
-            _maxHeat.gameObject.SetActive(false);
+            ChangeKingPortrait(0);
             yield return new WaitForSeconds(2);
             _heatSystem.CanMaxHeat = true;
         }
