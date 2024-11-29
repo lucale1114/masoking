@@ -18,6 +18,8 @@ public class FallingObjectCollision : MonoBehaviour
     bool hasDashed = false;
     bool dashed = false;
     bool isFalling = false;
+    bool beenHit = false;
+    bool hasFallen = false;
 
     public bool HasDashed => hasDashed;
 
@@ -36,11 +38,22 @@ public class FallingObjectCollision : MonoBehaviour
             StartCoroutine(FallOver(this.gameObject, collision.transform.position));
         }
 
-        if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true)
+        if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true && hasFallen != true)
         {
-                Debug.Log("Hit");
-                var damage = 10;
-                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
+            Debug.Log("Hit");
+            var damage = 10;
+            HeatSystem playerHeat = collision.gameObject.GetComponent<HeatSystem>();
+
+            if (playerHeat != null)
+            {
+                Debug.Log("Heat");
+                playerHeat.ChangeHeat(damage);
+                beenHit = true;
+            }
+            else
+            {
+                Debug.LogWarning("HeatSystem not found on Player!");
+            }
         }
     }
 
@@ -147,7 +160,11 @@ public class FallingObjectCollision : MonoBehaviour
                 triggerCollider.enabled = true;
                 isFalling = false;
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(0.1f);
+
+                hasFallen = true;
+
+                yield return new WaitForSeconds(2f);
                
                 Destroy(rb.gameObject);
             }

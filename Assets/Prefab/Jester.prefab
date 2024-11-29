@@ -243,6 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f25672e3234e9cb4f741bdb43fd1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorToSprite:
+  - color: 0
+    sprite: {fileID: 21300000, guid: 15bc639fabdc6cf4cb667af1fb4fc002, type: 3}
+  - color: 1
+    sprite: {fileID: 21300000, guid: d4095dd1ad4b0764c96edf26655cd87f, type: 3}
 --- !u!95 &1256570226195499151
 Animator:
   serializedVersion: 5

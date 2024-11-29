@@ -32,6 +32,11 @@ public class WaveData : MonoBehaviour
         CopyLast,
     }
 
+    public enum Color
+    {
+        Blue, Red
+    }
+
     [Serializable]
     public class JesterCommand
     {
@@ -44,6 +49,7 @@ public class WaveData : MonoBehaviour
     public class JesterData
     {
         public float timestamp;
+        public Color color;
         public Sides side;
         [Range(-5.0f, 5.0f)] public float y;
         public bool randomY;
