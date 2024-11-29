@@ -121,7 +121,8 @@ public class JuggleProjectile : MonoBehaviour
             CurrentTime = 0;
             StartPosition = transform.position;
             Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));
-            throwAirTime = Mathf.Clamp((StartPosition - Target).magnitude * 0.8f, 1.3f, 3f);
+            throwAirTime = Mathf.Clamp((StartPosition - Target).magnitude * 0.8f, 1.5f, 3f);
+            _collider.enabled = false;
             print(throwAirTime);
             InstantiateReticle();
             return;
