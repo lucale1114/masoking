@@ -1,5 +1,6 @@
 using Misc;
 using Player;
+using Projectile;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,16 +60,18 @@ public class FallingObjectCollision : MonoBehaviour
                 float wiggleCount = 6f;
                 float wiggleDuration = 0.25f;
 
-                //lineRenderer.enabled = true;
-               // lineRenderer.useWorldSpace = true;
+                lineRenderer.enabled = true;
+                lineRenderer.useWorldSpace = true;
 
-               /* if (impactDirection.x > 0) // Dash from left
+                if (impactDirection.x > 0) // Dash from left
                 {
+                    Debug.Log("Got here");
                     lineRenderer.SetPosition(0, transform.position + transform.right * 5f); // Extend line to the left
                     lineRenderer.SetPosition(1, transform.position);
                 }
                 else // Dash from right
                 {
+                    Debug.Log("Got here now");
                     lineRenderer.SetPosition(0, transform.position - transform.right * 5f); // Extend line to the right
                 }
 
@@ -76,7 +79,7 @@ public class FallingObjectCollision : MonoBehaviour
                 lineRenderer.SetPosition(1, transform.position);
 
                 lineRenderer.SetPosition(0, transform.position + Vector3.right * (impactDirection.x > 0 ? 5f : -5f)); // Adjust for dash side
-                lineRenderer.SetPosition(1, transform.position);*/
+                lineRenderer.SetPosition(1, transform.position);
 
 
                 for (int i = 0; i < wiggleCount; i++)
@@ -129,8 +132,10 @@ public class FallingObjectCollision : MonoBehaviour
                 // (Optional) Freeze position constraints if it should stay down
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-               // lineRenderer.enabled = false;
-
+                lineRenderer.enabled = false;
+                var damage = 10;
+                gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
+                Debug.Log("Hit");
                 yield return new WaitForSeconds(3f);
                
                 Destroy(rb.gameObject);
