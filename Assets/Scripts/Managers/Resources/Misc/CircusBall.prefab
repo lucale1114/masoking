@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1074252098378706205}
   - component: {fileID: 1334091794880724345}
   - component: {fileID: 114334506135854026}
-  - component: {fileID: 2912521252573557220}
   - component: {fileID: 6079609886663663601}
   - component: {fileID: 7045478471604141978}
+  - component: {fileID: -5814176802731412872}
   m_Layer: 3
   m_Name: CircusBall
   m_TagString: Untagged
@@ -117,39 +117,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.010713181, y: 0.04}
   serializedVersion: 2
   m_Radius: 0.34465778
---- !u!50 &2912521252573557220
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2555315645868224610}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.3
-  m_Material: {fileID: 6200000, guid: 0eede1af092c0c84c832cd3b12cf4a31, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!82 &6079609886663663601
 AudioSource:
   m_ObjectHideFlags: 0
@@ -258,3 +231,98 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db20db9e0dd10a40bedced8d1331a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reticlePrefab: {fileID: 5887521283410563986, guid: 594ae530eca3c0043971634e07a4a5b4, type: 3}
+  shadowPrefab: {fileID: 4541097288492365035, guid: 0786f50e4ec506249843b6861b229ec1, type: 3}
+  colliderActivationPercentage: 0.9
+  curveHeight: 5
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0009422302
+      inSlope: 3.5561368
+      outSlope: 3.5561368
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.10525497
+      value: 0.3752433
+      inSlope: 2.5638542
+      outSlope: 2.5638542
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.50201416
+      value: 0.9987788
+      inSlope: 0.044357717
+      outSlope: 0.044357717
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.79334086
+      value: 0.5667832
+      inSlope: -2.0627022
+      outSlope: -2.0627022
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8808427
+      value: 0.33555543
+      inSlope: -2.7253556
+      outSlope: -2.7253556
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.0009422302
+      inSlope: -2.8081634
+      outSlope: -2.8081634
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Slashes:
+  - {fileID: 8300000, guid: af7b37b0e36ec5b438edf800e5142d2b, type: 3}
+  - {fileID: 8300000, guid: 96d991c16afb0b4429d22db6d182fc16, type: 3}
+  - {fileID: 8300000, guid: 559893a5da58d4a42aedd10b12016031, type: 3}
+--- !u!50 &-5814176802731412872
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2555315645868224610}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

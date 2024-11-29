@@ -11,7 +11,7 @@ namespace Projectile
 
         private IProjectile _projectile;
         public bool noStabbing = false;
-
+ 
         private void Start()
         {
             _projectile = GetComponent<IProjectile>();
