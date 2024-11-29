@@ -19,6 +19,7 @@ public class FallingObjectCollision : MonoBehaviour
     bool dashed = false;
     bool isFalling = false;
     bool beenHit = false;
+    bool hasFallen = false;
 
     public bool HasDashed => hasDashed;
 
@@ -37,7 +38,7 @@ public class FallingObjectCollision : MonoBehaviour
             StartCoroutine(FallOver(this.gameObject, collision.transform.position));
         }
 
-        if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true)
+        if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true && hasFallen != true)
         {
             Debug.Log("Hit");
             var damage = 10;
@@ -158,6 +159,10 @@ public class FallingObjectCollision : MonoBehaviour
                 lineRenderer.enabled = false;
                 triggerCollider.enabled = true;
                 isFalling = false;
+
+                yield return new WaitForSeconds(0.1f);
+
+                hasFallen = true;
 
                 yield return new WaitForSeconds(2f);
                
