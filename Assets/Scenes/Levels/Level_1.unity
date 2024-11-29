@@ -182,6 +182,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1093011799}
   m_SourcePrefab: {fileID: 100100000, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
+--- !u!114 &950290024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+  m_PrefabInstance: {fileID: 8214112238525444483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c2f1689a6c47319ec31662ca3e2354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1093011796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5931346090368708700, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
@@ -350,6 +361,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4643449480913525260, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: heat
+      value: 
+      objectReference: {fileID: 950290024}
     - target: {fileID: 4932557666968584865, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -364,6 +379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4932557666968584865, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076230649490950755, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5515295114005465830, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
