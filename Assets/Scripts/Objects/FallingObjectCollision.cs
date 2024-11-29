@@ -9,11 +9,10 @@ public class FallingObjectCollision : MonoBehaviour
 {
 
     [SerializeField] private Movement movement;
-    [SerializeField] private IntroUserInterface intro;
     [SerializeField] private LineRenderer lineRenderer;
     private Collider2D triggerCollider;
 
-
+    public bool Dashed => dashed;
 
     bool hasDashed = false;
     bool dashed = false;
