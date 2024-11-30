@@ -23,6 +23,7 @@ public class FallingObjectMove : MonoBehaviour
     IEnumerable Stop()
     {
         yield return new WaitForSeconds(18f);
+        Destroy(gameObject);
     }
 
 
