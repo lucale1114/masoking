@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using Jester;
 using Managers;
 using Player;
@@ -123,24 +124,28 @@ namespace Misc
             _wonMenu.SetActive(true);
         }
 
-        private void ChangeKingPortrait(int index)
+        private void ChangeKingPortrait(int index, bool punch)
         {
             _portrait.sprite = kingPortraits[index];
+            if (punch)
+            {
+                _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
+            }
         }
         IEnumerator MaxHeatGained()
         {
             _heatSystem.CanMaxHeat = false;
             if (JesterFever)
             {
-                ChangeKingPortrait(2);
+                ChangeKingPortrait(2, true);
                 yield break;
             }
             else
             {
-                ChangeKingPortrait(1);
+                ChangeKingPortrait(1, true);
             }
             yield return new WaitForSeconds(5);
-            ChangeKingPortrait(0);
+            ChangeKingPortrait(0, false);
             yield return new WaitForSeconds(2);
             _heatSystem.CanMaxHeat = true;
         }
