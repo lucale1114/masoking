@@ -39,21 +39,21 @@ namespace Projectile
 
         private void Start()
         {
-            Invoke("Enable", Data.fireBetween);
+            Invoke(nameof(Enable), Data.fireBetween);
             InstantiateReticle(Data);
             transform.localScale *= Data.size + 1;
-            InvokeRepeating("Spin", 0, 0.005f);
+            InvokeRepeating(nameof(Spin), 0, 0.005f);
         }
 
-        private void Enable() 
-        { 
+        private void Enable()
+        {
             _isOn = true;
 
             InstantiateShadow(Data);
             GetComponent<SpriteRenderer>().enabled = true;
         }
 
-        void Spin()
+        private void Spin()
         {
             transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
         }
