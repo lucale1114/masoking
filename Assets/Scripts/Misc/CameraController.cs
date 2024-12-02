@@ -1,37 +1,56 @@
-using System.Collections;
-using Cinemachine;
 using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Misc
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private float shakeAmplitude = 3f;
-        [SerializeField] private float shakeFrequency = 3f;
+        [SerializeField] private float shakeAmount = 0.7f;
         [SerializeField] private float shakeDuration = 0.2f;
 
-        private HeatSystem _heatSystem;
-        private CinemachineBasicMultiChannelPerlin _cinemachineBasicMultiChannelPerlin;
+        private Camera _cam;
+
+        private bool _shake;
+
+        private Vector3 _startPosition;
+
+        private float _shakeTimer;
+
+        private void Awake()
+        {
+            _cam = GetComponent<Camera>();
+            _startPosition = _cam!.transform.localPosition;
+            _shakeTimer = shakeDuration;
+        }
 
         private void Start()
         {
-            _heatSystem = FindObjectOfType<HeatSystem>();
-
-            var cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-            _cinemachineBasicMultiChannelPerlin = cinemachineVirtualCamera
-                .GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-            _heatSystem.TakenDamage += () => StartCoroutine(ShakeRoutine());
+            FindObjectOfType<HeatSystem>().TakenDamage += () =>
+            {
+                _shakeTimer = shakeDuration;
+                _shake = true;
+            };
         }
 
-        private IEnumerator ShakeRoutine()
+        private void Update()
         {
-            _cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeAmplitude;
-            _cinemachineBasicMultiChannelPerlin.m_FrequencyGain = shakeFrequency;
-            yield return new WaitForSeconds(shakeDuration);
-            _cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0;
-            _cinemachineBasicMultiChannelPerlin.m_FrequencyGain = 0;
+            if (_shake)
+            {
+                if (_shakeTimer > 0)
+                {
+                    var randomPosition = _startPosition + Random.insideUnitSphere * shakeAmount;
+                    _cam.transform.localPosition =
+                        Vector3.Lerp(_cam.transform.localPosition, randomPosition, Time.deltaTime);
+
+                    _shakeTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    _cam.transform.localPosition = _startPosition;
+                    _shake = false;
+                }
+            }
         }
     }
 }
