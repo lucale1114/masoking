@@ -186,18 +186,25 @@ namespace Player
         {
             if (IsCurrentlyDashing)
             {
-                if (_numberOfWallBounces == 0)
+                if (IsBouncing || _numberOfWallBounces == 0)
                 {
-                    if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
-                    {
-                        StartCoroutine(BounceRoutine());
-                        currentVelocity = Vector2.Reflect(currentVelocity, normal);
-                        currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
-                        rb.velocity = currentVelocity;
-                    }
-
                     return;
                 }
+                StartCoroutine(BounceRoutine());
+
+                if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
+                {
+                    currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                    currentVelocity = Vector2.ClampMagnitude(currentVelocity, dashSpeed);
+                    rb.velocity = currentVelocity;
+                }
+
+                if (_numberOfWallBounces > 0)
+                {
+                    _numberOfWallBounces--;
+                }
+
+                return;
             }
 
             if (Mathf.Approximately(currentVelocity.magnitude, 0))
@@ -208,18 +215,11 @@ namespace Player
             if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
             {
                 StartCoroutine(BounceRoutine());
-                if (IsCurrentlyDashing)
-                {
-                    currentVelocity = Vector2.Reflect(currentVelocity, normal);
-                    _numberOfWallBounces--;
-                }
-                else
-                {
-                    currentVelocity = Vector2.Reflect(currentVelocity, normal) * (1 - bounceAbsorption);
-                }
-            }
 
-            rb.velocity = currentVelocity;
+                currentVelocity = Vector2.Reflect(currentVelocity, normal);
+                currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed)  * (1 - bounceAbsorption);
+                rb.velocity = currentVelocity;
+            }
         }
 
         private IEnumerator BounceRoutine()
