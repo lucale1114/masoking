@@ -1,82 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
 using Player;
 using UnityEngine;
-using static Wave.WaveData;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using Projectile;
 
-public class JuggleProjectile : MonoBehaviour
+namespace Projectile
 {
-    [SerializeField] private GameObject reticlePrefab;
-    [SerializeField] private GameObject shadowPrefab;
-    [SerializeField] private float colliderActivationPercentage = 0.9f;
-    [SerializeField] protected float curveHeight = 5f;
-    [SerializeField] private float damage;
-
-
-    const float DEBOUNCE_TIME = 0.5f;
-    Transform player;
-    HeatSystem heatSystem;
-    AudioSource sound;
-
-    protected Rigidbody2D RigidBody;
-    private Rigidbody2D _playerRb;
-    private Collider2D _collider;
-
-    protected Vector3 Target = Vector3.zero;
-    protected Vector3 StartPosition;
-
-    protected float CurrentTime;
-    private GameObject _shadow;
-    protected GameObject Reticle;
-    protected Vector2 Direction;
-
-    private float throwAirTime = 3f;
-    public AnimationCurve animationCurve;
-    public AudioClip[] Slashes;
-    void Start()
+    public class JuggleProjectile : MonoBehaviour
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        _playerRb = player.GetComponent<Rigidbody2D>();
-        heatSystem = player.GetComponent<HeatSystem>();
-        sound = GetComponent<AudioSource>();
+        [SerializeField] private GameObject reticlePrefab;
+        [SerializeField] private GameObject shadowPrefab;
+        [SerializeField] private float colliderActivationPercentage = 0.9f;
+        [SerializeField] protected float curveHeight = 5f;
+        [SerializeField] private float damage;
 
-        RigidBody = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
-        _collider.enabled = false;
-        StartPosition = transform.position;
 
-        InstantiateReticle();
-    }
-    private void InstantiateShadow()
-    {
-        _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
-        Destroy(_shadow, throwAirTime);
-    }
+        const float DEBOUNCE_TIME = 0.5f;
+        Transform player;
+        HeatSystem heatSystem;
+        AudioSource sound;
 
-    protected virtual void InstantiateReticle()
-    {
-        Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-        Destroy(Reticle,throwAirTime);
-    }
+        protected Rigidbody2D RigidBody;
+        private Rigidbody2D _playerRb;
+        private Collider2D _collider;
 
-    void OnUpdate(float airTime)
-    {
-        if (CurrentTime > throwAirTime)
+        protected Vector3 Target = Vector3.zero;
+        protected Vector3 StartPosition;
+
+        protected float CurrentTime;
+        private GameObject _shadow;
+        protected GameObject Reticle;
+        protected Vector2 Direction;
+
+        private float throwAirTime = 3f;
+        public AnimationCurve animationCurve;
+        public AudioClip[] Slashes;
+        void Start()
         {
-            Destroy(gameObject);
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            _playerRb = player.GetComponent<Rigidbody2D>();
+            heatSystem = player.GetComponent<HeatSystem>();
+            sound = GetComponent<AudioSource>();
+
+            RigidBody = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
+            _collider.enabled = false;
+            StartPosition = transform.position;
+
+            InstantiateReticle();
+        }
+        private void InstantiateShadow()
+        {
+            _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
+            Destroy(_shadow, throwAirTime);
         }
 
-        var position = Vector2.Lerp(StartPosition, Target, airTime);
+        protected virtual void InstantiateReticle()
+        {
+            Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
+            Destroy(Reticle,throwAirTime);
+        }
 
-        position.y += curveHeight * animationCurve.Evaluate(airTime);
-        RigidBody.MovePosition(position);
-    }
+        void OnUpdate(float airTime)
+        {
+            if (CurrentTime > throwAirTime)
+            {
+                Destroy(gameObject);
+            }
 
-    private void Update()
-    {
+            var position = Vector2.Lerp(StartPosition, Target, airTime);
+
+            position.y += curveHeight * animationCurve.Evaluate(airTime);
+            RigidBody.MovePosition(position);
+        }
+
+        private void Update()
+        {
             CurrentTime += Time.deltaTime;
 
             var airTime = CurrentTime / throwAirTime;
@@ -92,25 +88,26 @@ public class JuggleProjectile : MonoBehaviour
             {
                 _shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
             }
-    }
+        }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-   
-        if (collision.gameObject.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            var closestPoint = collision.ClosestPoint(transform.position);
-            collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-            //Instantiate(hitVfx, closestPoint, Quaternion.identity);
-            //SoundManager.PlayHit(closestPoint);
-            SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
-            CurrentTime = 0;
-            StartPosition = transform.position;
-            Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));
-            throwAirTime = Mathf.Clamp((StartPosition - Target).magnitude * 0.8f, 1.5f, 3f);
-            _collider.enabled = false;
-            InstantiateReticle();
-            return;
+
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                var closestPoint = collision.ClosestPoint(transform.position);
+                collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
+                //Instantiate(hitVfx, closestPoint, Quaternion.identity);
+                //SoundManager.PlayHit(closestPoint);
+                SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
+                CurrentTime = 0;
+                StartPosition = transform.position;
+                Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));
+                throwAirTime = Mathf.Clamp((StartPosition - Target).magnitude * 0.8f, 1.5f, 3f);
+                _collider.enabled = false;
+                InstantiateReticle();
+                return;
+            }
         }
     }
 }
