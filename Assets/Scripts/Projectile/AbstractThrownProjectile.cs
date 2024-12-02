@@ -7,6 +7,7 @@ namespace Projectile
     {
         [SerializeField] private GameObject reticlePrefab;
         [SerializeField] private GameObject shadowPrefab;
+        [SerializeField] private float shadowMinimumScale = 0.5f;
         [SerializeField] private float colliderActivationPercentage = 0.9f;
         [SerializeField] protected float curveHeight = 5f;
 
@@ -111,6 +112,8 @@ namespace Projectile
         {
             Shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
             Shadow.transform.localScale *= Data.size + 1;
+            Shadow.GetComponent<ShrinkAndGrow>()
+                .SetData(shotData.animationCurve, shotData.throwAirTime, shadowMinimumScale);
             Destroy(Shadow, shotData.throwAirTime);
         }
 

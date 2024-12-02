@@ -52,17 +52,17 @@ namespace Player
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (!IsCurrentlyDashing )
+                    if (!IsCurrentlyDashing)
                     {
                         if (rb.velocity.x != 0 || rb.velocity.y != 0)
                         {
-
                             _chargingDash = true;
                             StartCoroutine(ChargeDash());
                         }
                     }
                 }
             }
+
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 _chargingDash = false;
@@ -150,6 +150,7 @@ namespace Player
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + 0.025f, 1f);
             }
+
             StartCoroutine(Dash(Mathf.Max(0.1f, power)));
         }
 
@@ -158,12 +159,13 @@ namespace Player
             Vector2 velocityVector;
             if (Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
             {
-                velocityVector = (dashSpeed * maxSpeed * power * moveInput) * 2f;
+                velocityVector = moveInput * (dashSpeed * maxSpeed * power * 2f);
             }
             else
             {
-                velocityVector = (dashSpeed * maxSpeed * currentVelocity * power);
+                velocityVector = currentVelocity * (dashSpeed * maxSpeed * power);
             }
+
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
@@ -187,6 +189,7 @@ namespace Player
                 {
                     return;
                 }
+
                 StartCoroutine(BounceRoutine());
 
                 if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
@@ -215,7 +218,7 @@ namespace Player
                 StartCoroutine(BounceRoutine());
 
                 currentVelocity = Vector2.Reflect(currentVelocity, normal);
-                currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed)  * (1 - bounceAbsorption);
+                currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed) * (1 - bounceAbsorption);
                 rb.velocity = currentVelocity;
             }
         }
