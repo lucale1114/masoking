@@ -15,8 +15,9 @@ namespace Player
         [SerializeField] private float deceleration = 25f;
         [SerializeField] private float turnDeceleration = 75f;
         [SerializeField] private float dashSpeed = 5f;
-        [SerializeField] private float dashTime = 0.2f;
-        [SerializeField] private float dashWindupTime = 0.25f;
+        [SerializeField] private float dashMinTime = 0.2f;
+        [SerializeField] private float dashMaxTime = 1f;
+        [SerializeField] private float dashIncreasePerSecond = 0.25f;
         [SerializeField] private float dashCoolDown;
         [SerializeField] private float dashRechargeRate = 0.025f;
         [SerializeField] private float bounceCooldown;
@@ -187,9 +188,9 @@ namespace Player
                 velocityVector = (dashSpeed * maxSpeed * currentVelocity * power);
             }
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
-            print(currentVelocity);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
+            playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
@@ -221,6 +222,7 @@ namespace Player
                     currentVelocity = Vector2.Reflect(currentVelocity, normal);
                     currentVelocity = Vector2.ClampMagnitude(currentVelocity, dashSpeed);
                     rb.velocity = currentVelocity;
+                    playerAnimator.PlayDash(currentVelocity);
                 }
 
                 if (_numberOfWallBounces > 0)
