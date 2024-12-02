@@ -10,6 +10,8 @@ public class FallingObjectCollision : MonoBehaviour
 
     [SerializeField] private Movement movement;
     [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private AudioClip fall;
+    [SerializeField] private AudioClip smash;
     private Collider2D triggerCollider;
 
     public bool Dashed => dashed;
@@ -35,6 +37,7 @@ public class FallingObjectCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
         {
             StartCoroutine(FallOver(this.gameObject, collision.transform.position));
+            SoundFXManager.Instance.PlaySoundFX(fall, transform, 1f);
         }
 
         if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true && hasFallen != true)
@@ -158,7 +161,7 @@ public class FallingObjectCollision : MonoBehaviour
                 lineRenderer.enabled = false;
                 triggerCollider.enabled = true;
                 isFalling = false;
-
+                SoundFXManager.Instance.PlaySoundFX(smash, transform, 1f);
                 yield return new WaitForSeconds(0.1f);
 
                 hasFallen = true;
