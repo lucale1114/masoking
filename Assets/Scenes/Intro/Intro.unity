@@ -1191,6 +1191,14 @@ PrefabInstance:
       value: FallingJester
       objectReference: {fileID: 0}
     - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+      propertyPath: fall
+      value: 
+      objectReference: {fileID: 8300000, guid: 955364b059a015b46aa3c31f122599cb, type: 3}
+    - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+      propertyPath: smash
+      value: 
+      objectReference: {fileID: 8300000, guid: 695a154f10cc59a4db63e865e889a14e, type: 3}
+    - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: movement
       value: 
       objectReference: {fileID: 1993662373}

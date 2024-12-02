@@ -1,78 +1,78 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Wave.WaveData;
 
-public class TimestampDebug : MonoBehaviour
+namespace Debug
 {
-    public TMP_InputField inputFieldResult;
-    public Button pauseButton;
-    public Button heatButton;
-    public HeatSystem heat;
-    public bool mousePositionCall;
-
-    private void Start()
+    public class TimestampDebug : MonoBehaviour
     {
-        if (gameObject.activeInHierarchy)
-        {
-            heat.invincible = !(PlayerPrefs.GetInt("Invi", 0) != 0);
-            SetInvincible();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+        public TMP_InputField inputFieldResult;
+        public Button pauseButton;
+        public Button heatButton;
+        public HeatSystem heat;
+        public bool mousePositionCall;
 
-    private void Update()
-    {
-        if (Paused)
+        private void Start()
         {
-            if (inputFieldResult.text != "") {
-                Timestamp = float.Parse(inputFieldResult.text);
+            if (gameObject.activeInHierarchy)
+            {
+                heat.invincible = !(PlayerPrefs.GetInt("Invi", 0) != 0);
+                SetInvincible();
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
-        else
+
+        private void Update()
         {
-            inputFieldResult.text = Timestamp.ToString();
+            if (Paused)
+            {
+                if (inputFieldResult.text != "") {
+                    Timestamp = float.Parse(inputFieldResult.text);
+                }
+            }
+            else
+            {
+                inputFieldResult.text = Timestamp.ToString();
+            }
+            if (mousePositionCall && Input.GetMouseButtonDown(0))
+            {
+                print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
         }
-        if (mousePositionCall && Input.GetMouseButtonDown(0))
+
+        public void SetInvincible()
         {
-            print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            if (heat.invincible) {
+                heat.invincible = false;
+                heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: OFF";
+            }
+            else
+            {
+                heat.invincible = true;
+                heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: ON";
+            }
+            PlayerPrefs.SetInt("Invi", heat.invincible ? 1 : 0);
         }
+
+        public void Pause()
+        {
+            Paused = !Paused;
+            if (Paused)
+            {
+                pauseButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Paused";
+            }
+            else
+            {
+                pauseButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Unpaused";
+            }
+        }
+
+
+
     }
-
-    public void SetInvincible()
-    {
-        if (heat.invincible) {
-            heat.invincible = false;
-            heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: OFF";
-        }
-        else
-        {
-            heat.invincible = true;
-            heatButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Invi: ON";
-        }
-        PlayerPrefs.SetInt("Invi", heat.invincible ? 1 : 0);
-    }
-
-    public void Pause()
-    {
-        Paused = !Paused;
-        if (Paused)
-        {
-            pauseButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Paused";
-        }
-        else
-        {
-            pauseButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Unpaused";
-        }
-    }
-
-
-
 }
