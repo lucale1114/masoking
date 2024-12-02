@@ -31,7 +31,7 @@ namespace Projectile
                         collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                         Instantiate(hitVfx, closestPoint, Quaternion.identity);
                         //SoundManager.PlayHit(closestPoint);
-                        SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 0.6f);
+                        SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
                         Destroy(gameObject);
                         return;
                     }
