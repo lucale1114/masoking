@@ -1,4 +1,5 @@
 using UnityEngine;
+using Wave;
 
 namespace Projectile
 {

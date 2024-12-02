@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: IntroWave
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   jesters:
   - timestamp: 6
     side: 2
@@ -23,8 +23,8 @@ MonoBehaviour:
       shotData:
         speed: 6
         inaccuracy: 0
-        size: 0
-        damage: 5
+        scale: 1
+        damage: 10
         x: 0
         y: 1
         randomX: 0
@@ -57,8 +57,8 @@ MonoBehaviour:
       shotData:
         speed: 6
         inaccuracy: 44
-        size: 0
-        damage: 5
+        scale: 1
+        damage: 10
         x: 0
         y: 1
         randomX: 0

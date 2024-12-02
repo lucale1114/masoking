@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 using Color = UnityEngine.Color;
 
 namespace Player

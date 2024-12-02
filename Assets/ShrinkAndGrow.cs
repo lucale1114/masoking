@@ -33,7 +33,6 @@ public class ShrinkAndGrow : MonoBehaviour
         _currentTime += Time.deltaTime;
 
         var currentScale = (1 - _minimumScale * _animationCurve.Evaluate(_currentTime / _totalTime));
-        Debug.Log(currentScale);
 
         transform.localScale =
             new Vector3(_originalScale.x, _originalScale.y, _originalScale.z) * currentScale;

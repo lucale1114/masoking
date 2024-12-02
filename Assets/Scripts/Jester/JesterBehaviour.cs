@@ -3,7 +3,7 @@ using DG.Tweening;
 using Misc;
 using Unity.VisualScripting;
 using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 
 namespace Jester
 {

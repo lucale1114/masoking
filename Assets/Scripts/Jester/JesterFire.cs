@@ -1,7 +1,7 @@
 using Projectile;
 using Unity.VisualScripting;
 using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 using Collision = Projectile.Collision;
 
 namespace Jester
@@ -164,4 +164,4 @@ namespace Jester
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, player.transform.position);
         }
     }
-}   
+}
