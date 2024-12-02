@@ -13,9 +13,10 @@ public class JuggleProjectile : MonoBehaviour
     [SerializeField] private GameObject shadowPrefab;
     [SerializeField] private float colliderActivationPercentage = 0.9f;
     [SerializeField] protected float curveHeight = 5f;
+    [SerializeField] private float damage;
+
 
     const float DEBOUNCE_TIME = 0.5f;
-    private bool debounce = true;
     Transform player;
     HeatSystem heatSystem;
     AudioSource sound;
@@ -49,21 +50,6 @@ public class JuggleProjectile : MonoBehaviour
 
         InstantiateReticle();
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform == player && debounce)
-        {
-            if (transform.position.y - 0.75f > player.transform.position.y)
-            {
-                debounce = false;
-                heatSystem.ChangeHeat(1);
-                sound.Play();
-                Invoke("DebounceFunction", DEBOUNCE_TIME);
-            }
-        }
-    }
-
     private void InstantiateShadow()
     {
         _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
@@ -114,7 +100,7 @@ public class JuggleProjectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             var closestPoint = collision.ClosestPoint(transform.position);
-            collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(1);
+            collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
             //Instantiate(hitVfx, closestPoint, Quaternion.identity);
             //SoundManager.PlayHit(closestPoint);
             SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
@@ -123,14 +109,8 @@ public class JuggleProjectile : MonoBehaviour
             Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));
             throwAirTime = Mathf.Clamp((StartPosition - Target).magnitude * 0.8f, 1.5f, 3f);
             _collider.enabled = false;
-            print(throwAirTime);
             InstantiateReticle();
             return;
         }
-    }
-
-    void DebounceFunction()
-    {
-        debounce = true;
     }
 }

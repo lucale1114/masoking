@@ -16,16 +16,17 @@ namespace Player
         [SerializeField] private float dashSpeed = 5f;
         [SerializeField] private float dashMinTime = 0.2f;
         [SerializeField] private float dashMaxTime = 1f;
-        [SerializeField] private float dashIncreasePerSecond = 0.25f;
-        [SerializeField] private float dashCoolDown;
-        [SerializeField] private float dashRechargeRate = 0.025f;
+        [SerializeField] private float dashIncrease = 0.025f;
         [SerializeField] private float bounceCooldown;
         [SerializeField] private float bounceAbsorption;
         [SerializeField] private int maxNumberOfWallBounces = 2;
 
         public bool IsCurrentlyDashing { get; private set; }
+        public bool IsInDashState { get; private set; }
         private bool IsBouncing { get; set; }
         private bool _chargingDash;
+        private float _dashMultiplier = 1;
+        private float _dashCoolDown = 0.5f;
 
         private int _numberOfWallBounces;
 
@@ -50,7 +51,7 @@ namespace Player
             moveInput = new Vector2(axisX, axisY).normalized;
             if (!IsCurrentlyDashing)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && _dashCoolDown >= 0.5f)
                 {
                     if (!IsCurrentlyDashing)
                     {
@@ -76,6 +77,10 @@ namespace Player
 
             if (!Mathf.Approximately(currentTimestamp, Timestamp))
             {
+                if (!IsCurrentlyDashing)
+                {
+                    _dashCoolDown = Mathf.Min(_dashCoolDown + 0.1f, 1);
+                }
                 currentTimestamp = Timestamp;
             }
 
@@ -94,9 +99,14 @@ namespace Player
 
         void FixedUpdate()
         {
-            if (IsCurrentlyDashing || IsBouncing)
+            if (IsInDashState || IsBouncing)
             {
                 moveInput = Vector2.zero;
+                return;
+            }
+            else if (!IsInDashState && IsCurrentlyDashing)
+            {
+                rb.velocity += moveInput;
                 return;
             }
 
@@ -135,12 +145,13 @@ namespace Player
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
 
-            rb.velocity = currentVelocity;
+            rb.velocity = currentVelocity; //* _dashMultiplier;
         }
 
         private IEnumerator ChargeDash()
         {
             IsCurrentlyDashing = true;
+            IsInDashState = true;
             rb.velocity = Vector2.zero;
             playerAnimator.PlayDash(currentVelocity);
             rb.velocity = currentVelocity * 0.25f;
@@ -148,15 +159,17 @@ namespace Player
             while (_chargingDash)
             {
                 yield return new WaitForSeconds(0.05f);
-                power = Mathf.Min(power + 0.025f, 1f);
+                power = Mathf.Min(power + dashIncrease, dashMaxTime);
             }
-
-            StartCoroutine(Dash(Mathf.Max(0.1f, power)));
+            StartCoroutine(Dash(Mathf.Max(dashMinTime, power)));
         }
 
         private IEnumerator Dash(float power)
         {
             Vector2 velocityVector;
+            IsDashing?.Invoke(true);
+            IsInDashState = false;
+            _dashCoolDown = 0;
             if (Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
             {
                 velocityVector = moveInput * (dashSpeed * maxSpeed * power * 2f);
@@ -173,7 +186,7 @@ namespace Player
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
-            yield return new WaitForSeconds(dashCoolDown);
+            yield return new WaitForSeconds(_dashCoolDown);
         }
 
         public void ChangeVelocity(float multiplier)
