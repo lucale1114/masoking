@@ -262,7 +262,7 @@ Transform:
   m_LocalScale: {x: 17.758, y: 0.099999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 829588562}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &87303247
 MonoBehaviour:
@@ -502,7 +502,7 @@ Transform:
   m_LocalScale: {x: 10.358772, y: 0.10000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 829588562}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &917402973
 MonoBehaviour:
@@ -528,7 +528,6 @@ GameObject:
   - component: {fileID: 1223549538}
   - component: {fileID: 1223549537}
   - component: {fileID: 1223549536}
-  - component: {fileID: 1223549535}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -536,20 +535,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1223549535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223549534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad91cd7aece35c49a62d2a36beb2c7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeAmount: 2
-  shakeDuration: 0.2
 --- !u!114 &1223549536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +782,7 @@ Transform:
   m_LocalScale: {x: 17.758, y: 0.099999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 829588562}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1419696305
 MonoBehaviour:
@@ -940,7 +925,7 @@ Transform:
   m_LocalScale: {x: 10.358772, y: 0.10000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 829588562}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1535109007
 MonoBehaviour:
@@ -1745,4 +1730,7 @@ SceneRoots:
   - {fileID: 6128088178291196707}
   - {fileID: 1256056521718688891}
   - {fileID: 6332125604973878440}
-  - {fileID: 829588562}
+  - {fileID: 87303246}
+  - {fileID: 917402972}
+  - {fileID: 1419696304}
+  - {fileID: 1535109006}
