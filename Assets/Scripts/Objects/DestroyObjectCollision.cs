@@ -33,16 +33,26 @@ public class DestroyObjectCollision : MonoBehaviour
             Debug.Log("Here");
             Collider2D collider2D = GetComponent<Collider2D>();
             SoundFXManager.Instance.PlaySoundFX(boom, transform, 1f);
+            if (gameObject.CompareTag("DestroyIntro"))
+            {
             StartCoroutine(SwitchSceneDelay());
-            Destroy(collider2D.gameObject);
+            Destroy(gameObject);
+
+            }
+
+            else
+            {
+                Destroy(collider2D.gameObject);
+            }
+
         }
     }
-    private IEnumerator SwitchSceneDelay()
+    IEnumerator SwitchSceneDelay()
     {
-
-        yield return new WaitForSeconds(2f); // Wait for 2 seconds
-        Debug.Log("HEllo");
+        Debug.Log("Haer");
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Level_1");
+        Debug.Log("HEllo");
 
     }
 
