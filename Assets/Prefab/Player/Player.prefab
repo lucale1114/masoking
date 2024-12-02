@@ -427,10 +427,11 @@ MonoBehaviour:
   deceleration: 15
   turnDeceleration: 50
   dashSpeed: 20
-  dashTime: 0.2
-  dashWindupTime: 0.25
+  dashMinTime: 0.2
+  dashMaxTime: 1
+  dashIncrease: 0.025
   dashCoolDown: 0
-  dashRechargeRate: 0.025
+  dashRechargeRate: 0.005
   bounceCooldown: 0.15
   bounceAbsorption: 0.3
   maxNumberOfWallBounces: 2
