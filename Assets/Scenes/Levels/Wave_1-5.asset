@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave_1-5
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   StartDelay: 0
   SpawnBall: 0
   jesters:
@@ -26,7 +26,7 @@ MonoBehaviour:
       shotData:
         speed: 6
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -2
         y: 2
@@ -90,7 +90,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -3.5
         y: -0.45
@@ -119,7 +119,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -3
         y: -1
@@ -148,7 +148,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -2.4
         y: -1.3
@@ -177,7 +177,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -1.7
         y: -1.4
@@ -206,7 +206,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -1
         y: -1.4
@@ -235,7 +235,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -0.4
         y: -1.4
@@ -264,7 +264,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0.3
         y: -1.4
@@ -293,7 +293,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 1
         y: -1.4
@@ -322,7 +322,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 1.7
         y: -1.4
@@ -351,7 +351,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2.3
         y: -1.1
@@ -380,7 +380,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2.9
         y: -0.7
@@ -409,7 +409,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 3.5
         y: -0.4
@@ -444,7 +444,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2
         y: 2
@@ -479,7 +479,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -3.5
         y: -2
@@ -526,7 +526,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -1.5
         y: -2
@@ -573,7 +573,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0.5
         y: -2
@@ -620,7 +620,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2.5
         y: -2
@@ -667,7 +667,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2
         y: -0.75
@@ -714,7 +714,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2
         y: -3
@@ -761,7 +761,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 1.5
         y: -4.5
@@ -808,7 +808,7 @@ MonoBehaviour:
       shotData:
         speed: 15
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 1.5
         y: 0.5
@@ -861,7 +861,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 2
+        scale: 3
         damage: 20
         x: 4
         y: -2
@@ -896,7 +896,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0.65
         y: 3.6
@@ -943,7 +943,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 1.9
         y: 3.1
@@ -990,7 +990,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2.3
         y: 2.4
@@ -1037,7 +1037,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 1.9
         y: 1.45
@@ -1084,7 +1084,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0.65
         y: 0.9
@@ -1131,7 +1131,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -0.85
         y: 0.9
@@ -1178,7 +1178,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -2.3
         y: 0.7
@@ -1225,7 +1225,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -3.4
         y: 0.1
@@ -1272,7 +1272,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -4
         y: -0.7
@@ -1319,7 +1319,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -3.4
         y: -1.5
@@ -1366,7 +1366,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -2.3
         y: -2
@@ -1413,7 +1413,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: -0.9
         y: -2
@@ -1460,7 +1460,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0.7
         y: -2
@@ -1507,7 +1507,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 2.1
         y: -2
@@ -1554,7 +1554,7 @@ MonoBehaviour:
       shotData:
         speed: 30
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 10
         x: 5
         y: -2
@@ -1607,7 +1607,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 1
+        scale: 2
         damage: 10
         x: 1
         y: 1
@@ -1636,7 +1636,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 1
+        scale: 2
         damage: 10
         x: 2
         y: 1
@@ -1671,7 +1671,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 1
+        scale: 2
         damage: 10
         x: -1
         y: 3
@@ -1700,7 +1700,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 1
+        scale: 2
         damage: 10
         x: -2
         y: 3
@@ -1735,7 +1735,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 1
+        scale: 2
         damage: 100
         x: 0.01
         y: 0
@@ -1809,7 +1809,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -1865,7 +1865,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -1921,7 +1921,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -1977,7 +1977,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -2033,7 +2033,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -2089,7 +2089,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -2145,7 +2145,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -2201,7 +2201,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -2257,7 +2257,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 0
         x: 0
         y: 0
@@ -2319,7 +2319,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: -1.1
         y: 1.25
@@ -2393,7 +2393,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: 1.1
         y: 1.25
@@ -2467,7 +2467,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: 1.1
         y: -0.55
@@ -2541,7 +2541,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: -1.1
         y: -0.55
@@ -2615,7 +2615,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: -2.1
         y: 2.25
@@ -2689,7 +2689,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: 2.1
         y: 2.25
@@ -2763,7 +2763,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: 2.1
         y: -1.75
@@ -2837,7 +2837,7 @@ MonoBehaviour:
       shotData:
         speed: 18
         inaccuracy: 0
-        size: 0
+        scale: 1
         damage: 5
         x: -2.1
         y: -1.75
@@ -2911,7 +2911,7 @@ MonoBehaviour:
       shotData:
         speed: 35
         inaccuracy: 0
-        size: 2.5
+        scale: 3.5
         damage: 100
         x: 0.01
         y: 0.01

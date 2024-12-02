@@ -42,7 +42,7 @@ namespace Projectile
         {
             Invoke(nameof(Enable), Data.fireBetween);
             InstantiateReticle(Data);
-            transform.localScale *= Data.size + 1;
+            transform.localScale *= Data.scale;
             InvokeRepeating(nameof(Spin), 0, 0.005f);
         }
 
@@ -111,7 +111,7 @@ namespace Projectile
         private void InstantiateShadow(ShotDataObject shotData)
         {
             Shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
-            Shadow.transform.localScale *= Data.size + 1;
+            Shadow.transform.localScale *= Data.scale;
             Shadow.GetComponent<ShrinkAndGrow>()
                 .SetData(shotData.animationCurve, shotData.throwAirTime, shadowMinimumScale);
             Destroy(Shadow, shotData.throwAirTime);
@@ -120,7 +120,7 @@ namespace Projectile
         protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            Reticle.transform.localScale *= Data.size + 1;
+            Reticle.transform.localScale *= Data.scale;
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 

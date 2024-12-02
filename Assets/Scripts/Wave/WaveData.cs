@@ -66,8 +66,8 @@ public class WaveData : MonoBehaviour
         [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
         public int inaccuracy;
 
-        [Tooltip("Size of projectile... 1 will 2x the size, and -1 will set this to 0 so don't do that!")]
-        public float size = 0;
+        [Tooltip("Scale of projectile.")]
+        public float scale = 1;
 
         [Tooltip(
             "How much this fills up the heat meter. This value is actually 5, which means -5 will actually make this 0, so don't do that!")]

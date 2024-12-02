@@ -31,7 +31,7 @@ namespace Projectile
         // Code for projectile behavior.
         void Start()
         {
-            transform.localScale *= _data.size + 1;
+            transform.localScale *= _data.scale;
             rb = GetComponent<Rigidbody2D>();
             if (burstTimer > 0)
             {
