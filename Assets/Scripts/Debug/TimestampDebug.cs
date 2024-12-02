@@ -5,7 +5,7 @@ using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static WaveData;
+using static Wave.WaveData;
 
 public class TimestampDebug : MonoBehaviour
 {

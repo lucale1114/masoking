@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Gameplay
+namespace Wave
 {
     [Serializable]
     [CreateAssetMenu(fileName = "Wave", menuName = "Wave")]

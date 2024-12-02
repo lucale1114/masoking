@@ -2,6 +2,7 @@ using Misc;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Wave;
 
 namespace Managers
 {

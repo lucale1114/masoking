@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 
 namespace Projectile
 {

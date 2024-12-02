@@ -153,7 +153,7 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.x", "X");
                     AddProperty(property, visualElement, "shotData.y", "Y");
                     AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "Randomy");
+                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
