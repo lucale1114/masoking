@@ -407,8 +407,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.034698963, y: -0.028383255}
-  m_Size: {x: 5.8713303, y: 8.312304}
+  m_Offset: {x: -0.18, y: -0.22}
+  m_Size: {x: 5.08, y: 4.64}
   m_Direction: 0
 --- !u!114 &3743546813347916422
 MonoBehaviour:
@@ -431,7 +431,6 @@ MonoBehaviour:
   dashWindupTime: 0.25
   dashCoolDown: 0
   dashRechargeRate: 0.025
-  wallBounceOffFactor: 10
   bounceCooldown: 0.15
   bounceAbsorption: 0.3
   maxNumberOfWallBounces: 2

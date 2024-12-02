@@ -354,5 +354,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae38803124fd1b4c90a3391326a7a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userDirection: {x: 1, y: 0, z: 0}
+  userDirection: {x: -1, y: 0, z: 0}
   FallingObjectCollision: {fileID: 8279218141390260246}
