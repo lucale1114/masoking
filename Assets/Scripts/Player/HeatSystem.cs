@@ -45,20 +45,9 @@ namespace Player
         }
         private IEnumerator MaxHeatReward()
         {
-            switch(UnityEngine.Random.Range(0,2))
-            {
-                case 0:
-                    _movement.DashFest(true);
-                    yield return new WaitForSeconds(5);
-                    _movement.DashFest(false);
-                    break;
-
-                case 1:
-                    _movement.ChangeVelocity(3);
-                    yield return new WaitForSeconds(5);
-                    _movement.ChangeVelocity(1/3f);
-                    break;
-            }
+            _movement.ChangeVelocity(3);
+            yield return new WaitForSeconds(5);
+            _movement.ChangeVelocity(1/3f);
 
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFever)
                 GetComponent<SpriteRenderer>().DOColor(col, 1);

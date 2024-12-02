@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using static WaveData;
 
 namespace Player
@@ -33,11 +32,6 @@ namespace Player
         private Vector2 moveInput;
 
         private float currentTimestamp = 0f;
-        private float dashPower = 3.0f;
-        private bool dashFest;
-        private Slider dashFill1;
-        private Slider dashFill2;
-        private Slider dashFill3;
 
         private PlayerAnimator playerAnimator;
 
@@ -45,9 +39,6 @@ namespace Player
         {
             playerAnimator = GetComponent<PlayerAnimator>();
             rb = GetComponent<Rigidbody2D>();
-            dashFill1 = GameObject.Find("Fill1").transform.parent.GetComponent<Slider>();
-            dashFill2 = GameObject.Find("Fill2").transform.parent.GetComponent<Slider>();
-            dashFill3 = GameObject.Find("Fill3").transform.parent.GetComponent<Slider>();
         }
 
         void Update()
@@ -63,16 +54,10 @@ namespace Player
             moveInput = new Vector2(axisX, axisY).normalized;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
+                if (!IsCurrentlyDashing)
                 {
                     if (rb.velocity.x != 0 || rb.velocity.y != 0)
                     {
-                        if (!dashFest)
-                        {
-                            dashPower -= 1f;
-                        }
-
-                        UpdateBars();
                         StartCoroutine(Dash());
                     }
                 }
@@ -87,8 +72,6 @@ namespace Player
             if (!Mathf.Approximately(currentTimestamp, Timestamp))
             {
                 currentTimestamp = Timestamp;
-                dashPower = Mathf.Min(dashPower + dashRechargeRate, 3);
-                UpdateBars();
             }
 
             if (!IsCurrentlyDashing)
@@ -102,13 +85,6 @@ namespace Player
                     playerAnimator.PlayMoving(currentVelocity);
                 }
             }
-        }
-
-        void UpdateBars()
-        {
-            dashFill1.value = dashPower - 2;
-            dashFill2.value = dashPower - 1;
-            dashFill3.value = dashPower;
         }
 
         void FixedUpdate()
@@ -170,11 +146,6 @@ namespace Player
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
             yield return new WaitForSeconds(dashCoolDown);
-        }
-
-        public void DashFest(bool isDashFest)
-        {
-            dashFest = isDashFest;
         }
 
         public void ChangeVelocity(float multiplier)
