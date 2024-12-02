@@ -6,13 +6,12 @@ namespace Objects
 {
     public class FallingObjectCollision : MonoBehaviour
     {
-
         [SerializeField] private Movement movement;
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private AudioClip fall;
         [SerializeField] private AudioClip smash;
         private Collider2D triggerCollider;
-     
+
         public bool Dashed => dashed;
 
         bool hasDashed = false;
@@ -26,7 +25,6 @@ namespace Objects
 
         private void Awake()
         {
-
             lineRenderer.enabled = false;
             triggerCollider = GetComponent<Collider2D>();
         }
@@ -39,7 +37,8 @@ namespace Objects
                 SoundFXManager.Instance.PlaySoundFX(fall, transform, 1f);
             }
 
-            if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true && hasFallen != true)
+            if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true &&
+                hasFallen != true)
             {
                 UnityEngine.Debug.Log("Hit");
                 var damage = 10;
@@ -60,7 +59,6 @@ namespace Objects
 
         private IEnumerator FallOver(GameObject gameObject, Vector2 playerPosition)
         {
-
             hasDashed = true;
 
 
@@ -69,7 +67,6 @@ namespace Objects
             {
                 if (hasDashed != false && dashed != true)
                 {
-
                     dashed = true;
                     // Temporarily disable Rigidbody2D to manually animate the fall
                     rb.isKinematic = true;
@@ -94,19 +91,21 @@ namespace Objects
                     if (impactDirection.x > 0) // Dash from left
                     {
                         UnityEngine.Debug.Log("Got here");
-                        lineRenderer.SetPosition(0, transform.position + transform.right * 3f); // Extend line to the left
+                        lineRenderer.SetPosition(0, transform.position + transform.right * 3f);
                         lineRenderer.SetPosition(1, transform.position);
                     }
                     else // Dash from right
                     {
                         UnityEngine.Debug.Log("Got here now");
-                        lineRenderer.SetPosition(0, transform.position - transform.right * 3f); // Extend line to the right
+                        lineRenderer.SetPosition(0, transform.position - transform.right * 3f);
                     }
 
                     // The second position stays anchored to the object
                     lineRenderer.SetPosition(1, transform.position);
 
-                    lineRenderer.SetPosition(0, transform.position + Vector3.right * (impactDirection.x > 0 ? 3f : -3f)); // Adjust for dash side
+                    lineRenderer.SetPosition(0,
+                        transform.position +
+                        Vector3.right * (impactDirection.x > 0 ? 3f : -3f)); // Adjust for dash side
                     lineRenderer.SetPosition(1, transform.position);
 
 
@@ -170,7 +169,6 @@ namespace Objects
                     Destroy(rb.gameObject);
                 }
             }
-
         }
     }
 }
