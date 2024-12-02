@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingObjectMove : MonoBehaviour
+namespace Objects
 {
-    public static int movespeed = 1;
-    public Vector3 userDirection = Vector3.right;
-    public FallingObjectCollision FallingObjectCollision;
-
-
-    public void Start()
+    public class FallingObjectMove : MonoBehaviour
     {
-  
-        Destroy(gameObject,18f);
-    }
+        public static int movespeed = 1;
+        public Vector3 userDirection = Vector3.right;
+        public FallingObjectCollision FallingObjectCollision;
 
-    public void Update()
-    {
-        transform.Translate(userDirection * movespeed * Time.deltaTime);
-        if (FallingObjectCollision.Dashed)
+
+        public void Start()
         {
-            userDirection = Vector3.zero;
-            movespeed = 0;
+
+            Destroy(gameObject,18f);
         }
+
+        public void Update()
+        {
+            transform.Translate(userDirection * movespeed * Time.deltaTime);
+            if (FallingObjectCollision.Dashed)
+            {
+                userDirection = Vector3.zero;
+                movespeed = 0;
+            }
+        }
+
+
+
     }
-
-
-
 }
