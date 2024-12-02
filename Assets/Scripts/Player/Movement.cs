@@ -52,16 +52,11 @@ namespace Player
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
+                    if (!IsCurrentlyDashing )
                     {
                         if (rb.velocity.x != 0 || rb.velocity.y != 0)
                         {
-                            if (!dashFest)
-                            {
-                                //dashPower -= 1f;
-                            }
 
-                            UpdateBars();
                             _chargingDash = true;
                             StartCoroutine(ChargeDash());
                         }

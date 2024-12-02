@@ -32,6 +32,7 @@ namespace Projectile
                         Instantiate(hitVfx, closestPoint, Quaternion.identity);
                         //SoundManager.PlayHit(closestPoint);
                         SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
+                        SoundFXManager.Instance.PitchChange();
                         Destroy(gameObject);
                         return;
                     }

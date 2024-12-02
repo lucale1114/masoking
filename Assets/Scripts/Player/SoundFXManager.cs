@@ -22,9 +22,30 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFX(AudioClip audioClip, Transform spawnTransform, float volume)
+
+    void Start()
+    {
+        //Fetch the AudioSource from the GameObject
+
+
+        //Initialize the pitch
+
+    }
+
+    void Update()
     {
         
+        if (soundFXObject.pitch > 1)
+         {
+            //While the pitch is over 0, decrease it as time passes.
+            soundFXObject.pitch -= 0.1f * Time.deltaTime;
+        }
+
+    }
+
+    public void PlaySoundFX(AudioClip audioClip, Transform spawnTransform, float volume)
+    {
+
         if (spawnTransform is null)
         {
             throw new System.ArgumentNullException(nameof(spawnTransform));
@@ -42,9 +63,15 @@ public class SoundFXManager : MonoBehaviour
 
         int rand = Random.Range(0, audioClip.Length);
 
-       
+
 
         soundFXObject.PlayOneShot(audioClip[rand], volume);
 
     }
+
+    public void PitchChange()
+    {
+        soundFXObject.pitch += 0.05f;
+    }
+
 }

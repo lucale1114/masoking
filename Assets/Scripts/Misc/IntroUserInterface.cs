@@ -107,9 +107,8 @@ namespace Misc
         private IEnumerator SwitchTextDashWithDelay()
         {
             hasDashed = true;
+            yield return new WaitForSeconds(5f); // Wait for seconds
             DashTextMesh.enabled = false; // Show DashTextMesh
-            yield return new WaitForSeconds(2f); // Wait for seconds
-           
             dashwallTextMesh.enabled = true; // Show dashwallTextMesh
 
         }
@@ -117,10 +116,10 @@ namespace Misc
         private IEnumerator SwitchTextMoveWithDelay()
         {
             
+            hasMoved = true;
             yield return new WaitForSeconds(2f); // Wait for 2 seconds
             DashTextMesh.enabled = true;
             moveTextMesh.enabled = false;
-            hasMoved = true;
 
         }
 
