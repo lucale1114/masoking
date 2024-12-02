@@ -19,7 +19,6 @@ namespace Player
         [SerializeField] private float dashWindupTime = 0.25f;
         [SerializeField] private float dashCoolDown;
         [SerializeField] private float dashRechargeRate = 0.025f;
-        [SerializeField] private float wallBounceOffFactor = 2;
         [SerializeField] private float bounceCooldown;
         [SerializeField] private float bounceAbsorption;
         [SerializeField] private int maxNumberOfWallBounces = 2;
@@ -203,8 +202,7 @@ namespace Player
 
             if (Mathf.Approximately(currentVelocity.magnitude, 0))
             {
-                StartCoroutine(BounceRoutine());
-                currentVelocity = wallBounceOffFactor * normal;
+                currentVelocity = Vector2.zero;
             }
 
             if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
