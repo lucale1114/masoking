@@ -14,8 +14,9 @@ namespace Player
         [SerializeField] private float deceleration = 25f;
         [SerializeField] private float turnDeceleration = 75f;
         [SerializeField] private float dashSpeed = 5f;
-        [SerializeField] private float dashTime = 0.2f;
-        [SerializeField] private float dashWindupTime = 0.25f;
+        [SerializeField] private float dashMinTime = 0.2f;
+        [SerializeField] private float dashMaxTime = 1f;
+        [SerializeField] private float dashIncreasePerSecond = 0.25f;
         [SerializeField] private float dashCoolDown;
         [SerializeField] private float dashRechargeRate = 0.025f;
         [SerializeField] private float bounceCooldown;
@@ -24,6 +25,7 @@ namespace Player
 
         public bool IsCurrentlyDashing { get; private set; }
         private bool IsBouncing { get; set; }
+        private bool _chargingDash;
 
         private int _numberOfWallBounces;
 
@@ -43,24 +45,32 @@ namespace Player
 
         void Update()
         {
-            if (IsCurrentlyDashing)
-            {
-                return;
-            }
-
-            // Capture input
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!IsCurrentlyDashing)
             {
-                if (!IsCurrentlyDashing)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (rb.velocity.x != 0 || rb.velocity.y != 0)
+                    if (!IsCurrentlyDashing && (dashPower >= 1 || dashFest))
                     {
-                        StartCoroutine(Dash());
+                        if (rb.velocity.x != 0 || rb.velocity.y != 0)
+                        {
+                            if (!dashFest)
+                            {
+                                //dashPower -= 1f;
+                            }
+
+                            UpdateBars();
+                            _chargingDash = true;
+                            StartCoroutine(ChargeDash());
+                        }
                     }
                 }
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _chargingDash = false;
             }
 
             if (IsBouncing)
@@ -133,16 +143,37 @@ namespace Player
             rb.velocity = currentVelocity;
         }
 
-        private IEnumerator Dash()
+        private IEnumerator ChargeDash()
         {
             IsCurrentlyDashing = true;
-            IsDashing?.Invoke(true);
-            currentVelocity = Vector2.ClampMagnitude(dashSpeed * maxSpeed * currentVelocity, dashSpeed);
             rb.velocity = Vector2.zero;
             playerAnimator.PlayDash(currentVelocity);
-            yield return new WaitForSeconds(dashWindupTime);
+            rb.velocity = currentVelocity * 0.25f;
+            float power = 0;
+            while (_chargingDash)
+            {
+                yield return new WaitForSeconds(0.05f);
+                power = Mathf.Min(power + 0.025f, 1f);
+            }
+            StartCoroutine(Dash(Mathf.Max(0.1f, power)));
+        }
+
+        private IEnumerator Dash(float power)
+        {
+            Vector2 velocityVector;
+            if (Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
+            {
+                velocityVector = (dashSpeed * maxSpeed * power * moveInput) * 2f;
+            }
+            else
+            {
+                velocityVector = (dashSpeed * maxSpeed * currentVelocity * power);
+            }
+            currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
+            rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
-            yield return new WaitForSeconds(dashTime);
+            playerAnimator.PlayDash(currentVelocity);
+            yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
             yield return new WaitForSeconds(dashCoolDown);
@@ -168,6 +199,7 @@ namespace Player
                     currentVelocity = Vector2.Reflect(currentVelocity, normal);
                     currentVelocity = Vector2.ClampMagnitude(currentVelocity, dashSpeed);
                     rb.velocity = currentVelocity;
+                    playerAnimator.PlayDash(currentVelocity);
                 }
 
                 if (_numberOfWallBounces > 0)
