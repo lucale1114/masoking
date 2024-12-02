@@ -22,22 +22,12 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-
-    void Start()
-    {
-        //Fetch the AudioSource from the GameObject
-
-
-        //Initialize the pitch
-
-    }
-
     void Update()
     {
         
         if (soundFXObject.pitch > 1)
          {
-            //While the pitch is over 0, decrease it as time passes.
+            //While the pitch is over 1, decrease it as time passes.
             soundFXObject.pitch -= 0.1f * Time.deltaTime;
         }
 
