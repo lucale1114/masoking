@@ -68,7 +68,8 @@ namespace Wave
             [Tooltip("Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
             public int inaccuracy;
 
-            [Tooltip("Scale of projectile.")] public float scale = 1;
+            [Tooltip("Scale of projectile.")]
+            public float scale = 1;
 
             [Tooltip("How much this fills up the heat meter.")]
             public float damage = 10;
