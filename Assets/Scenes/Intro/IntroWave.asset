@@ -24,7 +24,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 5
+        damage: 10
         x: 0
         y: 1
         randomX: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 44
         scale: 1
-        damage: 5
+        damage: 10
         x: 0
         y: 1
         randomX: 0

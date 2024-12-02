@@ -69,9 +69,8 @@ public class WaveData : MonoBehaviour
         [Tooltip("Scale of projectile.")]
         public float scale = 1;
 
-        [Tooltip(
-            "How much this fills up the heat meter. This value is actually 5, which means -5 will actually make this 0, so don't do that!")]
-        public float damage = 5;
+        [Tooltip("How much this fills up the heat meter.")]
+        public float damage = 10;
 
         [Tooltip(
             "Where on the field this projectile is aimed. Changing anything here overrides the default of shooting towards the player.")]

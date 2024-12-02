@@ -24,7 +24,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 15
+        damage: 20
         x: 0
         y: 0
         randomX: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 15
+        damage: 20
         x: 3.5
         y: 0.01
         randomX: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 15
+        damage: 20
         x: -3.5
         y: 2
         randomX: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
         speed: 17
         inaccuracy: 0
         scale: 2
-        damage: 15
+        damage: 20
         x: 1
         y: 2
         randomX: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: -3
         y: -2
         randomX: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: -1
         y: -2
         randomX: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: 1
         y: -2
         randomX: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: 3
         y: -2
         randomX: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.5
-        damage: 25
+        damage: 30
         x: 4
         y: 1
         randomX: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
         speed: 17
         inaccuracy: 0
         scale: 2
-        damage: 10
+        damage: 15
         x: 1
         y: 3
         randomX: 0
@@ -739,7 +739,7 @@ MonoBehaviour:
         speed: 17
         inaccuracy: 0
         scale: 2
-        damage: 10
+        damage: 15
         x: 1
         y: -2
         randomX: 0
@@ -773,7 +773,7 @@ MonoBehaviour:
         speed: 17
         inaccuracy: 0
         scale: 2
-        damage: 10
+        damage: 15
         x: -1
         y: 3
         randomX: 0
@@ -802,7 +802,7 @@ MonoBehaviour:
         speed: 17
         inaccuracy: 0
         scale: 2
-        damage: 10
+        damage: 15
         x: -1
         y: -2
         randomX: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: -3
         y: -0.5
         randomX: 0
@@ -910,7 +910,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: 3
         y: -0.5
         randomX: 0
@@ -984,7 +984,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: -3
         y: -0.5
         randomX: 0
@@ -1058,7 +1058,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: 3
         y: -0.5
         randomX: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: -3
         y: -0.5
         randomX: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: 3
         y: -0.5
         randomX: 0
@@ -1280,7 +1280,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1
-        damage: 3
+        damage: 8
         x: -3
         y: -0.5
         randomX: 0
@@ -1354,7 +1354,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.5
-        damage: 15
+        damage: 20
         x: 3
         y: -0.5
         randomX: 0
@@ -1433,7 +1433,7 @@ MonoBehaviour:
         speed: 0
         inaccuracy: 0
         scale: 1.5
-        damage: 10
+        damage: 15
         x: -4
         y: -4
         randomX: 0
@@ -1512,7 +1512,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -1591,7 +1591,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -1670,7 +1670,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -1828,7 +1828,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -1907,7 +1907,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -1986,7 +1986,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -2065,7 +2065,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -2144,7 +2144,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -2223,7 +2223,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0
@@ -2302,7 +2302,7 @@ MonoBehaviour:
         speed: 6
         inaccuracy: 0
         scale: 1.25
-        damage: 5
+        damage: 10
         x: 0
         y: 0
         randomX: 0

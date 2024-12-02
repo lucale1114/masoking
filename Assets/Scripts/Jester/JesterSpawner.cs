@@ -139,7 +139,7 @@ namespace Jester
                     shotData.fireBetween = UnityEngine.Random.Range(0.5f, 1.5f);
                     shotData.speed = UnityEngine.Random.Range(7, 15);
                     shotData.amount = 99;
-                    shotData.damage = -4;
+                    shotData.damage = 6;
 
                     jesterData.commands = new[] {
                         new JesterCommand()
