@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 
 namespace Projectile
 {
@@ -7,6 +7,7 @@ namespace Projectile
     {
         [SerializeField] private GameObject reticlePrefab;
         [SerializeField] private GameObject shadowPrefab;
+        [SerializeField] private float shadowMinimumScale = 0.5f;
         [SerializeField] private float colliderActivationPercentage = 0.9f;
         [SerializeField] protected float curveHeight = 5f;
 
@@ -41,7 +42,7 @@ namespace Projectile
         {
             Invoke(nameof(Enable), Data.fireBetween);
             InstantiateReticle(Data);
-            transform.localScale *= Data.size + 1;
+            transform.localScale *= Data.scale;
             InvokeRepeating(nameof(Spin), 0, 0.005f);
         }
 
@@ -110,14 +111,16 @@ namespace Projectile
         private void InstantiateShadow(ShotDataObject shotData)
         {
             Shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
-            Shadow.transform.localScale *= Data.size + 1;
+            Shadow.transform.localScale *= Data.scale;
+            Shadow.GetComponent<ShrinkAndGrow>()
+                .SetData(shotData.animationCurve, shotData.throwAirTime, shadowMinimumScale);
             Destroy(Shadow, shotData.throwAirTime);
         }
 
         protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            Reticle.transform.localScale *= Data.size + 1;
+            Reticle.transform.localScale *= Data.scale;
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 

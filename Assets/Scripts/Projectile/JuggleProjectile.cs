@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using Projectile;

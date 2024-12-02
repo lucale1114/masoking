@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static WaveData;
+using static Wave.WaveData;
 
 namespace Player
 {
@@ -63,6 +63,7 @@ namespace Player
                     }
                 }
             }
+
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 _chargingDash = false;
@@ -102,7 +103,7 @@ namespace Player
             {
                 moveInput = Vector2.zero;
                 return;
-            } 
+            }
             else if (!IsInDashState && IsCurrentlyDashing)
             {
                 rb.velocity += moveInput;
@@ -171,12 +172,13 @@ namespace Player
             _dashCoolDown = 0;
             if (Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
             {
-                velocityVector = (dashSpeed * maxSpeed * power * moveInput) * 2f;
+                velocityVector = moveInput * (dashSpeed * maxSpeed * power * 2f);
             }
             else
             {
-                velocityVector = (dashSpeed * maxSpeed * currentVelocity * power);
+                velocityVector = currentVelocity * (dashSpeed * maxSpeed * power);
             }
+
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
@@ -200,6 +202,7 @@ namespace Player
                 {
                     return;
                 }
+
                 StartCoroutine(BounceRoutine());
 
                 if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
@@ -228,7 +231,7 @@ namespace Player
                 StartCoroutine(BounceRoutine());
 
                 currentVelocity = Vector2.Reflect(currentVelocity, normal);
-                currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed)  * (1 - bounceAbsorption);
+                currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed) * (1 - bounceAbsorption);
                 rb.velocity = currentVelocity;
             }
         }

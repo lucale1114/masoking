@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using Gameplay;
 using UnityEngine;
-using static WaveData;
+using Wave;
+using static Wave.WaveData;
 
 
 #if UNITY_EDITOR
@@ -23,7 +23,7 @@ namespace Jester
         private bool finished;
         public GameObject jester;
         public WaveList waves;
-        public Gameplay.Wave currentWave;
+        public Wave.Wave currentWave;
         public int debugForceWave;
 
         public event Action FinishedLevel;
@@ -139,7 +139,7 @@ namespace Jester
                     shotData.fireBetween = UnityEngine.Random.Range(0.5f, 1.5f);
                     shotData.speed = UnityEngine.Random.Range(7, 15);
                     shotData.amount = 99;
-                    shotData.damage = -4;
+                    shotData.damage = 6;
 
                     jesterData.commands = new[] {
                         new JesterCommand()
