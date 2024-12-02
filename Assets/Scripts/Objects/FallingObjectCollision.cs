@@ -1,6 +1,6 @@
 using System.Collections;
-using Player;
 using UnityEngine;
+using Player;
 
 namespace Objects
 {
@@ -12,7 +12,7 @@ namespace Objects
         [SerializeField] private AudioClip fall;
         [SerializeField] private AudioClip smash;
         private Collider2D triggerCollider;
-
+     
         public bool Dashed => dashed;
 
         bool hasDashed = false;
@@ -41,19 +41,19 @@ namespace Objects
 
             if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true && hasFallen != true)
             {
-                Debug.Log("Hit");
+                UnityEngine.Debug.Log("Hit");
                 var damage = 10;
                 HeatSystem playerHeat = collision.gameObject.GetComponent<HeatSystem>();
 
                 if (playerHeat != null)
                 {
-                    Debug.Log("Heat");
+                    UnityEngine.Debug.Log("Heat");
                     playerHeat.ChangeHeat(damage);
                     beenHit = true;
                 }
                 else
                 {
-                    Debug.LogWarning("HeatSystem not found on Player!");
+                    UnityEngine.Debug.LogWarning("HeatSystem not found on Player!");
                 }
             }
         }
@@ -93,13 +93,13 @@ namespace Objects
 
                     if (impactDirection.x > 0) // Dash from left
                     {
-                        Debug.Log("Got here");
+                        UnityEngine.Debug.Log("Got here");
                         lineRenderer.SetPosition(0, transform.position + transform.right * 3f); // Extend line to the left
                         lineRenderer.SetPosition(1, transform.position);
                     }
                     else // Dash from right
                     {
-                        Debug.Log("Got here now");
+                        UnityEngine.Debug.Log("Got here now");
                         lineRenderer.SetPosition(0, transform.position - transform.right * 3f); // Extend line to the right
                     }
 
