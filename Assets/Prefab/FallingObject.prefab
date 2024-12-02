@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
-  intro: {fileID: 0}
   lineRenderer: {fileID: 8567057565367364087}
 --- !u!114 &1762043508187067249
 MonoBehaviour:
@@ -355,3 +354,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae38803124fd1b4c90a3391326a7a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userDirection: {x: 1, y: 0, z: 0}
+  FallingObjectCollision: {fileID: 8279218141390260246}

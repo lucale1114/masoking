@@ -634,17 +634,6 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5807398479405275205, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
   m_PrefabInstance: {fileID: 1256056521718688891}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1714223778 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-  m_PrefabInstance: {fileID: 1256056521718688891}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714223776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb4bca8ae3d699428024755efe19695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1993662373 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
@@ -729,13 +718,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1762043508187067249, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: FallingObjectCollision
-      value: 
-      objectReference: {fileID: 1714223778}
     - target: {fileID: 2421025850659811155, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.52
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 2421025850659811155, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -775,12 +760,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: m_Name
-      value: FallingObject
+      value: FallingJester
       objectReference: {fileID: 0}
-    - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: intro
-      value: 
-      objectReference: {fileID: 14378988}
     - target: {fileID: 8279218141390260246, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: movement
       value: 
@@ -1000,6 +981,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5433946674847794519, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800660014211612679, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5810325512634141091, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}

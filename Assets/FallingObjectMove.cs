@@ -9,10 +9,15 @@ public class FallingObjectMove : MonoBehaviour
     public FallingObjectCollision FallingObjectCollision;
 
 
+    public void Start()
+    {
+  
+        Destroy(gameObject,18f);
+    }
+
     public void Update()
     {
         transform.Translate(userDirection * movespeed * Time.deltaTime);
-        //StartCoroutine(Stop());
         if (FallingObjectCollision.Dashed)
         {
             userDirection = Vector3.zero;
@@ -20,11 +25,6 @@ public class FallingObjectMove : MonoBehaviour
         }
     }
 
-    IEnumerable Stop()
-    {
-        yield return new WaitForSeconds(18f);
-        Destroy(gameObject);
-    }
 
 
 }
