@@ -43,7 +43,7 @@ namespace Jester
 
         private void SpawnJugglingBall()
         {
-            GameObject ball = Instantiate(Resources.Load($"Misc/CircusBall") as GameObject);
+            GameObject ball = Instantiate(Resources.Load($"CircusBall") as GameObject);
         }
 
         private void LaunchNewWave()
