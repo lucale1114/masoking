@@ -89,7 +89,7 @@ namespace Objects
                     lineRenderer.useWorldSpace = true;
 
                     triggerCollider.enabled = false;
-                    isFalling = true;
+                    isFalling = true; 
 
                     if (impactDirection.x > 0) // Dash from left
                     {

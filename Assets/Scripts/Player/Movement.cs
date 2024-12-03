@@ -192,6 +192,9 @@ namespace Player
         public void ChangeVelocity(float multiplier)
         {
             maxSpeed *= multiplier;
+            deceleration *= multiplier * 1.5f;
+            acceleration *= multiplier;
+            turnDeceleration *= multiplier;
         }
 
         public void AttemptBounce(Vector2 normal)

@@ -45,9 +45,9 @@ namespace Player
         }
         private IEnumerator MaxHeatReward()
         {
-            _movement.ChangeVelocity(3);
+            _movement.ChangeVelocity(2);
             yield return new WaitForSeconds(5);
-            _movement.ChangeVelocity(1/3f);
+            _movement.ChangeVelocity(1/2f);
 
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFever)
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
