@@ -87,7 +87,7 @@ namespace Misc
             _heatBar = GameObject.Find("HeatBar").GetComponent<Image>();
             _heatSystem = FindObjectOfType<HeatSystem>();
 
-            _heatSystem.HeatChanged += heat => _heatBar.fillAmount = heat;
+            _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
             _jesterSpawner.FinishedLevel += () =>
             {
                 JesterFever = true;
@@ -98,10 +98,6 @@ namespace Misc
             {
                 Time.timeScale = 0;
                 _lostMenu.SetActive(true);
-            };
-            _heatSystem.MaxHeat += () =>
-            {
-                StartCoroutine(MaxHeatGained());
             };
             _heatSystem.ComboMultiplierChanged += comboMultiplier =>
             {
@@ -118,6 +114,10 @@ namespace Misc
                         StartCoroutine(StartingCombo());
                     }
                 }
+            };
+            _heatSystem.MaxHeat += () =>
+            {
+                StartCoroutine(MaxHeatGained());
             };
         }
 
@@ -143,6 +143,10 @@ namespace Misc
 
         IEnumerator StartingCombo()
         {
+            if (!_heatSystem.CanMaxHeat)
+            {
+                yield return null;
+            }
             ChangeKingPortrait(3, false, true);
             while (_heatSystem.GetCombo() >= 5)
             {

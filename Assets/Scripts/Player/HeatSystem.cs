@@ -102,10 +102,6 @@ namespace Player
 
 
                 MaxHeat?.Invoke();
-                if (_comboMultiplier > 10 && CanMaxHeat)
-                {
-
-                }
                 StartCoroutine(MaxHeatReward());
             }
         }
