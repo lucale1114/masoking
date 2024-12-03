@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
-  Slashes:
+  SoundFX:
   - {fileID: 8300000, guid: 0c4966f678e289f4fb32ce6f76adf6f7, type: 3}
   - {fileID: 8300000, guid: b8c0e210db530484a846dc45f9611d27, type: 3}
   - {fileID: 8300000, guid: a9b148089a7120b49ad3f4c49b8a66f7, type: 3}

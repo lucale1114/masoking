@@ -20,6 +20,7 @@ namespace Player
         [SerializeField] private float bounceCooldown;
         [SerializeField] private float bounceAbsorption;
         [SerializeField] private int maxNumberOfWallBounces = 2;
+        [SerializeField] private AudioClip walk;
 
         public bool IsCurrentlyDashing { get; private set; }
         public bool IsInDashState { get; private set; }
@@ -122,6 +123,7 @@ namespace Player
             else if (moveInput.x * currentVelocity.x < 0)
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
+               // SoundFXManager.Instance.PlaySoundFX(walk, transform, 1f);
             }
             else
             {
@@ -144,6 +146,8 @@ namespace Player
             }
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
+
+
 
             rb.velocity = currentVelocity; //* _dashMultiplier;
         }
