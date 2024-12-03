@@ -1,4 +1,5 @@
-﻿using Misc;
+﻿using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using static Wave.WaveData;
 
@@ -51,7 +52,7 @@ namespace Projectile
         {
             _isOn = true;
 
-            InstantiateShadow(Data);
+            StartCoroutine(InstantiateShadow(Data));
             GetComponent<SpriteRenderer>().enabled = true;
         }
 
@@ -109,13 +110,17 @@ namespace Projectile
             }
         }
 
-        private void InstantiateShadow(ShotDataObject shotData)
+        IEnumerator InstantiateShadow(ShotDataObject shotData)
         {
             Shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
             Shadow.transform.localScale *= Data.scale;
-            Shadow.GetComponent<ShrinkAndGrow>()
+            Vector3 originalScale = Shadow.transform.localScale;
+            Shadow.transform.DOScale(originalScale * 0.3f, Data.throwAirTime * 0.5f).SetEase(Ease.InQuad);
+            yield return new WaitForSeconds(Data.throwAirTime / 2);
+            Shadow.transform.DOScale(originalScale, Data.throwAirTime * 0.45f).SetEase(Ease.OutQuad);
+            /*Shadow.GetComponent<ShrinkAndGrow>()
                 .SetData(shotData.animationCurve, shotData.throwAirTime, shadowMinimumScale);
-            Destroy(Shadow, shotData.throwAirTime);
+            Destroy(Shadow, shotData.throwAirTime);*/
         }
 
         protected virtual void InstantiateReticle(ShotDataObject shotData)
