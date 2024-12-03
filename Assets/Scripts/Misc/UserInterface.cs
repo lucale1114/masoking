@@ -28,7 +28,7 @@ namespace Misc
         private HeatSystem _heatSystem;
         private Image _portrait;
         private TextMeshProUGUI _mashSpace;
-        
+        private bool isInMax;
 
         private void Awake()
         {
@@ -143,21 +143,20 @@ namespace Misc
 
         IEnumerator StartingCombo()
         {
-            if (!_heatSystem.CanMaxHeat)
+            if (!isInMax)
             {
-                yield return null;
+                ChangeKingPortrait(3, false, true);
+                while (_heatSystem.GetCombo() >= 5)
+                {
+                    yield return new WaitForSeconds(0.01f);
+                }
+                if (!isInMax)
+                {
+                    ChangeKingPortrait(0, false, false);
+                }
             }
-            ChangeKingPortrait(3, false, true);
-            while (_heatSystem.GetCombo() >= 5)
-            {
-                yield return new WaitForSeconds(0.01f);
-            }
-            if (_heatSystem.CanMaxHeat)
-            {
-                ChangeKingPortrait(0, false, false);
-            }
-
         }
+
         IEnumerator MaxHeatGained()
         {
             _heatSystem.CanMaxHeat = false;
@@ -170,8 +169,17 @@ namespace Misc
             {
                 ChangeKingPortrait(1, true, false);
             }
+            isInMax = true;
             yield return new WaitForSeconds(5);
-            ChangeKingPortrait(0, false, false);
+            isInMax = false;
+            if (_heatSystem.GetCombo() >= 5)
+            {
+                StartCoroutine(StartingCombo());
+            } 
+            else
+            {
+                ChangeKingPortrait(0, false, false);
+            }
             yield return new WaitForSeconds(2);
             _heatSystem.CanMaxHeat = true;
         }

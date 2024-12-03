@@ -1141,10 +1141,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 567601484}
-    - target: {fileID: 4604579735536977695, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5126002480455879546, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1364,10 +1360,6 @@ PrefabInstance:
     - target: {fileID: 9153703143735950741, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188283113969667762, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 517
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
