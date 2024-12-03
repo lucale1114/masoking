@@ -19,7 +19,6 @@ namespace Wave
             FireCurved,
             FireWavy,
             FireRow,
-            FireSniper,
             Throw,
             ThrowAndRoll
         }
