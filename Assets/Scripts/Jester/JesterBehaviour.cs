@@ -187,7 +187,8 @@ namespace Jester
             {
                 rotation = 180;
             }
-            GameObject target = Instantiate(Resources.Load($"Misc/Target") as GameObject, new Vector3(x, y), Quaternion.Euler(0,0,rotation));
+
+            GameObject target = Instantiate(Resources.Load($"Target") as GameObject, new Vector3(x, y), Quaternion.Euler(0,0,rotation));
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
             target.GetComponent<Target>().targetProjectile = jesterFire.Snipe(data, x, y, target);
