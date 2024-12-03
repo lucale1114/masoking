@@ -113,6 +113,10 @@ namespace Misc
                 {
                     _comboCounter.enabled = true;
                     _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
+                    if (comboMultiplier > 5)
+                    {
+                        StartCoroutine(StartingCombo());
+                    }
                 }
             };
         }
@@ -124,28 +128,46 @@ namespace Misc
             _wonMenu.SetActive(true);
         }
 
-        private void ChangeKingPortrait(int index, bool punch)
+        private void ChangeKingPortrait(int index, bool punch, bool shake)
         {
             _portrait.sprite = kingPortraits[index];
             if (punch)
             {
                 _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
             }
+            if (shake)
+            {
+                _portrait.transform.DOShakePosition(1, 5, 10, 90);
+            }
+        }
+
+        IEnumerator StartingCombo()
+        {
+            ChangeKingPortrait(3, false, true);
+            while (_heatSystem.GetCombo() >= 5)
+            {
+                yield return new WaitForSeconds(0.01f);
+            }
+            if (_heatSystem.CanMaxHeat)
+            {
+                ChangeKingPortrait(0, false, false);
+            }
+
         }
         IEnumerator MaxHeatGained()
         {
             _heatSystem.CanMaxHeat = false;
             if (JesterFever)
             {
-                ChangeKingPortrait(2, true);
+                ChangeKingPortrait(2, true, false);
                 yield break;
             }
             else
             {
-                ChangeKingPortrait(1, true);
+                ChangeKingPortrait(1, true, false);
             }
             yield return new WaitForSeconds(5);
-            ChangeKingPortrait(0, false);
+            ChangeKingPortrait(0, false, false);
             yield return new WaitForSeconds(2);
             _heatSystem.CanMaxHeat = true;
         }
