@@ -19,7 +19,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 1
-      action: 6
+      action: 7
       shotData:
         speed: 17
         inaccuracy: 0
@@ -267,49 +267,22 @@ MonoBehaviour:
           m_Curve:
           - serializedVersion: 3
             time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
             weightedMode: 0
             inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
             outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
@@ -330,7 +303,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -404,7 +377,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 2
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -478,7 +451,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 3
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -552,7 +525,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 4
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -626,7 +599,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 5
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -705,7 +678,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 6
+      action: 7
       shotData:
         speed: 17
         inaccuracy: 0
@@ -715,13 +688,31 @@ MonoBehaviour:
         y: 3
         randomX: 0
         randomY: 0
-        throwAirTime: 0
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -734,7 +725,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 2.5
-      action: 6
+      action: 7
       shotData:
         speed: 17
         inaccuracy: 0
@@ -744,13 +735,31 @@ MonoBehaviour:
         y: -2
         randomX: 0
         randomY: 0
-        throwAirTime: 0
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -768,7 +777,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 6
+      action: 7
       shotData:
         speed: 17
         inaccuracy: 0
@@ -778,13 +787,31 @@ MonoBehaviour:
         y: 3
         randomX: 0
         randomY: 0
-        throwAirTime: 0
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -797,7 +824,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 2.5
-      action: 6
+      action: 7
       shotData:
         speed: 17
         inaccuracy: 0
@@ -807,13 +834,31 @@ MonoBehaviour:
         y: -2
         randomX: 0
         randomY: 0
-        throwAirTime: 0
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
         timer: 0
         frequency: 0
         amp: 0
@@ -831,7 +876,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 1
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -905,7 +950,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 2
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -979,7 +1024,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 3
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -1053,7 +1098,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 4
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -1127,7 +1172,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 5
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -1201,7 +1246,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 6
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -1275,7 +1320,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 7
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -1349,7 +1394,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
     - timestamp: 8
-      action: 7
+      action: 6
       shotData:
         speed: 6
         inaccuracy: 0
@@ -1428,7 +1473,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 0
-      action: 7
+      action: 6
       shotData:
         speed: 0
         inaccuracy: 0

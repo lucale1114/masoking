@@ -21,7 +21,7 @@ namespace Projectile
         protected Rigidbody2D RigidBody;
         private Collider2D _collider;
 
-        protected GameObject Shadow;
+        private GameObject _shadow;
         protected GameObject Reticle;
 
         protected float CurrentTime;
@@ -52,7 +52,7 @@ namespace Projectile
         {
             _isOn = true;
 
-            StartCoroutine(InstantiateShadow(Data));
+            StartCoroutine(InstantiateShadow());
             GetComponent<SpriteRenderer>().enabled = true;
         }
 
@@ -110,17 +110,15 @@ namespace Projectile
             }
         }
 
-        IEnumerator InstantiateShadow(ShotDataObject shotData)
+        private IEnumerator InstantiateShadow()
         {
-            Shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
-            Shadow.transform.localScale *= Data.scale;
-            Vector3 originalScale = Shadow.transform.localScale;
-            Shadow.transform.DOScale(originalScale * 0.3f, Data.throwAirTime * 0.5f).SetEase(Ease.InQuad);
+            _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
+            _shadow.transform.localScale *= Data.scale;
+            Vector3 originalScale = _shadow.transform.localScale;
+            _shadow.transform.DOScale(originalScale * 0.3f, Data.throwAirTime * 0.5f).SetEase(Ease.InQuad);
             yield return new WaitForSeconds(Data.throwAirTime / 2);
-            Shadow.transform.DOScale(originalScale, Data.throwAirTime * 0.45f).SetEase(Ease.OutQuad);
-            /*Shadow.GetComponent<ShrinkAndGrow>()
-                .SetData(shotData.animationCurve, shotData.throwAirTime, shadowMinimumScale);
-            Destroy(Shadow, shotData.throwAirTime);*/
+            _shadow.transform.DOScale(originalScale, Data.throwAirTime * 0.45f).SetEase(Ease.OutQuad);
+            Destroy(_shadow, Data.throwAirTime);
         }
 
         protected virtual void InstantiateReticle(ShotDataObject shotData)
@@ -146,9 +144,9 @@ namespace Projectile
                 OnUpdate(airTime);
 
 
-                if (Shadow)
+                if (_shadow)
                 {
-                    Shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
+                    _shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
                 }
             }
         }
@@ -157,7 +155,7 @@ namespace Projectile
 
         private void OnDestroy()
         {
-            Destroy(Shadow);
+            Destroy(_shadow);
             Destroy(Reticle);
         }
 

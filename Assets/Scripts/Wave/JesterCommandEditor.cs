@@ -133,20 +133,6 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.FireSniper:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
-                    AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
-                    AddProperty(property, visualElement, "shotData.spin", "Spin");
-                    AddProperty(property, visualElement, "shotData.straight", "Straight");
-                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
-                    break;
                 case WaveData.Actions.Throw:
                     AddProperty(property, visualElement, "shotData.damage", "Damage");
                     AddProperty(property, visualElement, "shotData.size", "Size");
