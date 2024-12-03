@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using static Wave.WaveData;
 
@@ -27,8 +28,11 @@ namespace Player
         private bool _chargingDash;
         private float _dashMultiplier = 1;
         private float _dashCoolDown = 0.5f;
+        private SpriteRenderer _dashImageCharger;
+        private SpriteRenderer _plrSprite;
 
         private int _numberOfWallBounces;
+        private float power;
 
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
@@ -42,10 +46,17 @@ namespace Player
         {
             playerAnimator = GetComponent<PlayerAnimator>();
             rb = GetComponent<Rigidbody2D>();
+            _plrSprite = GetComponent<SpriteRenderer>();
+            _dashImageCharger = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            _dashImageCharger.enabled = false;
         }
 
         void Update()
         {
+            if (_dashImageCharger.enabled)
+            {
+                _dashImageCharger.sprite = _plrSprite.sprite;
+            }
             float axisX = Input.GetAxisRaw("Horizontal");
             float axisY = Input.GetAxisRaw("Vertical");
             moveInput = new Vector2(axisX, axisY).normalized;
@@ -96,6 +107,8 @@ namespace Player
                 }
             }
         }
+
+        
 
         void FixedUpdate()
         {
@@ -155,16 +168,31 @@ namespace Player
             rb.velocity = Vector2.zero;
             playerAnimator.PlayDash(currentVelocity);
             rb.velocity = currentVelocity * 0.25f;
-            float power = 0;
+            power = 0;
+            StartCoroutine(FlashRecharge());
             while (_chargingDash)
             {
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + dashIncrease, dashMaxTime);
             }
-            StartCoroutine(Dash(Mathf.Max(dashMinTime, power)));
+            power = Mathf.Max(dashMinTime, power);
+            StartCoroutine(Dash());
         }
 
-        private IEnumerator Dash(float power)
+        IEnumerator FlashRecharge()
+        {
+            _dashImageCharger.enabled = true;
+            while (_chargingDash)
+            {
+                _dashImageCharger.DOColor(new Color32(255, 255, 255, 90), 0.05f);
+                yield return new WaitForSeconds(((dashMaxTime + 0.2f) - power) / 5);
+                _dashImageCharger.DOColor(new Color32(255, 255, 255, 0), 0.05f);
+                yield return new WaitForSeconds(((dashMaxTime + 0.2f) - power) / 5);
+            }
+            _dashImageCharger.enabled = false;
+        }
+
+        private IEnumerator Dash()
         {
             Vector2 velocityVector;
             IsDashing?.Invoke(true);
@@ -178,7 +206,6 @@ namespace Player
             {
                 velocityVector = currentVelocity * (dashSpeed * maxSpeed * power);
             }
-
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
