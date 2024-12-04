@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundFXObject: {fileID: 0}
   walkFX: {fileID: 656657195603203099}
-  walkClip: {fileID: 8300000, guid: 1848a6daf8f0a5e42afc0127378dbfe2, type: 3}
+  walkClip: {fileID: 8300000, guid: 87b1115bced66de438640875670cafc8, type: 3}
 --- !u!82 &5156508538203272895
 AudioSource:
   m_ObjectHideFlags: 0
