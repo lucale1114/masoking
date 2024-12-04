@@ -59,7 +59,7 @@ MonoBehaviour:
     - timestamp: 1
       action: 8
       shotData:
-        speed: 18
+        speed: 36
         inaccuracy: 0
         scale: 2
         damage: 15
@@ -106,12 +106,12 @@ MonoBehaviour:
     - timestamp: 3
       action: 8
       shotData:
-        speed: 18
+        speed: 36
         inaccuracy: 0
         scale: 2
         damage: 15
         x: 2
-        y: 1
+        y: -3
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -159,7 +159,7 @@ MonoBehaviour:
     - timestamp: 0.5
       action: 8
       shotData:
-        speed: 18
+        speed: 36
         inaccuracy: 0
         scale: 2
         damage: 15
@@ -206,12 +206,12 @@ MonoBehaviour:
     - timestamp: 2.5
       action: 8
       shotData:
-        speed: 18
+        speed: 36
         inaccuracy: 0
         scale: 2
         damage: 15
         x: -2
-        y: 3
+        y: -1
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -255,8 +255,8 @@ MonoBehaviour:
     segment: {fileID: 11400000, guid: 8465919b0b706ed4cbfefd789177c0bc, type: 2}
   - timestamp: 8
     segment: {fileID: 11400000, guid: a01061ab245d6b24c883e7d840840375, type: 2}
-  - timestamp: 16
-    segment: {fileID: 11400000, guid: a01061ab245d6b24c883e7d840840375, type: 2}
+  - timestamp: 15.5
+    segment: {fileID: 11400000, guid: 26e0802d888c5a941a9045206928b0e1, type: 2}
   - timestamp: 29.5
     segment: {fileID: 11400000, guid: 3cae02e74867ce2429839994f01c7a43, type: 2}
   - timestamp: 42

@@ -52,6 +52,7 @@ namespace Jester
         private void LaunchNewWave()
         {
             ResetTime();
+            integratedEvents.Clear();
             waveEnded = false;
             waveEndTime = 5;
             currentWave = waves.waves[waveNumber];

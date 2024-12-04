@@ -116,7 +116,7 @@ namespace Jester
                     FireRow(data);
                     break;
                 case Actions.Snipe:
-                    Throw(data);
+                    StartCoroutine(FireSniper(data));
                     break;
                 case Actions.Throw:
                     Throw(data);
@@ -200,12 +200,13 @@ namespace Jester
                 x = Random.Range(-5.0f, 4.0f);
             }
             lineRenderer.enabled = true;
-            lineRenderer.SetPosition(1, player.transform.position);
+            lineRenderer.SetPosition(1, new Vector3(x,y));
 
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
             jesterFire.ShootBasicProjectile(data.speed, data);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
+            lineRenderer.enabled = false;
 
         }
         private void Throw(ShotDataObject data)
