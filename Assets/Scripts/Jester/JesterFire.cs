@@ -63,7 +63,7 @@ namespace Jester
             DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
             projectileScript.SetShotData(data);
             projectileScript.player = player;
-
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
             Destroy(shot, 10);
             return projectileScript;
         }
