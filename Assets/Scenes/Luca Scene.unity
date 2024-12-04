@@ -224,7 +224,7 @@ MonoBehaviour:
   jester: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
   waves: {fileID: 11400000, guid: d8ca7d8fd2a7f99468b929b0d13fe97a, type: 2}
   currentWave: {fileID: 11400000, guid: fc4d90f7b81343746b103db2f99bd458, type: 2}
-  debugForceWave: 1
+  debugForceWave: 4
   SetDebugTimestamp: 0
 --- !u!4 &323187401
 Transform:

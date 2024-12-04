@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using static Wave.WaveData;
 
 namespace Wave
 {
@@ -10,5 +11,6 @@ namespace Wave
         public float StartDelay;
         public bool SpawnBall;
         public WaveData.JesterData[] jesters;
+        public SegmentData[] segments;
     }
 }
