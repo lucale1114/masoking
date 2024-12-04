@@ -9,7 +9,6 @@ namespace Projectile
     {
         [SerializeField] private GameObject reticlePrefab;
         [SerializeField] private GameObject shadowPrefab;
-        [SerializeField] private float shadowMinimumScale = 0.5f;
         [SerializeField] private float colliderActivationPercentage = 0.9f;
         [SerializeField] protected float curveHeight = 5f;
 

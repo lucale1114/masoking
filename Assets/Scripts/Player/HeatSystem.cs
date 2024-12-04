@@ -14,6 +14,7 @@ namespace Player
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
         public event Action MaxHeat;
+        public event Action ComboEnded;
 
         [SerializeField] private float maximumHeat = 100;
         [SerializeField] private float startHeat = 50;
@@ -27,7 +28,7 @@ namespace Player
         private float _currentHeat;
 
         private float _timeSinceLastHit;
-        private float _comboMultiplier = 1f;
+        private float _comboMultiplier = 0f;
         private Movement _movement;
 
         private void Start()
@@ -41,7 +42,10 @@ namespace Player
 
         private void Update()
         {
-            _timeSinceLastHit += Time.deltaTime;
+            if (_comboMultiplier != 0)
+            {
+                _timeSinceLastHit += Time.deltaTime;
+            }
         }
         private IEnumerator MaxHeatReward()
         {
@@ -69,8 +73,7 @@ namespace Player
 
                 _timeSinceLastHit = 0;
             }
-
-            _currentHeat += amount * ((_comboMultiplier / 10) + 1);
+            _currentHeat += amount * ((_comboMultiplier - 1 / 10) + 1);
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
 
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
@@ -86,7 +89,6 @@ namespace Player
                 TakenDamage?.Invoke();
             }
 
-            ComboMultiplierChanged?.Invoke(_comboMultiplier);
             if (_currentHeat >= maximumHeat && CanMaxHeat)
             {
                 if (JesterFever)
@@ -104,6 +106,7 @@ namespace Player
                 MaxHeat?.Invoke();
                 StartCoroutine(MaxHeatReward());
             }
+            print(_comboMultiplier);
         }
 
         public float GetCombo()
@@ -128,14 +131,15 @@ namespace Player
 
         private IEnumerator ComboDecayRoutine()
         {
-            ComboMultiplierChanged?.Invoke(_comboMultiplier);
             while (true)
             {
                 yield return new WaitForSeconds(0.01f);
-                if (_timeSinceLastHit > comboTimeLimit)
+                if (_timeSinceLastHit > comboTimeLimit && _comboMultiplier != 0f)
                 {
-                    _comboMultiplier = 1f;
+                    _comboMultiplier = 0f;
                     ComboMultiplierChanged?.Invoke(_comboMultiplier);
+                    ComboEnded?.Invoke();
+                    _timeSinceLastHit = 0f;
                 }
             }
         }

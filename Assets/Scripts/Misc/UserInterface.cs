@@ -29,10 +29,12 @@ namespace Misc
         private Image _portrait;
         private TextMeshProUGUI _mashSpace;
         private bool isInMax;
+        private bool cancel;
 
         private void Awake()
         {
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
+            _comboCounter.enabled = false;
             _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _pauseMenu = GameObject.Find("PauseMenu");
@@ -101,19 +103,18 @@ namespace Misc
             };
             _heatSystem.ComboMultiplierChanged += comboMultiplier =>
             {
-                if (Mathf.Approximately(comboMultiplier, 1f))
+                cancel = true;
+                _comboCounter.color = new Color32(255, 255, 255, 255);
+                _comboCounter.enabled = true;
+                _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
+                if (comboMultiplier > 5)
                 {
-                    _comboCounter.enabled = false;
+                    StartCoroutine(StartingCombo());
                 }
-                else
-                {
-                    _comboCounter.enabled = true;
-                    _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
-                    if (comboMultiplier > 5)
-                    {
-                        StartCoroutine(StartingCombo());
-                    }
-                }
+            };
+            _heatSystem.ComboEnded += () =>
+            {
+                StartCoroutine(ComboFinish());
             };
             _heatSystem.MaxHeat += () =>
             {
@@ -140,6 +141,23 @@ namespace Misc
                 _portrait.transform.DOShakePosition(1, 5, 10, 90);
             }
         }
+        IEnumerator ComboFinish()
+        {
+            cancel = false;
+            for (int i = 0; i < 6; i++) {
+                yield return new WaitForSeconds(0.1f);
+                print("combo");
+                _comboCounter.color = new Color32(255, 255, 255, 50);
+                yield return new WaitForSeconds(0.1f);
+                _comboCounter.color = new Color32(255, 255, 255, 255);
+                if (cancel)
+                {
+                    yield return null;
+                }
+            }
+            print("Finish");
+            _comboCounter.enabled = false;
+        }
 
         IEnumerator StartingCombo()
         {
@@ -150,6 +168,7 @@ namespace Misc
                 {
                     yield return new WaitForSeconds(0.01f);
                 }
+                yield return new WaitForSeconds(0.5f);
                 if (!isInMax)
                 {
                     ChangeKingPortrait(0, false, false);

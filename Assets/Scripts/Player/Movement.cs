@@ -27,7 +27,6 @@ namespace Player
         public bool IsInDashState { get; private set; }
         private bool IsBouncing { get; set; }
         private bool _chargingDash;
-        private float _dashMultiplier = 1;
         private float _dashCoolDown = 0.5f;
         private SpriteRenderer _dashImageCharger;
         private SpriteRenderer _plrSprite;
