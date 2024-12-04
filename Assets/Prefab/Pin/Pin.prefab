@@ -102,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticlePrefab: {fileID: 5887521283410563986, guid: 647f6615a1f27f04d92bfedf88a2f8e5, type: 3}
   shadowPrefab: {fileID: 4541097288492365035, guid: 0786f50e4ec506249843b6861b229ec1, type: 3}
-  shadowMinimumScale: 0.5
   colliderActivationPercentage: 0.9
   curveHeight: 5
 --- !u!50 &2963602016623128581
@@ -146,8 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   SoundFX:
-  - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
-  - {fileID: 8300000, guid: 26229492279c01b48aaeb26d4c985df9, type: 3}
+  - {fileID: 8300000, guid: 2ac6bfae71c4a704f8eea9f92ad1ef5e, type: 3}
+  - {fileID: 8300000, guid: 69327f783fbe1fe45b66e0a08404e30f, type: 3}
+  - {fileID: 8300000, guid: f561fd1ab22c8b643bc0fb3739fd1267, type: 3}
   noStabbing: 0
 --- !u!70 &5860243259572653286
 CapsuleCollider2D:
