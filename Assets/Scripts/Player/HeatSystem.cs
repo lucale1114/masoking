@@ -14,7 +14,7 @@ namespace Player
         public event Action TakenDamage;
         public event Action<float> ComboMultiplierChanged;
         public event Action MaxHeat;
-        public event Action ComboEnded;
+        public event Action<float> ComboEnded;
 
         [SerializeField] private float maximumHeat = 100;
         [SerializeField] private float startHeat = 50;
@@ -63,17 +63,19 @@ namespace Player
             {
                 return;
             }
+            float combo = 1;
             if (amount > 0)
             {
                 if (_timeSinceLastHit <= comboTimeLimit)
                 {
                     _comboMultiplier += comboMultiplierIncrease;
                     ComboMultiplierChanged?.Invoke(_comboMultiplier);
+                    combo = ((_comboMultiplier - 1 / 10) + 1);
                 }
 
                 _timeSinceLastHit = 0;
             }
-            _currentHeat += amount * ((_comboMultiplier - 1 / 10) + 1);
+            _currentHeat += amount * combo;
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
 
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
@@ -106,7 +108,6 @@ namespace Player
                 MaxHeat?.Invoke();
                 StartCoroutine(MaxHeatReward());
             }
-            print(_comboMultiplier);
         }
 
         public float GetCombo()
@@ -136,9 +137,9 @@ namespace Player
                 yield return new WaitForSeconds(0.01f);
                 if (_timeSinceLastHit > comboTimeLimit && _comboMultiplier != 0f)
                 {
+                    ComboMultiplierChanged?.Invoke(0f);
+                    ComboEnded?.Invoke(_comboMultiplier);
                     _comboMultiplier = 0f;
-                    ComboMultiplierChanged?.Invoke(_comboMultiplier);
-                    ComboEnded?.Invoke();
                     _timeSinceLastHit = 0f;
                 }
             }
