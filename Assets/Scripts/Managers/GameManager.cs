@@ -27,7 +27,6 @@ namespace Managers
 
         public static void LoadLevel(int buildIndex)
         {
-            WaveData.ResetTime();
             SceneManager.LoadScene(buildIndex);
         }
 

@@ -5,12 +5,6 @@ namespace Wave
 {
     public class WaveData : MonoBehaviour
     {
-        public static float Timestamp;
-        public static bool Paused;
-        public static bool PausedByWave;
-        public static Sides LastUsed;
-        public static bool JesterFever;
-
         public enum Actions
         {
             FireAimed,
@@ -133,28 +127,6 @@ namespace Wave
 
             [Tooltip("Number of bounces on walls")]
             public int numberOfBounces;
-        }
-
-        void Start()
-        {
-            InvokeRepeating("IncrementTime", 0, 0.1f);
-        }
-
-        void IncrementTime()
-        {
-            if (Paused || PausedByWave)
-            {
-                return;
-            }
-
-            Timestamp += 0.1f;
-            Timestamp = Mathf.Round(Timestamp * 10.0f) * 0.1f;
-        }
-
-        public static void ResetTime()
-        {
-            JesterFever = false;
-            Timestamp = 0;
         }
     }
 }

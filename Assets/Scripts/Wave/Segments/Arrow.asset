@@ -403,13 +403,13 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 2
-      action: 7
+      action: 8
       shotData:
-        speed: 30
+        speed: 40
         inaccuracy: 0
         scale: 3
         damage: 25
-        x: 4
+        x: 5
         y: -2
         randomX: 0
         randomY: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 4
+        fireBetween: 5.3
         radius: 0
         spin: 0
         straight: 0

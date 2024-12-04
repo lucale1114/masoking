@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using Wave;
+using Wave.Handler;
 using static Wave.WaveData;
 
 namespace Player
@@ -86,13 +88,13 @@ namespace Player
                 return;
             }
 
-            if (!Mathf.Approximately(currentTimestamp, Timestamp))
+            if (!Mathf.Approximately(currentTimestamp, WaveHandler.Timestamp))
             {
                 if (!IsCurrentlyDashing)
                 {
                     _dashCoolDown = Mathf.Min(_dashCoolDown + 0.1f, 1);
                 }
-                currentTimestamp = Timestamp;
+                currentTimestamp = WaveHandler.Timestamp;
             }
 
             if (!IsCurrentlyDashing)
@@ -110,7 +112,7 @@ namespace Player
             }
         }
 
-        
+
 
         void FixedUpdate()
         {
@@ -137,7 +139,7 @@ namespace Player
             else if (moveInput.x * currentVelocity.x < 0)
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
-              
+
             }
             else
             {
@@ -171,7 +173,7 @@ namespace Player
             IsCurrentlyDashing = true;
             IsInDashState = true;
             rb.velocity = Vector2.zero;
-            playerAnimator.PlayDash(currentVelocity);
+            playerAnimator.PlayWindup(currentVelocity);
             rb.velocity = currentVelocity * 0.25f;
             power = 0;
             StartCoroutine(FlashRecharge());
