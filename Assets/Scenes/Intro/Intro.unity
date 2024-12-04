@@ -287,7 +287,7 @@ PrefabInstance:
     - target: {fileID: 315118431773786427, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: boom
       value: 
-      objectReference: {fileID: 8300000, guid: 695a154f10cc59a4db63e865e889a14e, type: 3}
+      objectReference: {fileID: 8300000, guid: b35df6cece9ebfa4792f3c466ce38795, type: 3}
     - target: {fileID: 315118431773786427, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: intro
       value: 

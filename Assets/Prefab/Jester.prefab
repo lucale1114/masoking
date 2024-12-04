@@ -102,6 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
   throwAndRollProjectilePrefab: {fileID: 6117042597192732843, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}
+  frow:
+  - {fileID: 8300000, guid: fc30a6c61a96c054caea54ba443028a2, type: 3}
+  - {fileID: 8300000, guid: 04e1fed6714b92d4cb7df13914474958, type: 3}
+  - {fileID: 8300000, guid: 344b7b16ea0e1c1469b38b3a67af4b7b, type: 3}
   projectile: {fileID: 7494303468764717806, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
 --- !u!114 &-2474323719550544348
 MonoBehaviour:
@@ -122,7 +126,7 @@ MonoBehaviour:
     shotData:
       speed: 0
       inaccuracy: 0
-      size: 1
+      scale: 1
       damage: 5
       x: 0
       y: 0
@@ -151,7 +155,7 @@ MonoBehaviour:
     shotData:
       speed: 8
       inaccuracy: 0
-      size: 1
+      scale: 1
       damage: 5
       x: 0
       y: 0
@@ -180,7 +184,7 @@ MonoBehaviour:
     shotData:
       speed: 15
       inaccuracy: 0
-      size: 1
+      scale: 1
       damage: 5
       x: 0
       y: 0
@@ -207,7 +211,7 @@ MonoBehaviour:
   shotDataObject:
     speed: 0
     inaccuracy: 0
-    size: 1
+    scale: 1
     damage: 5
     x: 0
     y: 0
