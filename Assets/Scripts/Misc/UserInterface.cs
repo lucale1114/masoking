@@ -239,8 +239,25 @@ namespace Misc
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
                     _soundMenu.SetActive(false);
+                    PauseAllSources();
                 }
             }
         }
+
+        void PauseAllSources()
+        {
+            AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource a in allAudioSources)
+            {
+                if (a.isActiveAndEnabled == true)
+                {
+                    if (a.isPlaying) a.Pause();
+                    else a.UnPause();
+                }
+            }
+
+        }
+
+
     }
 }
