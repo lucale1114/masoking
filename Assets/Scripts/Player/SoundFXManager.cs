@@ -10,7 +10,7 @@ namespace Player
         [SerializeField] AudioSource walkFX;
 
         [SerializeField] private AudioClip walkClip; // Assign a walking sound clip in the inspector
-        [SerializeField] private AudioClip roll; // Assign a walking sound clip in the inspector
+        [SerializeField] private AudioClip roll; // Assign a rolling sound clip in the inspector
 
 
         private bool isWalking = false;
