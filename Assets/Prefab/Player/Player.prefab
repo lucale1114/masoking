@@ -531,6 +531,7 @@ MonoBehaviour:
   bounceCooldown: 0.15
   bounceAbsorption: 0.3
   maxNumberOfWallBounces: 2
+  walk: {fileID: 8300000, guid: 1848a6daf8f0a5e42afc0127378dbfe2, type: 3}
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ namespace Projectile
     public class Collision : MonoBehaviour
     {
         [SerializeField] private GameObject hitVfx;
-        [SerializeField] private AudioClip[] Slashes;
+        [SerializeField] private AudioClip[] SoundFX;
 
 
         private IProjectile _projectile;
@@ -31,7 +31,7 @@ namespace Projectile
                         collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                         Instantiate(hitVfx, closestPoint, Quaternion.identity);
                         //SoundManager.PlayHit(closestPoint);
-                        SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
+                        SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, transform, 1f);
                         SoundFXManager.Instance.PitchChange();
                         Destroy(gameObject);
                         return;
