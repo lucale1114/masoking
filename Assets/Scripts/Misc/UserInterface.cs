@@ -13,15 +13,16 @@ namespace Misc
 {
     public class UserInterface : MonoBehaviour
     {
-        [SerializeField]
-        private Sprite[] kingPortraits;
-
+        [SerializeField] private Sprite[] kingPortraits;
+        [SerializeField] private Sprite[] comboTexts;
+        [SerializeField] private int[] comboArray;
         private TextMeshProUGUI _comboCounter;
 
         private GameObject _pauseMenu;
         private GameObject _lostMenu;
         private GameObject _wonMenu;
         private GameObject _soundMenu;
+        private Image _comboResultText;
         private JesterSpawner _jesterSpawner;
 
         private Image _heatBar;
@@ -35,6 +36,7 @@ namespace Misc
         {
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _comboCounter.enabled = false;
+            _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
             _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _pauseMenu = GameObject.Find("PauseMenu");
@@ -104,6 +106,10 @@ namespace Misc
             _heatSystem.ComboMultiplierChanged += comboMultiplier =>
             {
                 cancel = true;
+                if (comboMultiplier == 0)
+                {
+                    return;
+                }
                 _comboCounter.color = new Color32(255, 255, 255, 255);
                 _comboCounter.enabled = true;
                 _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
@@ -112,9 +118,9 @@ namespace Misc
                     StartCoroutine(StartingCombo());
                 }
             };
-            _heatSystem.ComboEnded += () =>
+            _heatSystem.ComboEnded += comboMultiplier =>
             {
-                StartCoroutine(ComboFinish());
+                StartCoroutine(ComboFinish(comboMultiplier));
             };
             _heatSystem.MaxHeat += () =>
             {
@@ -141,24 +147,45 @@ namespace Misc
                 _portrait.transform.DOShakePosition(1, 5, 10, 90);
             }
         }
-        IEnumerator ComboFinish()
+        IEnumerator ComboFinish(float combo)
         {
             cancel = false;
+            HandleAnimations(combo);
             for (int i = 0; i < 6; i++) {
                 yield return new WaitForSeconds(0.1f);
-                print("combo");
                 _comboCounter.color = new Color32(255, 255, 255, 50);
                 yield return new WaitForSeconds(0.1f);
                 _comboCounter.color = new Color32(255, 255, 255, 255);
                 if (cancel)
                 {
-                    yield return null;
+                    yield break;
                 }
             }
-            print("Finish");
             _comboCounter.enabled = false;
         }
-
+        private void HandleAnimations(float combo)
+        {
+            print(combo);
+            print(comboArray[0]);
+            if (combo < comboArray[0])
+            {
+                return;
+            }
+            for (int i = 0; i < comboArray.Length; i++)
+            {
+                if (combo >= comboArray[i])
+                {
+                    _comboResultText.sprite = comboTexts[i];
+                    print(i);    
+                } 
+                else
+                {
+                    break;
+                }
+            }
+            _comboResultText.GetComponent<Animator>().Play("ComboTextAnimation");
+        }
+        
         IEnumerator StartingCombo()
         {
             if (!isInMax)
