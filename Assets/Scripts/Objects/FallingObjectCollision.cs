@@ -159,7 +159,7 @@ namespace Objects
                     lineRenderer.enabled = false;
                     triggerCollider.enabled = true;
                     isFalling = false;
-                    SoundFXManager.Instance.PlaySoundFX(smash, transform, 1f);
+                    SoundFXManager.Instance.PlaySoundFX(smash, transform, 2f);
                     yield return new WaitForSeconds(0.1f);
 
                     hasFallen = true;
