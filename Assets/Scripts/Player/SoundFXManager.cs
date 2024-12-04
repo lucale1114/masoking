@@ -7,6 +7,12 @@ namespace Player
         public static SoundFXManager Instance;
 
         [SerializeField] AudioSource soundFXObject;
+        [SerializeField] AudioSource walkFX;
+
+        [SerializeField] private AudioClip walkClip; // Assign a walking sound clip in the inspector
+
+        private bool isWalking = false;
+
 
         public void Awake()
         {
@@ -20,6 +26,9 @@ namespace Player
             {
                 soundFXObject = GetComponent<AudioSource>();
             }
+
+
+
         }
 
         void Update()
@@ -57,6 +66,28 @@ namespace Player
 
             soundFXObject.PlayOneShot(audioClip[rand], volume);
 
+        }
+
+
+        public void StartWalking()
+        {
+            if (!isWalking && walkFX != null && walkClip != null)
+            {
+                isWalking = true;
+                walkFX.clip = walkClip;
+                walkFX.loop = true; // Optional: Set to `true` for continuous playback
+                walkFX.Play();
+            }
+        }
+
+        public void StopWalking()
+        {
+            if (isWalking && walkFX.isPlaying)
+            {
+                walkFX.Stop();
+            }
+            isWalking = false;
+            walkFX.loop = false;
         }
 
         public void PitchChange()

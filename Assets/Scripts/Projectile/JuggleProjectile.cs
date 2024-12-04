@@ -31,7 +31,7 @@ namespace Projectile
 
         private float throwAirTime = 3f;
         public AnimationCurve animationCurve;
-        public AudioClip[] Slashes;
+        public AudioClip[] audioClip;
         void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -99,7 +99,7 @@ namespace Projectile
                 collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                 //Instantiate(hitVfx, closestPoint, Quaternion.identity);
                 //SoundManager.PlayHit(closestPoint);
-                SoundFXManager.Instance.PlayRandomSoundFX(Slashes, transform, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFX(audioClip, transform, 1f);
                 CurrentTime = 0;
                 StartPosition = transform.position;
                 Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));
