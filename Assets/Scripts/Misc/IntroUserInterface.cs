@@ -26,7 +26,6 @@ namespace Misc
         private bool hasMoved;
         private bool hasDashed;
         public Movement movement;
-        public Projectile.Collision projectileCollision;
 
         public bool HaveDash => hasDashed;
 
@@ -41,11 +40,13 @@ namespace Misc
             _pauseMenu.transform.Find("Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
             _pauseMenu.SetActive(false);
             _soundMenu.SetActive(false);
+            moveTextMesh.enabled = true;
             DashTextMesh.enabled = false;
             dashwallTextMesh.enabled = false;
             EnemyTextMesh.enabled = false;
             hasMoved = false;
             hasDashed = false;
+
 
 
         }
@@ -76,7 +77,7 @@ namespace Misc
         }
 
 
-        private void Update()
+        public void Update()
         {
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -84,6 +85,7 @@ namespace Misc
                 Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                 _pauseMenu.SetActive(!_pauseMenu.activeSelf);
                 _soundMenu.SetActive(false);
+                PauseAllSources();
             }
             
 
@@ -100,16 +102,37 @@ namespace Misc
                 StartCoroutine(SwitchTextDashWithDelay());
             }
 
+            if (Player.Collision.BeenHit == true && hasDashed != false)
+            {
+                StartCoroutine(SwitchTextEnemyWithDelay());
+            }
+
         
 
         }
+
+        void PauseAllSources()
+        {
+            AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource a in allAudioSources)
+            {
+                if (a.isActiveAndEnabled == true)
+                {
+                    if (a.isPlaying) a.Pause();
+                    else a.UnPause();
+                }
+            }
+
+        }
+
+
 
         private IEnumerator SwitchTextDashWithDelay()
         {
             hasDashed = true;
             yield return new WaitForSeconds(5f); // Wait for seconds
             DashTextMesh.enabled = false; // Show DashTextMesh
-            dashwallTextMesh.enabled = true; // Show dashwallTextMesh
+            EnemyTextMesh.enabled = true; // Show dashwallTextMesh
 
         }
 
@@ -126,10 +149,10 @@ namespace Misc
         private IEnumerator SwitchTextEnemyWithDelay()
         {
 
-
             yield return new WaitForSeconds(2f);
-            EnemyTextMesh.enabled = true;
-            DashTextMesh.enabled = false;
+            EnemyTextMesh.enabled = false;
+            dashwallTextMesh.enabled = true;
+           
 
         }
    
