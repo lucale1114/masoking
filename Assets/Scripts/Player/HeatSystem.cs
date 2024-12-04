@@ -68,7 +68,7 @@ namespace Player
             {
                 if (_timeSinceLastHit <= comboTimeLimit)
                 {
-                    _comboMultiplier += comboMultiplierIncrease + 2;
+                    _comboMultiplier += comboMultiplierIncrease;
                     ComboMultiplierChanged?.Invoke(_comboMultiplier);
                     combo = ((_comboMultiplier - 1 / 10) + 1);
                 }
