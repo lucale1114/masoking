@@ -333,7 +333,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   lineRenderer: {fileID: 8567057565367364087}
   fall: {fileID: 8300000, guid: 26229492279c01b48aaeb26d4c985df9, type: 3}
-  smash: {fileID: 8300000, guid: b35df6cece9ebfa4792f3c466ce38795, type: 3}
+  smash: {fileID: 8300000, guid: 7c3f465c7ffb570478d27bf106170ad8, type: 3}
 --- !u!114 &1762043508187067249
 MonoBehaviour:
   m_ObjectHideFlags: 0

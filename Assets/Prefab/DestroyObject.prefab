@@ -145,4 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   intro: {fileID: 3469088397015652879, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
-  boom: {fileID: 0}
+  boom: {fileID: 8300000, guid: b35df6cece9ebfa4792f3c466ce38795, type: 3}
