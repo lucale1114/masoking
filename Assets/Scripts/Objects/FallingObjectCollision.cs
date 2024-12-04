@@ -105,7 +105,7 @@ namespace Objects
 
                     lineRenderer.SetPosition(0,
                         transform.position +
-                        Vector3.right * (impactDirection.x > 0 ? 3f : -3f)); // Adjust for dash side
+                        Vector3.right * (impactDirection.x > 0 ? 2.4f : -2.4f)); // Adjust for dash side
                     lineRenderer.SetPosition(1, transform.position);
 
 
