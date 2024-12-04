@@ -11,10 +11,6 @@ namespace Player
         [SerializeField] private IntroUserInterface intro;
         [SerializeField] private AudioClip boom;
 
-        
-        bool hasDashed = false;
-        bool beenHit = false;
-
         public static bool BeenHit { get; set; } = false;
         private void OnCollisionEnter2D(Collision2D other)
         {

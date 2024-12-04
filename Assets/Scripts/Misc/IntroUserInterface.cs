@@ -25,7 +25,6 @@ namespace Misc
         private GameObject _soundMenu;
         private bool hasMoved;
         private bool hasDashed;
-        private bool beenHit;
         public Movement movement;
 
         public bool HaveDash => hasDashed;
@@ -47,7 +46,7 @@ namespace Misc
             EnemyTextMesh.enabled = false;
             hasMoved = false;
             hasDashed = false;
-            beenHit = false;
+
 
 
         }
