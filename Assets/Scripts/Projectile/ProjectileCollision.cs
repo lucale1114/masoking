@@ -29,8 +29,7 @@ namespace Projectile
                         var damage = _projectile.GetShotData().damage * _projectile.GetDamageMod();
                         var closestPoint = collision.ClosestPoint(transform.position);
                         collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-                        Instantiate(hitVfx, closestPoint, Quaternion.identity);
-                        //SoundManager.PlayHit(closestPoint);
+                        Instantiate(hitVfx, closestPoint, Quaternion.identity); 
                         SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, transform, 1f);
                         SoundFXManager.Instance.PitchChange();
                         Destroy(gameObject);
