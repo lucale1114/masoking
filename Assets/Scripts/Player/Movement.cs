@@ -171,7 +171,7 @@ namespace Player
             IsCurrentlyDashing = true;
             IsInDashState = true;
             rb.velocity = Vector2.zero;
-            playerAnimator.PlayDash(currentVelocity);
+            playerAnimator.PlayWindup(currentVelocity);
             rb.velocity = currentVelocity * 0.25f;
             power = 0;
             StartCoroutine(FlashRecharge());
