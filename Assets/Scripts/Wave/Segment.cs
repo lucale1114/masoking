@@ -8,5 +8,7 @@ using Wave;
 [CreateAssetMenu(fileName = "Segment", menuName = "Segment")]
 public class Segment : ScriptableObject
 {
+    [TextArea]
+    public string description;
     public WaveData.JesterData[] events;
 }
