@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad66ab399a05b44fad08b390b6dd555, type: 3}
   m_Name: Smile
   m_EditorClassIdentifier: 
+  description: This pattern which forms a smile spawns 2 jesters from the side. One
+    spawns for the right eye, and the left fills out the whole patterns.
   events:
   - timestamp: 1
     color: 0

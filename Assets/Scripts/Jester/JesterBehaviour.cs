@@ -19,11 +19,12 @@ namespace Jester
         public JesterCommand[] jesterCommands;
         private JesterAnimator jesterAnimator;
         public ShotDataObject shotDataObject;
-
+        private LineRenderer lineRenderer;
 
         void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player");
+            lineRenderer = GetComponent<LineRenderer>();
             jesterAnimator = GetComponent<JesterAnimator>();
             jesterFire = GetComponent<JesterFire>();
             if (transform.position.x < 0)
@@ -76,6 +77,10 @@ namespace Jester
                 jesterAnimator.SetMoving();
                 LeavePlayfield();
             }
+            if (lineRenderer.enabled)
+            {
+                lineRenderer.SetPosition(0, transform.position);
+            }
         }
 
         void Update()
@@ -109,6 +114,9 @@ namespace Jester
                     break;
                 case Actions.FireRow:
                     FireRow(data);
+                    break;
+                case Actions.Snipe:
+                    Throw(data);
                     break;
                 case Actions.Throw:
                     Throw(data);
@@ -174,6 +182,32 @@ namespace Jester
             yield return new WaitForSeconds(3);
         }
 
+        IEnumerator FireSniper(ShotDataObject data)
+        {
+            float x = data.x;
+            float y = data.y;
+            if (x == 0 && y == 0)
+            {
+                x = player.transform.position.x;
+                y = player.transform.position.y;
+            }
+            if (data.randomY)
+            {
+                y = Random.Range(-4.0f, 4.0f);
+            }
+            if (data.randomX)
+            {
+                x = Random.Range(-5.0f, 4.0f);
+            }
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(1, player.transform.position);
+
+            yield return new WaitForSeconds(data.fireBetween);
+            jesterAnimator.TriggerFire();
+            jesterFire.ShootBasicProjectile(data.speed, data);
+            yield return new WaitForSeconds(0.5f);
+
+        }
         private void Throw(ShotDataObject data)
         {
             jesterAnimator.TriggerFire();

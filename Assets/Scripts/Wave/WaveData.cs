@@ -20,7 +20,8 @@ namespace Wave
             FireWavy,
             FireRow,
             Throw,
-            ThrowAndRoll
+            ThrowAndRoll,
+            Snipe,
         }
 
         public enum Sides

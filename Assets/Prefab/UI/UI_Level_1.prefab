@@ -190,6 +190,78 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[1]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[3]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[4]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[5]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[6]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.data[7]
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e33252c717e873444817efa0f4663fc1, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 53918b35f44ba754c9aff36b415fe257, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 82f341b6d64b10f41a6c8769c3946d3b, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: ddf9485153257ac4f8f239351ec78d42, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: b84cb2320716b8f4aa0d9b8ae0d9a1be, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cfb44e09fc45c04d886146cbfe47b73, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: b9e5895911bd590469b7f2a9c035ec29, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 78fc0ceef7283af4c823acfcdf4d18a5, type: 3}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: kingPortraits.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -275,7 +347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5076230649490950755, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5515295114005465830, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_AnchorMax.x
