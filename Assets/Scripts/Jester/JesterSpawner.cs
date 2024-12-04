@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Wave;
 using static Wave.WaveData;
@@ -25,6 +26,8 @@ namespace Jester
         public WaveList waves;
         public Wave.Wave currentWave;
         public int debugForceWave;
+
+        private List<JesterData> integratedEvents = new List<JesterData>();
 
         public event Action FinishedLevel;
 
@@ -96,6 +99,20 @@ namespace Jester
                     SpawnJester(wave);
                 }
             }
+            foreach (JesterData data in integratedEvents)
+            {
+                if (Mathf.Approximately(data.timestamp, Timestamp))
+                {
+                    SpawnJester(data);
+                }
+            }
+            foreach (SegmentData segment in currentWave.segments)
+            {
+                if (Mathf.Approximately(segment.timestamp, Timestamp))
+                {
+                    IntegrateSegment(segment);
+                }
+            }
             if (Timestamp == waveEndTime)
             {
                 waveEnded = true;
@@ -153,7 +170,16 @@ namespace Jester
             }
         }
 
-        // Temporarily just spawns them in waves now.
+        void IntegrateSegment(SegmentData segment)
+        {
+            foreach (JesterData data in segment.segment.events)
+            {
+                JesterData separated = JsonUtility.FromJson<JesterData>(JsonUtility.ToJson(data));
+                separated.timestamp = segment.timestamp + separated.timestamp;
+                print(separated.timestamp);
+                integratedEvents.Add(separated);
+            }
+        }
 
         void SpawnJester(JesterData waveObject)
         {

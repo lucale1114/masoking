@@ -59,6 +59,13 @@ namespace Wave
         }
 
         [Serializable]
+        public class SegmentData
+        {
+            public float timestamp;
+            public Segment segment;
+        }
+
+        [Serializable]
         public class ShotDataObject
         {
             [Tooltip("Speed of the projectile. Everything uses it in floats.")]
