@@ -199,7 +199,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.76, y: 1.07, z: 0}
-  m_LocalScale: {x: 0.33141908, y: 0.35878122, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7209818476780032577}
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   lineRenderer: {fileID: 8567057565367364087}
-  fall: {fileID: 8300000, guid: 26229492279c01b48aaeb26d4c985df9, type: 3}
-  smash: {fileID: 8300000, guid: 7c3f465c7ffb570478d27bf106170ad8, type: 3}
+  fall: {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  smash: {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
 --- !u!114 &1762043508187067249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userDirection: {x: -1, y: 0, z: 0}
   FallingObjectCollision: {fileID: 8279218141390260246}
+  animator: {fileID: 3450529342513409181}
 --- !u!95 &3450529342513409181
 Animator:
   serializedVersion: 5

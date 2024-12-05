@@ -399,7 +399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &917402970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1535109004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1146,22 +1146,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1762043508187067249, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1256056521718688893}
-    - target: {fileID: 1762043508187067249, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: userDirection.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2421025850659811155, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2421025850659811155, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 2421025850659811155, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.29
@@ -1215,11 +1199,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
---- !u!95 &1256056521718688893 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3450529342513409181, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
-  m_PrefabInstance: {fileID: 1256056521718688891}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2529520490319861959
 PrefabInstance:
   m_ObjectHideFlags: 0
