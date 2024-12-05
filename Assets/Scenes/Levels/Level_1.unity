@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 5301259937414531792}
   - component: {fileID: 5551177897304979932}
   - component: {fileID: 5551177897304979933}
+  - component: {fileID: 5551177897304979934}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -862,6 +863,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fda4cdf69644309d23a403c27e4265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5551177897304979934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574798401170592269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f113aaf1b7ab545a5f46fe81cc1b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5808985195044538592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1064,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: maximumHeat
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1156,10 +1173,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 945161403726230942, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2034166153147799415, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1203,10 +1216,6 @@ PrefabInstance:
     - target: {fileID: 2645283067130391837, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2817032508902614805, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_Name
-      value: PauseBtn
       objectReference: {fileID: 0}
     - target: {fileID: 3046197834756346449, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1244,10 +1253,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 4230355567272475688}
-    - target: {fileID: 4604579735536977695, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5126002480455879546, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1288,10 +1293,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5698344846929937704, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_Name
-      value: InvincibilityBtn
-      objectReference: {fileID: 0}
     - target: {fileID: 6310872749622575611, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1303,10 +1304,6 @@ PrefabInstance:
     - target: {fileID: 6409753414200130031, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_Name
       value: UI_Level_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6626218121370121556, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6836054416500999877, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1352,10 +1349,6 @@ PrefabInstance:
       propertyPath: heatSystem
       value: 
       objectReference: {fileID: 1286514323}
-    - target: {fileID: 7811037917076781800, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7955593798877639210, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1485,9 +1478,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4911391493527995459, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-    - {fileID: 7551504185565485596, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}

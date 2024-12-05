@@ -17,8 +17,8 @@ namespace Player
         [SerializeField] private float deceleration = 25f;
         [SerializeField] private float turnDeceleration = 75f;
         [SerializeField] private float dashSpeed = 5f;
-        [SerializeField] private float dashMinTime = 0.2f;
-        [SerializeField] private float dashMaxTime = 1f;
+        [SerializeField] private float dashMinTime = 0.1f;
+        [SerializeField] private float dashMaxTime = 0.5f;
         [SerializeField] private float dashIncrease = 0.025f;
         [SerializeField] private float bounceCooldown;
         [SerializeField] private float bounceAbsorption;
@@ -64,7 +64,7 @@ namespace Player
             moveInput = new Vector2(axisX, axisY).normalized;
             if (!IsCurrentlyDashing)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && _dashCoolDown >= 0.5f)
+                if (Input.GetAxis("Jump") == 1 && _dashCoolDown >= 0.5f)
                 {
                     if (!IsCurrentlyDashing)
                     {
@@ -77,7 +77,7 @@ namespace Player
                 }
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetAxis("Jump") == 0)
             {
                 _chargingDash = false;
             }
@@ -191,10 +191,10 @@ namespace Player
             _dashImageCharger.enabled = true;
             while (_chargingDash)
             {
-                _dashImageCharger.DOColor(new Color32(255, 255, 255, 90), 0.05f);
-                yield return new WaitForSeconds(((dashMaxTime + 0.2f) - power) / 5);
+                _dashImageCharger.DOColor(new Color32(255, 255, 255, 80), 0.05f);
+                yield return new WaitForSeconds(((dashMaxTime + 0.1f) - power) / 6);
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 0), 0.05f);
-                yield return new WaitForSeconds(((dashMaxTime + 0.2f) - power) / 5);
+                yield return new WaitForSeconds(((dashMaxTime + 0.1f) - power) / 6);
             }
             _dashImageCharger.enabled = false;
         }

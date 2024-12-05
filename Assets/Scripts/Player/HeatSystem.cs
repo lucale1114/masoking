@@ -30,11 +30,13 @@ namespace Player
         private float _timeSinceLastHit;
         private float _comboMultiplier = 0f;
         private Movement _movement;
+        private Score _score;
 
         private void Start()
         {
             _currentHeat = startHeat;
             _movement = GetComponent<Movement>();
+            _score = GameObject.Find("Game").GetComponent<Score>();
 
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
@@ -71,6 +73,7 @@ namespace Player
                     _comboMultiplier += comboMultiplierIncrease;
                     ComboMultiplierChanged?.Invoke(_comboMultiplier);
                     combo = ((_comboMultiplier - 1 / 10) + 1);
+                    _score.AddScore(amount * 5 * (combo * 10));
                 }
 
                 _timeSinceLastHit = 0;
