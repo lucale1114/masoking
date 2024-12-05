@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Wave;
 using static Wave.WaveData;
 
 namespace Projectile
@@ -33,6 +34,11 @@ namespace Projectile
         {
             transform.localScale *= _data.scale;
             rb = GetComponent<Rigidbody2D>();
+            if (spin || _data.spin)
+            {
+                spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
+                InvokeRepeating("Spin", 0, 0.005f);
+            }
             if (burstTimer > 0)
             {
                 StartCoroutine(Burst());
@@ -49,11 +55,15 @@ namespace Projectile
                 StartCoroutine(WavyShot());
             }
 
-            if (spin || _data.spin)
+            if (_data.breakable)
             {
-                spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
-                InvokeRepeating("Spin", 0, 0.005f);
+                GetComponent<SpriteRenderer>().sprite = GameObject.Find("Game").GetComponent<SpriteStorage>().knifeSprites[0];
+                spinSpeed *= 0.5f;
+                transform.localScale *= 3; 
+                GetComponent<Collision>().noStabbing = true;
             }
+
+
         }
 
         IEnumerator WavyShot()

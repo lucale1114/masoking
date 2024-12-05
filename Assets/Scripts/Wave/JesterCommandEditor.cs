@@ -40,17 +40,18 @@ namespace Wave
                 visualElement.RemoveAt(2);
             }
 
+            AddProperty(property, visualElement, "shotData.speed", "Speed");
+            AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
+            AddProperty(property, visualElement, "shotData.size", "Size");
+            AddProperty(property, visualElement, "shotData.damage", "Damage");
+            AddProperty(property, visualElement, "shotData.x", "X");
+            AddProperty(property, visualElement, "shotData.y", "Y");
+            AddProperty(property, visualElement, "shotData.randomX", "RandomX");
+            AddProperty(property, visualElement, "shotData.randomY", "RandomY");
+
             switch (jesterCommand!.action)
             {
                 case WaveData.Actions.FireAimed:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
@@ -58,14 +59,6 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireStorm:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
@@ -73,14 +66,6 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireBurst:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.timer", "Timer");
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.speed2", "Burst projectile speed");
@@ -89,14 +74,6 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireCurved:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.timer", "Timer");
                     AddProperty(property, visualElement, "shotData.gravityDir", "Gravity Direction");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
@@ -104,14 +81,6 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireWavy:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.frequency", "Frequency");
                     AddProperty(property, visualElement, "shotData.amp", "Amplitude");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
@@ -119,14 +88,6 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.FireRow:
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.radius", "Radius");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
@@ -134,35 +95,23 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
                 case WaveData.Actions.Throw:
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.size", "Size");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
-                    AddProperty(property, visualElement, "shotData.randomX", "RandomX");
-                    AddProperty(property, visualElement, "shotData.randomY", "RandomY");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
                 case WaveData.Actions.ThrowAndRoll:
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
                 case WaveData.Actions.Snipe:
-                    AddProperty(property, visualElement, "shotData.damage", "Damage");
-                    AddProperty(property, visualElement, "shotData.speed", "Speed");
-                    AddProperty(property, visualElement, "shotData.x", "X");
-                    AddProperty(property, visualElement, "shotData.y", "Y");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
             }
+
+            AddProperty(property, visualElement, "shotData.breakable", "Breakable");
         }
 
         private static void AddProperty(SerializedProperty property, VisualElement visualElement,

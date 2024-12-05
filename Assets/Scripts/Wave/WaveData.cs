@@ -127,6 +127,9 @@ namespace Wave
 
             [Tooltip("Number of bounces on walls")]
             public int numberOfBounces;
+
+            [Tooltip("Breaks on dash, otherwise bounces of the player.")]
+            public bool breakable;
         }
     }
 }
