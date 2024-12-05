@@ -105,7 +105,7 @@ namespace Objects
 
                     lineRenderer.SetPosition(0,
                         transform.position +
-                        Vector3.right * (impactDirection.x > 0 ? 3f : -3f)); // Adjust for dash side
+                        Vector3.right * (impactDirection.x > 0 ? 2.4f : -2.4f)); // Adjust for dash side
                     lineRenderer.SetPosition(1, transform.position);
 
 
@@ -159,7 +159,7 @@ namespace Objects
                     lineRenderer.enabled = false;
                     triggerCollider.enabled = true;
                     isFalling = false;
-                    SoundFXManager.Instance.PlaySoundFX(smash, transform, 1f);
+                    SoundFXManager.Instance.PlaySoundFX(smash, transform, 2f);
                     yield return new WaitForSeconds(0.1f);
 
                     hasFallen = true;

@@ -1,13 +1,11 @@
 using System.Collections;
 using DG.Tweening;
-using Jester;
 using Managers;
 using Player;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static Wave.WaveData;
+using Wave.Handler;
 
 namespace Misc
 {
@@ -23,7 +21,7 @@ namespace Misc
         private GameObject _wonMenu;
         private GameObject _soundMenu;
         private Image _comboResultText;
-        private JesterSpawner _jesterSpawner;
+        private WaveHandler _waveHandler;
 
         private Image _heatBar;
         private HeatSystem _heatSystem;
@@ -37,7 +35,7 @@ namespace Misc
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _comboCounter.enabled = false;
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
-            _jesterSpawner = GameObject.Find("Game").GetComponent<JesterSpawner>();
+            _waveHandler = GameObject.Find("Game").GetComponent<WaveHandler>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _pauseMenu = GameObject.Find("PauseMenu");
             _soundMenu = GameObject.Find("SoundMenu");
@@ -92,9 +90,9 @@ namespace Misc
             _heatSystem = FindObjectOfType<HeatSystem>();
 
             _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
-            _jesterSpawner.FinishedLevel += () =>
+            _waveHandler.FinishedLevel += () =>
             {
-                JesterFever = true;
+                JesterFeverHandler.JesterFever = true;
                 _mashSpace.gameObject.SetActive(true);
                 Invoke("EndGame", 10);
             };
@@ -110,6 +108,7 @@ namespace Misc
                 {
                     return;
                 }
+
                 _comboCounter.color = new Color32(255, 255, 255, 255);
                 _comboCounter.enabled = true;
                 _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
@@ -118,19 +117,13 @@ namespace Misc
                     StartCoroutine(StartingCombo());
                 }
             };
-            _heatSystem.ComboEnded += comboMultiplier =>
-            {
-                StartCoroutine(ComboFinish(comboMultiplier));
-            };
-            _heatSystem.MaxHeat += () =>
-            {
-                StartCoroutine(MaxHeatGained());
-            };
+            _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
+            _heatSystem.MaxHeat += () => { StartCoroutine(MaxHeatGained()); };
         }
 
         private void EndGame()
         {
-            JesterFever = false;
+            JesterFeverHandler.JesterFever = false;
             Time.timeScale = 0;
             _wonMenu.SetActive(true);
         }
@@ -142,16 +135,19 @@ namespace Misc
             {
                 _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
             }
+
             if (shake)
             {
                 _portrait.transform.DOShakePosition(1, 5, 10, 90);
             }
         }
+
         IEnumerator ComboFinish(float combo)
         {
             cancel = false;
             HandleAnimations(combo);
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 6; i++)
+            {
                 yield return new WaitForSeconds(0.1f);
                 _comboCounter.color = new Color32(255, 255, 255, 50);
                 yield return new WaitForSeconds(0.1f);
@@ -161,31 +157,32 @@ namespace Misc
                     yield break;
                 }
             }
+
             _comboCounter.enabled = false;
         }
+
         private void HandleAnimations(float combo)
         {
-            print(combo);
-            print(comboArray[0]);
             if (combo < comboArray[0])
             {
                 return;
             }
+
             for (int i = 0; i < comboArray.Length; i++)
             {
                 if (combo >= comboArray[i])
                 {
                     _comboResultText.sprite = comboTexts[i];
-                    print(i);    
-                } 
+                }
                 else
                 {
                     break;
                 }
             }
+
             _comboResultText.GetComponent<Animator>().Play("ComboTextAnimation");
         }
-        
+
         IEnumerator StartingCombo()
         {
             if (!isInMax)
@@ -195,6 +192,7 @@ namespace Misc
                 {
                     yield return new WaitForSeconds(0.01f);
                 }
+
                 yield return new WaitForSeconds(0.5f);
                 if (!isInMax)
                 {
@@ -206,7 +204,7 @@ namespace Misc
         IEnumerator MaxHeatGained()
         {
             _heatSystem.CanMaxHeat = false;
-            if (JesterFever)
+            if (JesterFeverHandler.JesterFever)
             {
                 ChangeKingPortrait(2, true, false);
                 yield break;
@@ -215,17 +213,19 @@ namespace Misc
             {
                 ChangeKingPortrait(1, true, false);
             }
+
             isInMax = true;
             yield return new WaitForSeconds(5);
             isInMax = false;
             if (_heatSystem.GetCombo() >= 5)
             {
                 StartCoroutine(StartingCombo());
-            } 
+            }
             else
             {
                 ChangeKingPortrait(0, false, false);
             }
+
             yield return new WaitForSeconds(2);
             _heatSystem.CanMaxHeat = true;
         }
@@ -255,9 +255,6 @@ namespace Misc
                     else a.UnPause();
                 }
             }
-
         }
-
-
     }
 }

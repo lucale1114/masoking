@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using DG.Tweening;
-using Misc;
-using Unity.VisualScripting;
 using UnityEngine;
+using Wave;
+using Wave.Handler;
 using static Wave.WaveData;
+using Random = UnityEngine.Random;
 
 namespace Jester
 {
     public class JesterBehaviour : MonoBehaviour
     {
+        public static event Action<GameObject> AnyJesterDestroyed;
 
         JesterFire jesterFire;
         int dir;
@@ -36,7 +39,7 @@ namespace Jester
             {
                 dir = -1;
             }
-            float timestampEntered = Timestamp;
+            float timestampEntered = WaveHandler.Timestamp;
 
             Invoke("ForceEnter", 0.01f);
             foreach (JesterCommand command in jesterCommands)
@@ -56,6 +59,11 @@ namespace Jester
             MoveIntoPlayfield();
         }
 
+        private void OnDestroy()
+        {
+            AnyJesterDestroyed?.Invoke(gameObject);
+        }
+
         private void FlipDirection()
         {
             var localScale = transform.localScale;
@@ -63,16 +71,16 @@ namespace Jester
             transform.localScale = localScale;
         }
 
-        public void TimestampTick()
+        private void TimestampTick()
         {
             foreach (JesterCommand command in jesterCommands)
             {
-                if (Mathf.Approximately(command.timestamp + enterTimestamp, Timestamp))
+                if (Mathf.Approximately(command.timestamp + enterTimestamp, WaveHandler.Timestamp))
                 {
                     PerformAction(command.action, command.shotData);
                 }
             }
-            if (Mathf.Approximately(leaveTime, Timestamp))
+            if (Mathf.Approximately(leaveTime, WaveHandler.Timestamp))
             {
                 jesterAnimator.SetMoving();
                 LeavePlayfield();
@@ -83,10 +91,10 @@ namespace Jester
             }
         }
 
-        void Update()
+        private void Update()
         {
-            if (currentTick != Timestamp) {
-                currentTick = Timestamp;
+            if (!Mathf.Approximately(currentTick, WaveHandler.Timestamp)) {
+                currentTick = WaveHandler.Timestamp;
                 TimestampTick();
             }
         }

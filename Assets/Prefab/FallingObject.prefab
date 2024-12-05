@@ -76,7 +76,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 9.255414, y: -0.08254787, z: 0}
+  - {x: 7.08, y: -0.08254787, z: 0}
   - {x: 0.053447723, y: 0.016737923, z: 1}
   m_Parameters:
     serializedVersion: 3
@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 5807398479405275205}
   - component: {fileID: 8279218141390260246}
   - component: {fileID: 1762043508187067249}
+  - component: {fileID: 3450529342513409181}
   m_Layer: 0
   m_Name: FallingObject
   m_TagString: DashableObject
@@ -348,3 +349,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userDirection: {x: -1, y: 0, z: 0}
   FallingObjectCollision: {fileID: 8279218141390260246}
+--- !u!95 &3450529342513409181
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4925187051270405869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9679cae4eaa8dc1428c3031545b40038, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

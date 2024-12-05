@@ -15,14 +15,14 @@ MonoBehaviour:
   StartDelay: 0
   SpawnBall: 0
   jesters:
-  - timestamp: 10
+  - timestamp: 1
     color: 0
     side: 1
     y: 0
     randomY: 0
     commands:
     - timestamp: 1
-      action: 3
+      action: 4
       shotData:
         speed: 6
         inaccuracy: 17
@@ -50,7 +50,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
-  - timestamp: 12
+  - timestamp: 1
     color: 0
     side: 0
     y: -2.19
@@ -85,3 +85,4 @@ MonoBehaviour:
         spin: 1
         straight: 0
         numberOfBounces: 0
+  segments: []

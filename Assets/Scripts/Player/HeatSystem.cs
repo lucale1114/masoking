@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using static Wave.WaveData;
+using Wave.Handler;
 using Color = UnityEngine.Color;
 
 namespace Player
@@ -53,7 +53,7 @@ namespace Player
             yield return new WaitForSeconds(5);
             _movement.ChangeVelocity(1/2f);
 
-            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFever)
+            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFeverHandler.JesterFever)
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
         }
 
@@ -93,7 +93,7 @@ namespace Player
 
             if (_currentHeat >= maximumHeat && CanMaxHeat)
             {
-                if (JesterFever)
+                if (JesterFeverHandler.JesterFever)
                 {
                     if (ColorUtility.TryParseHtmlString("#3D63FE", out Color col))
                         GetComponent<SpriteRenderer>().DOColor(col, 1);

@@ -25,7 +25,7 @@ namespace Player
 
             {
                 Destroy(other.gameObject);
-                SoundFXManager.Instance.PlaySoundFX(boom, transform, 1f);
+                SoundFXManager.Instance.PlaySoundFX(boom, transform, 2f);
                 StartCoroutine(SwitchSceneDelay());
             }
         }
