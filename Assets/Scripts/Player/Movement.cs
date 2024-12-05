@@ -189,7 +189,7 @@ namespace Player
             _dashImageCharger.enabled = true;
             while (_chargingDash)
             {
-                _dashImageCharger.DOColor(new Color32(255, 255, 255, 90), 0.05f);
+                _dashImageCharger.DOColor(new Color32(255, 255, 255, 150), 0.05f);
                 yield return new WaitForSeconds(((dashMaxTime + 0.2f) - power) / 5);
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 0), 0.05f);
                 yield return new WaitForSeconds(((dashMaxTime + 0.2f) - power) / 5);
