@@ -11,9 +11,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave_1-3
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
+  StartDelay: 0
+  SpawnBall: 0
   jesters:
   - timestamp: 1
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -65,6 +68,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
     - timestamp: 3
       action: 7
       shotData:
@@ -112,6 +116,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
     - timestamp: 3.8
       action: 7
       shotData:
@@ -159,6 +164,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
     - timestamp: 4.6
       action: 7
       shotData:
@@ -206,6 +212,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
     - timestamp: 5.4
       action: 7
       shotData:
@@ -253,6 +260,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
     - timestamp: 6.2
       action: 7
       shotData:
@@ -300,6 +308,7 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
     - timestamp: 7
       action: 7
       shotData:
@@ -347,7 +356,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 11
+    color: 0
     side: 0
     y: 0
     randomY: 0
@@ -381,7 +392,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 11
+    color: 0
     side: 1
     y: 0
     randomY: 0
@@ -415,7 +428,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 12
+    color: 0
     side: 3
     y: 0
     randomY: 0
@@ -449,7 +464,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 12
+    color: 0
     side: 3
     y: 0
     randomY: 0
@@ -483,7 +500,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 13
+    color: 0
     side: 3
     y: 0
     randomY: 0
@@ -517,7 +536,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 13
+    color: 0
     side: 3
     y: 0
     randomY: 0
@@ -551,7 +572,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 15
+    color: 0
     side: 2
     y: 0
     randomY: 0
@@ -585,7 +608,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 17.5
+    color: 0
     side: 3
     y: -4
     randomY: 0
@@ -619,7 +644,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 19
+    color: 0
     side: 2
     y: -4
     randomY: 1
@@ -653,7 +680,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 21
+    color: 0
     side: 4
     y: -4
     randomY: 1
@@ -687,7 +716,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 23
+    color: 0
     side: 2
     y: -4
     randomY: 1
@@ -721,7 +752,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 24
+    color: 0
     side: 4
     y: -4
     randomY: 1
@@ -755,7 +788,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 25
+    color: 0
     side: 4
     y: -4
     randomY: 1
@@ -789,7 +824,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 26.5
+    color: 0
     side: 2
     y: -4
     randomY: 1
@@ -841,7 +878,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 29
+    color: 0
     side: 2
     y: -4
     randomY: 0
@@ -875,7 +914,9 @@ MonoBehaviour:
         spin: 0
         straight: 0
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 32
+    color: 0
     side: 2
     y: 1.35
     randomY: 0
@@ -909,7 +950,9 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
   - timestamp: 32
+    color: 0
     side: 4
     y: -1.35
     randomY: 0
@@ -943,3 +986,5 @@ MonoBehaviour:
         spin: 0
         straight: 1
         numberOfBounces: 0
+        breakable: 0
+  segments: []

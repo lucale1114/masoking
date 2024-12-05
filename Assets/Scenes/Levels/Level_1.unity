@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 5551177897304979932}
   - component: {fileID: 5551177897304979933}
   - component: {fileID: 5551177897304979934}
+  - component: {fileID: 5551177897304979935}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -875,6 +876,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f113aaf1b7ab545a5f46fe81cc1b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5551177897304979935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574798401170592269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32524923981011f49822027f0bcd6675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeSprites:
+  - {fileID: 21300000, guid: 7f8e54a3160279c45b5ae833abce442e, type: 3}
 --- !u!1 &5808985195044538592
 GameObject:
   m_ObjectHideFlags: 0
