@@ -15,6 +15,7 @@ namespace Misc
         [SerializeField] private Sprite[] comboTexts;
         [SerializeField] private int[] comboArray;
         private TextMeshProUGUI _comboCounter;
+        private TextMeshProUGUI _scoreCounter;
 
         private GameObject _pauseMenu;
         private GameObject _lostMenu;
@@ -25,6 +26,8 @@ namespace Misc
 
         private Image _heatBar;
         private HeatSystem _heatSystem;
+        private Score _scoreSystem;
+
         private Image _portrait;
         private TextMeshProUGUI _mashSpace;
         private bool isInMax;
@@ -35,6 +38,7 @@ namespace Misc
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _comboCounter.enabled = false;
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
+            _scoreCounter = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
             _waveHandler = GameObject.Find("Game").GetComponent<WaveHandler>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _pauseMenu = GameObject.Find("PauseMenu");
@@ -88,7 +92,7 @@ namespace Misc
         {
             _heatBar = GameObject.Find("HeatBar").GetComponent<Image>();
             _heatSystem = FindObjectOfType<HeatSystem>();
-
+            _scoreSystem = FindObjectOfType<Score>();
             _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
             _waveHandler.FinishedLevel += () =>
             {
@@ -116,6 +120,10 @@ namespace Misc
                 {
                     StartCoroutine(StartingCombo());
                 }
+            };
+            _scoreSystem.ScoreChanged += score =>
+            {
+                UpdateScoreCounter(score);
             };
             _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
             _heatSystem.MaxHeat += () => { StartCoroutine(MaxHeatGained()); };
@@ -159,6 +167,13 @@ namespace Misc
             }
 
             _comboCounter.enabled = false;
+        }
+
+        private void UpdateScoreCounter(float score)
+        {
+            _scoreCounter.text = score.ToString("000000000");
+            _scoreCounter.transform.DORewind();
+            _scoreCounter.transform.DOPunchScale(transform.localScale, 0.1f, 2, 0.1f);
         }
 
         private void HandleAnimations(float combo)
