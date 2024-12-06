@@ -53,6 +53,25 @@ namespace Wave
             public JesterCommand[] commands;
         }
 
+        public enum MovingAction
+        {
+            Move
+        }
+
+        [Serializable]
+        public class MovingJesterCommand
+        {
+            public MovingAction action;
+            public Vector2 destination;
+        }
+
+        [Serializable]
+        public class MovingJesterData
+        {
+            public Vector2 startPosition;
+            public MovingJesterCommand[] commands;
+        }
+
         [Serializable]
         public class ShotDataObject
         {
