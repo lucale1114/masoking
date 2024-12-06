@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Wave
 {
@@ -63,6 +64,7 @@ namespace Wave
         {
             public MovingAction action;
             public Vector2 destination;
+            public float time;
         }
 
         [Serializable]

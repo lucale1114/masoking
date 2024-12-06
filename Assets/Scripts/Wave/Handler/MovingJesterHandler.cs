@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Jester.Green;
 using UnityEngine;
 using static Wave.WaveData;
 
@@ -34,7 +35,7 @@ namespace Wave.Handler
         private GameObject SpawnJester(MovingJesterData data)
         {
             var newJester = Instantiate(jesterPrefab, data.startPosition, jesterPrefab.transform.rotation);
-            // TODO: add logic to make jester move around
+            newJester.GetComponent<Movement>().SetData(data);
             return newJester;
         }
     }
