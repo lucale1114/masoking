@@ -10,6 +10,8 @@ namespace Wave
     {
         public float StartDelay;
         public bool SpawnBall;
+        [TextArea]
+        public string Description;
         public WaveData.JesterData[] jesters;
         public SegmentData[] segments;
     }
