@@ -10,27 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
-  m_Name: Wave Serpent
-  m_EditorClassIdentifier: 
+  m_Name: Wave 1-13 (smiley)
+  m_EditorClassIdentifier:
   StartDelay: 0
   SpawnBall: 0
-  Description: One jester which throws pins in a serpent pattern.
-  jesters:
+  Description: This pattern which forms a smile spawns 2 jesters from the side. One
+    spawns for the right eye, and the left fills out the whole patterns.
+  standingJesters:
   - timestamp: 1
     color: 0
-    side: 2
+    side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
-      action: 6
+    - timestamp: 1.5
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: 0.65
-        y: 3.6
+        x: -2
+        y: 2
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -64,213 +65,21 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 1.3
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 1.9
-        y: 3.1
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 1.6
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 2.3
-        y: 2.4
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 1.9
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 1.9
-        y: 1.45
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 2.2
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.65
-        y: 0.9
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
+        fireBetween: 2
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
     - timestamp: 2.5
-      action: 6
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: -0.85
-        y: 0.9
+        x: -3.5
+        y: -0.45
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -304,21 +113,117 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 1.6
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 2.6
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: -3
+        y: -1
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.7
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 2.7
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: -2.4
+        y: -1.3
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.8
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
     - timestamp: 2.8
-      action: 6
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: -2.3
-        y: 0.7
+        x: -1.7
+        y: -1.4
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -352,21 +257,117 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 1.9
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 2.9
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: -1
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 3
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: -0.4
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.1
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.1
-      action: 6
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: -3.4
-        y: 0.1
+        x: 0.3
+        y: -1.4
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -400,20 +401,164 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 2.2
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 3.2
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: 1
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.3
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 3.3
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: 1.7
+        y: -1.4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.4
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.4
-      action: 6
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: -4
+        x: 2.3
+        y: -1.1
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.2657094
+            value: -0.01076144
+            inSlope: -0.6545391
+            outSlope: -0.6545391
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.5
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 3.5
+      action: 7
+      shotData:
+        speed: 15
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: 2.9
         y: -0.7
         randomX: 0
         randomY: 0
@@ -448,21 +593,21 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 2.6
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 3.7
-      action: 6
+    - timestamp: 3.6
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: -3.4
-        y: -1.5
+        x: 3.5
+        y: -0.4
         randomX: 0
         randomY: 0
         throwAirTime: 2
@@ -496,24 +641,30 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
+        fireBetween: 2.7
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 3.8
-      action: 6
+  - timestamp: 1
+    color: 0
+    side: 1
+    y: 0
+    randomY: 0
+    commands:
+    - timestamp: 1.5
+      action: 7
       shotData:
-        speed: 30
+        speed: 15
         inaccuracy: 0
         scale: 1
         damage: 5
-        x: -2.3
-        y: -2
+        x: 2
+        y: 2
         randomX: 0
         randomY: 0
-        throwAirTime: 2.2
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -544,199 +695,7 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 3.9
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: -0.9
-        y: -2
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.4
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 4
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.7
-        y: -2
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.6
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 4.1
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 2.1
-        y: -2
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.8
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 4.2
-      action: 6
-      shotData:
-        speed: 30
-        inaccuracy: 0
-        scale: 1
-        damage: 15
-        x: 5
-        y: -2
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.8
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1.2657094
-            value: -0.01076144
-            inSlope: -0.6545391
-            outSlope: -0.6545391
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 1
+        fireBetween: 2
         radius: 0
         spin: 0
         straight: 0

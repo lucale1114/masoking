@@ -1,3 +1,4 @@
+using System.Globalization;
 using Player;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Debug
 
         private Button _pauseButton;
         private Button _invincibilityBtn;
+        private TMP_InputField _timestampText;
 
         private Camera _camera;
 
@@ -24,6 +26,8 @@ namespace Debug
 
             _invincibilityBtn = GameObject.Find("InvincibilityBtn").GetComponent<Button>();
             _invincibilityBtn.onClick.AddListener(SetInvincible);
+
+            _timestampText = GameObject.Find("TimestampText").GetComponent<TMP_InputField>();
 
             if (gameObject.activeInHierarchy)
             {
@@ -38,6 +42,17 @@ namespace Debug
 
         private void Update()
         {
+            if (WaveHandler.Paused)
+            {
+                if (_timestampText.text != "") {
+                    WaveHandler.Timestamp = float.Parse(_timestampText.text);
+                }
+            }
+            else
+            {
+                _timestampText.text = WaveHandler.Timestamp.ToString(CultureInfo.InvariantCulture);
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 UnityEngine.Debug.Log(_camera!.ScreenToWorldPoint(Input.mousePosition));

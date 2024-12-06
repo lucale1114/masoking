@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
-  m_Name: Wave Falling Pin
+  m_Name: Wave 1-18 (x)
   m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
-  Description: Jester throws on huge pin at the player which takes a long time to
-    land. While that's happening, the jester throws smaller more pins.
+  Description: Throws pin in an X pattern, and then later shoots a shot in the middle.
   jesters:
   - timestamp: 1
     color: 0
@@ -23,18 +22,18 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 0
       action: 6
       shotData:
         speed: 18
         inaccuracy: 0
-        scale: 2
-        damage: 100
-        x: 0.01
-        y: 0
+        scale: 1
+        damage: 10
+        x: -1.1
+        y: 1.25
         randomX: 0
         randomY: 0
-        throwAirTime: 10
+        throwAirTime: 4.5
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -92,7 +91,232 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 0
+        fireBetween: 1
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 0.5
+      action: 6
+      shotData:
+        speed: 18
+        inaccuracy: 0
+        scale: 1
+        damage: 10
+        x: 1.1
+        y: 1.25
+        randomX: 0
+        randomY: 0
+        throwAirTime: 4
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 1.5
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 1
+      action: 6
+      shotData:
+        speed: 18
+        inaccuracy: 0
+        scale: 1
+        damage: 10
+        x: 1.1
+        y: -0.55
+        randomX: 0
+        randomY: 0
+        throwAirTime: 3.5
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 1.5
+      action: 6
+      shotData:
+        speed: 18
+        inaccuracy: 0
+        scale: 1
+        damage: 10
+        x: -1.1
+        y: -0.55
+        randomX: 0
+        randomY: 0
+        throwAirTime: 3
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 2.5
         radius: 0
         spin: 0
         straight: 0
@@ -104,38 +328,56 @@ MonoBehaviour:
         speed: 18
         inaccuracy: 0
         scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
+        damage: 10
+        x: -2.1
+        y: 2.25
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2.5
         animationCurve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
             tangentMode: 34
             weightedMode: 0
             inWeight: 0
             outWeight: 0.33333334
           - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
             outWeight: 0.33333334
           - serializedVersion: 3
             time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
@@ -149,7 +391,82 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 0
+        fireBetween: 3
+        radius: 0
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 2.5
+      action: 6
+      shotData:
+        speed: 18
+        inaccuracy: 0
+        scale: 1
+        damage: 10
+        x: 2.1
+        y: 2.25
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 4
         radius: 0
         spin: 0
         straight: 0
@@ -161,38 +478,56 @@ MonoBehaviour:
         speed: 18
         inaccuracy: 0
         scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
+        damage: 10
+        x: 2.1
+        y: -1.75
+        randomX: 0
+        randomY: 0
+        throwAirTime: 1.5
         animationCurve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
             tangentMode: 34
             weightedMode: 0
             inWeight: 0
             outWeight: 0.33333334
           - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
             outWeight: 0.33333334
           - serializedVersion: 3
             time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
@@ -206,50 +541,68 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 0
+        fireBetween: 5
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 4
+    - timestamp: 3.5
       action: 6
       shotData:
         speed: 18
         inaccuracy: 0
         scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
+        damage: 10
+        x: -2.1
+        y: -1.75
+        randomX: 0
+        randomY: 0
+        throwAirTime: 1
         animationCurve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
             tangentMode: 34
             weightedMode: 0
             inWeight: 0
             outWeight: 0.33333334
           - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
             outWeight: 0.33333334
           - serializedVersion: 3
             time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
@@ -263,50 +616,68 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 0
+        fireBetween: 6
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 5
-      action: 6
+    - timestamp: 12
+      action: 0
       shotData:
-        speed: 18
+        speed: 35
         inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
+        scale: 3.5
+        damage: 100
+        x: 0.01
+        y: 0.01
+        randomX: 0
+        randomY: 0
+        throwAirTime: 1
         animationCurve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
             time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
+            value: 0.002319336
+            inSlope: 13.767325
+            outSlope: 13.767325
             tangentMode: 34
             weightedMode: 0
             inWeight: 0
             outWeight: 0.33333334
           - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
+            time: 0.03885908
+            value: 0.53730494
+            inSlope: 8.445778
+            outSlope: 8.445778
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5000074
+            value: 1.9780381
+            inSlope: -0.03626871
+            outSlope: -0.03626871
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.95391953
+            value: 0.52698684
+            inSlope: -7.2913322
+            outSlope: -7.2913322
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
             outWeight: 0.33333334
           - serializedVersion: 3
             time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
+            value: 0.002319336
+            inSlope: -11.385898
+            outSlope: -11.385898
             tangentMode: 34
             weightedMode: 0
             inWeight: 0.33333334
@@ -318,297 +689,12 @@ MonoBehaviour:
         frequency: 0
         amp: 0
         gravityDir: 0
-        amount: 0
+        amount: 1
         speed2: 0
         fireBetween: 0
         radius: 0
         spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 6
-      action: 6
-      shotData:
-        speed: 18
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 7
-      action: 6
-      shotData:
-        speed: 18
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 8
-      action: 6
-      shotData:
-        speed: 18
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 9
-      action: 6
-      shotData:
-        speed: 18
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 10
-      action: 6
-      shotData:
-        speed: 18
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0
-        y: 0
-        randomX: 1
-        randomY: 1
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: -0.0028266907
-            inSlope: 1.0103675
-            outSlope: 1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.5
-            value: 0.50235707
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: -0.0028266907
-            inSlope: -1.0103675
-            outSlope: -1.0103675
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 0
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 0
+        straight: 1
         numberOfBounces: 0
         breakable: 0
   segments: []

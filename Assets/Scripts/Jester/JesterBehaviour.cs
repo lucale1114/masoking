@@ -39,9 +39,7 @@ namespace Jester
             {
                 dir = -1;
             }
-            float timestampEntered = WaveHandler.Timestamp;
 
-            Invoke("ForceEnter", 0.01f);
             foreach (JesterCommand command in jesterCommands)
             {
                 ShotDataObject data = command.shotData;
@@ -50,13 +48,8 @@ namespace Jester
                 {
                     additionIfOnlyFB++;
                 }
-                leaveTime = Mathf.Max(timestampEntered + command.timestamp + 2f, (timestampEntered + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f));
+                leaveTime = Mathf.Max(enterTimestamp + command.timestamp + 2f, (enterTimestamp + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f));
             }
-        }
-        void ForceEnter()
-        {
-            jesterAnimator.SetMoving();
-            MoveIntoPlayfield();
         }
 
         private void OnDestroy()
@@ -75,6 +68,11 @@ namespace Jester
         {
             foreach (JesterCommand command in jesterCommands)
             {
+                if (Mathf.Approximately(enterTimestamp, WaveHandler.Timestamp))
+                {
+                    MoveIntoView();
+                }
+
                 if (Mathf.Approximately(command.timestamp + enterTimestamp, WaveHandler.Timestamp))
                 {
                     PerformAction(command.action, command.shotData);
@@ -82,8 +80,7 @@ namespace Jester
             }
             if (Mathf.Approximately(leaveTime, WaveHandler.Timestamp))
             {
-                jesterAnimator.SetMoving();
-                LeavePlayfield();
+                LeaveView();
             }
             if (lineRenderer.enabled)
             {
@@ -135,12 +132,14 @@ namespace Jester
             }
         }
 
-        private void MoveIntoPlayfield()
+        private void MoveIntoView()
         {
+            jesterAnimator.SetMoving();
             transform.DOLocalMoveX(transform.position.x + 2 * dir, 2);
         }
-        private void LeavePlayfield()
+        private void LeaveView()
         {
+            jesterAnimator.SetMoving();
             transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
             Destroy(gameObject, 1.5f);
         }

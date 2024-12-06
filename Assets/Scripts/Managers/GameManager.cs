@@ -2,7 +2,6 @@ using Misc;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Wave;
 
 namespace Managers
 {
@@ -25,6 +24,11 @@ namespace Managers
             SceneManager.LoadScene(1);
         }
 
+        public static void LoadTutorial()
+        {
+            SceneManager.LoadScene(2);
+        }
+
         public static void LoadLevel(int buildIndex)
         {
             SceneManager.LoadScene(buildIndex);
@@ -37,9 +41,9 @@ namespace Managers
 
         public static void Quit()
         {
-#if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-#endif
+            #if UNITY_EDITOR
+                EditorApplication.isPlaying = false;
+            #endif
 
             Application.Quit();
         }

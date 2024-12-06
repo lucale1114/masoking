@@ -42,7 +42,7 @@ namespace Wave
         }
 
         [Serializable]
-        public class JesterData
+        public class StandingJesterData
         {
             public float timestamp;
             public Color color;
@@ -51,13 +51,6 @@ namespace Wave
             public bool randomY;
 
             public JesterCommand[] commands;
-        }
-
-        [Serializable]
-        public class SegmentData
-        {
-            public float timestamp;
-            public Segment segment;
         }
 
         [Serializable]
@@ -113,7 +106,7 @@ namespace Wave
                 "Cloned projectile speed. This is in addition to the normal speed, so setting it negative the same value will turn it 0!")]
             public float speed2;
 
-            [Tooltip("Time inbetween shots for aimed and storm. For reticle based shots, when it should shoot.")]
+            [Tooltip("Time in between shots for aimed and storm. For reticle based shots, when it should shoot.")]
             public float fireBetween;
 
             [Tooltip("How much area is in the row shot.")]
