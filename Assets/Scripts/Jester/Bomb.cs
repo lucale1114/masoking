@@ -1,63 +1,112 @@
 using Objects;
 using Player;
+using Projectile;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-
-    Rigidbody2D rb;
-    bool beenHit = false;
-    bool fullHit = false;   
     public BombJesterCollision BombJesterCollision;
-   
+    
+    public static GameObject Player;
+    public static GameObject bomb;
+
+    [SerializeField] private float explosionRadius = 5f;
+
+    //Vector3 playerPos = Player.transform.position;
+    //Vector3 bombPos = bomb.transform.position;
+
+    bool beenHit = false;
+
+    
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+            // Find the player using a tag if not assigned
+            Player = GameObject.FindGameObjectWithTag("Player");
+        
+
+        if (Player == null)
+        {
+            UnityEngine.Debug.LogError("Player not assigned or found!");
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void LateUpdate()
+    {
+        BombStart();
+    }
+
+    public void BombStart()
     {
         if (BombJesterCollision.HasDashed)
         {
             StartCoroutine(WaitForExplosion());
-            Destroy(gameObject, 3f);
-
+            Destroy(this.gameObject, 3);
         }
+
     }
 
     public IEnumerator WaitForExplosion()
     {
-        yield return new WaitForSeconds(2.5f);
-        fullHit = true;
-       
-        
-    }
+        yield return new WaitForSeconds(2.8f);
+        //Vector2.Distance(bombPos, playerPos);
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && fullHit == true && beenHit != true )
+        if (Player != null)
         {
+            // Calculate distance between bomb and player
+            float distance = Vector3.Distance(transform.position, Player.transform.position);
 
+            if (distance <= explosionRadius && beenHit != true)
+            {
+                beenHit = true;
+                UnityEngine.Debug.Log("Player is in range of the explosion!");
+
+                // Apply damage
+                HeatSystem playerHeat = Player.GetComponent<HeatSystem>();
+                if (playerHeat != null)
+                {
+                    int damage = 10;
+                    playerHeat.ChangeHeat(damage);
+                    UnityEngine.Debug.Log($"Player took {damage} damage from the explosion.");
+                }
+                else
+                {
+                    UnityEngine.Debug.LogWarning("HeatSystem component not found on Player!");
+                }
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Player is out of range of the explosion.");
+            }
+        }
+
+        /*if (playerPos.x < 1 || playerPos.y < 1 && beenHit != true)
+        {
+            beenHit = true;
             UnityEngine.Debug.Log("Hit");
             var damage = 10;
-            HeatSystem playerHeat = collision.gameObject.GetComponent<HeatSystem>();
+            HeatSystem playerHeat = Player.GetComponent<HeatSystem>();
+
+            UnityEngine.Debug.Log("HitNOW");
+
 
             if (playerHeat != null)
             {
                 UnityEngine.Debug.Log("Heat");
                 playerHeat.ChangeHeat(damage);
-                beenHit = true;
+             
             }
             else
             {
                 UnityEngine.Debug.LogWarning("HeatSystem not found on Player!");
             }
-        }
+
+        }*/
+
+
     }
-
-
 
 }
