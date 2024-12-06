@@ -14,6 +14,5 @@ namespace Wave
         [TextArea]
         public string Description;
         public StandingJesterData[] standingJesters;
-        public SegmentData[] segments;
     }
 }
