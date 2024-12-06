@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
-  Description: 2 snipers from both side shoot towards the middle.
+  Description: 2 snipers from both side shoot towards the middle with varied Y positions.
   jesters:
   - timestamp: 1
     color: 0
