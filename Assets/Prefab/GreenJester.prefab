@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1762043508187067249}
   - component: {fileID: 3450529342513409181}
   m_Layer: 0
-  m_Name: FallingObject
+  m_Name: GreenJester
   m_TagString: DashableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
