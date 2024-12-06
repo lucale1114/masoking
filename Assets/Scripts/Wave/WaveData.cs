@@ -42,7 +42,7 @@ namespace Wave
         }
 
         [Serializable]
-        public class JesterData
+        public class StandingJesterData
         {
             public float timestamp;
             public Color color;

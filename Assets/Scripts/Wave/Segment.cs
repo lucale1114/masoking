@@ -10,5 +10,5 @@ public class Segment : ScriptableObject
 {
     [TextArea]
     public string description;
-    public WaveData.JesterData[] events;
+    public WaveData.StandingJesterData[] events;
 }
