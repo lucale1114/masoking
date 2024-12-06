@@ -13,6 +13,8 @@ namespace Objects
         private Collider2D triggerCollider;
 
         public bool Dashed => dashed;
+        Rigidbody2D rb;
+
 
         bool hasDashed = false;
         bool dashed = false;
@@ -21,6 +23,11 @@ namespace Objects
         bool hasFallen = false;
 
         public bool HasDashed => hasDashed;
+
+        public void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
 
         private void Awake()
@@ -62,7 +69,6 @@ namespace Objects
             hasDashed = true;
 
 
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 if (hasDashed != false && dashed != true)
