@@ -20,7 +20,13 @@ namespace Wave.Handler
 
         private void Start()
         {
-            JesterBehaviour.AnyJesterDestroyed += jester => _currentJesters.Remove(jester);
+            JesterBehaviour.AnyJesterDestroyed += jester =>
+            {
+                if (_currentJesters.IndexOf(jester) != -1)
+                {
+                    _currentJesters.Remove(jester);
+                }
+            };
         }
 
         public void SetCurrentWaveJesters(JesterData[] currentWaveJesters)
@@ -34,7 +40,10 @@ namespace Wave.Handler
 
             foreach (var item in _currentWaveJesters)
             {
-                _currentJesters.Add(SpawnJester(item));
+                if (!item.blacklist)
+                {
+                    _currentJesters.Add(SpawnJester(item));
+                }
             }
         }
 
