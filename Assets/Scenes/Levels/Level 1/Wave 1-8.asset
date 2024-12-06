@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
+  m_Name: Wave 1-8
+  m_EditorClassIdentifier: 
+  StartDelay: 0
+  SpawnBall: 0
+  Description: Wavy shots coming in from both sides.
+  jesters:
+  - timestamp: 0.1
+    color: 0
+    side: 0
+    y: 0.69
+    randomY: 1
+    commands:
+    - timestamp: 0.5
+      action: 4
+      shotData:
+        speed: 5
+        inaccuracy: 0
+        scale: 1.5
+        damage: 17
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 3
+        amp: 6
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
+        numberOfBounces: 0
+        breakable: 0
+  - timestamp: 1
+    color: 0
+    side: 0
+    y: 0.69
+    randomY: 1
+    commands:
+    - timestamp: 0.5
+      action: 4
+      shotData:
+        speed: 5
+        inaccuracy: 0
+        scale: 1.5
+        damage: 17
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 3
+        amp: 6
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
+        numberOfBounces: 0
+        breakable: 0
+  - timestamp: 2
+    color: 0
+    side: 0
+    y: 0.69
+    randomY: 1
+    commands:
+    - timestamp: 0.5
+      action: 4
+      shotData:
+        speed: 5
+        inaccuracy: 0
+        scale: 1.5
+        damage: 17
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 3
+        amp: 6
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
+        numberOfBounces: 0
+        breakable: 0
+  - timestamp: 3
+    color: 0
+    side: 1
+    y: 0.69
+    randomY: 1
+    commands:
+    - timestamp: 0.5
+      action: 4
+      shotData:
+        speed: 5
+        inaccuracy: 0
+        scale: 1.5
+        damage: 17
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        throwAirTime: 0
+        animationCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+        timer: 0
+        frequency: 3
+        amp: 6
+        gravityDir: 0
+        amount: 0
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
+        numberOfBounces: 0
+        breakable: 0
+  segments: []
