@@ -10,6 +10,7 @@ TagManager:
   - Destroy
   - DestroyIntro
   - DashableObject
+  - Bomb
   layers:
   - Default
   - TransparentFX

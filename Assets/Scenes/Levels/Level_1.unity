@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 5551177897304979933}
   - component: {fileID: 5551177897304979934}
   - component: {fileID: 5551177897304979935}
+  - component: {fileID: 5551177897304979936}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -890,6 +891,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knifeSprites:
   - {fileID: 21300000, guid: 7f8e54a3160279c45b5ae833abce442e, type: 3}
+--- !u!114 &5551177897304979936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574798401170592269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b9e37e86ac46dc9c08c655de73789a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5808985195044538592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3544278792555356052, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 45598104d95299045b515a9652ff62c8, type: 3}
     - target: {fileID: 4876307618402378224, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3390734
