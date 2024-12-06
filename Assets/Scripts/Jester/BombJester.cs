@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Objects
@@ -5,8 +6,11 @@ namespace Objects
     public class BombJester : MonoBehaviour
     {
         public static int movespeed = 1;
+        
         public Vector3 userDirection = Vector3.right;
-        public FallingObjectCollision FallingObjectCollision;
+        public BombJesterCollision bombCollision;
+        private BombJesterCollision BombJesterCollision;
+       
         //public Animator animator;
 
 
@@ -14,6 +18,7 @@ namespace Objects
         {
             //animator = GetComponent<Animator>();
             Destroy(gameObject, 18f);
+           
         }
 
         public void Update()
@@ -30,7 +35,9 @@ namespace Objects
                 // Moving right: reset sprite
                 transform.localScale = new Vector3(0.35f, 0.35f, 0);
             }
-            /*if (FallingObjectCollision.Dashed)
+
+         
+            /*if  (BombJesterCollision.HasDashed)
             {
                // animator.SetBool("Idle", true);
                 userDirection = Vector3.zero;
@@ -38,6 +45,7 @@ namespace Objects
             }*/
         }
 
+      
 
 
     }

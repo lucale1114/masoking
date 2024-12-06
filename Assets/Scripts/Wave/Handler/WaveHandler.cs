@@ -48,7 +48,7 @@ namespace Wave.Handler
                     _jugglingBallHandler.AttemptSpawnBall();
                 }
 
-                _jesterHandler.SetCurrentWaveJesters(currentWave.jesters);
+                _jesterHandler.SetCurrentWaveJesters(currentWave.standingJesters);
                 StartCoroutine(PauseRoutine(currentWave.StartDelay));
             }
             else

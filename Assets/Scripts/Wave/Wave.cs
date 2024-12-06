@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using static Wave.WaveData;
 
 namespace Wave
@@ -12,7 +13,6 @@ namespace Wave
         public bool SpawnBall;
         [TextArea]
         public string Description;
-        public WaveData.JesterData[] jesters;
-        public SegmentData[] segments;
+        public StandingJesterData[] standingJesters;
     }
 }

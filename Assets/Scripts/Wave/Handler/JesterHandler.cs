@@ -13,7 +13,7 @@ namespace Wave.Handler
 
         [SerializeField] private GameObject jesterPrefab;
 
-        private JesterData[] _currentWaveJesters;
+        private StandingJesterData[] _currentWaveJesters;
         private readonly List<GameObject> _currentJesters = new();
 
         private Sides _lastUsed;
@@ -29,7 +29,7 @@ namespace Wave.Handler
             };
         }
 
-        public void SetCurrentWaveJesters(JesterData[] currentWaveJesters)
+        public void SetCurrentWaveJesters(StandingJesterData[] currentWaveJesters)
         {
             _currentWaveJesters = currentWaveJesters;
         }
@@ -54,7 +54,7 @@ namespace Wave.Handler
 
         public void SpawnMashJester()
         {
-            var jesterData = new JesterData
+            var jesterData = new StandingJesterData
             {
                 timestamp = WaveHandler.Timestamp + 0.5f,
                 randomY = true,
@@ -80,7 +80,7 @@ namespace Wave.Handler
             _currentJesters.Add(SpawnJester(jesterData));
         }
 
-        private GameObject SpawnJester(JesterData waveObject)
+        private GameObject SpawnJester(StandingJesterData waveObject)
         {
             float x = 0;
             var wave = waveObject.side;

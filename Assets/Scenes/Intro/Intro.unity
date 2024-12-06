@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 1289128362}
   - component: {fileID: 1289128366}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Bomb
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,6 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e5e0ca24434fa44ba198014587dfa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BombJesterCollision: {fileID: 1612675439}
 --- !u!1 &1419696300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1304,7 @@ GameObject:
   - component: {fileID: 1612675438}
   - component: {fileID: 1612675439}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: BombJester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,7 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userDirection: {x: -1, y: 0, z: 0}
-  FallingObjectCollision: {fileID: 0}
+  bombCollision: {fileID: 0}
 --- !u!114 &1612675439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,6 +1466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ede83427d66e649925e188c42e153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 1993662373}
+  myChildObject: {fileID: 1289128365}
+  detachChild: 0
 --- !u!114 &1993662373 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
