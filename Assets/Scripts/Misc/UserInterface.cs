@@ -101,12 +101,16 @@ namespace Misc
             _heatSystem = FindObjectOfType<HeatSystem>();
             _scoreSystem = FindObjectOfType<Score>();
             _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
-            _waveHandler.FinishedLevel += () =>
+            if (_waveHandler)
             {
-                JesterFeverHandler.JesterFever = true;
-                _mashSpace.gameObject.SetActive(true);
-                Invoke(nameof(EndGame), 10);
-            };
+                _waveHandler.FinishedLevel += () =>
+                {
+                    JesterFeverHandler.JesterFever = true;
+                    _mashSpace.gameObject.SetActive(true);
+                    Invoke(nameof(EndGame), 10);
+                };
+            }
+
             _heatSystem.HeatDepleted += () =>
             {
                 Time.timeScale = 0;
