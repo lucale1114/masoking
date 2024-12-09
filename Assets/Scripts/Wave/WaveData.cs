@@ -68,9 +68,15 @@ namespace Wave
             public float time;
         }
 
+        public enum MovingJesterType
+        {
+            Green, Bomb
+        }
+
         [Serializable]
         public class MovingJesterData
         {
+            public MovingJesterType type;
             public Vector2 startPosition;
             public bool loop;
             public MovingJesterCommand[] commands;

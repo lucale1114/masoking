@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Jester.Green;
 using UnityEngine;
@@ -7,7 +8,8 @@ namespace Wave.Handler
 {
     public class MovingJesterHandler : MonoBehaviour
     {
-        [SerializeField] private GameObject jesterPrefab;
+        [SerializeField] private GameObject bombJesterPrefab;
+        [SerializeField] private GameObject greenJesterPrefab;
 
         private MovingJesterData[] _currentWaveJesters;
         private readonly List<GameObject> _currentJesters = new();
@@ -23,7 +25,8 @@ namespace Wave.Handler
 
             foreach (var item in _currentWaveJesters)
             {
-                if (item.commands.Length > 0) {
+                if (item.commands.Length > 0)
+                {
                     _currentJesters.Add(SpawnJester(item));
                 }
             }
@@ -36,7 +39,14 @@ namespace Wave.Handler
 
         private GameObject SpawnJester(MovingJesterData data)
         {
-            var newJester = Instantiate(jesterPrefab, data.startPosition, jesterPrefab.transform.rotation);
+            var newJester = data.type switch
+            {
+                MovingJesterType.Green =>
+                    Instantiate(greenJesterPrefab, data.startPosition, greenJesterPrefab.transform.rotation),
+                MovingJesterType.Bomb =>
+                    Instantiate(bombJesterPrefab, data.startPosition, bombJesterPrefab.transform.rotation),
+                _ => throw new ArgumentOutOfRangeException()
+            };
             newJester.GetComponent<Movement>().SetData(data);
             return newJester;
         }
