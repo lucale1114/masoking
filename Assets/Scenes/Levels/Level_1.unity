@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveList: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
-  debugForceWave: 15
+  debugForceWave: 18
 --- !u!114 &5551177897304979933
 MonoBehaviour:
   m_ObjectHideFlags: 0
