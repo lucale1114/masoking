@@ -1,7 +1,8 @@
-using DG.Tweening;
+
 using Player;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.WSA;
 
 namespace Objects
 {
@@ -12,8 +13,11 @@ namespace Objects
         public Vector3 userDirection = Vector3.right;
         public BombJesterCollision bombCollision;
         Rigidbody2D rb;
-        float thrust = 40;
+        [SerializeField] float thrust = 15;
         public static GameObject player;
+        private bool launched = false;
+        GameObject childObject;
+        [SerializeField] Vector3 bombOffset = new Vector3(0.175f, 0.67f, 0); // Offset for bomb position
 
 
         //public Animator animator;
@@ -25,6 +29,18 @@ namespace Objects
             Destroy(gameObject, 18f);
             rb = GetComponent<Rigidbody2D>();
             player = GameObject.FindGameObjectWithTag("Player");
+            childObject = GameObject.FindGameObjectWithTag("Bomb");
+
+            if (childObject != null)
+            {
+                // Set initial bomb position relative to jester
+                childObject.transform.position = transform.position + bombOffset;
+
+                    childObject.transform.parent = null; // Detach from jester
+
+                
+
+            }
 
 
         }
@@ -32,7 +48,27 @@ namespace Objects
         public void Update()
         {
             //animator.Play("");
-            transform.Translate( Time.deltaTime * movespeed * userDirection);
+            if (!launched)
+            {
+                // Regular Jester movement
+                rb.velocity = userDirection * movespeed;
+
+                // Bomb follows Jester until launch
+                if (childObject != null)
+                {
+                    childObject.transform.position = transform.position + bombOffset;
+                }
+            }
+
+            if (bombCollision.HasDashed && !launched)
+            {
+                if (childObject != null)
+                {
+
+                }
+                launched = true;
+                Launch();
+            }
             if (userDirection.x > 0)
             {
                 // Moving left: flip sprite
@@ -43,22 +79,25 @@ namespace Objects
                 // Moving right: reset sprite
                 transform.localScale = new Vector3(0.35f, 0.35f, 0);
             }
-
-
-
-         
-            if  (bombCollision.HasDashed == true)
-            {
-               
-                // animator.SetBool("Idle", true);
-                
-            }
         }
 
         private void Launch()
         {
-            float sqrDistance = Vector3.SqrMagnitude(transform.position - player.transform.position);
-            //transfor = sqrDistance * Time.deltaTime;
+            //userDirection = Vector3.zero;
+            //movespeed = 0;
+            childObject.transform.position = Vector3.zero;
+            Vector3 launchDirection =(transform.position - player.transform.position).normalized;
+            rb.velocity = thrust * launchDirection;
+            if (childObject != null)
+            {
+                // Bomb remains in its last position
+                childObject.transform.position = transform.position + bombOffset;
+                childObject = null; // Stop tracking the bomb
+            }
+
+            Destroy(rb, 4f);
+            
+
         }
 
 
