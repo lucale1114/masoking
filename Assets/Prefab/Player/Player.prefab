@@ -544,9 +544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c2f1689a6c47319ec31662ca3e2354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHeat: 51
-  startHeat: 50
-  heatDecayPerSecond: 6
+  maximumHeat: 200
+  startHeat: 100
+  heatDecayPerSecond: 10
   comboTimeLimit: 1.5
   comboMultiplierIncrease: 1
   invincible: 0
