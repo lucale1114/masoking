@@ -23,7 +23,9 @@ namespace Wave.Handler
 
             foreach (var item in _currentWaveJesters)
             {
-                _currentJesters.Add(SpawnJester(item));
+                if (item.commands.Length > 0) {
+                    _currentJesters.Add(SpawnJester(item));
+                }
             }
         }
 

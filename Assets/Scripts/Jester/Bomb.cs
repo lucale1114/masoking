@@ -11,21 +11,24 @@ public class Bomb : MonoBehaviour
     
     public static GameObject Player;
     public static GameObject bomb;
-    AudioClip[] booms;
+    [SerializeField] AudioClip[] booms;
 
-    [SerializeField] private float explosionRadius = 5f;
+    [SerializeField] private float explosionRadius = 2f;
 
     //Vector3 playerPos = Player.transform.position;
     //Vector3 bombPos = bomb.transform.position;
 
-    bool beenHit = false;
+    bool beenHit;
+    bool notHit;
 
-    
+
     void Start()
     {
             // Find the player using a tag if not assigned
             Player = GameObject.FindGameObjectWithTag("Player");
-        
+
+        beenHit = false;
+        notHit = false; 
 
         if (Player == null)
         {
@@ -46,7 +49,6 @@ public class Bomb : MonoBehaviour
         {
             StartCoroutine(WaitForExplosion());
             Destroy(this.gameObject, 3);
-            SoundFXManager.Instance.PlayRandomSoundFX(booms,transform,1f);
 
         }
 
@@ -62,9 +64,11 @@ public class Bomb : MonoBehaviour
             // Calculate distance between bomb and player
             float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-            if (distance <= explosionRadius && beenHit != true)
+            if (distance <= explosionRadius && beenHit != true || notHit != true)
             {
                 beenHit = true;
+                
+
                 UnityEngine.Debug.Log("Player is in range of the explosion!");
 
                 // Apply damage
@@ -82,6 +86,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                notHit=true;
+                SoundFXManager.Instance.PlayRandomSoundFX(booms, transform, 1f);
                 UnityEngine.Debug.Log("Player is out of range of the explosion.");
             }
         }
