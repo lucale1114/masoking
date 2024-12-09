@@ -10,6 +10,7 @@ namespace Wave.Handler
 
         public static bool Paused;
         public static float Timestamp;
+        public static float TimestampGlobal;
 
         [SerializeField] private WaveList waveList;
         [SerializeField] private int debugForceWave;
@@ -40,7 +41,6 @@ namespace Wave.Handler
 
         private void LaunchNextWave()
         {
-            Timestamp = 0;
             var currentWave = _waveNumber < waveList.waves.Length ? waveList.waves[_waveNumber] : null;
 
             if (currentWave)
@@ -59,6 +59,7 @@ namespace Wave.Handler
             {
                 FinishedLevel?.Invoke();
             }
+            Timestamp = 0;
         }
 
         private IEnumerator PauseRoutine(float delay)

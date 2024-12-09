@@ -23,6 +23,7 @@ namespace Jester
         private JesterAnimator jesterAnimator;
         public ShotDataObject shotDataObject;
         private LineRenderer lineRenderer;
+        private bool leaving;
 
         void Start()
         {
@@ -48,13 +49,8 @@ namespace Jester
                 {
                     additionIfOnlyFB++;
                 }
-                leaveTime = Mathf.Max(enterTimestamp + command.timestamp + 2f, (enterTimestamp + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f));
+                leaveTime = Mathf.Max(enterTimestamp + command.timestamp + 1f, (enterTimestamp + command.timestamp + ((data.amount + additionIfOnlyFB) * data.fireBetween) + 0.5f));
             }
-        }
-
-        private void OnDestroy()
-        {
-            AnyJesterDestroyed?.Invoke(gameObject);
         }
 
         private void FlipDirection()
@@ -66,7 +62,10 @@ namespace Jester
 
         private void TimestampTick()
         {
-            foreach (JesterCommand command in jesterCommands)
+            if (leaving) {
+                return;
+            }
+            foreach (JesterCommand command in jesterCommands)   
             {
                 if (Mathf.Approximately(enterTimestamp, WaveHandler.Timestamp))
                 {
@@ -134,13 +133,19 @@ namespace Jester
 
         private void MoveIntoView()
         {
+            if (leaving)
+            {
+                return;
+            }
             jesterAnimator.SetMoving();
             transform.DOLocalMoveX(transform.position.x + 2 * dir, 2);
         }
         private void LeaveView()
         {
+            leaving = true;
             jesterAnimator.SetMoving();
             transform.DOLocalMoveX(transform.position.x + 2 * -dir, 0.8f);
+            AnyJesterDestroyed?.Invoke(gameObject);
             Destroy(gameObject, 1.5f);
         }
         // Shots that are aimed towards the player
@@ -211,7 +216,7 @@ namespace Jester
 
             yield return new WaitForSeconds(data.fireBetween);
             jesterAnimator.TriggerFire();
-            jesterFire.ShootBasicProjectile(data.speed, data);
+            jesterFire.ShootBasicProjectile(data.speed, data, x, y);
             yield return new WaitForSeconds(0.25f);
             lineRenderer.enabled = false;
 

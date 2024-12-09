@@ -11,13 +11,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave 1-7 (row spam)
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
   Description: Fires a bunch of rows, with later a small sneaky knife. You take it
     to perserve the combo for the big knife.
   standingJesters:
-  - timestamp: 1
+  - timestamp: 0.4
     color: 0
     side: 0
     y: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 1
+  - timestamp: 0.4
     color: 0
     side: 1
     y: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 3
+  - timestamp: 2.6
     color: 0
     side: 0
     y: -2
@@ -125,7 +125,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 3
+  - timestamp: 2.6
     color: 0
     side: 1
     y: -2
@@ -161,7 +161,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 5
+  - timestamp: 4.6
     color: 0
     side: 1
     y: -3
@@ -197,7 +197,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 5
+  - timestamp: 4.6
     color: 0
     side: 1
     y: 2
@@ -233,7 +233,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 5
+  - timestamp: 4.6
     color: 0
     side: 0
     y: 2
@@ -269,7 +269,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 7
+  - timestamp: 6.6
     color: 0
     side: 0
     y: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 7
+  - timestamp: 6.6
     color: 0
     side: 1
     y: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 10
+  - timestamp: 9.4
     color: 0
     side: 0
     y: 0.69
@@ -377,4 +377,3 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  segments: []

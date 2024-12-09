@@ -16,11 +16,11 @@ MonoBehaviour:
   SpawnBall: 0
   Description: Throws 2 pins, one to the right of the field and one at the player.
     Then throws a pin and a ball to the right.
-  jesters:
-  - timestamp: 0.5
+  standingJesters:
+  - timestamp: 0.1
     color: 0
     side: 0
-    y: -5
+    y: 0
     randomY: 0
     commands:
     - timestamp: 1
@@ -98,10 +98,10 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 1.5
+  - timestamp: 0.8
     color: 0
-    side: 2
-    y: -2.5
+    side: 0
+    y: 0
     randomY: 0
     commands:
     - timestamp: 1
@@ -179,10 +179,10 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 4.5
+  - timestamp: 1.5
     color: 0
     side: 0
-    y: 2
+    y: 0
     randomY: 0
     commands:
     - timestamp: 1
@@ -265,13 +265,13 @@ MonoBehaviour:
       shotData:
         speed: 17
         inaccuracy: 0
-        scale: 2
+        scale: 1
         damage: 20
         x: 1
         y: 2
         randomX: 0
         randomY: 0
-        throwAirTime: 2
+        throwAirTime: 3
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -302,10 +302,9 @@ MonoBehaviour:
         gravityDir: 0
         amount: 0
         speed2: 0
-        fireBetween: 5
+        fireBetween: 2
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  segments: []
