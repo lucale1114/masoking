@@ -72,12 +72,14 @@ namespace Player
                 {
                     _comboMultiplier += comboMultiplierIncrease;
                     ComboMultiplierChanged?.Invoke(_comboMultiplier);
-                    combo = ((_comboMultiplier - 1 / 10) + 1);
+                    combo = (_comboMultiplier / 10) + 1;
                     _score.AddScore(amount * 5 * (combo * 10));
                 }
 
                 _timeSinceLastHit = 0;
             }
+            print(combo);
+
             _currentHeat += amount * combo;
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
 
