@@ -34,6 +34,8 @@ namespace Misc
         private bool _isInMax;
         private bool _cancel;
 
+        protected bool IsIntro;
+
         protected void Awake()
         {
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
@@ -101,7 +103,8 @@ namespace Misc
             _heatSystem = FindObjectOfType<HeatSystem>();
             _scoreSystem = FindObjectOfType<Score>();
             _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
-            if (_waveHandler)
+
+            if (!IsIntro)
             {
                 _waveHandler.FinishedLevel += () =>
                 {
@@ -109,32 +112,34 @@ namespace Misc
                     _mashSpace.gameObject.SetActive(true);
                     Invoke(nameof(EndGame), 10);
                 };
+
+                _heatSystem.HeatDepleted += () =>
+                {
+                    Time.timeScale = 0;
+                    _lostMenu.SetActive(true);
+                };
+
+                _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
+                _heatSystem.MaxHeat += () => { StartCoroutine(MaxHeatGained()); };
+
+                _heatSystem.ComboMultiplierChanged += comboMultiplier =>
+                {
+                    _cancel = true;
+                    if (comboMultiplier == 0)
+                    {
+                        return;
+                    }
+
+                    _comboCounter.color = new Color32(255, 255, 255, 255);
+                    _comboCounter.enabled = true;
+                    _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
+                    if (comboMultiplier > 5)
+                    {
+                        StartCoroutine(StartingCombo());
+                    }
+                };
+                _scoreSystem.ScoreChanged += UpdateScoreCounter;
             }
-
-            _heatSystem.HeatDepleted += () =>
-            {
-                Time.timeScale = 0;
-                _lostMenu.SetActive(true);
-            };
-            _heatSystem.ComboMultiplierChanged += comboMultiplier =>
-            {
-                _cancel = true;
-                if (comboMultiplier == 0)
-                {
-                    return;
-                }
-
-                _comboCounter.color = new Color32(255, 255, 255, 255);
-                _comboCounter.enabled = true;
-                _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
-                if (comboMultiplier > 5)
-                {
-                    StartCoroutine(StartingCombo());
-                }
-            };
-            _scoreSystem.ScoreChanged += UpdateScoreCounter;
-            _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
-            _heatSystem.MaxHeat += () => { StartCoroutine(MaxHeatGained()); };
         }
 
         private void EndGame()

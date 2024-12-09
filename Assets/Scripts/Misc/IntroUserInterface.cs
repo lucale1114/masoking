@@ -18,6 +18,8 @@ namespace Misc
 
         protected new void Awake()
         {
+            IsIntro = true;
+
             base.Awake();
 
             _moveText = GameObject.Find("Move").GetComponent<TextMeshProUGUI>();
