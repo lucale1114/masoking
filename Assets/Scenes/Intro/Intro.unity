@@ -1589,6 +1589,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2983352279178247713, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+      propertyPath: m_Name
+      value: DashWall
+      objectReference: {fileID: 0}
     - target: {fileID: 3065439055791744988, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1848,6 +1852,10 @@ PrefabInstance:
     - target: {fileID: 6240916264309306529, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427864117354494792, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+      propertyPath: m_Name
+      value: Move
       objectReference: {fileID: 0}
     - target: {fileID: 6484496470132838631, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: m_AnchorMax.y
