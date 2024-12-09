@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Player;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -12,7 +13,9 @@ namespace Objects
         public BombJesterCollision bombCollision;
         Rigidbody2D rb;
         float thrust = 40;
-       
+        public static GameObject player;
+
+
         //public Animator animator;
 
 
@@ -21,7 +24,9 @@ namespace Objects
             //animator = GetComponent<Animator>();
             Destroy(gameObject, 18f);
             rb = GetComponent<Rigidbody2D>();
-           
+            player = GameObject.FindGameObjectWithTag("Player");
+
+
         }
 
         public void Update()
@@ -39,16 +44,22 @@ namespace Objects
                 transform.localScale = new Vector3(0.35f, 0.35f, 0);
             }
 
+
+
          
             if  (bombCollision.HasDashed == true)
             {
                
                 // animator.SetBool("Idle", true);
-                transform.Translate(Time.deltaTime * movespeed * userDirection * thrust);
+                
             }
         }
 
-      
+        private void Launch()
+        {
+            float sqrDistance = Vector3.SqrMagnitude(transform.position - player.transform.position);
+            //transfor = sqrDistance * Time.deltaTime;
+        }
 
 
     }

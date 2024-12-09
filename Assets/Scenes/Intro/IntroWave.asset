@@ -52,13 +52,4 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  movingJesters:
-  - startPosition: {x: 2, y: 2}
-    loop: 0
-    commands:
-    - action: 0
-      destination: {x: 0, y: 0}
-      time: 4
-  - startPosition: {x: 0, y: 0}
-    loop: 0
-    commands: []
+  movingJesters: []
