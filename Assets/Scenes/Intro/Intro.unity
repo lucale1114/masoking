@@ -1519,6 +1519,10 @@ MonoBehaviour:
   userDirection: {x: -1, y: 0, z: 0}
   bombCollision: {fileID: 1612675439}
   thrust: 20
+  smack:
+  - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
+  - {fileID: 0}
   bombOffset: {x: 0.4, y: 0.5, z: 0}
 --- !u!114 &1612675439
 MonoBehaviour:
