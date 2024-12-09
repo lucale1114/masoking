@@ -17,6 +17,7 @@ namespace Projectile
         public float burstTimer;
         public float gravityTimer;
         public float gravityDir;
+        public bool axe;
         public int flipAmount = 1;
         public bool spin;
         public float damageMod = 1;
@@ -63,7 +64,13 @@ namespace Projectile
                 GetComponent<Collision>().noStabbing = true;
             }
 
+            if (axe)
+            {
+                GetComponent<SpriteRenderer>().sprite = GameObject.Find("Game").GetComponent<SpriteStorage>().knifeSprites[1];
+                transform.localScale *= 3;
+                spinSpeed *= 0.5f;
 
+            }
         }
 
         IEnumerator WavyShot()

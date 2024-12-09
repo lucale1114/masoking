@@ -17,6 +17,10 @@ namespace Projectile
             _projectile = GetComponent<IProjectile>();
         }
 
+        private void ReflectDebounceEnable()
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
         private void CatchProjectile(Collider2D collision)
         {
             var damage = _projectile.GetShotData().damage * _projectile.GetDamageMod();
@@ -46,7 +50,12 @@ namespace Projectile
                             CatchProjectile(collision);
                             return;
                         }
-                        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.Reflect(gameObject.GetComponent<Rigidbody2D>().velocity, collision.GetComponent<Rigidbody2D>().velocity) * -0.5f;
+                        float speed = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+                        ContactPoint2D[] contacts = new ContactPoint2D[2];
+                        collision.GetContacts(contacts);
+                        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.Reflect(gameObject.GetComponent<Rigidbody2D>().velocity.normalized, contacts[0].normal) * -speed;
+                        GetComponent<Collider2D>().enabled = false;
+                        Invoke(nameof(ReflectDebounceEnable), 0.15f);
                         return;
                     }
                     gameObject.GetComponent<Rigidbody2D>().velocity *= -0.5f;
