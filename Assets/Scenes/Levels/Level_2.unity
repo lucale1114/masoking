@@ -676,7 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eab567387fe42f4b7ed0acf5eae0e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jesterPrefab: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+  bombJesterPrefab: {fileID: 0}
+  greenJesterPrefab: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
 --- !u!114 &1546478634
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -146,6 +146,7 @@ namespace Jester
         {
             DirectProjectile shot = ShootBasicProjectile(speed, data);
             shot.spin = true;
+            shot.axe = true;
             shot.frequency = frequency;
             shot.amp = amp;
             SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
@@ -157,6 +158,7 @@ namespace Jester
             shot.spin = true;
             shot.gravityTimer = time;
             shot.gravityDir = dir;
+            shot.axe = true;
             shot.flipAmount = wave;
             SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
         }
