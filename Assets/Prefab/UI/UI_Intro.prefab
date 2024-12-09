@@ -626,6 +626,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboArray.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: comboTexts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: kingPortraits.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3272325338354083949, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
@@ -910,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277618029413714276, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_Name
-      value: UI_Intro Variant
+      value: UI_Intro
       objectReference: {fileID: 0}
     - target: {fileID: 8277618029413714276, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_IsActive
@@ -1290,6 +1302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3263428554404369224, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
+    - {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4619248925096107974, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
     - {fileID: 3276568717527443241, guid: 3f880ab9a985bb84bb5aa591d9e2cad4, type: 3}
@@ -1338,9 +1351,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a4b2f3c8ed3d54686baa645d610599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTextMesh: {fileID: 1607797649131086245}
-  DashTextMesh: {fileID: 7664020354957986094}
-  dashwallTextMesh: {fileID: 4712463900906536349}
-  EnemyTextMesh: {fileID: 6825831857280866905}
-  movement: {fileID: 0}
-  projectileCollision: {fileID: 5776519899649351191, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
+  kingPortraits:
+  - {fileID: 21300000, guid: 4a0fd9fa595ba984fbb865d21b4bbf5a, type: 3}
+  - {fileID: 21300000, guid: ec1139d5db5ff504084da752c0b9f473, type: 3}
+  - {fileID: 21300000, guid: 50c067003efc5a74495c06e99c9e7e33, type: 3}
+  - {fileID: 21300000, guid: 2ddcf5f3fc363ad4b84060e637e8f7b9, type: 3}
+  comboTexts:
+  - {fileID: 21300000, guid: e33252c717e873444817efa0f4663fc1, type: 3}
+  - {fileID: 21300000, guid: 53918b35f44ba754c9aff36b415fe257, type: 3}
+  - {fileID: 21300000, guid: 82f341b6d64b10f41a6c8769c3946d3b, type: 3}
+  - {fileID: 21300000, guid: ddf9485153257ac4f8f239351ec78d42, type: 3}
+  - {fileID: 21300000, guid: b84cb2320716b8f4aa0d9b8ae0d9a1be, type: 3}
+  - {fileID: 21300000, guid: 5cfb44e09fc45c04d886146cbfe47b73, type: 3}
+  - {fileID: 21300000, guid: b9e5895911bd590469b7f2a9c035ec29, type: 3}
+  - {fileID: 21300000, guid: 78fc0ceef7283af4c823acfcdf4d18a5, type: 3}
+  comboArray: 05000000070000000a0000000c0000000f0000001200000019000000c8000000
