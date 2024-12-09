@@ -24,6 +24,10 @@ namespace Misc
             _enemyText = GameObject.Find("Enemy").GetComponent<TextMeshProUGUI>();
             _dashText = GameObject.Find("Dash").GetComponent<TextMeshProUGUI>();
             _dashWallText = GameObject.Find("DashWall").GetComponent<TextMeshProUGUI>();
+
+            _enemyText.enabled = false;
+            _dashText.enabled = false;
+            _dashWallText.enabled = false;
         }
 
         protected new void Update()
