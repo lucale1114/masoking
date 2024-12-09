@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave 1-7 (row spam)
   m_EditorClassIdentifier: 
-  StartDelay: 0
-  SpawnBall: 0
+  StartDelay: 3
+  SpawnBall: 1
   Description: Fires a bunch of rows, with later a small sneaky knife. You take it
     to perserve the combo for the big knife.
   standingJesters:
@@ -377,3 +377,4 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
+  movingJesters: []
