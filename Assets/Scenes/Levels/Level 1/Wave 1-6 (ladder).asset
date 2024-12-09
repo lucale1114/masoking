@@ -11,12 +11,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave 1-6 (ladder)
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
   Description: Throws a pin downwards, and then forms a ladder of jesters.
   standingJesters:
-  - timestamp: 0.5
+  - timestamp: 0.1
     color: 0
     side: 0
     y: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 1.5
+  - timestamp: 1.1
     color: 0
     side: 1
     y: -3.5
@@ -178,7 +178,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 1.8
+  - timestamp: 1.4
     color: 0
     side: 1
     y: -3
@@ -259,7 +259,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 2.1
+  - timestamp: 1.7
     color: 0
     side: 1
     y: -2.5
@@ -340,7 +340,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 2.4
+  - timestamp: 2
     color: 0
     side: 1
     y: -2
@@ -421,7 +421,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 2.7
+  - timestamp: 2.3
     color: 0
     side: 1
     y: -1.5
@@ -502,7 +502,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 3
+  - timestamp: 2.6
     color: 0
     side: 1
     y: -1
@@ -583,7 +583,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 3.3
+  - timestamp: 2.9
     color: 0
     side: 1
     y: -0.5
@@ -664,7 +664,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 3.6
+  - timestamp: 3.2
     color: 0
     side: 1
     y: 0
@@ -745,7 +745,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 3.9
+  - timestamp: 3.5
     color: 0
     side: 1
     y: 0.5
@@ -826,7 +826,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 4.2
+  - timestamp: 3.8
     color: 0
     side: 1
     y: 1
@@ -907,7 +907,7 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 4.5
+  - timestamp: 4.1
     color: 0
     side: 1
     y: 1.5
@@ -988,4 +988,3 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  segments: []

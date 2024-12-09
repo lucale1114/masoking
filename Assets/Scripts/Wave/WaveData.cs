@@ -47,7 +47,6 @@ namespace Wave
             public float timestamp;
             public Color color;
             public Sides side;
-            public bool blacklist;
             [Range(-5.0f, 5.0f)] public float y;
             public bool randomY;
 

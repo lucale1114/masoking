@@ -37,13 +37,9 @@ namespace Wave.Handler
         public void StartWave()
         {
             _currentJesters.Clear();
-
             foreach (var item in _currentWaveJesters)
             {
-                if (!item.blacklist)
-                {
-                    _currentJesters.Add(SpawnJester(item));
-                }
+                _currentJesters.Add(SpawnJester(item));
             }
         }
 
