@@ -78,7 +78,6 @@ namespace Player
 
                 _timeSinceLastHit = 0;
             }
-            print(combo);
 
             _currentHeat += amount * combo;
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
