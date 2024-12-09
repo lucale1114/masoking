@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using Wave;
@@ -32,7 +34,14 @@ namespace Jester.Green
         {
             if (IsOutOfCommands())
             {
-                Destroy(gameObject);
+                if (_data.loop)
+                {
+                    _currentCommandIndex = 0;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
 
             var command = _data.commands[_currentCommandIndex];
@@ -47,11 +56,31 @@ namespace Jester.Green
                     transform.localScale = transformLocalScale;
                     break;
             }
-            transform.DOMove(command.destination, command.time).onComplete += () =>
+
+            switch (command.action)
             {
-                _currentCommandIndex++;
-                MakeStep();
-            };
+                case WaveData.MovingAction.Move:
+                    _animator.SetBool(Idle, false);
+                    transform.DOMove(command.destination, command.time).onComplete += () =>
+                    {
+                        _currentCommandIndex++;
+                        MakeStep();
+                    };
+                    break;
+                case WaveData.MovingAction.Idle:
+                    StartCoroutine(IdleRoutine(command.time));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private IEnumerator IdleRoutine(float time)
+        {
+            _animator.SetBool(Idle, true);
+            _currentCommandIndex++;
+            yield return new WaitForSeconds(time);
+            MakeStep();
         }
 
         private void Update()

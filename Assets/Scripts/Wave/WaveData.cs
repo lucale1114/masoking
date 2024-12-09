@@ -56,7 +56,8 @@ namespace Wave
 
         public enum MovingAction
         {
-            Move
+            Move,
+            Idle
         }
 
         [Serializable]
@@ -71,6 +72,7 @@ namespace Wave
         public class MovingJesterData
         {
             public Vector2 startPosition;
+            public bool loop;
             public MovingJesterCommand[] commands;
         }
 
