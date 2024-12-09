@@ -20,6 +20,7 @@ namespace Objects
         [SerializeField] AudioClip[] smack;
         [SerializeField] Vector3 bombOffset = new Vector3(0.175f, 0.67f, 0); // Offset for bomb position
         float spinSpeed;
+        public Animator animator;
 
         //public Animator animator;
 
@@ -40,7 +41,7 @@ namespace Objects
                     childObject.transform.parent = null; // Detach from jester
             }
 
-            spinSpeed = Random.Range(6.0f, 7.0f) * (Random.Range(0, 2) * 2 - 1);
+            spinSpeed = Random.Range(20f, 20.0f) * (Random.Range(0, 2) * 2 - 1);
 
 
         }
@@ -66,6 +67,7 @@ namespace Objects
                 {
 
                 }
+                animator.SetBool("Idle",true);
                 SoundFXManager.Instance.PlayRandomSoundFX(smack,transform,1f);
                 transform.rotation *= Quaternion.Euler(0, 0, spinSpeed);
                 launched = true;
