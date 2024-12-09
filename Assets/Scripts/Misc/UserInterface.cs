@@ -11,28 +11,28 @@ namespace Misc
 {
     public class UserInterface : MonoBehaviour
     {
-        [SerializeField] private Sprite[] kingPortraits;
-        [SerializeField] private Sprite[] comboTexts;
-        [SerializeField] private int[] comboArray;
+        [SerializeField] public Sprite[] kingPortraits;
+        [SerializeField] public Sprite[] comboTexts;
+        [SerializeField] public int[] comboArray;
 
-        private TextMeshProUGUI _comboCounter;
-        private TextMeshProUGUI _scoreCounter;
+        public TextMeshProUGUI _comboCounter;
+        public TextMeshProUGUI _scoreCounter;
 
         private GameObject _pauseMenu;
         private GameObject _lostMenu;
-        private GameObject _wonMenu;
+        public GameObject _wonMenu;
         private GameObject _soundMenu;
-        private Image _comboResultText;
+        public Image _comboResultText;
         private WaveHandler _waveHandler;
 
-        private Image _heatBar;
-        private HeatSystem _heatSystem;
-        private Score _scoreSystem;
+        public Image _heatBar;
+        public HeatSystem _heatSystem;
+        public Score _scoreSystem;
 
-        private Image _portrait;
-        private TextMeshProUGUI _mashSpace;
-        private bool _isInMax;
-        private bool _cancel;
+        public Image _portrait;
+        public TextMeshProUGUI _mashSpace;
+        public bool _isInMax;
+        public bool _cancel;
 
         protected bool IsIntro;
 

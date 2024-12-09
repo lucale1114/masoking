@@ -11,6 +11,7 @@ public class Bomb : MonoBehaviour
     
     public static GameObject Player;
     public static GameObject bomb;
+    AudioClip[] booms;
 
     [SerializeField] private float explosionRadius = 5f;
 
@@ -45,6 +46,8 @@ public class Bomb : MonoBehaviour
         {
             StartCoroutine(WaitForExplosion());
             Destroy(this.gameObject, 3);
+            SoundFXManager.Instance.PlayRandomSoundFX(booms,transform,1f);
+
         }
 
     }
@@ -74,7 +77,7 @@ public class Bomb : MonoBehaviour
                 }
                 else
                 {
-                    UnityEngine.Debug.LogWarning("HeatSystem component not found on Player!");
+                    UnityEngine.Debug.Log("HeatSystem component not found on Player!");
                 }
             }
             else

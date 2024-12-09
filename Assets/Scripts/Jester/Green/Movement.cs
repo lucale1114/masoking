@@ -16,17 +16,14 @@ namespace Jester.Green
         private WaveData.MovingJesterData _data;
         private int _currentCommandIndex;
 
-        public void Start()
-        {
-            _animator = GetComponent<Animator>();
-            _collision = GetComponent<Collision>();
-
-            _currentCommandIndex = 0;
-        }
-
         public void SetData(WaveData.MovingJesterData data)
         {
             _data = data;
+            _currentCommandIndex = 0;
+
+            _animator = GetComponent<Animator>();
+            _collision = GetComponent<Collision>();
+
             MakeStep();
         }
 
