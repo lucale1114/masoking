@@ -10,7 +10,6 @@ namespace Wave.Handler
 
         public static bool Paused;
         public static float Timestamp;
-        public static float TimestampGlobal;
 
         [SerializeField] private WaveList waveList;
         [SerializeField] private int debugForceWave;
@@ -45,6 +44,8 @@ namespace Wave.Handler
 
             if (currentWave)
             {
+                Timestamp = 0;
+
                 if (currentWave.SpawnBall)
                 {
                     _jugglingBallHandler.AttemptSpawnBall();
@@ -59,7 +60,6 @@ namespace Wave.Handler
             {
                 FinishedLevel?.Invoke();
             }
-            Timestamp = 0;
         }
 
         private IEnumerator PauseRoutine(float delay)
