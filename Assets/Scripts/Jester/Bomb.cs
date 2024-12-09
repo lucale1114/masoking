@@ -3,6 +3,7 @@ using Player;
 using Projectile;
 using System.Collections;
 using System.Collections.Generic;
+using Jester;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour

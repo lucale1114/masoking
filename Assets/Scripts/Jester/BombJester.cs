@@ -1,109 +1,75 @@
-
+using Objects;
 using Player;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.WSA;
 
-namespace Objects
+namespace Jester
 {
     public class BombJester : MonoBehaviour
     {
-        public static int movespeed = 2;
-        
-        public Vector3 userDirection = Vector3.right;
-        public BombJesterCollision bombCollision;
-        Rigidbody2D rb;
-        [SerializeField] float thrust = 15;
-        public static GameObject player;
-        private bool launched = false;
-        GameObject childObject;
-        [SerializeField] AudioClip[] smack;
-        [SerializeField] Vector3 bombOffset = new Vector3(0.175f, 0.67f, 0); // Offset for bomb position
-        float spinSpeed;
-        public Animator animator;
+        private static readonly int Idle = Animator.StringToHash("Idle");
 
-        //public Animator animator;
+        [SerializeField] private float thrust = 15;
+        [SerializeField] private AudioClip[] smack;
+        [SerializeField] private Vector3 bombOffset = new(0.175f, 0.67f, 0); // Offset for bomb position
 
+        private GameObject _player;
+        private Animator _animator;
+        private GameObject _bomb;
+        private Rigidbody2D _rb;
+        private BombJesterCollision _bombCollision;
+
+        private bool _launched;
+        private float _spinSpeed;
 
         public void Start()
         {
-            //animator = GetComponent<Animator>();
-            Destroy(gameObject, 18f);
-            rb = GetComponent<Rigidbody2D>();
-            player = GameObject.FindGameObjectWithTag("Player");
-            childObject = GameObject.FindGameObjectWithTag("Bomb");
+            _player = GameObject.FindGameObjectWithTag("Player");
+            _animator = GetComponent<Animator>();
+            _rb = GetComponent<Rigidbody2D>();
+            _bomb = GameObject.FindGameObjectWithTag("Bomb");
+            _bombCollision = GetComponent<BombJesterCollision>();
 
-            if (childObject != null)
+            if (_bomb != null)
             {
-                // Set initial bomb position relative to jester
-                childObject.transform.position = transform.position + bombOffset;
-
-                    childObject.transform.parent = null; // Detach from jester
+                _bomb.transform.position = transform.position + bombOffset;
+                _bomb.transform.parent = null;
             }
 
-            spinSpeed = Random.Range(20f, 20.0f) * (Random.Range(0, 2) * 2 - 1);
-
-
+            _spinSpeed = Random.Range(20f, 20.0f) * (Random.Range(0, 2) * 2 - 1);
         }
 
         public void Update()
         {
-            //animator.Play("");
-            if (!launched)
+            if (!_launched)
             {
-                // Regular Jester movement
-                rb.velocity = userDirection * movespeed;
-
-                // Bomb follows Jester until launch
-                if (childObject != null)
+                if (_bomb)
                 {
-                    childObject.transform.position = transform.position + bombOffset;
+                    _bomb.transform.position = transform.position + bombOffset;
                 }
             }
 
-            if (bombCollision.HasDashed && !launched)
+            if (_bombCollision.HasDashed && !_launched)
             {
-                if (childObject != null)
-                {
-
-                }
-                animator.SetBool("Idle",true);
-                SoundFXManager.Instance.PlayRandomSoundFX(smack,transform,1f);
-                transform.rotation *= Quaternion.Euler(0, 0, spinSpeed);
-                launched = true;
+                _animator.SetBool(Idle, true);
+                SoundFXManager.Instance.PlayRandomSoundFX(smack, transform, 1f);
+                transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+                _launched = true;
                 Launch();
-            }
-            if (userDirection.x > 0)
-            {
-                // Moving left: flip sprite
-                transform.localScale = new Vector3(-0.35f, 0.35f, 0); // Flip along the X-axis
-            }
-            else if (userDirection.x < 0)
-            {
-                // Moving right: reset sprite
-                transform.localScale = new Vector3(0.35f, 0.35f, 0);
             }
         }
 
         private void Launch()
         {
-            //userDirection = Vector3.zero;
-            //movespeed = 0;
-            childObject.transform.position = Vector3.zero;
-            Vector3 launchDirection =(transform.position - player.transform.position).normalized;
-            rb.velocity = thrust * launchDirection;
-            if (childObject != null)
+            _bomb.transform.position = Vector3.zero;
+            var launchDirection = (transform.position - _player.transform.position).normalized;
+            _rb.velocity = thrust * launchDirection;
+            if (_bomb)
             {
-                // Bomb remains in its last position
-                childObject.transform.position = transform.position + bombOffset;
-                childObject = null; // Stop tracking the bomb
+                _bomb.transform.position = transform.position + bombOffset;
+                _bomb = null;
             }
 
-            Destroy(rb, 4f);
-            
-
+            Destroy(gameObject, 4f);
         }
-
-
     }
 }

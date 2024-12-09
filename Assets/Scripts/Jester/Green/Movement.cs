@@ -82,7 +82,7 @@ namespace Jester.Green
 
         private void Update()
         {
-            if (_collision.Dashed)
+            if (_collision && _collision.Dashed)
             {
                 transform.DOKill();
                 _animator.SetBool(Idle, true);
