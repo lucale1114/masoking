@@ -1,3 +1,4 @@
+using Player;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -21,8 +22,16 @@ namespace Misc
             IsIntro = true;
 
             base.Awake();
+            _comboResultText.enabled = false;
+            _comboCounter.enabled = false;
+            _heatBar.enabled = false;
+            _heatSystem.enabled = false;
+            _scoreSystem.enabled = false;
+            _portrait.enabled = false;
+            _mashSpace.enabled = false;
+            
 
-            _moveText = GameObject.Find("Move").GetComponent<TextMeshProUGUI>();
+             _moveText = GameObject.Find("Move").GetComponent<TextMeshProUGUI>();
             _enemyText = GameObject.Find("Enemy").GetComponent<TextMeshProUGUI>();
             _dashText = GameObject.Find("Dash").GetComponent<TextMeshProUGUI>();
             _dashWallText = GameObject.Find("DashWall").GetComponent<TextMeshProUGUI>();

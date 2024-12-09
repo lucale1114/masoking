@@ -74,7 +74,7 @@ public class Bomb : MonoBehaviour
                 }
                 else
                 {
-                    UnityEngine.Debug.LogWarning("HeatSystem component not found on Player!");
+                    UnityEngine.Debug.Log("HeatSystem component not found on Player!");
                 }
             }
             else
