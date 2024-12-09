@@ -532,6 +532,9 @@ MonoBehaviour:
   bounceAbsorption: 0.3
   maxNumberOfWallBounces: 2
   walk: {fileID: 8300000, guid: 1848a6daf8f0a5e42afc0127378dbfe2, type: 3}
+  dash:
+  - {fileID: 8300000, guid: 642023a8ebe3cb94cbe2f0d91c646aec, type: 3}
+  - {fileID: 8300000, guid: 7331a6fe12a667448938847b64cc35db, type: 3}
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 3743546813347916422}
   intro: {fileID: 0}
-  boom: {fileID: 0}
+  boom: {fileID: 8300000, guid: b35df6cece9ebfa4792f3c466ce38795, type: 3}
 --- !u!114 &7511096076424274299
 MonoBehaviour:
   m_ObjectHideFlags: 0

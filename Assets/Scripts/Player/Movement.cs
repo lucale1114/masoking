@@ -24,6 +24,8 @@ namespace Player
         [SerializeField] private float bounceAbsorption;
         [SerializeField] private int maxNumberOfWallBounces = 2;
         [SerializeField] private AudioClip walk;
+        [SerializeField] private AudioClip[] dash;
+
 
         public bool IsCurrentlyDashing { get; private set; }
         public bool IsInDashState { get; private set; }
@@ -217,6 +219,8 @@ namespace Player
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
             playerAnimator.PlayDash(currentVelocity);
+           
+            SoundFXManager.Instance.PlayRandomSoundFX(dash, transform, 1f);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
