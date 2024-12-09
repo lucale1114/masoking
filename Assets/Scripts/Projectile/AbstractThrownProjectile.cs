@@ -22,6 +22,7 @@ namespace Projectile
 
         private GameObject _shadow;
         protected GameObject Reticle;
+        protected GameObject ReticleFill;
 
         protected float CurrentTime;
         private readonly float _damageMod = 1;
@@ -123,7 +124,9 @@ namespace Projectile
         protected virtual void InstantiateReticle(ShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
+            ReticleFill = Reticle.transform.GetChild(0).gameObject;
             Reticle.transform.localScale *= Data.scale;
+            ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), Data.throwAirTime * 1.5f);
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 
