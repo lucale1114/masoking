@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Wave.Handler
 {
-    public class JesterHandler : MonoBehaviour
+    public class StandingJesterHandler : MonoBehaviour
     {
         private const float XLeft = -8.5f;
         private const float XRight = 8.5f;

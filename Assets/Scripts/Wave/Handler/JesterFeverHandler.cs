@@ -7,11 +7,11 @@ namespace Wave.Handler
         public static bool JesterFever;
 
         private float _lastJesterSpawn;
-        private JesterHandler _jesterHandler;
+        private StandingJesterHandler _standingJesterHandler;
 
         private void Start()
         {
-            _jesterHandler = GetComponent<JesterHandler>();
+            _standingJesterHandler = GetComponent<StandingJesterHandler>();
         }
 
         private void Update()
@@ -22,7 +22,7 @@ namespace Wave.Handler
                 {
                     if (!Mathf.Approximately(WaveHandler.Timestamp, _lastJesterSpawn))
                     {
-                        _jesterHandler.SpawnMashJester();
+                        _standingJesterHandler.SpawnMashJester();
                         _lastJesterSpawn = WaveHandler.Timestamp;
                     }
                 }

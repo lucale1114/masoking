@@ -15,7 +15,8 @@ namespace Wave.Handler
         [SerializeField] private WaveList waveList;
         [SerializeField] private int debugForceWave;
 
-        private JesterHandler _jesterHandler;
+        private StandingJesterHandler _standingJesterHandler;
+        private MovingJesterHandler _movingJesterHandler;
         private JugglingBallHandler _jugglingBallHandler;
 
         private int _waveNumber;
@@ -30,7 +31,8 @@ namespace Wave.Handler
             }
             #endif
 
-            _jesterHandler = GetComponent<JesterHandler>();
+            _standingJesterHandler = GetComponent<StandingJesterHandler>();
+            _movingJesterHandler = GetComponent<MovingJesterHandler>();
             _jugglingBallHandler = GetComponent<JugglingBallHandler>();
 
             StartCoroutine(nameof(TimestampRoutine), 0.1f);
@@ -48,7 +50,9 @@ namespace Wave.Handler
                     _jugglingBallHandler.AttemptSpawnBall();
                 }
 
-                _jesterHandler.SetCurrentWaveJesters(currentWave.standingJesters);
+                _standingJesterHandler.SetCurrentWaveJesters(currentWave.standingJesters);
+                _movingJesterHandler.SetCurrentWaveJesters(currentWave.movingJesters);
+
                 StartCoroutine(PauseRoutine(currentWave.StartDelay));
             }
             else
@@ -62,7 +66,8 @@ namespace Wave.Handler
         {
             _pausedByWave = true;
             yield return new WaitForSeconds(delay);
-            _jesterHandler.StartWave();
+            _standingJesterHandler.StartWave();
+            _movingJesterHandler.StartWave();
             _pausedByWave = false;
         }
 
@@ -84,7 +89,7 @@ namespace Wave.Handler
         {
             if (!(_pausedByWave || Paused))
             {
-                if (_jesterHandler.IsFinished())
+                if (_standingJesterHandler.IsFinished() && _movingJesterHandler.IsFinished())
                 {
                     _waveNumber++;
                     LaunchNextWave();

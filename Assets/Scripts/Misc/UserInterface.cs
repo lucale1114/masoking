@@ -14,6 +14,7 @@ namespace Misc
         [SerializeField] private Sprite[] kingPortraits;
         [SerializeField] private Sprite[] comboTexts;
         [SerializeField] private int[] comboArray;
+
         private TextMeshProUGUI _comboCounter;
         private TextMeshProUGUI _scoreCounter;
 
@@ -30,27 +31,35 @@ namespace Misc
 
         private Image _portrait;
         private TextMeshProUGUI _mashSpace;
-        private bool isInMax;
-        private bool cancel;
+        private bool _isInMax;
+        private bool _cancel;
 
-        private void Awake()
+        protected bool IsIntro;
+
+        protected void Awake()
         {
+            _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
+
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _comboCounter.enabled = false;
-            _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
+
             _scoreCounter = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+
             _waveHandler = GameObject.Find("Game").GetComponent<WaveHandler>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
-            _pauseMenu = GameObject.Find("PauseMenu");
-            _soundMenu = GameObject.Find("SoundMenu");
-            _portrait = GameObject.Find("Portrait").GetComponent<Image>();
-            //_maxHeat.gameObject.SetActive(false);
             _mashSpace.gameObject.SetActive(false);
+
+            _portrait = GameObject.Find("Portrait").GetComponent<Image>();
+
+
+            _pauseMenu = GameObject.Find("PauseMenu");
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
             _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
             _pauseMenu.transform.Find("Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
             _pauseMenu.SetActive(false);
+
+            _soundMenu = GameObject.Find("SoundMenu");
             _soundMenu.SetActive(false);
 
             _lostMenu = GameObject.Find("LostMenu");
@@ -81,7 +90,7 @@ namespace Misc
             GameManager.LoadMenu();
         }
 
-        public void Sound()
+        private void Sound()
         {
             Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
             _soundMenu.SetActive(!_soundMenu.activeSelf);
@@ -94,39 +103,43 @@ namespace Misc
             _heatSystem = FindObjectOfType<HeatSystem>();
             _scoreSystem = FindObjectOfType<Score>();
             _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
-            _waveHandler.FinishedLevel += () =>
-            {
-                JesterFeverHandler.JesterFever = true;
-                _mashSpace.gameObject.SetActive(true);
-                Invoke("EndGame", 10);
-            };
-            _heatSystem.HeatDepleted += () =>
-            {
-                Time.timeScale = 0;
-                _lostMenu.SetActive(true);
-            };
-            _heatSystem.ComboMultiplierChanged += comboMultiplier =>
-            {
-                cancel = true;
-                if (comboMultiplier == 0)
-                {
-                    return;
-                }
 
-                _comboCounter.color = new Color32(255, 255, 255, 255);
-                _comboCounter.enabled = true;
-                _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
-                if (comboMultiplier > 5)
-                {
-                    StartCoroutine(StartingCombo());
-                }
-            };
-            _scoreSystem.ScoreChanged += score =>
+            if (!IsIntro)
             {
-                UpdateScoreCounter(score);
-            };
-            _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
-            _heatSystem.MaxHeat += () => { StartCoroutine(MaxHeatGained()); };
+                _waveHandler.FinishedLevel += () =>
+                {
+                    JesterFeverHandler.JesterFever = true;
+                    _mashSpace.gameObject.SetActive(true);
+                    Invoke(nameof(EndGame), 10);
+                };
+
+                _heatSystem.HeatDepleted += () =>
+                {
+                    Time.timeScale = 0;
+                    _lostMenu.SetActive(true);
+                };
+
+                _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
+                _heatSystem.MaxHeat += () => { StartCoroutine(MaxHeatGained()); };
+
+                _heatSystem.ComboMultiplierChanged += comboMultiplier =>
+                {
+                    _cancel = true;
+                    if (comboMultiplier == 0)
+                    {
+                        return;
+                    }
+
+                    _comboCounter.color = new Color32(255, 255, 255, 255);
+                    _comboCounter.enabled = true;
+                    _comboCounter.text = $"{comboMultiplier:0} Hit Combo!";
+                    if (comboMultiplier > 5)
+                    {
+                        StartCoroutine(StartingCombo());
+                    }
+                };
+                _scoreSystem.ScoreChanged += UpdateScoreCounter;
+            }
         }
 
         private void EndGame()
@@ -146,13 +159,13 @@ namespace Misc
 
             if (shake)
             {
-                _portrait.transform.DOShakePosition(1, 5, 10, 90);
+                _portrait.transform.DOShakePosition(1, 5);
             }
         }
 
-        IEnumerator ComboFinish(float combo)
+        private IEnumerator ComboFinish(float combo)
         {
-            cancel = false;
+            _cancel = false;
             HandleAnimations(combo);
             for (int i = 0; i < 6; i++)
             {
@@ -160,7 +173,7 @@ namespace Misc
                 _comboCounter.color = new Color32(255, 255, 255, 50);
                 yield return new WaitForSeconds(0.1f);
                 _comboCounter.color = new Color32(255, 255, 255, 255);
-                if (cancel)
+                if (_cancel)
                 {
                     yield break;
                 }
@@ -183,7 +196,7 @@ namespace Misc
                 return;
             }
 
-            for (int i = 0; i < comboArray.Length; i++)
+            for (var i = 0; i < comboArray.Length; i++)
             {
                 if (combo >= comboArray[i])
                 {
@@ -198,9 +211,9 @@ namespace Misc
             _comboResultText.GetComponent<Animator>().Play("ComboTextAnimation");
         }
 
-        IEnumerator StartingCombo()
+        private IEnumerator StartingCombo()
         {
-            if (!isInMax)
+            if (!_isInMax)
             {
                 ChangeKingPortrait(3, false, true);
                 while (_heatSystem.GetCombo() >= 5)
@@ -209,14 +222,14 @@ namespace Misc
                 }
 
                 yield return new WaitForSeconds(0.5f);
-                if (!isInMax)
+                if (!_isInMax)
                 {
                     ChangeKingPortrait(0, false, false);
                 }
             }
         }
 
-        IEnumerator MaxHeatGained()
+        private IEnumerator MaxHeatGained()
         {
             _heatSystem.CanMaxHeat = false;
             if (JesterFeverHandler.JesterFever)
@@ -224,14 +237,12 @@ namespace Misc
                 ChangeKingPortrait(2, true, false);
                 yield break;
             }
-            else
-            {
-                ChangeKingPortrait(1, true, false);
-            }
 
-            isInMax = true;
+            ChangeKingPortrait(1, true, false);
+
+            _isInMax = true;
             yield return new WaitForSeconds(5);
-            isInMax = false;
+            _isInMax = false;
             if (_heatSystem.GetCombo() >= 5)
             {
                 StartCoroutine(StartingCombo());
@@ -245,7 +256,7 @@ namespace Misc
             _heatSystem.CanMaxHeat = true;
         }
 
-        private void Update()
+        protected void Update()
         {
             if (!_lostMenu.activeSelf && !_wonMenu.activeSelf)
             {
@@ -259,15 +270,15 @@ namespace Misc
             }
         }
 
-        void PauseAllSources()
+        private void PauseAllSources()
         {
-            AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
-            foreach (AudioSource a in allAudioSources)
+            var allAudioSources = FindObjectsOfType<AudioSource>();
+            foreach (var audioSource in allAudioSources)
             {
-                if (a.isActiveAndEnabled == true)
+                if (audioSource.isActiveAndEnabled)
                 {
-                    if (a.isPlaying) a.Pause();
-                    else a.UnPause();
+                    if (audioSource.isPlaying) audioSource.Pause();
+                    else audioSource.UnPause();
                 }
             }
         }

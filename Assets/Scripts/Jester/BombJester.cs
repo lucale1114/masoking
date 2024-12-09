@@ -1,15 +1,17 @@
 using Player;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Objects
 {
     public class BombJester : MonoBehaviour
     {
-        public static int movespeed = 1;
+        public static int movespeed = 2;
         
         public Vector3 userDirection = Vector3.right;
         public BombJesterCollision bombCollision;
-        private BombJesterCollision BombJesterCollision;
+        Rigidbody2D rb;
+        float thrust = 40;
        
         //public Animator animator;
 
@@ -18,6 +20,7 @@ namespace Objects
         {
             //animator = GetComponent<Animator>();
             Destroy(gameObject, 18f);
+            rb = GetComponent<Rigidbody2D>();
            
         }
 
@@ -37,12 +40,12 @@ namespace Objects
             }
 
          
-            /*if  (BombJesterCollision.HasDashed)
+            if  (bombCollision.HasDashed == true)
             {
-               // animator.SetBool("Idle", true);
-                userDirection = Vector3.zero;
-                movespeed = 0;
-            }*/
+               
+                // animator.SetBool("Idle", true);
+                transform.Translate(Time.deltaTime * movespeed * userDirection * thrust);
+            }
         }
 
       

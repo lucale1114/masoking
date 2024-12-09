@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Wave
 {
@@ -51,6 +52,28 @@ namespace Wave
             public bool randomY;
 
             public JesterCommand[] commands;
+        }
+
+        public enum MovingAction
+        {
+            Move,
+            Idle
+        }
+
+        [Serializable]
+        public class MovingJesterCommand
+        {
+            public MovingAction action;
+            public Vector2 destination;
+            public float time;
+        }
+
+        [Serializable]
+        public class MovingJesterData
+        {
+            public Vector2 startPosition;
+            public bool loop;
+            public MovingJesterCommand[] commands;
         }
 
         [Serializable]

@@ -12,7 +12,7 @@ namespace Objects
         public Movement movement;
         public Transform myChildObject;
         public bool detachChild;
-        private bool hasDashed;
+        private bool hasDashed = false;
 
         public bool HasDashed => hasDashed;
         void Start()
@@ -29,14 +29,11 @@ namespace Objects
             {
                 if (myChildObject != null)
                 {
+                    transform.parent = null;
                     myChildObject.parent = null;
                 }
             }
 
-            if (myChildObject.parent == null)
-            {
-                
-            }
 
         }
 
@@ -48,6 +45,8 @@ namespace Objects
                 detachChild = true;
 
             }
+
+         
         }
 
     }

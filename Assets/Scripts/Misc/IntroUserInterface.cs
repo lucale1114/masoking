@@ -1,162 +1,79 @@
-using Jester;
-using Managers;
-using Player;
-using Projectile;
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using Collision = Player.Collision;
 
 namespace Misc
 {
-    public class IntroUserInterface : MonoBehaviour
+    public class IntroUserInterface : UserInterface
     {
-        [SerializeField]
-        private TextMeshProUGUI moveTextMesh;
-        [SerializeField]
-        private TextMeshProUGUI DashTextMesh;
-        [SerializeField]
-        private TextMeshProUGUI dashwallTextMesh;
-        [SerializeField]
-        private TextMeshProUGUI EnemyTextMesh;
-        private GameObject _pauseMenu;
-        private GameObject _soundMenu;
-        private bool hasMoved;
-        private bool hasDashed;
-        public Movement movement;
+        private TextMeshProUGUI _moveText;
+        private TextMeshProUGUI _enemyText;
+        private TextMeshProUGUI _dashText;
+        private TextMeshProUGUI _dashWallText;
 
-        public bool HaveDash => hasDashed;
+        private bool _hasMoved;
 
-        private void Awake()
+        public bool HaveDash { get; private set; }
+
+        protected new void Awake()
         {
-         
-            _pauseMenu = GameObject.Find("PauseMenu");
-            _soundMenu = GameObject.Find("SoundMenu");
-            _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
-            _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
-            _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
-            _pauseMenu.transform.Find("Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
-            _pauseMenu.SetActive(false);
-            _soundMenu.SetActive(false);
-            moveTextMesh.enabled = true;
-            DashTextMesh.enabled = false;
-            dashwallTextMesh.enabled = false;
-            EnemyTextMesh.enabled = false;
-            hasMoved = false;
-            hasDashed = false;
+            IsIntro = true;
 
+            base.Awake();
 
+            _moveText = GameObject.Find("Move").GetComponent<TextMeshProUGUI>();
+            _enemyText = GameObject.Find("Enemy").GetComponent<TextMeshProUGUI>();
+            _dashText = GameObject.Find("Dash").GetComponent<TextMeshProUGUI>();
+            _dashWallText = GameObject.Find("DashWall").GetComponent<TextMeshProUGUI>();
 
+            _enemyText.enabled = false;
+            _dashText.enabled = false;
+            _dashWallText.enabled = false;
         }
 
-        private static void Restart()
+        protected new void Update()
         {
-            Time.timeScale = 1;
-            GameManager.Restart();
-        }
+            base.Update();
 
-        private static void Quit()
-        {
-            GameManager.Quit();
-        }
-
-        private static void Menu()
-        {
-            Time.timeScale = 1;
-            GameManager.LoadMenu();
-        }
-
-        public void Sound()
-        {
-            Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
-            _soundMenu.SetActive(!_soundMenu.activeSelf);
-            _pauseMenu.SetActive(false);
-
-        }
-
-
-        public void Update()
-        {
-
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetAxisRaw("Vertical") != 0 && _hasMoved != true ||
+                Input.GetAxisRaw("Horizontal") != 0 && _hasMoved != true)
             {
-                Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
-                _pauseMenu.SetActive(!_pauseMenu.activeSelf);
-                _soundMenu.SetActive(false);
-                PauseAllSources();
-            }
-            
-
-            if (Input.GetAxisRaw("Vertical") != 0 && hasMoved != true || Input.GetAxisRaw("Horizontal") != 0 && hasMoved != true )
-            {
-              
                 StartCoroutine(SwitchTextMoveWithDelay());
-
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && hasDashed != true)
+            if (Input.GetKeyDown(KeyCode.Space) && HaveDash != true)
             {
-          
                 StartCoroutine(SwitchTextDashWithDelay());
             }
 
-            if (Player.Collision.BeenHit == true && hasDashed != false)
+            if (Collision.BeenHit && HaveDash)
             {
                 StartCoroutine(SwitchTextEnemyWithDelay());
             }
-
-        
-
         }
-
-        void PauseAllSources()
-        {
-            AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
-            foreach (AudioSource a in allAudioSources)
-            {
-                if (a.isActiveAndEnabled == true)
-                {
-                    if (a.isPlaying) a.Pause();
-                    else a.UnPause();
-                }
-            }
-
-        }
-
-
 
         private IEnumerator SwitchTextDashWithDelay()
         {
-            hasDashed = true;
-            yield return new WaitForSeconds(5f); // Wait for seconds
-            DashTextMesh.enabled = false; // Show DashTextMesh
-            EnemyTextMesh.enabled = true; // Show dashwallTextMesh
-
+            HaveDash = true;
+            yield return new WaitForSeconds(5f);
+            _dashText.enabled = false;
+            _enemyText.enabled = true;
         }
 
         private IEnumerator SwitchTextMoveWithDelay()
         {
-            
-            hasMoved = true;
-            yield return new WaitForSeconds(2f); // Wait for 2 seconds
-            DashTextMesh.enabled = true;
-            moveTextMesh.enabled = false;
-
+            _hasMoved = true;
+            yield return new WaitForSeconds(2f);
+            _dashText.enabled = true;
+            _moveText.enabled = false;
         }
 
         private IEnumerator SwitchTextEnemyWithDelay()
         {
-
             yield return new WaitForSeconds(2f);
-            EnemyTextMesh.enabled = false;
-            dashwallTextMesh.enabled = true;
-           
-
+            _enemyText.enabled = false;
+            _dashWallText.enabled = true;
         }
-   
-
-       
     }
 }
