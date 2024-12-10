@@ -650,7 +650,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1546478641}
   - component: {fileID: 1546478640}
-  - component: {fileID: 1546478639}
   - component: {fileID: 1546478638}
   - component: {fileID: 1546478637}
   - component: {fileID: 1546478636}
@@ -676,8 +675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eab567387fe42f4b7ed0acf5eae0e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombJesterPrefab: {fileID: 0}
   greenJesterPrefab: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+  purpleJesterPrefab: {fileID: 9001677757750891510, guid: d834a98331f003d43835b461a94c112c, type: 3}
 --- !u!114 &1546478634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,18 +741,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveList: {fileID: 11400000, guid: bba2030ebd84f3141aff1d2d39f81620, type: 2}
   debugForceWave: 0
---- !u!114 &1546478639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546478632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dedd3cce7d9cd64180793af47263b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1546478640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,7 +753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0541cc27f92508b4bb302fbc8d00aa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jesterPrefab: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
+  redJesterPrefab: {fileID: 745559563252854211, guid: febeeb79b985d1141b324a57847b01e4, type: 3}
+  blueJesterPrefab: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
 --- !u!4 &1546478641
 Transform:
   m_ObjectHideFlags: 0
