@@ -17,11 +17,11 @@ namespace Wave.Editors
             var myInspector = new VisualElement();
 
             var foldout = new Foldout();
-            var propertyField = new PropertyField(property.FindPropertyRelative("action"), "Action");
+            var propertyField = new PropertyField(property.FindPropertyRelative("jesterAction"), "Action");
             propertyField.RegisterValueChangeCallback(_ =>
             {
                 foldout.text = Regex.Replace(
-                    property.FindPropertyRelative("action").GetEnumName<BlueJesterActions>(),
+                    property.FindPropertyRelative("jesterAction").GetEnumName<BlueJesterActions>(),
                     "([a-z])([A-Z])", "$1 $2");
                 Populate(property, foldout);
             });
