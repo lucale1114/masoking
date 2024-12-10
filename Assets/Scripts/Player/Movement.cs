@@ -170,6 +170,7 @@ namespace Player
 
         private IEnumerator ChargeDash()
         {
+            SoundFXManager.Instance.StopWalking();
             IsCurrentlyDashing = true;
             IsInDashState = true;
             rb.velocity = Vector2.zero;
@@ -177,12 +178,14 @@ namespace Player
             rb.velocity = currentVelocity * 0.25f;
             power = 0;
             StartCoroutine(FlashRecharge());
+          
             while (_chargingDash)
             {
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + dashIncrease, dashMaxTime);
             }
-           
+            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
+
             power = Mathf.Max(dashMinTime, power);
             StartCoroutine(Dash());
         }
@@ -198,14 +201,15 @@ namespace Player
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 0), 0.05f);
                 yield return new WaitForSeconds(((dashMaxTime + 0.1f) - power) / 6);
             }
-            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             _dashImageCharger.enabled = false;
         }
 
         private IEnumerator Dash()
         {
+
             Vector2 velocityVector;
             IsDashing?.Invoke(true);
+
             IsInDashState = false;
             _dashCoolDown = 0;
             if (Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
@@ -214,15 +218,14 @@ namespace Player
             }
             else
             {
+
                 velocityVector = currentVelocity * (dashSpeed * maxSpeed * power);
 
             }
-            //SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
             playerAnimator.PlayDash(currentVelocity);
-            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
