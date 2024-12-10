@@ -71,7 +71,7 @@ namespace Jester
 
                 if (Mathf.Approximately(command.timestamp + enterTimestamp, WaveHandler.Timestamp))
                 {
-                    PerformAction(command.jesterAction, command.shotData);
+                    PerformAction(command.action, command.shotData);
                 }
             }
             if (Mathf.Approximately(leaveTime, WaveHandler.Timestamp))

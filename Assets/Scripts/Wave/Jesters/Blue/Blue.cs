@@ -19,7 +19,7 @@ namespace Wave.Jesters.Blue
     public class BlueJesterCommand
     {
         public float timestamp;
-        public BlueJesterActions jesterAction;
+        public BlueJesterActions action;
         public BlueShotDataObject shotData;
     }
 

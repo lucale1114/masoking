@@ -17,11 +17,11 @@ namespace Wave.Editors
             var myInspector = new VisualElement();
 
             var foldout = new Foldout();
-            var propertyField = new PropertyField(property.FindPropertyRelative("jesterAction"), "Action");
+            var propertyField = new PropertyField(property.FindPropertyRelative("action"), "Action");
             propertyField.RegisterValueChangeCallback(_ =>
             {
                 foldout.text = Regex.Replace(
-                    property.FindPropertyRelative("jesterAction").GetEnumName<RedJesterActions>(),
+                    property.FindPropertyRelative("action").GetEnumName<RedJesterActions>(),
                     "([a-z])([A-Z])", "$1 $2");
                 Populate(property, foldout);
             });
@@ -50,7 +50,7 @@ namespace Wave.Editors
             AddProperty(property, visualElement, "shotData.randomX", "RandomX");
             AddProperty(property, visualElement, "shotData.randomY", "RandomY");
 
-            switch (jesterCommand!.jesterAction)
+            switch (jesterCommand!.action)
             {
                 case RedJesterActions.Throw:
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
