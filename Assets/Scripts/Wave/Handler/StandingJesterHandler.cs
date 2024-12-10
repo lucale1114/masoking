@@ -23,20 +23,16 @@ namespace Wave.Handler
 
         private void Start()
         {
-            RedJesterBehaviour.AnyJesterDestroyed += jester =>
+            RedJesterBehaviour.AnyJesterDestroyed += OnAnyJesterDestroyed;
+            BlueJesterBehaviour.AnyJesterDestroyed += OnAnyJesterDestroyed;
+        }
+
+        private void OnAnyJesterDestroyed(GameObject jester)
+        {
+            if (_currentJesters.IndexOf(jester) != -1)
             {
-                if (_currentJesters.IndexOf(jester) != -1)
-                {
-                    _currentJesters.Remove(jester);
-                }
-            };
-            BlueJesterBehaviour.AnyJesterDestroyed += jester =>
-            {
-                if (_currentJesters.IndexOf(jester) != -1)
-                {
-                    _currentJesters.Remove(jester);
-                }
-            };
+                _currentJesters.Remove(jester);
+            }
         }
 
         public void SetCurrentWaveJesters(List<RedJesterData> redJesters, List<BlueJesterData> blueJesters)
