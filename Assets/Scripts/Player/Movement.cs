@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using Wave;
 using Wave.Handler;
-using static Wave.WaveData;
 
 namespace Player
 {
@@ -224,7 +222,7 @@ namespace Player
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
             playerAnimator.PlayDash(currentVelocity);
-           
+            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);

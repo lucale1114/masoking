@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Wave;
-using static Wave.WaveData;
+using Wave.Jesters.Blue;
 
 namespace Projectile
 {
@@ -25,7 +24,7 @@ namespace Projectile
         public float frequency;
         public float amp;
 
-        private ShotDataObject _data;
+        private BlueShotDataObject _data;
 
         public bool _canHit = true;
         private int _numberOfBounces;
@@ -60,7 +59,7 @@ namespace Projectile
             {
                 GetComponent<SpriteRenderer>().sprite = GameObject.Find("Game").GetComponent<SpriteStorage>().knifeSprites[0];
                 spinSpeed *= 0.5f;
-                transform.localScale *= 3; 
+                transform.localScale *= 3;
                 GetComponent<Collision>().noStabbing = true;
             }
 
@@ -151,12 +150,12 @@ namespace Projectile
             Destroy(gameObject);
         }
 
-        public ShotDataObject GetShotData()
+        public IShotData GetShotData()
         {
             return _data;
         }
 
-        public void SetShotData(ShotDataObject data)
+        public void SetShotData(BlueShotDataObject data)
         {
             _data = data;
             _numberOfBounces = _data.numberOfBounces;

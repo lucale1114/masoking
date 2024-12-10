@@ -5,22 +5,23 @@ using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
+using Wave.Jesters.Blue;
 
-namespace Wave
+namespace Wave.Editors
 {
-    [CustomPropertyDrawer(typeof(WaveData.JesterCommand))]
-    public class JesterCommandEditor : PropertyDrawer
+    [CustomPropertyDrawer(typeof(BlueJesterCommand))]
+    public class BlueJesterCommandEditor : PropertyDrawer
     {
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             var myInspector = new VisualElement();
 
             var foldout = new Foldout();
-            var propertyField = new PropertyField(property.FindPropertyRelative("action"), "Action");
+            var propertyField = new PropertyField(property.FindPropertyRelative("jesterAction"), "Action");
             propertyField.RegisterValueChangeCallback(_ =>
             {
                 foldout.text = Regex.Replace(
-                    property.FindPropertyRelative("action").GetEnumName<WaveData.Actions>(),
+                    property.FindPropertyRelative("jesterAction").GetEnumName<BlueJesterActions>(),
                     "([a-z])([A-Z])", "$1 $2");
                 Populate(property, foldout);
             });
@@ -33,7 +34,7 @@ namespace Wave
 
         private static void Populate(SerializedProperty property, VisualElement visualElement)
         {
-            var jesterCommand = property.boxedValue as WaveData.JesterCommand;
+            var jesterCommand = property.boxedValue as BlueJesterCommand;
 
             while (visualElement.childCount > 2)
             {
@@ -49,23 +50,23 @@ namespace Wave
             AddProperty(property, visualElement, "shotData.randomX", "RandomX");
             AddProperty(property, visualElement, "shotData.randomY", "RandomY");
 
-            switch (jesterCommand!.action)
+            switch (jesterCommand!.jesterAction)
             {
-                case WaveData.Actions.FireAimed:
+                case BlueJesterActions.FireAimed:
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.FireStorm:
+                case BlueJesterActions.FireStorm:
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.FireBurst:
+                case BlueJesterActions.FireBurst:
                     AddProperty(property, visualElement, "shotData.timer", "Timer");
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.speed2", "Burst projectile speed");
@@ -73,39 +74,28 @@ namespace Wave
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.FireCurved:
+                case BlueJesterActions.FireCurved:
                     AddProperty(property, visualElement, "shotData.timer", "Timer");
                     AddProperty(property, visualElement, "shotData.gravityDir", "Gravity Direction");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.FireWavy:
+                case BlueJesterActions.FireWavy:
                     AddProperty(property, visualElement, "shotData.frequency", "Frequency");
                     AddProperty(property, visualElement, "shotData.amp", "Amplitude");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.FireRow:
+                case BlueJesterActions.FireRow:
                     AddProperty(property, visualElement, "shotData.amount", "Amount");
                     AddProperty(property, visualElement, "shotData.radius", "Radius");
                     AddProperty(property, visualElement, "shotData.spin", "Spin");
                     AddProperty(property, visualElement, "shotData.straight", "Straight");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;
-                case WaveData.Actions.Throw:
-                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
-                    AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
-                    AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
-                    AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
-                    break;
-                case WaveData.Actions.ThrowAndRoll:
-                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
-                    AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
-                    AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
-                    break;
-                case WaveData.Actions.Snipe:
+                case BlueJesterActions.Snipe:
                     AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     break;

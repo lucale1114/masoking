@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2096671366145075604}
   - component: {fileID: 8739294824754787912}
   - component: {fileID: 8886717028465816378}
-  - component: {fileID: -2474323719550544348}
   - component: {fileID: 3118247668702375447}
   - component: {fileID: 1256570226195499151}
   - component: {fileID: 4797457236873418836}
+  - component: {fileID: -4970837544014299122}
   m_Layer: 0
-  m_Name: Jester
+  m_Name: RedJester
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15bc639fabdc6cf4cb667af1fb4fc002, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4095dd1ad4b0764c96edf26655cd87f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,134 +108,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04e1fed6714b92d4cb7df13914474958, type: 3}
   - {fileID: 8300000, guid: 344b7b16ea0e1c1469b38b3a67af4b7b, type: 3}
   projectile: {fileID: 7494303468764717806, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
---- !u!114 &-2474323719550544348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745559563252854211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466c33d50ac67a343b82ea4a6a7037d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enterTimestamp: 0
-  jesterCommands:
-  - timestamp: 3
-    action: 0
-    shotData:
-      speed: 0
-      inaccuracy: 0
-      scale: 1
-      damage: 5
-      x: 0
-      y: 0
-      randomX: 0
-      randomY: 0
-      throwAirTime: 0
-      animationCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      timer: 0
-      frequency: 0
-      amp: 0
-      gravityDir: 0
-      amount: 0
-      speed2: 0
-      fireBetween: 0
-      radius: 0
-      spin: 0
-      straight: 0
-      numberOfBounces: 0
-  - timestamp: 5
-    action: 2
-    shotData:
-      speed: 8
-      inaccuracy: 0
-      scale: 1
-      damage: 5
-      x: 0
-      y: 0
-      randomX: 0
-      randomY: 0
-      throwAirTime: 0
-      animationCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      timer: 0
-      frequency: 0
-      amp: 0
-      gravityDir: 0
-      amount: 7
-      speed2: 0
-      fireBetween: 0.5
-      radius: 0
-      spin: 0
-      straight: 0
-      numberOfBounces: 0
-  - timestamp: 12
-    action: 1
-    shotData:
-      speed: 15
-      inaccuracy: 0
-      scale: 1
-      damage: 5
-      x: 0
-      y: 0
-      randomX: 0
-      randomY: 0
-      throwAirTime: 0
-      animationCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      timer: 0
-      frequency: 0
-      amp: 0
-      gravityDir: 0
-      amount: 7
-      speed2: 0
-      fireBetween: 0.5
-      radius: 0
-      spin: 0
-      straight: 0
-      numberOfBounces: 0
-  shotDataObject:
-    speed: 0
-    inaccuracy: 0
-    scale: 1
-    damage: 5
-    x: 0
-    y: 0
-    randomX: 0
-    randomY: 0
-    throwAirTime: 0
-    animationCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    timer: 0
-    frequency: 0
-    amp: 0
-    gravityDir: 0
-    amount: 0
-    speed2: 0
-    fireBetween: 0
-    radius: 0
-    spin: 0
-    straight: 0
-    numberOfBounces: 0
 --- !u!114 &3118247668702375447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,11 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f25672e3234e9cb4f741bdb43fd1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorToSprite:
-  - color: 0
-    sprite: {fileID: 21300000, guid: 15bc639fabdc6cf4cb667af1fb4fc002, type: 3}
-  - color: 1
-    sprite: {fileID: 21300000, guid: d4095dd1ad4b0764c96edf26655cd87f, type: 3}
 --- !u!95 &1256570226195499151
 Animator:
   serializedVersion: 5
@@ -263,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 745559563252854211}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 47e326c353a08d24db7db4c211b6e28e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50e47890ce17e4344962f058224eb961, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -378,3 +245,45 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &-4970837544014299122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745559563252854211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466c33d50ac67a343b82ea4a6a7037d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterTimestamp: 0
+  jesterCommands: []
+  shotDataObject:
+    speed: 0
+    inaccuracy: 0
+    scale: 1
+    damage: 10
+    x: 0
+    y: 0
+    randomX: 0
+    randomY: 0
+    throwAirTime: 0
+    animationCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    timer: 0
+    frequency: 0
+    amp: 0
+    gravityDir: 0
+    amount: 0
+    speed2: 0
+    fireBetween: 0
+    radius: 0
+    spin: 0
+    straight: 0
+    numberOfBounces: 0
+    breakable: 0

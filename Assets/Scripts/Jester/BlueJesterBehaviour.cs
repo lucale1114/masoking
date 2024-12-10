@@ -2,14 +2,13 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using Wave;
 using Wave.Handler;
-using static Wave.WaveData;
+using Wave.Jesters.Blue;
 using Random = UnityEngine.Random;
 
 namespace Jester
 {
-    public class JesterBehaviour : MonoBehaviour
+    public class BlueJesterBehaviour : MonoBehaviour
     {
         public static event Action<GameObject> AnyJesterDestroyed;
 
@@ -19,9 +18,9 @@ namespace Jester
         float leaveTime;
         public float enterTimestamp;
         private GameObject player;
-        public JesterCommand[] jesterCommands;
+        public BlueJesterCommand[] jesterCommands;
         private JesterAnimator jesterAnimator;
-        public ShotDataObject shotDataObject;
+        public BlueShotDataObject shotDataObject;
         private LineRenderer lineRenderer;
         private bool leaving;
 
@@ -41,9 +40,9 @@ namespace Jester
                 dir = -1;
             }
 
-            foreach (JesterCommand command in jesterCommands)
+            foreach (BlueJesterCommand command in jesterCommands)
             {
-                ShotDataObject data = command.shotData;
+                BlueShotDataObject data = command.shotData;
                 int additionIfOnlyFB = 0;
                 if (data.amount == 0)
                 {
@@ -65,7 +64,7 @@ namespace Jester
             if (leaving) {
                 return;
             }
-            foreach (JesterCommand command in jesterCommands)   
+            foreach (BlueJesterCommand command in jesterCommands)
             {
                 if (Mathf.Approximately(enterTimestamp, WaveHandler.Timestamp))
                 {
@@ -74,7 +73,7 @@ namespace Jester
 
                 if (Mathf.Approximately(command.timestamp + enterTimestamp, WaveHandler.Timestamp))
                 {
-                    PerformAction(command.action, command.shotData);
+                    PerformAction(command.jesterAction, command.shotData);
                 }
             }
             if (Mathf.Approximately(leaveTime, WaveHandler.Timestamp))
@@ -95,38 +94,32 @@ namespace Jester
             }
         }
 
-        void PerformAction(Actions action, ShotDataObject data)
+        private void PerformAction(BlueJesterActions action, BlueShotDataObject data)
         {
             jesterAnimator.SetIdle();
 
             switch (action)
             {
-                case Actions.FireAimed:
+                case BlueJesterActions.FireAimed:
                     StartCoroutine(FireAimedShots(data));
                     break;
-                case Actions.FireStorm:
+                case BlueJesterActions.FireStorm:
                     StartCoroutine(FireStorm(data));
                     break;
-                case Actions.FireBurst:
+                case BlueJesterActions.FireBurst:
                     FireBurst(data);
                     break;
-                case Actions.FireCurved:
+                case BlueJesterActions.FireCurved:
                     FireCurvedShot(data);
                     break;
-                case Actions.FireWavy:
+                case BlueJesterActions.FireWavy:
                     FireWavyShot(data);
                     break;
-                case Actions.FireRow:
+                case BlueJesterActions.FireRow:
                     FireRow(data);
                     break;
-                case Actions.Snipe:
+                case BlueJesterActions.Snipe:
                     StartCoroutine(FireSniper(data));
-                    break;
-                case Actions.Throw:
-                    Throw(data);
-                    break;
-                case Actions.ThrowAndRoll:
-                    ThrowAndRoll(data);
                     break;
             }
         }
@@ -149,7 +142,7 @@ namespace Jester
             Destroy(gameObject, 1.5f);
         }
         // Shots that are aimed towards the player
-        IEnumerator FireAimedShots(ShotDataObject data)
+        IEnumerator FireAimedShots(BlueShotDataObject data)
         {
             for (int i = 0; i < data.amount; i++) {
                 jesterAnimator.TriggerFire();
@@ -159,32 +152,32 @@ namespace Jester
         }
 
         // Shots that have gravitation which flips after some time
-        private void FireCurvedShot(ShotDataObject data)
+        private void FireCurvedShot(BlueShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootCurvedShot(data.speed, data.timer, data.gravityDir, 1, data);
         }
         // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
-        private void FireWavyShot(ShotDataObject data)
+        private void FireWavyShot(BlueShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
         }
         // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
-        private void FireRow(ShotDataObject data)
+        private void FireRow(BlueShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootRow(data.speed, data.radius, data.amount, data);
         }
         // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
-        private void FireBurst(ShotDataObject data)
+        private void FireBurst(BlueShotDataObject data)
         {
             jesterAnimator.TriggerFire();
             jesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
         }
 
         // Fires a storm of shots towards the player.
-        IEnumerator FireStorm(ShotDataObject data)
+        IEnumerator FireStorm(BlueShotDataObject data)
         {
             for (int i = 0; i < data.amount; i++)
             {
@@ -194,7 +187,7 @@ namespace Jester
             yield return new WaitForSeconds(3);
         }
 
-        IEnumerator FireSniper(ShotDataObject data)
+        IEnumerator FireSniper(BlueShotDataObject data)
         {
             float x = data.x;
             float y = data.y;
@@ -221,17 +214,5 @@ namespace Jester
             lineRenderer.enabled = false;
 
         }
-        private void Throw(ShotDataObject data)
-        {
-            jesterAnimator.TriggerFire();
-            jesterFire.Throw(data);
-        }
-
-        private void ThrowAndRoll(ShotDataObject data)
-        {
-            jesterAnimator.TriggerFire();
-            jesterFire.ThrowAndRoll(data);
-        }
-
     }
 }
