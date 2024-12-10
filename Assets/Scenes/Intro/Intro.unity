@@ -1551,20 +1551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0541cc27f92508b4bb302fbc8d00aa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redJesterPrefab: {fileID: 0}
-  blueJesterPrefab: {fileID: 0}
---- !u!114 &4440849829187645558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6308222798423353515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dedd3cce7d9cd64180793af47263b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  redJesterPrefab: {fileID: 745559563252854211, guid: febeeb79b985d1141b324a57847b01e4, type: 3}
+  blueJesterPrefab: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
 --- !u!4 &6128088178291196707
 Transform:
   m_ObjectHideFlags: 0
@@ -1590,7 +1578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6128088178291196707}
   - component: {fileID: 4123454845004006269}
-  - component: {fileID: 4440849829187645558}
   - component: {fileID: 6308222798423353516}
   - component: {fileID: 6308222798423353518}
   - component: {fileID: 6308222798423353517}
