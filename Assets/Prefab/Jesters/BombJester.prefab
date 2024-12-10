@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1997178519217708285}
   - component: {fileID: 7072586478284884970}
   - component: {fileID: 3011607055567451545}
-  - component: {fileID: 8161296192553630175}
+  - component: {fileID: -5628673635275305502}
   m_Layer: 0
   m_Name: BombJester
   m_TagString: Untagged
@@ -369,7 +369,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8161296192553630175
+--- !u!114 &-5628673635275305502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,6 +378,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9001677757750891510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f9b4b72bae41daa36519849005c0a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 380ccebf2e304ba49898c5556ada240f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -11,11 +11,16 @@ namespace Wave.Jesters.Red
     }
 
     [Serializable]
-    public class RedJesterCommand
+    public class RedJesterCommand : IHasTimestamp
     {
         public float timestamp;
         public RedJesterActions action;
         public RedShotDataObject shotData;
+
+        public float GetTimestamp()
+        {
+            return timestamp;
+        }
     }
 
     [Serializable]
@@ -34,10 +39,6 @@ namespace Wave.Jesters.Red
     {
         [Tooltip("Speed of the projectile. Everything uses it in floats.")]
         public float speed;
-
-        [Tooltip(
-            "Inaccuracy of the shot. Magic number-like, higher is just more inaccurate with no specific unit.")]
-        public int inaccuracy;
 
         [Tooltip("Scale of projectile.")] public float scale = 1;
 
@@ -63,37 +64,11 @@ namespace Wave.Jesters.Red
         [Tooltip("Curve for throws.")] public AnimationCurve animationCurve;
 
         [Tooltip(
-            "For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
-        public float timer;
-
-        [Tooltip("Cosine wave settings for wave shot.")]
-        public float frequency;
-
-        [Tooltip("Cosine wave settings for wave shot.")]
-        public int amp;
-
-        [Tooltip("The speed curved shots move at. Set to negative to reverse gravity.")]
-        public float gravityDir;
-
-        [Tooltip(
             "Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
 
-        [Tooltip(
-            "Cloned projectile speed. This is in addition to the normal speed, so setting it negative the same value will turn it 0!")]
-        public float speed2;
-
         [Tooltip("Time in between shots for aimed and storm. For reticle based shots, when it should shoot.")]
         public float fireBetween;
-
-        [Tooltip("How much area is in the row shot.")]
-        public int radius;
-
-        [Tooltip("Forces spin. Enable this to force shots not to spin on shots that are enabled by default.")]
-        public bool spin;
-
-        [Tooltip("Fires forward, based on the jester's position.")]
-        public bool straight;
 
         [Tooltip("Number of bounces on walls")]
         public int numberOfBounces;

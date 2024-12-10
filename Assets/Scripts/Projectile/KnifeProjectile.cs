@@ -1,6 +1,6 @@
 using System.Collections;
+using Jester.Blue;
 using UnityEngine;
-using Wave.Jesters.Blue;
 
 namespace Projectile
 {

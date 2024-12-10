@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Jester.Green;
+using Jester.Purple;
 using UnityEngine;
-using Wave.Jesters.Green;
-using Wave.Jesters.Purple;
+using Movement = Jester.Green.Movement;
 
 namespace Wave.Handler
 {

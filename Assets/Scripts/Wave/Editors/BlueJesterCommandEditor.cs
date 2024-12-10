@@ -1,11 +1,11 @@
 #if UNITY_EDITOR
 
 using System.Text.RegularExpressions;
+using Jester.Blue;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
-using Wave.Jesters.Blue;
 
 namespace Wave.Editors
 {

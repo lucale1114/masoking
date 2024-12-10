@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Jester;
+using Jester.Blue;
+using Jester.Red;
 using UnityEngine;
-using Wave.Jesters.Blue;
 using Wave.Jesters.Red;
 using Random = UnityEngine.Random;
 

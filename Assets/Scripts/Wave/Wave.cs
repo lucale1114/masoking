@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Jester.Blue;
+using Jester.Green;
+using Jester.Purple;
 using UnityEngine;
-using Wave.Jesters.Blue;
-using Wave.Jesters.Green;
-using Wave.Jesters.Purple;
 using Wave.Jesters.Red;
 
 namespace Wave
