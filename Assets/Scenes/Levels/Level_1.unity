@@ -585,7 +585,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2394680308543682949}
   - component: {fileID: 5551177897304979931}
-  - component: {fileID: 5301259937414531792}
   - component: {fileID: 5551177897304979932}
   - component: {fileID: 5551177897304979933}
   - component: {fileID: 5551177897304979934}
@@ -915,18 +914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5301259937414531792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2574798401170592269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dedd3cce7d9cd64180793af47263b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5516732850031902543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0541cc27f92508b4bb302fbc8d00aa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jesterPrefab: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
+  redJesterPrefab: {fileID: 745559563252854211, guid: febeeb79b985d1141b324a57847b01e4, type: 3}
+  blueJesterPrefab: {fileID: 745559563252854211, guid: 3dd5d3af6ed6a0845a004d4391434dd8, type: 3}
 --- !u!114 &5551177897304979932
 MonoBehaviour:
   m_ObjectHideFlags: 0

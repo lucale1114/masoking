@@ -23,11 +23,11 @@ namespace Projectile
         }
         private void CatchProjectile(Collider2D collision)
         {
-            var damage = _projectile.GetShotData().damage * _projectile.GetDamageMod();
+            var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
             collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
             Instantiate(hitVfx, closestPoint, Quaternion.identity);
-            SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
             Destroy(gameObject);
         }
@@ -43,7 +43,7 @@ namespace Projectile
                         CatchProjectile(collision);
                         return;
                     }
-                    if (_projectile.GetShotData().breakable)
+                    if (_projectile.GetShotData().GetBreakable())
                     {
                         if (collision.GetComponent<Movement>().IsCurrentlyDashing)
                         {

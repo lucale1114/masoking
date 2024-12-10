@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using Wave;
 
 namespace Jester.Green
 {
@@ -13,10 +12,10 @@ namespace Jester.Green
         private Animator _animator;
         private Collision _collision;
 
-        private WaveData.MovingJesterData _data;
+        private GreenJesterData _data;
         private int _currentCommandIndex;
 
-        public void SetData(WaveData.MovingJesterData data)
+        public void SetData(GreenJesterData data)
         {
             _data = data;
             _currentCommandIndex = 0;
@@ -42,7 +41,7 @@ namespace Jester.Green
             }
 
             var command = _data.commands[_currentCommandIndex];
-            var direction = command.destination - (Vector2) transform.position;
+            var direction = command.destination - (Vector2)transform.position;
 
             switch (direction.x)
             {
@@ -56,7 +55,7 @@ namespace Jester.Green
 
             switch (command.action)
             {
-                case WaveData.MovingAction.Move:
+                case GreenJesterActions.Move:
                     _animator.SetBool(Idle, false);
                     transform.DOMove(command.destination, command.time).onComplete += () =>
                     {
@@ -64,7 +63,7 @@ namespace Jester.Green
                         MakeStep();
                     };
                     break;
-                case WaveData.MovingAction.Idle:
+                case GreenJesterActions.Idle:
                     StartCoroutine(IdleRoutine(command.time));
                     break;
                 default:

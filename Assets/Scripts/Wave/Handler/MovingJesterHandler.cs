@@ -1,29 +1,39 @@
-using System;
 using System.Collections.Generic;
 using Jester.Green;
+using Jester.Purple;
 using UnityEngine;
-using static Wave.WaveData;
+using Movement = Jester.Green.Movement;
 
 namespace Wave.Handler
 {
     public class MovingJesterHandler : MonoBehaviour
     {
-        [SerializeField] private GameObject bombJesterPrefab;
         [SerializeField] private GameObject greenJesterPrefab;
+        [SerializeField] private GameObject purpleJesterPrefab;
 
-        private MovingJesterData[] _currentWaveJesters;
+        private List<GreenJesterData> _currentWaveGreenJesters;
+        private List<PurpleJesterData> _currentWavePurpleJesters;
         private readonly List<GameObject> _currentJesters = new();
 
-        public void SetCurrentWaveJesters(MovingJesterData[] currentWaveJesters)
+        public void SetCurrentWaveJesters(List<GreenJesterData> greenJesters, List<PurpleJesterData> purpleJesters)
         {
-            _currentWaveJesters = currentWaveJesters;
+            _currentWaveGreenJesters = greenJesters;
+            _currentWavePurpleJesters = purpleJesters;
         }
 
         public void StartWave()
         {
             _currentJesters.Clear();
 
-            foreach (var item in _currentWaveJesters)
+            foreach (var item in _currentWaveGreenJesters)
+            {
+                if (item.commands.Length > 0)
+                {
+                    _currentJesters.Add(SpawnJester(item));
+                }
+            }
+
+            foreach (var item in _currentWavePurpleJesters)
             {
                 if (item.commands.Length > 0)
                 {
@@ -37,17 +47,17 @@ namespace Wave.Handler
             return _currentJesters.Count == 0;
         }
 
-        private GameObject SpawnJester(MovingJesterData data)
+        private GameObject SpawnJester(GreenJesterData data)
         {
-            var newJester = data.type switch
-            {
-                MovingJesterType.Green =>
-                    Instantiate(greenJesterPrefab, data.startPosition, greenJesterPrefab.transform.rotation),
-                MovingJesterType.Bomb =>
-                    Instantiate(bombJesterPrefab, data.startPosition, bombJesterPrefab.transform.rotation),
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            var newJester = Instantiate(greenJesterPrefab, data.startPosition, greenJesterPrefab.transform.rotation);
             newJester.GetComponent<Movement>().SetData(data);
+            return newJester;
+        }
+
+        private GameObject SpawnJester(PurpleJesterData data)
+        {
+            var newJester = Instantiate(purpleJesterPrefab, data.startPosition, purpleJesterPrefab.transform.rotation);
+            newJester.GetComponent<Jester.Purple.Movement>().SetData(data);
             return newJester;
         }
     }

@@ -21,7 +21,7 @@ namespace Objects
             {
                 Collider2D collider2D = GetComponent<Collider2D>();
                 Destroy(collider2D.gameObject);
-                SoundFXManager.Instance.PlaySoundFX(boom, transform, 1f);
+                SoundFXManager.Instance.PlaySoundFX(boom, 1f);
             }
         }
     }

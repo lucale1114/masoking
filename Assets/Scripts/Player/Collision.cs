@@ -18,14 +18,14 @@ namespace Player
 
             {
                 Destroy(other.gameObject);
-                SoundFXManager.Instance.PlaySoundFX(boom, transform, 1f);
+                SoundFXManager.Instance.PlaySoundFX(boom, 1f);
             }
 
             if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurrentlyDashing && intro.HaveDash)
 
             {
                 Destroy(other.gameObject);
-                SoundFXManager.Instance.PlaySoundFX(boom, transform, 2f);
+                SoundFXManager.Instance.PlaySoundFX(boom, 2f);
                 StartCoroutine(SwitchSceneDelay());
             }
         }

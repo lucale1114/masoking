@@ -14,6 +14,7 @@ namespace Misc
 
                 if (projectile.GetNumberOfBounces() > 0)
                 {
+
                     projectile.AttemptBounce(-collision.contacts[0].normal);
                 }
             }

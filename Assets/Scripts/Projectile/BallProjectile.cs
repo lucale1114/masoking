@@ -1,6 +1,6 @@
 using Player;
 using UnityEngine;
-using Wave;
+using Wave.Jesters.Red;
 
 namespace Projectile
 {
@@ -27,7 +27,7 @@ namespace Projectile
             Destroy(gameObject, 4f);
         }
 
-        protected override void InstantiateReticle(WaveData.ShotDataObject shotData)
+        protected override void InstantiateReticle(RedShotDataObject shotData)
         {
             base.InstantiateReticle(shotData);
 
