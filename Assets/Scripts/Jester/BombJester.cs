@@ -26,7 +26,7 @@ namespace Jester
             _player = GameObject.FindGameObjectWithTag("Player");
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
-            _bomb = GameObject.FindGameObjectWithTag("Bomb");
+            _bomb = transform.GetChild(0).gameObject;
             _bombCollision = GetComponent<BombJesterCollision>();
 
             if (_bomb != null)
