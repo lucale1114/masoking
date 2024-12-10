@@ -41,7 +41,7 @@ namespace Objects
             if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
             {
                 StartCoroutine(FallOver(this.gameObject, collision.transform.position));
-                SoundFXManager.Instance.PlaySoundFX(fall, transform, 1f);
+                SoundFXManager.Instance.PlaySoundFX(fall, 1f);
             }
 
             if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true &&
@@ -165,7 +165,7 @@ namespace Objects
                     lineRenderer.enabled = false;
                     triggerCollider.enabled = true;
                     isFalling = false;
-                    SoundFXManager.Instance.PlaySoundFX(smash, transform, 2f);
+                    SoundFXManager.Instance.PlaySoundFX(smash, 2f);
                     yield return new WaitForSeconds(0.1f);
 
                     hasFallen = true;

@@ -99,7 +99,7 @@ namespace Projectile
                 collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
                 //Instantiate(hitVfx, closestPoint, Quaternion.identity);
                 //SoundManager.PlayHit(closestPoint);
-                SoundFXManager.Instance.PlayRandomSoundFX(audioClip, transform, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFX(audioClip, 1f);
                 CurrentTime = 0;
                 StartPosition = transform.position;
                 Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));

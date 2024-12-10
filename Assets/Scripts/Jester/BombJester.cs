@@ -56,7 +56,7 @@ namespace Jester
             if (_bombCollision.HasDashed && !_launched)
             {
                 _animator.SetBool(Idle, true);
-                SoundFXManager.Instance.PlayRandomSoundFX(smack, transform, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFX(smack, 1f);
                 
                 _launched = true;
                 Launch();

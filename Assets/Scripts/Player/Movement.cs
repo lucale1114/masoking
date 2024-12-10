@@ -220,7 +220,7 @@ namespace Player
             rb.velocity = currentVelocity;
             playerAnimator.PlayDash(currentVelocity);
            
-            SoundFXManager.Instance.PlayRandomSoundFX(dash, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
