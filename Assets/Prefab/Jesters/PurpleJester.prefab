@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,7 +166,8 @@ MonoBehaviour:
   booms:
   - {fileID: 8300000, guid: 80d10d58e82b09c4db6db861cb742faf, type: 3}
   - {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
-  explosionRadius: 0.5
+  animator: {fileID: 4284304913946595986}
+  explosionRadius: 0.52
 --- !u!95 &4284304913946595986
 Animator:
   serializedVersion: 5
@@ -311,8 +312,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.42346025}
+  m_Size: {x: 1, y: 2.8469205}
   m_Direction: 0
 --- !u!50 &567243457449737187
 Rigidbody2D:
@@ -355,8 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 20
   smack:
+  - {fileID: 8300000, guid: 8611c622f2e43cb44b3f2eecd0bba6b7, type: 3}
   - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
-  - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
   bombOffset: {x: 0.4, y: 0.5, z: 0}
 --- !u!114 &7072586478284884970
 MonoBehaviour:

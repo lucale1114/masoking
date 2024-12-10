@@ -1568,6 +1568,10 @@ MonoBehaviour:
   _mashSpace: {fileID: 660648567500676224}
   _isInMax: 0
   _cancel: 0
+  _moveText: {fileID: 1607797649131086245}
+  _enemyText: {fileID: 6825831857280866905}
+  _dashText: {fileID: 7664020354957986094}
+  _dashWallText: {fileID: 4712463900906536349}
 --- !u!114 &8545070536131508977 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8175496199366767936, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}

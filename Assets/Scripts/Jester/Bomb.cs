@@ -1,4 +1,5 @@
 using Player;
+using System.Collections;
 using UnityEngine;
 
 namespace Jester
@@ -9,6 +10,7 @@ namespace Jester
 
         public static GameObject player;
         [SerializeField] AudioClip[] booms;
+        [SerializeField] Animator animator;
 
         [SerializeField] private float explosionRadius = 1.5f;
 
@@ -31,8 +33,17 @@ namespace Jester
         {
             if (BombJesterCollision.HasDashed)
             {
+                animator.SetBool("count", true);
+                StartCoroutine(AnimationExplosion());
                 Invoke(nameof(WaitForExplosion), 3f);
             }
+        }
+
+        public IEnumerator AnimationExplosion()
+        {
+            yield return new WaitForSeconds(2.8f);
+            animator.SetBool("boom", true);
+
         }
 
         public void WaitForExplosion()
@@ -67,7 +78,6 @@ namespace Jester
                     UnityEngine.Debug.Log("Player is out of range of the explosion.");
                 }
             }
-
             Destroy(gameObject);
         }
     }

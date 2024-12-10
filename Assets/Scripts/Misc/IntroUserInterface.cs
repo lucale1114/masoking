@@ -14,6 +14,7 @@ namespace Misc
          [SerializeField] private TextMeshProUGUI _dashWallText;
 
         private bool _hasMoved;
+        private bool _beenHit;
 
         public bool HaveDash { get; private set; }
 
@@ -50,12 +51,12 @@ namespace Misc
                 StartCoroutine(SwitchTextMoveWithDelay());
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && HaveDash != true)
+            if (Input.GetKeyDown(KeyCode.Space) && HaveDash != true && _hasMoved == true)
             {
                 StartCoroutine(SwitchTextDashWithDelay());
             }
 
-            if (Collision.BeenHit && HaveDash)
+            if (Collision.BeenHit && _beenHit != true && HaveDash == true)
             {
                 StartCoroutine(SwitchTextEnemyWithDelay());
             }
@@ -63,22 +64,23 @@ namespace Misc
 
         private IEnumerator SwitchTextDashWithDelay()
         {
-            HaveDash = true;
             yield return new WaitForSeconds(10f);
+            HaveDash = true;
             _dashText.enabled = false;
             _enemyText.enabled = true;
         }
 
         private IEnumerator SwitchTextMoveWithDelay()
         {
-            _hasMoved = true;
             yield return new WaitForSeconds(10f);
+            _hasMoved = true;
             _dashText.enabled = true;
             _moveText.enabled = false;
         }
 
         private IEnumerator SwitchTextEnemyWithDelay()
         {
+            _beenHit = true;
             yield return new WaitForSeconds(10f);
             _enemyText.enabled = false;
             _dashWallText.enabled = true;
