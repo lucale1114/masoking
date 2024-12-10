@@ -1,4 +1,3 @@
-using Objects;
 using Player;
 using UnityEngine;
 
@@ -32,7 +31,6 @@ namespace Jester
             if (_bomb != null)
             {
                 _bomb.transform.position = transform.position + bombOffset;
-                _bomb.transform.parent = null;
             }
 
             _spinSpeed = Random.Range(20f, 20.0f) * (Random.Range(0, 2) * 2 - 1);
