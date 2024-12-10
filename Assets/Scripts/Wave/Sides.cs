@@ -8,4 +8,11 @@
         OppositeOfLast,
         CopyLast,
     }
+    public enum WallSides
+    {
+        Left,
+        Right,
+        Up,
+        Down,
+    }
 }

@@ -4,26 +4,37 @@ using DG.Tweening;
 using Player;
 using UnityEngine;
 using Wave.Handler;
-using static Wave.WaveData;
+using Wave.Hazards.Ram;
 
 public class BatteringRam : MonoBehaviour
 {
     
     private Transform _indicator;
     private Vector3 _originalPos;
+    private float _currentTick;
 
     public BatteringRamData data;
 
     private bool canHit = true;
-    public int dirX = 1;
-    public int dirY = 1;
+    public int dirX;
+    public int dirY;
 
-    void Start()
+    private void Awake()
     {
         _indicator = transform.parent.GetChild(1);
+        _indicator.gameObject.SetActive(false);
+    }
+    void Start()
+    {
+        print(data.side);
+        print(dirY);
         _originalPos = transform.position;
+    }
 
-        Invoke("SpawnedRam", 2);
+    void BeginRam()
+    {
+        _indicator.gameObject.SetActive(true);
+        Invoke("SpawnedRam", data.delay);
     }
 
     // Update is called once per frame
@@ -35,6 +46,24 @@ public class BatteringRam : MonoBehaviour
             StartCoroutine("Retract");
         });
         Destroy(_indicator.gameObject);
+    }
+
+    private void TimestampTick()
+    {
+        if (Mathf.Approximately(WaveHandler.Timestamp, data.timestamp))
+        {
+            BeginRam();
+        }
+    }
+
+
+    private void Update()
+    {
+        if (!Mathf.Approximately(_currentTick, WaveHandler.Timestamp))
+        {
+            _currentTick = WaveHandler.Timestamp;
+            TimestampTick();
+        }
     }
 
     IEnumerator Retract()
@@ -50,7 +79,6 @@ public class BatteringRam : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision);
         if (canHit)
         {
             if (collision.collider.gameObject.CompareTag("Player"))
@@ -60,7 +88,7 @@ public class BatteringRam : MonoBehaviour
                 Movement movme = player.GetComponent<Movement>();
                 player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 
-                player.GetComponent<HeatSystem>().ChangeHeat(100);
+                player.GetComponent<HeatSystem>().ChangeHeat(data.damage);
             }
         }
     }

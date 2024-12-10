@@ -5,6 +5,7 @@ using Jester.Green;
 using Jester.Purple;
 using UnityEngine;
 using Wave.Jesters.Red;
+using Wave.Hazards.Ram;
 
 namespace Wave
 {
@@ -20,5 +21,6 @@ namespace Wave
         public List<BlueJesterData> blue = new();
         public List<GreenJesterData> green = new();
         public List<PurpleJesterData> purple = new();
+        public List<BatteringRamData> ram = new();
     }
 }

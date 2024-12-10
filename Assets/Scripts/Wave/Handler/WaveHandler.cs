@@ -17,6 +17,7 @@ namespace Wave.Handler
         private StandingJesterHandler _standingJesterHandler;
         private MovingJesterHandler _movingJesterHandler;
         private JugglingBallHandler _jugglingBallHandler;
+        private RamHandler _ramHandler;
 
         private int _waveNumber;
         private bool _pausedByWave;
@@ -32,6 +33,7 @@ namespace Wave.Handler
 
             _standingJesterHandler = GetComponent<StandingJesterHandler>();
             _movingJesterHandler = GetComponent<MovingJesterHandler>();
+            _ramHandler = GetComponent<RamHandler>();
             _jugglingBallHandler = GetComponent<JugglingBallHandler>();
 
             StartCoroutine(nameof(TimestampRoutine), 0.1f);
@@ -53,6 +55,7 @@ namespace Wave.Handler
 
                 _standingJesterHandler.SetCurrentWaveJesters(currentWave.red, currentWave.blue);
                 _movingJesterHandler.SetCurrentWaveJesters(currentWave.green, currentWave.purple);
+                _ramHandler.SetRams(currentWave.ram);
 
                 StartCoroutine(PauseRoutine(currentWave.StartDelay));
             }
@@ -68,6 +71,7 @@ namespace Wave.Handler
             yield return new WaitForSeconds(delay);
             _standingJesterHandler.StartWave();
             _movingJesterHandler.StartWave();
+            _ramHandler.StartWave();
             _pausedByWave = false;
         }
 
