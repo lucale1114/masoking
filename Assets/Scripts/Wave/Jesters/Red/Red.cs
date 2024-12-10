@@ -14,7 +14,7 @@ namespace Wave.Jesters.Red
     public class RedJesterCommand
     {
         public float timestamp;
-        public RedJesterActions jesterAction;
+        public RedJesterActions action;
         public RedShotDataObject shotData;
     }
 

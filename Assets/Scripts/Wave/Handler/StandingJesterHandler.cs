@@ -85,7 +85,7 @@ namespace Wave.Handler
             {
                 new BlueJesterCommand()
                 {
-                    jesterAction = BlueJesterActions.FireAimed,
+                    action = BlueJesterActions.FireAimed,
                     shotData = shotData
                 }
             };
