@@ -1,9 +1,8 @@
+using Jester.Blue;
 using Player;
 using Projectile;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Wave.WaveData;
-using Collision = Projectile.Collision;
+using Wave.Jesters.Red;
 
 namespace Jester
 {
@@ -23,7 +22,7 @@ namespace Jester
         }
 
         // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
-        public DirectProjectile ShootBasicProjectile(float speed, ShotDataObject data)
+        public DirectProjectile ShootBasicProjectile(float speed, BlueShotDataObject data)
         {
             float angle = -90;
             if (data.straight)
@@ -63,12 +62,12 @@ namespace Jester
             DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
             projectileScript.SetShotData(data);
             projectileScript.player = player;
-            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
             Destroy(shot, 10);
             return projectileScript;
         }
 
-        public DirectProjectile ShootBasicProjectile(float speed, ShotDataObject data, float forceX, float forceY)
+        public DirectProjectile ShootBasicProjectile(float speed, BlueShotDataObject data, float forceX, float forceY)
         {
             Vector3 dir = (new Vector3(forceX, forceY) - transform.position).normalized;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90;
@@ -79,28 +78,28 @@ namespace Jester
             DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
             projectileScript.SetShotData(data);
             projectileScript.player = player;
-            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
             Destroy(shot, 10);
             return projectileScript;
         }
 
-        public void ShootBurstShot(float speed, float time, int burst, ShotDataObject data)
+        public void ShootBurstShot(float speed, float time, int burst, BlueShotDataObject data)
         {
             DirectProjectile shot = ShootBasicProjectile(speed, data);
-            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
             shot.burstTimer = time;
             shot.burst = burst;
         }
 
-        public GameObject Snipe(ShotDataObject data, float x, float y, GameObject target)
+        public GameObject Snipe(BlueShotDataObject data, float x, float y, GameObject target)
         {
             DirectProjectile shot = ShootBasicProjectile(data.speed, data, x, y);
-            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
             shot._canHit = false;
             return shot.gameObject;
         }
 
-        public void ShootRow(float speed, float radius, int amount, ShotDataObject data)
+        public void ShootRow(float speed, float radius, int amount, BlueShotDataObject data)
         {
             float angle = -90;
             if (data.straight)
@@ -138,21 +137,21 @@ namespace Jester
                 GameObject shot = Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0, 0, i)));
                 shot.GetComponent<DirectProjectile>().SetShotData(data);
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
-                SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
             }
         }
 
-        public void ShootWavyShot(float speed, float frequency, int amp, ShotDataObject data)
+        public void ShootWavyShot(float speed, float frequency, int amp, BlueShotDataObject data)
         {
             DirectProjectile shot = ShootBasicProjectile(speed, data);
             shot.spin = true;
             shot.axe = true;
             shot.frequency = frequency;
             shot.amp = amp;
-            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
         }
 
-        public void ShootCurvedShot(float speed, float time, float dir, int wave, ShotDataObject data)
+        public void ShootCurvedShot(float speed, float time, float dir, int wave, BlueShotDataObject data)
         {
             DirectProjectile shot = ShootBasicProjectile(speed, data);
             shot.spin = true;
@@ -160,16 +159,16 @@ namespace Jester
             shot.gravityDir = dir;
             shot.axe = true;
             shot.flipAmount = wave;
-            SoundFXManager.Instance.PlayRandomSoundFX(frow, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
         }
 
-        public void Throw(ShotDataObject shotData)
+        public void Throw(RedShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
             throwProjectile.GetComponent<Pin>().SetShotData(shotData, player.transform.position);
         }
 
-        public void ThrowAndRoll(ShotDataObject shotData)
+        public void ThrowAndRoll(RedShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwAndRollProjectilePrefab, transform.position, Quaternion.identity);
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, player.transform.position);

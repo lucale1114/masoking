@@ -9,8 +9,11 @@ namespace Player
         [SerializeField] AudioSource soundFXObject;
         [SerializeField] AudioSource walkFX;
 
-        [SerializeField] private AudioClip walkClip; // Assign a walking sound clip in the inspector
-        [SerializeField] private AudioClip roll; // Assign a rolling sound clip in the inspector
+        [SerializeField] AudioClip walkClip; // Assign a walking sound clip in the inspector
+        [SerializeField] AudioClip roll; // Assign a rolling sound clip in the inspector
+
+        float timer = 0;
+        float minTime = 0.05f;
 
 
         private bool isWalking = false;
@@ -42,32 +45,26 @@ namespace Player
                 soundFXObject.pitch -= 0.1f * Time.deltaTime;
             }
 
+            timer += Time.deltaTime;
+
         }
 
-        public void PlaySoundFX(AudioClip audioClip, Transform spawnTransform, float volume)
+        public void PlaySoundFX(AudioClip audioClip, float volume)
         {
-
-            if (spawnTransform is null)
+            if (timer < minTime)
             {
-                throw new System.ArgumentNullException(nameof(spawnTransform));
+                return;
             }
+
+            timer = 0;
 
             soundFXObject.PlayOneShot(audioClip, volume);
         }
 
-        public void PlayRandomSoundFX(AudioClip[] audioClip, Transform spawnTransform, float volume)
+        public void PlayRandomSoundFX(AudioClip[] audioClip, float volume)
         {
-            if (spawnTransform is null)
-            {
-                throw new System.ArgumentNullException(nameof(spawnTransform));
-            }
-
             int rand = Random.Range(0, audioClip.Length);
-
-
-
-            soundFXObject.PlayOneShot(audioClip[rand], volume);
-
+            PlaySoundFX(audioClip[rand], volume);
         }
 
         public void PlayOnLoop()
@@ -106,7 +103,7 @@ namespace Player
 
         public void PitchChange()
         {
-            soundFXObject.pitch += 0.05f;
+            soundFXObject.pitch = Mathf.Min(soundFXObject.pitch += 0.05f, 2f);
         }
 
     }

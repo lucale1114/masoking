@@ -37,7 +37,7 @@ namespace Jester
 
         public void WaitForExplosion()
         {
-            SoundFXManager.Instance.PlayRandomSoundFX(booms, transform, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
 
             if (player != null)
             {

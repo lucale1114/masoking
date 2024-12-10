@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using static Wave.WaveData;
+using Wave.Jesters.Red;
 
 namespace Projectile
 {
@@ -12,7 +12,7 @@ namespace Projectile
         [SerializeField] private float colliderActivationPercentage = 0.9f;
         [SerializeField] protected float curveHeight = 5f;
 
-        protected ShotDataObject Data;
+        protected RedShotDataObject Data;
 
         protected Vector3 Target;
         protected Vector3 StartPosition;
@@ -85,7 +85,7 @@ namespace Projectile
             }
         }
 
-        public void SetShotData(ShotDataObject shotData, Vector3 playerPosition)
+        public void SetShotData(RedShotDataObject shotData, Vector3 playerPosition)
         {
             Data = shotData;
             Target = playerPosition;
@@ -121,7 +121,7 @@ namespace Projectile
             Destroy(_shadow, Data.throwAirTime);
         }
 
-        protected virtual void InstantiateReticle(ShotDataObject shotData)
+        protected virtual void InstantiateReticle(RedShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
             ReticleFill = Reticle.transform.GetChild(0).gameObject;
@@ -161,7 +161,7 @@ namespace Projectile
             Destroy(Reticle);
         }
 
-        public ShotDataObject GetShotData()
+        public IShotData GetShotData()
         {
             return Data;
         }

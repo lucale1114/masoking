@@ -21,6 +21,8 @@ namespace Player
             _lastNonZeroVelocity = velocity;
             _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
             _animator.Play("KingWindupAnimation");
+
+
         }
 
         public void PlayDash(Vector2 velocity)

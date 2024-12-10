@@ -8,10 +8,10 @@ namespace Misc
 {
     public class IntroUserInterface : UserInterface
     {
-        private TextMeshProUGUI _moveText;
-        private TextMeshProUGUI _enemyText;
-        private TextMeshProUGUI _dashText;
-        private TextMeshProUGUI _dashWallText;
+         [SerializeField] private TextMeshProUGUI _moveText;
+         [SerializeField] private TextMeshProUGUI _enemyText;
+         [SerializeField] private TextMeshProUGUI _dashText;
+         [SerializeField] private TextMeshProUGUI _dashWallText;
 
         private bool _hasMoved;
 
@@ -25,16 +25,15 @@ namespace Misc
             _comboResultText.enabled = false;
             _comboCounter.enabled = false;
             _heatBar.enabled = false;
-            _heatSystem.enabled = false;
-            _scoreSystem.enabled = false;
+            _heatSystem.enabled = false;          
             _portrait.enabled = false;
             _mashSpace.enabled = false;
             
 
              _moveText = GameObject.Find("Move").GetComponent<TextMeshProUGUI>();
-            _enemyText = GameObject.Find("Enemy").GetComponent<TextMeshProUGUI>();
-            _dashText = GameObject.Find("Dash").GetComponent<TextMeshProUGUI>();
-            _dashWallText = GameObject.Find("DashWall").GetComponent<TextMeshProUGUI>();
+             _enemyText = GameObject.Find("Enemy").GetComponent<TextMeshProUGUI>();
+             _dashText = GameObject.Find("Dash").GetComponent<TextMeshProUGUI>();
+             _dashWallText = GameObject.Find("DashWall").GetComponent<TextMeshProUGUI>();
 
             _enemyText.enabled = false;
             _dashText.enabled = false;

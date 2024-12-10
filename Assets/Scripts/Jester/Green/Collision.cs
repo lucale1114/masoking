@@ -8,8 +8,8 @@ namespace Jester.Green
     public class Collision : MonoBehaviour
     {
         [SerializeField] private LineRenderer lineRenderer;
-        [SerializeField] private AudioClip fall;
-        [SerializeField] private AudioClip smash;
+        [SerializeField] private AudioClip[] fall;
+        [SerializeField] private AudioClip[] smash;
 
         private Collider2D triggerCollider;
         private Player.Movement movement;
@@ -41,7 +41,7 @@ namespace Jester.Green
             if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
             {
                 StartCoroutine(FallOver(this.gameObject, collision.transform.position));
-                SoundFXManager.Instance.PlaySoundFX(fall, transform, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFX(fall, 1f);
             }
 
             if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true &&
@@ -162,7 +162,7 @@ namespace Jester.Green
                     lineRenderer.enabled = false;
                     triggerCollider.enabled = true;
                     isFalling = false;
-                    SoundFXManager.Instance.PlaySoundFX(smash, transform, 2f);
+                    SoundFXManager.Instance.PlayRandomSoundFX(smash, 2f);
                     yield return new WaitForSeconds(0.1f);
 
                     hasFallen = true;
