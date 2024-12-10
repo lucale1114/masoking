@@ -126,7 +126,7 @@ namespace Projectile
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
             ReticleFill = Reticle.transform.GetChild(0).gameObject;
             Reticle.transform.localScale *= Data.scale;
-            ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), Data.throwAirTime * 1.5f);
+            ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), (Data.throwAirTime + Data.fireBetween) * 1.75f);
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 
