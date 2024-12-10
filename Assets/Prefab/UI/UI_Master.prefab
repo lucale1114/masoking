@@ -321,11 +321,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6132910908955807006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 517, y: -369.05}
-  m_SizeDelta: {x: 407.029, y: 341.242}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 400, y: 400}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &8090129779701130115
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6673,6 +6673,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b9e5895911bd590469b7f2a9c035ec29, type: 3}
   - {fileID: 21300000, guid: 78fc0ceef7283af4c823acfcdf4d18a5, type: 3}
   comboArray: 05000000070000000a0000000c0000000f0000001200000019000000c8000000
+  _comboCounter: {fileID: 0}
+  _scoreCounter: {fileID: 0}
+  _wonMenu: {fileID: 0}
+  _comboResultText: {fileID: 0}
+  _heatBar: {fileID: 0}
+  _heatSystem: {fileID: 0}
+  _scoreSystem: {fileID: 0}
+  _portrait: {fileID: 0}
+  _mashSpace: {fileID: 0}
+  _isInMax: 0
+  _cancel: 0
 --- !u!1 &8362597031600793660
 GameObject:
   m_ObjectHideFlags: 0

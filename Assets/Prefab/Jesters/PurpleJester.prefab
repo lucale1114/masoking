@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2119236717341868893}
   - component: {fileID: 8090379233061019452}
   - component: {fileID: 7576232970964329389}
+  - component: {fileID: 4284304913946595986}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,7 +166,29 @@ MonoBehaviour:
   booms:
   - {fileID: 8300000, guid: 80d10d58e82b09c4db6db861cb742faf, type: 3}
   - {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
-  explosionRadius: 0.5
+  animator: {fileID: 4284304913946595986}
+  explosionRadius: 0.52
+--- !u!95 &4284304913946595986
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801447771696773928}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c03f861f9a3a8744b392f1e6a1bc52d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9001677757750891510
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +206,7 @@ GameObject:
   - component: {fileID: 3011607055567451545}
   - component: {fileID: -5628673635275305502}
   m_Layer: 0
-  m_Name: BombJester
+  m_Name: PurpleJester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,8 +312,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.42346025}
+  m_Size: {x: 1, y: 2.8469205}
   m_Direction: 0
 --- !u!50 &567243457449737187
 Rigidbody2D:
@@ -333,8 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 20
   smack:
+  - {fileID: 8300000, guid: 8611c622f2e43cb44b3f2eecd0bba6b7, type: 3}
   - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
-  - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
   bombOffset: {x: 0.4, y: 0.5, z: 0}
 --- !u!114 &7072586478284884970
 MonoBehaviour:

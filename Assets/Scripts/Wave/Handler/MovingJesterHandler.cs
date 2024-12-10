@@ -8,8 +8,8 @@ namespace Wave.Handler
 {
     public class MovingJesterHandler : MonoBehaviour
     {
-        [SerializeField] private GameObject bombJesterPrefab;
         [SerializeField] private GameObject greenJesterPrefab;
+        [SerializeField] private GameObject purpleJesterPrefab;
 
         private List<GreenJesterData> _currentWaveGreenJesters;
         private List<PurpleJesterData> _currentWavePurpleJesters;
@@ -56,7 +56,7 @@ namespace Wave.Handler
 
         private GameObject SpawnJester(PurpleJesterData data)
         {
-            var newJester = Instantiate(bombJesterPrefab, data.startPosition, bombJesterPrefab.transform.rotation);
+            var newJester = Instantiate(purpleJesterPrefab, data.startPosition, purpleJesterPrefab.transform.rotation);
             newJester.GetComponent<Jester.Purple.Movement>().SetData(data);
             return newJester;
         }
