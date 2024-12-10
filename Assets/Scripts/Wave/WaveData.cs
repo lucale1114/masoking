@@ -28,6 +28,14 @@ namespace Wave
             CopyLast,
         }
 
+        public enum WallSides
+        {
+            Left,
+            Right,
+            Up,
+            Down,
+        }
+
         public enum Color
         {
             Blue,
@@ -52,6 +60,17 @@ namespace Wave
             public bool randomY;
 
             public JesterCommand[] commands;
+        }
+
+        public class BatteringRamData
+        { 
+            public float timestamp;
+            public float delay;
+            public float damage;
+            public WallSides side;
+            [Range(-4.0f, 4.0f)] public float y;
+            [Range(-5.0f, 5.0f)] public float x;
+            public bool randomY;
         }
 
         public enum MovingAction
