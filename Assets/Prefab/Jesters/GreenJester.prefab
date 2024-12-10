@@ -364,7 +364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353ed2ac4c8f4f5ca0f164d785bce54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
   lineRenderer: {fileID: 8567057565367364087}
-  fall: {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
-  smash: {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
+  fall:
+  - {fileID: 8300000, guid: 8611c622f2e43cb44b3f2eecd0bba6b7, type: 3}
+  - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  smash:
+  - {fileID: 8300000, guid: 80d10d58e82b09c4db6db861cb742faf, type: 3}
+  - {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
