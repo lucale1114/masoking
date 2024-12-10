@@ -23,12 +23,12 @@ namespace Wave.Handler
 
         private void Start()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugForceWave > 0)
             {
                 _waveNumber = debugForceWave - 1;
             }
-            #endif
+#endif
 
             _standingJesterHandler = GetComponent<StandingJesterHandler>();
             _movingJesterHandler = GetComponent<MovingJesterHandler>();
@@ -51,8 +51,8 @@ namespace Wave.Handler
                     _jugglingBallHandler.AttemptSpawnBall();
                 }
 
-                _standingJesterHandler.SetCurrentWaveJesters(currentWave.standingJesters);
-                _movingJesterHandler.SetCurrentWaveJesters(currentWave.movingJesters);
+                _standingJesterHandler.SetCurrentWaveJesters(currentWave.red, currentWave.blue);
+                _movingJesterHandler.SetCurrentWaveJesters(currentWave.green, currentWave.purple);
 
                 StartCoroutine(PauseRoutine(currentWave.StartDelay));
             }
@@ -78,7 +78,7 @@ namespace Wave.Handler
                 if (!(_pausedByWave || Paused))
                 {
                     Timestamp += 0.1f;
-                    Timestamp = Mathf.Round(Timestamp * 10.0f)/10.0f;
+                    Timestamp = Mathf.Round(Timestamp * 10.0f) / 10.0f;
                 }
 
                 yield return new WaitForSeconds(0.1f);

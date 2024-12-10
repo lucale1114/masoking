@@ -5,10 +5,16 @@ namespace Projectile
 {
     public interface IProjectile
     {
-        public WaveData.ShotDataObject GetShotData();
+        public IShotData GetShotData();
         public float GetDamageMod();
         public bool CanHitThings();
         public int GetNumberOfBounces();
         public void AttemptBounce(Vector2 normal);
+    }
+
+    public interface IShotData
+    {
+        public float GetDamage();
+        public bool GetBreakable();
     }
 }
