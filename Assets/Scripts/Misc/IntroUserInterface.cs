@@ -44,7 +44,7 @@ namespace Misc
         {
             base.Update();
 
-            if (Input.GetAxisRaw("Vertical") != 0 && _hasMoved != true ||
+            if (Input.GetAxisRaw("Vertical") != 0 && _hasMoved != true &&
                 Input.GetAxisRaw("Horizontal") != 0 && _hasMoved != true)
             {
                 StartCoroutine(SwitchTextMoveWithDelay());
@@ -64,7 +64,7 @@ namespace Misc
         private IEnumerator SwitchTextDashWithDelay()
         {
             HaveDash = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
             _dashText.enabled = false;
             _enemyText.enabled = true;
         }
@@ -72,14 +72,14 @@ namespace Misc
         private IEnumerator SwitchTextMoveWithDelay()
         {
             _hasMoved = true;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(10f);
             _dashText.enabled = true;
             _moveText.enabled = false;
         }
 
         private IEnumerator SwitchTextEnemyWithDelay()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(10f);
             _enemyText.enabled = false;
             _dashWallText.enabled = true;
         }
