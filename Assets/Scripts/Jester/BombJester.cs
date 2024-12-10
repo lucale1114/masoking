@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Player;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ namespace Jester
                 _bomb.transform.position = transform.position + bombOffset;
             }
 
-            _spinSpeed = Random.Range(20f, 20.0f) * (Random.Range(0, 2) * 2 - 1);
+            _spinSpeed = Random.Range(100f, 100.0f) /** (Random.Range(0, 2) * 2 - 1*/;
         }
 
         public void Update()
@@ -59,6 +60,7 @@ namespace Jester
         private void Launch()
         {
             _bomb.transform.position = Vector3.zero;
+            transform.DOKill();
             var launchDirection = (transform.position - _player.transform.position).normalized;
             _rb.velocity = thrust * launchDirection;
             if (_bomb)

@@ -53,17 +53,17 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   movingJesters:
-  - type: 0
+  - type: 1
     startPosition: {x: -20, y: 0}
     loop: 0
     commands:
     - action: 0
       destination: {x: 20, y: 0}
-      time: 10
+      time: 19
   - type: 1
-    startPosition: {x: 9.74, y: 5.77}
+    startPosition: {x: 20, y: 0}
     loop: 0
     commands:
     - action: 0
-      destination: {x: 20, y: 0}
-      time: 7
+      destination: {x: -20, y: 0}
+      time: 19
