@@ -184,6 +184,7 @@ namespace Player
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + dashIncrease, dashMaxTime);
             }
+           
             power = Mathf.Max(dashMinTime, power);
             StartCoroutine(Dash());
         }
@@ -191,6 +192,7 @@ namespace Player
         IEnumerator FlashRecharge()
         {
             _dashImageCharger.enabled = true;
+            
             while (_chargingDash)
             {
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 80), 0.05f);
@@ -198,6 +200,7 @@ namespace Player
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 0), 0.05f);
                 yield return new WaitForSeconds(((dashMaxTime + 0.1f) - power) / 6);
             }
+            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             _dashImageCharger.enabled = false;
         }
 
@@ -214,13 +217,14 @@ namespace Player
             else
             {
                 velocityVector = currentVelocity * (dashSpeed * maxSpeed * power);
+
             }
+            //SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
             playerAnimator.PlayDash(currentVelocity);
            
-            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
             IsDashing?.Invoke(false);
@@ -252,6 +256,7 @@ namespace Player
                     currentVelocity = Vector2.ClampMagnitude(currentVelocity, dashSpeed);
                     rb.velocity = currentVelocity;
                     playerAnimator.PlayDash(currentVelocity);
+
                 }
 
                 if (_numberOfWallBounces > 0)
