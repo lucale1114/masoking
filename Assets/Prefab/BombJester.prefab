@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6645085058305427163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4374684260332788137}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4374684260332788137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645085058305427163}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4007998119185115866}
+  m_Father: {fileID: 1299131300039208731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8801447771696773928
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,11 +61,11 @@ Transform:
   m_GameObject: {fileID: 8801447771696773928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 1.1638271, y: 1.3784782, z: 1}
+  m_LocalPosition: {x: 0.75, y: 0.25, z: 0}
+  m_LocalScale: {x: 0.58191353, y: 0.6892391, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1299131300039208731}
+  m_Father: {fileID: 4374684260332788137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &626434001666804386
 SpriteRenderer:
@@ -181,6 +213,7 @@ GameObject:
   - component: {fileID: 1997178519217708285}
   - component: {fileID: 7072586478284884970}
   - component: {fileID: 3011607055567451545}
+  - component: {fileID: 8161296192553630175}
   m_Layer: 0
   m_Name: BombJester
   m_TagString: Untagged
@@ -201,7 +234,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4007998119185115866}
+  - {fileID: 4374684260332788137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6345563620636445162
@@ -330,14 +363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f206c99277d617448d543245304b436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userDirection: {x: -1, y: 0, z: 0}
-  bombCollision: {fileID: 7072586478284884970}
   thrust: 20
   smack:
   - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
   - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
   bombOffset: {x: 0.4, y: 0.5, z: 0}
-  animator: {fileID: 3011607055567451545}
 --- !u!114 &7072586478284884970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,9 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ede83427d66e649925e188c42e153a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
-  myChildObject: {fileID: 4007998119185115866}
-  detachChild: 0
 --- !u!95 &3011607055567451545
 Animator:
   serializedVersion: 5
@@ -374,3 +401,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8161296192553630175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001677757750891510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f9b4b72bae41daa36519849005c0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

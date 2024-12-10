@@ -5,46 +5,24 @@ namespace Jester
 {
     public class BombJesterCollision : MonoBehaviour
     {
-        Rigidbody2D rb;
-        public Movement movement;
-        public Transform myChildObject;
-        public bool detachChild;
-        private bool hasDashed = false;
+        private Movement _movement;
+        private Transform _bomb;
 
-        public bool HasDashed => hasDashed;
-        void Start()
+        public bool HasDashed { get; private set; }
+
+        private void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
-            detachChild = false;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-            if (detachChild == true)
-            {
-                if (myChildObject != null)
-                {
-                    transform.parent = null;
-                    myChildObject.parent = null;
-                }
-            }
-
-
+            _movement = GameObject.Find("Player").GetComponent<Movement>();
+            _bomb = gameObject.transform.GetChild(0);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
+            if (collision.gameObject.CompareTag("Player") && _movement.IsCurrentlyDashing)
             {
-                hasDashed = true;
-                detachChild = true;
-
+                HasDashed = true;
+                _bomb.parent = null;
             }
-
-
         }
-
     }
 }
