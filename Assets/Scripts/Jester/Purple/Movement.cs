@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using Wave.Jesters.Purple;
 using Collision = Jester.Green.Collision;
 
 namespace Jester.Purple

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using Wave.Jesters.Green;
 
 namespace Jester.Green
 {

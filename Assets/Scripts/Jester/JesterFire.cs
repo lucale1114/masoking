@@ -1,7 +1,7 @@
+using Jester.Blue;
 using Player;
 using Projectile;
 using UnityEngine;
-using Wave.Jesters.Blue;
 using Wave.Jesters.Red;
 
 namespace Jester

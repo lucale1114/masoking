@@ -1,27 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Wave.Jesters.Purple
+namespace Jester.Green
 {
-    public enum PurpleJesterActions
+    public enum GreenJesterActions
     {
         Move,
         Idle
     }
 
     [Serializable]
-    public class PurpleJesterCommand
+    public class GreenJesterCommand
     {
-        public PurpleJesterActions action;
+        public GreenJesterActions action;
         public Vector2 destination;
         public float time;
     }
 
     [Serializable]
-    public class PurpleJesterData
+    public class GreenJesterData
     {
         public Vector2 startPosition;
         public bool loop;
-        public PurpleJesterCommand[] commands;
+        public GreenJesterCommand[] commands;
     }
 }

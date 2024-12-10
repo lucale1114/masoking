@@ -1,8 +1,10 @@
 ﻿using System;
 using Projectile;
 using UnityEngine;
+using Wave;
+using Wave.Jesters;
 
-namespace Wave.Jesters.Blue
+namespace Jester.Blue
 {
     public enum BlueJesterActions
     {
@@ -16,11 +18,16 @@ namespace Wave.Jesters.Blue
     }
 
     [Serializable]
-    public class BlueJesterCommand
+    public class BlueJesterCommand : IHasTimestamp
     {
         public float timestamp;
         public BlueJesterActions action;
         public BlueShotDataObject shotData;
+
+        public float GetTimestamp()
+        {
+            return timestamp;
+        }
     }
 
     [Serializable]
@@ -62,10 +69,6 @@ namespace Wave.Jesters.Blue
 
         [Tooltip("Picks a random position on the field to shoot at vertically. Range: -4 to 4.")]
         public bool randomY;
-
-        [Tooltip("Time in air for throws.")] public float throwAirTime;
-
-        [Tooltip("Curve for throws.")] public AnimationCurve animationCurve;
 
         [Tooltip(
             "For burst shots. When the burst should happen in seconds. For curved, when it should start curving.")]
