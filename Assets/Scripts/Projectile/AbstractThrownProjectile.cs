@@ -114,11 +114,12 @@ namespace Projectile
         {
             _shadow = Instantiate(shadowPrefab, transform.position, Quaternion.identity);
             _shadow.transform.localScale *= Data.scale;
-            Vector3 originalScale = _shadow.transform.localScale;
+            Destroy(_shadow, Data.throwAirTime);
+
+            var originalScale = _shadow.transform.localScale;
             _shadow.transform.DOScale(originalScale * 0.3f, Data.throwAirTime * 0.5f).SetEase(Ease.InQuad);
             yield return new WaitForSeconds(Data.throwAirTime / 2);
             _shadow.transform.DOScale(originalScale, Data.throwAirTime * 0.45f).SetEase(Ease.OutQuad);
-            Destroy(_shadow, Data.throwAirTime);
         }
 
         protected virtual void InstantiateReticle(RedShotDataObject shotData)
