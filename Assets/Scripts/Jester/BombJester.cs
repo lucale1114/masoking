@@ -34,7 +34,7 @@ namespace Jester
                 _bomb.transform.position = transform.position + bombOffset;
             }
 
-            _spinSpeed = Random.Range(100f, 100.0f) /** (Random.Range(0, 2) * 2 - 1*/;
+            _spinSpeed = Random.Range(2f, 2.0f) * (Random.Range(0, 2) * 1.5f - 1);
         }
 
         public void Update()
@@ -47,14 +47,22 @@ namespace Jester
                 }
             }
 
+            else
+            {
+                transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+
+            }
+
             if (_bombCollision.HasDashed && !_launched)
             {
                 _animator.SetBool(Idle, true);
                 SoundFXManager.Instance.PlayRandomSoundFX(smack, transform, 1f);
-                transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+                
                 _launched = true;
                 Launch();
             }
+
+            
         }
 
         private void Launch()
