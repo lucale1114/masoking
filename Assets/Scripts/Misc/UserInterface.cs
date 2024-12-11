@@ -30,12 +30,14 @@ namespace Misc
         public Score _scoreSystem;
 
         public Image _portrait;
+        public Image _hands;
         public TextMeshProUGUI _mashSpace;
         public bool _isInMax;
         public bool _cancel;
 
         protected bool IsIntro;
-
+        private Vector3 handsPosDown;
+        private Vector3 handsPosUp;
         protected void Awake()
         {
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
@@ -50,6 +52,7 @@ namespace Misc
             _mashSpace.gameObject.SetActive(false);
 
             _portrait = GameObject.Find("Portrait").GetComponent<Image>();
+            _hands = GameObject.Find("Hands").GetComponent<Image>();
 
 
             _pauseMenu = GameObject.Find("PauseMenu");
@@ -145,6 +148,10 @@ namespace Misc
                 };
                 _scoreSystem.ScoreChanged += UpdateScoreCounter;
             }
+
+            handsPosUp = _hands.transform.position;
+            handsPosDown = _hands.transform.position - new Vector3(0, 230, 0);
+            _hands.transform.position = handsPosDown;
         }
 
         private void EndGame()
@@ -220,17 +227,34 @@ namespace Misc
             if (!_isInMax)
             {
                 ChangeKingPortrait(3, false, true);
+                float comboGotten = 0;
                 while (_heatSystem.GetCombo() >= 5)
                 {
+                    comboGotten = _heatSystem.GetCombo();
                     yield return new WaitForSeconds(0.01f);
                 }
-
+                Hands(true, Mathf.Clamp(comboGotten, 5, 30));
                 yield return new WaitForSeconds(0.5f);
                 if (!_isInMax)
                 {
                     ChangeKingPortrait(0, false, false);
                 }
+                yield return new WaitForSeconds(1.5f);
+                Hands(false, 1);
             }
+        }
+
+        private void Hands(bool enter, float speed)
+        {
+            if (!enter)
+            {
+               _hands.transform.DOMove(handsPosDown, 1);
+                return;
+            }
+
+            _hands.transform.DOMove(handsPosUp, 1);
+            _hands.GetComponent<Animator>().speed = speed / 20;
+
         }
 
         private IEnumerator MaxHeatGained()
