@@ -26,7 +26,6 @@ namespace Wave.Jesters.Red
     [Serializable]
     public class RedJesterData
     {
-        public float timestamp;
         public Sides side;
         [Range(-5.0f, 5.0f)] public float y;
         public bool randomY;

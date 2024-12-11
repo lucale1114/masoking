@@ -17,52 +17,13 @@ MonoBehaviour:
   Description: 'Shoots a big row of projectiles.
 
 '
-  standingJesters:
-  - timestamp: 0.1
-    color: 0
-    side: 2
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 3
-        inaccuracy: 0
-        scale: 1
-        damage: 1
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0.5
-        frequency: 2
-        amp: 8
-        gravityDir: 1
-        amount: 45
-        speed2: 8
-        fireBetween: 0
-        radius: 70
-        spin: 0
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  movingJesters: []
   red: []
   blue:
-  - timestamp: 0.1
-    side: 2
+  - side: 2
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 3
@@ -73,13 +34,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0.5
         frequency: 2
         amp: 8
@@ -94,3 +48,5 @@ MonoBehaviour:
         breakable: 0
   green: []
   purple: []
+  ram: []
+  updated: 1

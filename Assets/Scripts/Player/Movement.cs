@@ -203,7 +203,7 @@ namespace Player
         IEnumerator FlashRecharge()
         {
             _dashImageCharger.enabled = true;
-            
+
             while (_chargingDash)
             {
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 160), 0.05f);

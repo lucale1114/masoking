@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &250086154724479103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3684202402747590242}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3684202402747590242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250086154724479103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2096671366145075604}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745559563252854211
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2096671366145075604}
   - component: {fileID: 8739294824754787912}
-  - component: {fileID: 8886717028465816378}
   - component: {fileID: 3118247668702375447}
   - component: {fileID: 1256570226195499151}
   - component: {fileID: 4797457236873418836}
   - component: {fileID: -4970837544014299122}
+  - component: {fileID: 6268125220351347629}
   m_Layer: 0
   m_Name: RedJester
   m_TagString: Enemy
@@ -34,7 +65,8 @@ Transform:
   m_LocalPosition: {x: -7.03, y: 0.21, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3684202402747590242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8739294824754787912
@@ -89,25 +121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8886717028465816378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745559563252854211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298c1b78c7f53be4393364e526f4916c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
-  throwAndRollProjectilePrefab: {fileID: 6117042597192732843, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}
-  frow:
-  - {fileID: 8300000, guid: fc30a6c61a96c054caea54ba443028a2, type: 3}
-  - {fileID: 8300000, guid: 04e1fed6714b92d4cb7df13914474958, type: 3}
-  - {fileID: 8300000, guid: 344b7b16ea0e1c1469b38b3a67af4b7b, type: 3}
-  projectile: {fileID: 7494303468764717806, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
 --- !u!114 &3118247668702375447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,31 +272,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterTimestamp: 0
   jesterCommands: []
-  shotDataObject:
-    speed: 0
-    inaccuracy: 0
-    scale: 1
-    damage: 10
-    x: 0
-    y: 0
-    randomX: 0
-    randomY: 0
-    throwAirTime: 0
-    animationCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    timer: 0
-    frequency: 0
-    amp: 0
-    gravityDir: 0
-    amount: 0
-    speed2: 0
-    fireBetween: 0
-    radius: 0
-    spin: 0
-    straight: 0
-    numberOfBounces: 0
-    breakable: 0
+--- !u!114 &6268125220351347629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745559563252854211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8531238d8b124a1a8c7bf3f91adff4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
+  throwAndRollProjectilePrefab: {fileID: 6117042597192732843, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}

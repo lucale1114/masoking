@@ -72,6 +72,7 @@ namespace Wave.Handler
             _standingJesterHandler.StartWave();
             _movingJesterHandler.StartWave();
             _ramHandler.StartWave();
+            yield return null; // wait one frame to allow waves to initialize properly
             _pausedByWave = false;
         }
 

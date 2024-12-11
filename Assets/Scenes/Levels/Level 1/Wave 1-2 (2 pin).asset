@@ -11,18 +11,17 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave 1-2 (2 pin)
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   StartDelay: 0
   SpawnBall: 0
   Description: Throws 2 pins, one to the right of the field and one at the player.
     Then throws a pin and a ball to the right.
   red:
-  - timestamp: 0.1
-    side: 0
+  - side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 0
       shotData:
         speed: 6
@@ -88,12 +87,11 @@ MonoBehaviour:
         fireBetween: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 0.8
-    side: 0
+  - side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 0
       shotData:
         speed: 6
@@ -159,12 +157,11 @@ MonoBehaviour:
         fireBetween: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 1.5
-    side: 0
+  - side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 0
       shotData:
         speed: 6
@@ -230,7 +227,7 @@ MonoBehaviour:
         fireBetween: 1
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 1
+    - timestamp: 1.8
       action: 1
       shotData:
         speed: 17
@@ -272,4 +269,12 @@ MonoBehaviour:
   blue: []
   green: []
   purple: []
-  ram: []
+  ram:
+  - timestamp: 0
+    delay: 0
+    damage: 0
+    side: 0
+    y: 0
+    x: 0
+    randomY: 0
+  updated: 1

@@ -68,7 +68,7 @@ namespace Jester
                     // Apply damage
                     HeatSystem playerHeat = _player.GetComponent<HeatSystem>();
                     var launchDirection = (transform.position - _player.transform.position).normalized;
-                    //_player. = thrust * launchDirection;
+                    // = thrust * launchDirection;
                     if (playerHeat != null)
                     {
                         int damage = 10;

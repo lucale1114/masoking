@@ -22,5 +22,6 @@ namespace Wave
         public List<GreenJesterData> green = new();
         public List<PurpleJesterData> purple = new();
         public List<BatteringRamData> ram = new();
+        public bool updated;
     }
 }

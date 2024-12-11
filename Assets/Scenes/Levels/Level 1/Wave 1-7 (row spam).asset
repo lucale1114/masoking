@@ -16,376 +16,13 @@ MonoBehaviour:
   SpawnBall: 1
   Description: Fires a bunch of rows, with later a small sneaky knife. You take it
     to perserve the combo for the big knife.
-  standingJesters:
-  - timestamp: 0.4
-    color: 0
-    side: 0
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 0.4
-    color: 0
-    side: 1
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 2.6
-    color: 0
-    side: 0
-    y: -2
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 2.6
-    color: 0
-    side: 1
-    y: -2
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 4.6
-    color: 0
-    side: 1
-    y: -3
-    randomY: 0
-    commands:
-    - timestamp: 1.5
-      action: 0
-      shotData:
-        speed: 2
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 1
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 1
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 4.6
-    color: 0
-    side: 1
-    y: 2
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 4.6
-    color: 0
-    side: 0
-    y: 2
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 6.6
-    color: 0
-    side: 0
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 6.6
-    color: 0
-    side: 1
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 1
-      action: 5
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 1
-        damage: 5
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 8
-        speed2: 0
-        fireBetween: 0
-        radius: 50
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-  - timestamp: 9.4
-    color: 0
-    side: 0
-    y: 0.69
-    randomY: 0
-    commands:
-    - timestamp: 3
-      action: 0
-      shotData:
-        speed: 5
-        inaccuracy: 0
-        scale: 2.5
-        damage: 25
-        x: 0.01
-        y: 0
-        randomX: 0
-        randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 1
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 0
-        straight: 1
-        numberOfBounces: 0
-        breakable: 0
-  movingJesters: []
   red: []
   blue:
-  - timestamp: 0.4
-    side: 0
+  - side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -396,13 +33,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -415,12 +45,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 0.4
-    side: 1
+  - side: 1
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -431,13 +60,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -450,12 +72,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 2.6
-    side: 0
+  - side: 0
     y: -2
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -466,13 +87,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -485,12 +99,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 2.6
-    side: 1
+  - side: 1
     y: -2
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -501,13 +114,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -520,12 +126,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 4.6
-    side: 1
+  - side: 1
     y: -3
     randomY: 0
     commands:
-    - timestamp: 1.5
+    - timestamp: 2.3
       action: 0
       shotData:
         speed: 2
@@ -536,13 +141,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -555,12 +153,11 @@ MonoBehaviour:
         straight: 1
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 4.6
-    side: 1
+  - side: 1
     y: 2
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -571,13 +168,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -590,12 +180,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 4.6
-    side: 0
+  - side: 0
     y: 2
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -606,13 +195,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -625,12 +207,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 6.6
-    side: 0
+  - side: 0
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -641,13 +222,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -660,12 +234,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 6.6
-    side: 1
+  - side: 1
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1
+    - timestamp: 1.8
       action: 5
       shotData:
         speed: 5
@@ -676,13 +249,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -695,12 +261,11 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  - timestamp: 9.4
-    side: 0
+  - side: 0
     y: 0.69
     randomY: 0
     commands:
-    - timestamp: 3
+    - timestamp: 3.8
       action: 0
       shotData:
         speed: 5
@@ -711,13 +276,6 @@ MonoBehaviour:
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 0
-        animationCurve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
         timer: 0
         frequency: 0
         amp: 0
@@ -732,3 +290,5 @@ MonoBehaviour:
         breakable: 0
   green: []
   purple: []
+  ram: []
+  updated: 1

@@ -33,7 +33,6 @@ namespace Jester.Blue
     [Serializable]
     public class BlueJesterData
     {
-        public float timestamp;
         public Sides side;
         [Range(-5.0f, 5.0f)] public float y;
         public bool randomY;
