@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Jester.Blue;
 using Jester.Green;
 using Jester.Purple;
+using Jester.Red;
 using UnityEngine;
-using Wave.Jesters.Red;
 using Wave.Hazards.Ram;
 
 namespace Wave

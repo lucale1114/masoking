@@ -1,15 +1,11 @@
-using Player;
 using System.Collections;
+using Player;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Jester
 {
     public class Bomb : MonoBehaviour
     {
-        public BombJesterCollision BombJesterCollision;
-
-
         public static GameObject _player;
         private Rigidbody2D _body;
         private float thrust = 3;
@@ -24,8 +20,6 @@ namespace Jester
         {
             // Find the player using a tag if not assigned
             _player = GameObject.FindGameObjectWithTag("Player");
-            _player.GetComponent<Rigidbody2D>();
-
 
             if (_player == null)
             {
@@ -33,22 +27,10 @@ namespace Jester
             }
         }
 
-
-        public void Update()
-        {
-            if (BombJesterCollision.HasDashed)
-            {
-                animator.SetBool("count", true);
-                StartCoroutine(AnimationExplosion());
-                Invoke(nameof(WaitForExplosion), 3f);
-            }
-        }
-
         public IEnumerator AnimationExplosion()
         {
             yield return new WaitForSeconds(2.8f);
             animator.SetBool("boom", true);
-
         }
 
         public void WaitForExplosion()
@@ -85,7 +67,15 @@ namespace Jester
                     UnityEngine.Debug.Log("Player is out of range of the explosion.");
                 }
             }
+
             Destroy(gameObject);
+        }
+
+        public void Activate()
+        {
+            animator.SetBool("count", true);
+            StartCoroutine(AnimationExplosion());
+            Invoke(nameof(WaitForExplosion), 3f);
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Wave.Jesters.Red;
 
 namespace Jester.Red
 {
@@ -39,6 +38,9 @@ namespace Jester.Red
                 case RedJesterActions.ThrowAndRoll:
                     ThrowAndRoll(data);
                     break;
+                case RedJesterActions.ThrowAndExplode:
+                    ThrowAndExplode(data);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -54,6 +56,12 @@ namespace Jester.Red
         {
             JesterAnimator.TriggerFire();
             _redJesterFire.ThrowAndRoll(data);
+        }
+
+        private void ThrowAndExplode(RedShotDataObject data)
+        {
+            JesterAnimator.TriggerFire();
+            _redJesterFire.ThrowAndExplode(data);
         }
     }
 }

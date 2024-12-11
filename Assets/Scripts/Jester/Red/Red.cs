@@ -1,13 +1,16 @@
 ﻿using System;
 using Projectile;
 using UnityEngine;
+using Wave;
+using Wave.Jesters;
 
-namespace Wave.Jesters.Red
+namespace Jester.Red
 {
     public enum RedJesterActions
     {
         Throw,
-        ThrowAndRoll
+        ThrowAndRoll,
+        ThrowAndExplode
     }
 
     [Serializable]

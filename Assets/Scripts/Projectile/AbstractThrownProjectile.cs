@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Jester.Red;
 using UnityEngine;
-using Wave.Jesters.Red;
 
 namespace Projectile
 {
@@ -31,6 +31,8 @@ namespace Projectile
         protected Vector2 Direction;
 
         private int _numberOfBounces;
+        private bool _stopSpin;
+
         private void Awake()
         {
             RigidBody = GetComponent<Rigidbody2D>();
@@ -58,7 +60,16 @@ namespace Projectile
 
         private void Spin()
         {
-            transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+            if (_stopSpin)
+            {
+                var transformRotation = transform.rotation;
+                transform.rotation = Quaternion.Euler(
+                    Vector3.MoveTowards(transformRotation.eulerAngles, Vector3.zero, _spinSpeed));
+            }
+            else
+            {
+                transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+            }
         }
 
         public float GetDamageMod()
@@ -74,6 +85,11 @@ namespace Projectile
         public int GetNumberOfBounces()
         {
             return _numberOfBounces;
+        }
+
+        public void StopSpin()
+        {
+            _stopSpin = true;
         }
 
         public void AttemptBounce(Vector2 normal)
@@ -100,10 +116,12 @@ namespace Projectile
             {
                 Target.y = shotData.y;
             }
+
             if (shotData.randomY)
             {
                 Target.y = Random.Range(-4.0f, 4.0f);
             }
+
             if (shotData.randomX)
             {
                 Target.x = Random.Range(-5.0f, 4.0f);
@@ -127,7 +145,8 @@ namespace Projectile
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
             ReticleFill = Reticle.transform.GetChild(0).gameObject;
             Reticle.transform.localScale *= Data.scale;
-            ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f), (Data.throwAirTime + Data.fireBetween) * 1.75f);
+            ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f),
+                (Data.throwAirTime + Data.fireBetween) * 1.75f);
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
         }
 

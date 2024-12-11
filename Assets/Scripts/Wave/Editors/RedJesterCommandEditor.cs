@@ -1,11 +1,11 @@
 #if UNITY_EDITOR
 
 using System.Text.RegularExpressions;
+using Jester.Red;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
-using Wave.Jesters.Red;
 
 namespace Wave.Editors
 {
@@ -59,6 +59,11 @@ namespace Wave.Editors
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
                 case RedJesterActions.ThrowAndRoll:
+                    AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
+                    AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
+                    AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
+                    break;
+                case RedJesterActions.ThrowAndExplode:
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");

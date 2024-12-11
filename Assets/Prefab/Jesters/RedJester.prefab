@@ -286,3 +286,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
   throwAndRollProjectilePrefab: {fileID: 6117042597192732843, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}
+  throwAndExplodeProjectilePrefab: {fileID: 6117042597192732843, guid: e2d5e55e936356c4e9342c7f8e6f9210, type: 3}
