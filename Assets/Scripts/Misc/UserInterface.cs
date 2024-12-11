@@ -102,7 +102,11 @@ namespace Misc
             _heatBar = GameObject.Find("HeatBar").GetComponent<Image>();
             _heatSystem = FindObjectOfType<HeatSystem>();
             _scoreSystem = FindObjectOfType<Score>();
-            _heatSystem.HeatChanged += heat => _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
+            _heatSystem.HeatChanged += heat =>
+            {
+                _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
+                _portrait.GetComponent<Animator>().SetFloat("HeatPercent", _heatSystem.GetCurrentHeatNormalized() * 100);
+            };
 
             if (!IsIntro)
             {
@@ -116,6 +120,7 @@ namespace Misc
                 _heatSystem.HeatDepleted += () =>
                 {
                     Time.timeScale = 0;
+
                     _lostMenu.SetActive(true);
                 };
 
@@ -151,7 +156,6 @@ namespace Misc
 
         private void ChangeKingPortrait(int index, bool punch, bool shake)
         {
-            _portrait.sprite = kingPortraits[index];
             if (punch)
             {
                 _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
@@ -237,11 +241,14 @@ namespace Misc
                 ChangeKingPortrait(2, true, false);
                 yield break;
             }
-
             ChangeKingPortrait(1, true, false);
+            if (ColorUtility.TryParseHtmlString("#FF0000", out Color col) && !JesterFeverHandler.JesterFever)
+                _portrait.DOColor(col, 1);
 
             _isInMax = true;
             yield return new WaitForSeconds(5);
+            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color cole))
+                _portrait.DOColor(cole, 1);
             _isInMax = false;
             if (_heatSystem.GetCombo() >= 5)
             {
@@ -250,6 +257,7 @@ namespace Misc
             else
             {
                 ChangeKingPortrait(0, false, false);
+
             }
 
             yield return new WaitForSeconds(2);

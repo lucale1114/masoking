@@ -136,20 +136,26 @@ MonoBehaviour:
     side: 0
     delay: 1
     damage: 20
-    launched: 1
+    size: 1
+    launched: 0
+    launchSpeedMultiplier: 1
     y: 0
     x: 0
   - timestamp: 1
     side: 0
     delay: 1
     damage: 20
+    size: 1
     launched: 1
+    launchSpeedMultiplier: 0.5
     y: -1.4
     x: 0
   - timestamp: 1
     side: 2
     delay: 1
     damage: 20
-    launched: 1
+    size: 1
+    launched: 0
+    launchSpeedMultiplier: 1
     y: 1.59
     x: 2.17

@@ -24,7 +24,7 @@ namespace Player
 
         public bool invincible;
         public bool CanMaxHeat = true;
-
+        private Animator animator;
         private float _currentHeat;
 
         private float _timeSinceLastHit;
@@ -37,6 +37,7 @@ namespace Player
             _currentHeat = startHeat;
             _movement = GetComponent<Movement>();
             _score = GameObject.Find("Game").GetComponent<Score>();
+            animator = GetComponent<Animator>();
 
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
@@ -81,7 +82,6 @@ namespace Player
 
             _currentHeat += amount * combo;
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
-
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
 
             if (_currentHeat <= 0)
@@ -119,7 +119,7 @@ namespace Player
             return _comboMultiplier;
         }
 
-        private float GetCurrentHeatNormalized()
+        public float GetCurrentHeatNormalized()
         {
             return _currentHeat / maximumHeat;
         }

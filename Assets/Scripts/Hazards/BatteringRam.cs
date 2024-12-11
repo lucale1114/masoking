@@ -15,6 +15,7 @@ public class BatteringRam : MonoBehaviour
 
     public BatteringRamData data;
 
+    private bool began;
     private bool canHit = true;
     public int dirX;
     public int dirY;
@@ -66,9 +67,10 @@ public class BatteringRam : MonoBehaviour
 
     private void TimestampTick()
     {
-        if (Mathf.Approximately(WaveHandler.Timestamp, data.timestamp))
+        if (Mathf.Approximately(WaveHandler.Timestamp, data.timestamp) && !began)
         {
             BeginRam();
+            began = true;
         }
     }
 
