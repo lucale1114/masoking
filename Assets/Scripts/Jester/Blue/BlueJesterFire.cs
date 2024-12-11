@@ -1,15 +1,11 @@
-using Jester.Blue;
 using Player;
 using Projectile;
 using UnityEngine;
-using Wave.Jesters.Red;
 
-namespace Jester
+namespace Jester.Blue
 {
-    public class JesterFire : MonoBehaviour
+    public class BlueJesterFire : MonoBehaviour
     {
-        [SerializeField] private GameObject throwProjectilePrefab;
-        [SerializeField] private GameObject throwAndRollProjectilePrefab;
         public AudioClip[] frow;
 
         private GameObject player;
@@ -160,18 +156,6 @@ namespace Jester
             shot.axe = true;
             shot.flipAmount = wave;
             SoundFXManager.Instance.PlayRandomSoundFX(frow, 1f);
-        }
-
-        public void Throw(RedShotDataObject shotData)
-        {
-            var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
-            throwProjectile.GetComponent<Pin>().SetShotData(shotData, player.transform.position);
-        }
-
-        public void ThrowAndRoll(RedShotDataObject shotData)
-        {
-            var throwProjectile = Instantiate(throwAndRollProjectilePrefab, transform.position, Quaternion.identity);
-            throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, player.transform.position);
         }
     }
 }

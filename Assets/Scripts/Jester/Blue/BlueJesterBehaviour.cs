@@ -8,6 +8,13 @@ namespace Jester.Blue
 {
     public class BlueJesterBehaviour : AbstractStandingJesterBehaviour<BlueJesterCommand>
     {
+        private BlueJesterFire _blueJesterFire;
+
+        private void Start()
+        {
+            _blueJesterFire = GetComponent<BlueJesterFire>();
+        }
+
         protected override void CalculateLeaveTime()
         {
             var largestTime = jesterCommands
@@ -60,7 +67,7 @@ namespace Jester.Blue
             {
                 JesterAnimator.TriggerFire();
                 yield return new WaitForSeconds(0.25f);
-                JesterFire.ShootBasicProjectile(data.speed, data);
+                _blueJesterFire.ShootBasicProjectile(data.speed, data);
                 yield return new WaitForSeconds(data.fireBetween);
             }
         }
@@ -70,7 +77,7 @@ namespace Jester.Blue
         {
             JesterAnimator.TriggerFire();
             yield return new WaitForSeconds(0.25f);
-            JesterFire.ShootCurvedShot(data.speed, data.timer, data.gravityDir, 1, data);
+            _blueJesterFire.ShootCurvedShot(data.speed, data.timer, data.gravityDir, 1, data);
         }
 
         // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
@@ -78,7 +85,7 @@ namespace Jester.Blue
         {
             JesterAnimator.TriggerFire();
             yield return new WaitForSeconds(0.25f);
-            JesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
+            _blueJesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
         }
 
         // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
@@ -86,7 +93,7 @@ namespace Jester.Blue
         {
             JesterAnimator.TriggerFire();
             yield return new WaitForSeconds(0.25f);
-            JesterFire.ShootRow(data.speed, data.radius, data.amount, data);
+            _blueJesterFire.ShootRow(data.speed, data.radius, data.amount, data);
         }
 
         // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
@@ -94,7 +101,7 @@ namespace Jester.Blue
         {
             JesterAnimator.TriggerFire();
             yield return new WaitForSeconds(0.25f);
-            JesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
+            _blueJesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
         }
 
         // Fires a storm of shots towards the player.
@@ -104,7 +111,7 @@ namespace Jester.Blue
             {
                 JesterAnimator.TriggerFire();
                 yield return new WaitForSeconds(0.25f);
-                JesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data);
+                _blueJesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data);
                 yield return new WaitForSeconds(data.fireBetween);
             }
         }
@@ -135,7 +142,7 @@ namespace Jester.Blue
             yield return new WaitForSeconds(data.fireBetween);
             JesterAnimator.TriggerFire();
             yield return new WaitForSeconds(0.25f);
-            JesterFire.ShootBasicProjectile(data.speed, data, x, y);
+            _blueJesterFire.ShootBasicProjectile(data.speed, data, x, y);
             yield return new WaitForSeconds(0.25f);
             LineRenderer.enabled = false;
         }

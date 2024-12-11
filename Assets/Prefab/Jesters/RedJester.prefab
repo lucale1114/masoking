@@ -41,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2096671366145075604}
   - component: {fileID: 8739294824754787912}
-  - component: {fileID: 8886717028465816378}
   - component: {fileID: 3118247668702375447}
   - component: {fileID: 1256570226195499151}
   - component: {fileID: 4797457236873418836}
   - component: {fileID: -4970837544014299122}
+  - component: {fileID: 6268125220351347629}
   m_Layer: 0
   m_Name: RedJester
   m_TagString: Enemy
@@ -121,25 +121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8886717028465816378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745559563252854211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298c1b78c7f53be4393364e526f4916c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
-  throwAndRollProjectilePrefab: {fileID: 6117042597192732843, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}
-  frow:
-  - {fileID: 8300000, guid: fc30a6c61a96c054caea54ba443028a2, type: 3}
-  - {fileID: 8300000, guid: 04e1fed6714b92d4cb7df13914474958, type: 3}
-  - {fileID: 8300000, guid: 344b7b16ea0e1c1469b38b3a67af4b7b, type: 3}
-  projectile: {fileID: 7494303468764717806, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
 --- !u!114 &3118247668702375447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,3 +272,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterTimestamp: 0
   jesterCommands: []
+--- !u!114 &6268125220351347629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745559563252854211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8531238d8b124a1a8c7bf3f91adff4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwProjectilePrefab: {fileID: 6117042597192732843, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
+  throwAndRollProjectilePrefab: {fileID: 6117042597192732843, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}

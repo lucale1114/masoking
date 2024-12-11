@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using Jester.Blue;
+using Unity.VisualScripting;
 using UnityEngine;
 using Wave.Jesters.Red;
 
@@ -7,6 +9,14 @@ namespace Jester.Red
 {
     public class RedJesterBehaviour : AbstractStandingJesterBehaviour<RedJesterCommand>
     {
+        private RedJesterFire _redJesterFire;
+
+        private void Start()
+        {
+
+            _redJesterFire = GetComponent<RedJesterFire>();
+        }
+
         protected override void CalculateLeaveTime()
         {
             var largestTime = jesterCommands
@@ -40,13 +50,13 @@ namespace Jester.Red
         private void Throw(RedShotDataObject data)
         {
             JesterAnimator.TriggerFire();
-            JesterFire.Throw(data);
+            _redJesterFire.Throw(data);
         }
 
         private void ThrowAndRoll(RedShotDataObject data)
         {
             JesterAnimator.TriggerFire();
-            JesterFire.ThrowAndRoll(data);
+            _redJesterFire.ThrowAndRoll(data);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Jester
         public T[] jesterCommands;
 
         protected float LeaveTime;
-        protected JesterFire JesterFire;
+
         protected GameObject Player;
         protected JesterAnimator JesterAnimator;
         protected LineRenderer LineRenderer;
@@ -28,7 +28,7 @@ namespace Jester
             Player = GameObject.FindGameObjectWithTag("Player");
             LineRenderer = GetComponent<LineRenderer>();
             JesterAnimator = GetComponent<JesterAnimator>();
-            JesterFire = GetComponent<JesterFire>();
+
             if (transform.position.x < 0)
             {
                 FlipDirection();
