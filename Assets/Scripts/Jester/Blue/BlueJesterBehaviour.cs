@@ -18,13 +18,12 @@ namespace Jester.Blue
 
         protected override void CalculateLeaveTime()
         {
-            var largestTime = jesterCommands
-                .Select(command => command.shotData)
-                .Select(data => data.amount + (data.amount == 0 ? 1 : 0) * data.fireBetween)
+            LeaveTime = jesterCommands
+                .Select(command => command.timestamp +
+                                   command.shotData.amount +
+                                   (command.shotData.amount == 0 ? 1 : 0) * command.shotData.fireBetween)
                 .Prepend(0f)
-                .Max();
-
-            LeaveTime = enterTimestamp + largestTime + 0.2f;
+                .Max() + 0.3f;
         }
 
         protected override void OnCommandTime(BlueJesterCommand command)

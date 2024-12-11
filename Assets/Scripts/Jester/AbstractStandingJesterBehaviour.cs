@@ -72,7 +72,7 @@ namespace Jester
                         return;
                     }
 
-                    if (Mathf.Abs(enterTimestamp + command.GetTimestamp() - WaveHandler.Timestamp) < 0.04f)
+                    if (Mathf.Approximately(command.GetTimestamp(), WaveHandler.Timestamp))
                     {
                         OnCommandTime(command);
                     }
