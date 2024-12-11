@@ -67,6 +67,7 @@ namespace Wave.Editors
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
+                    AddProperty(property, visualElement, "shotData.radius", "Radius");
                     break;
             }
 

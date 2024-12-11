@@ -87,7 +87,7 @@ namespace Projectile
             return _numberOfBounces;
         }
 
-        public void StopSpin()
+        protected void StopSpin()
         {
             _stopSpin = true;
         }
