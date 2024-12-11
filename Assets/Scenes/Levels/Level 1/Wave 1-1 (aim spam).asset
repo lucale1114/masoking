@@ -132,24 +132,24 @@ MonoBehaviour:
   green: []
   purple: []
   ram:
-  - timestamp: 3
-    delay: 3
-    damage: 20
+  - timestamp: 1
     side: 0
+    delay: 1
+    damage: 20
+    launched: 1
     y: 0
     x: 0
-    randomY: 0
-  - timestamp: 2
-    delay: 3
-    damage: 20
+  - timestamp: 1
     side: 0
+    delay: 1
+    damage: 20
+    launched: 1
     y: -1.4
     x: 0
-    randomY: 0
-  - timestamp: 2
-    delay: 3
+  - timestamp: 1
+    side: 2
+    delay: 1
     damage: 20
-    side: 0
+    launched: 1
     y: 1.59
-    x: 0
-    randomY: 0
+    x: 2.17

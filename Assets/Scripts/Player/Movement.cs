@@ -39,6 +39,7 @@ namespace Player
         private Vector2 currentVelocity;
         private Rigidbody2D rb;
         private Vector2 moveInput;
+        public float knocked = 0;
 
         private float currentTimestamp = 0f;
 
@@ -94,6 +95,7 @@ namespace Player
                 {
                     _dashCoolDown = Mathf.Min(_dashCoolDown + 0.1f, 1);
                 }
+                knocked = Mathf.Max(0, knocked - 0.1f);
                 currentTimestamp = WaveHandler.Timestamp;
             }
 
@@ -121,7 +123,7 @@ namespace Player
                 moveInput = Vector2.zero;
                 return;
             }
-            else if (!IsInDashState && IsCurrentlyDashing)
+            else if ((!IsInDashState && IsCurrentlyDashing))
             {
                 rb.velocity += moveInput;
                 return;
@@ -139,7 +141,6 @@ namespace Player
             else if (moveInput.x * currentVelocity.x < 0)
             {
                 currentVelocity.x = Mathf.MoveTowards(currentVelocity.x, 0, turnDeceleration * Time.fixedDeltaTime);
-
             }
             else
             {
@@ -168,7 +169,15 @@ namespace Player
             rb.velocity = currentVelocity; //* _dashMultiplier;
         }
 
-        private IEnumerator ChargeDash()
+        public void Knocked(float knockedTime, Vector3 dir) {
+            knocked = knockedTime;
+            IsCurrentlyDashing = true;
+            power = 0.3f;
+            currentVelocity = dir * 5 ;
+            StartCoroutine(Dash());
+        }
+
+        public IEnumerator ChargeDash()
         {
             SoundFXManager.Instance.StartDash();
             SoundFXManager.Instance.StopWalking();
@@ -179,7 +188,6 @@ namespace Player
             rb.velocity = currentVelocity * 0.25f;
             power = 0;
             StartCoroutine(FlashRecharge());
-          
             while (_chargingDash)
             {
                 yield return new WaitForSeconds(0.05f);
@@ -214,19 +222,18 @@ namespace Player
 
             IsInDashState = false;
             _dashCoolDown = 0;
-            if (Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
+            if ((Mathf.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0) && knocked == 0)
             {
                 velocityVector = moveInput * (dashSpeed * maxSpeed * power * 2f);
             }
             else
             {
-
                 velocityVector = currentVelocity * (dashSpeed * maxSpeed * power);
-
             }
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
+            print(currentVelocity);
             playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;

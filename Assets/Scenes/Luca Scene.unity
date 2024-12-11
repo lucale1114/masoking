@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eab567387fe42f4b7ed0acf5eae0e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombJesterPrefab: {fileID: 9001677757750891510, guid: d834a98331f003d43835b461a94c112c, type: 3}
   greenJesterPrefab: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
+  purpleJesterPrefab: {fileID: 0}
 --- !u!114 &84093557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,14 +1584,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
-      propertyPath: maximumHeat
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
-      propertyPath: heatDecayPerSecond
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name
       value: Player

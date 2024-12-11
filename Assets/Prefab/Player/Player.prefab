@@ -328,7 +328,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 1521d73225f5f9044bc823077f99cf3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.101960786}
   m_FlipX: 0
@@ -536,6 +536,7 @@ MonoBehaviour:
   dash:
   - {fileID: 8300000, guid: 642023a8ebe3cb94cbe2f0d91c646aec, type: 3}
   - {fileID: 8300000, guid: 7331a6fe12a667448938847b64cc35db, type: 3}
+  knocked: 0
 --- !u!114 &2903870218911091185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumHeat: 200
   startHeat: 100
-  heatDecayPerSecond: 10
+  heatDecayPerSecond: 8
   comboTimeLimit: 1.5
   comboMultiplierIncrease: 1
   invincible: 0
