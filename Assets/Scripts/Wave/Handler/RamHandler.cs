@@ -40,6 +40,7 @@ namespace Wave.Handler
             float x = _data.x;
             float y = _data.y;
 
+            ramScript.launchMode = _data.launched;
             ramScript.dirY = 0;
             ramScript.dirX = 1;
 

@@ -123,7 +123,7 @@ namespace Player
                 moveInput = Vector2.zero;
                 return;
             }
-            else if ((!IsInDashState && IsCurrentlyDashing) || knocked > 0)
+            else if ((!IsInDashState && IsCurrentlyDashing))
             {
                 rb.velocity += moveInput;
                 return;
@@ -172,8 +172,8 @@ namespace Player
         public void Knocked(float knockedTime, Vector3 dir) {
             knocked = knockedTime;
             IsCurrentlyDashing = true;
-            power = 0.5f;
-            currentVelocity = dir * 1000;
+            power = 0.3f;
+            currentVelocity = dir * 5 ;
             StartCoroutine(Dash());
         }
 
@@ -187,7 +187,7 @@ namespace Player
             rb.velocity = currentVelocity * 0.25f;
             power = 0;
             StartCoroutine(FlashRecharge());
-            while (_chargingDash || knocked > 0.7f)
+            while (_chargingDash)
             {
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + dashIncrease, dashMaxTime);
@@ -231,6 +231,7 @@ namespace Player
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
+            print(currentVelocity);
             playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
@@ -248,7 +249,6 @@ namespace Player
 
         public void AttemptBounce(Vector2 normal)
         {
-            if (knocked > 0) { return;  }
             if (IsCurrentlyDashing)
             {
                 if (IsBouncing || _numberOfWallBounces == 0)
