@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 5551177897304979935}
   - component: {fileID: 5551177897304979936}
   - component: {fileID: 5551177897304979937}
+  - component: {fileID: 5551177897304979938}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1013,6 +1014,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   greenJesterPrefab: {fileID: 4925187051270405869, guid: 3cf2845e7cf53a243bf010412e908e61, type: 3}
   purpleJesterPrefab: {fileID: 0}
+--- !u!114 &5551177897304979938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574798401170592269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7888c6f0e8fe6d4e8ac24afbd960c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _batteringRam: {fileID: 5505589146939949829, guid: 005fa2e5871087b4da15d841d4d96c25, type: 3}
 --- !u!1 &5808985195044538592
 GameObject:
   m_ObjectHideFlags: 0
