@@ -20,8 +20,8 @@ namespace Jester
         protected LineRenderer LineRenderer;
 
         private int _dir;
-        private float _currentTick;
-        private bool _leaving;
+        private float _currentTick = -1;
+        private bool _isMoving;
 
         private void Start()
         {
@@ -51,37 +51,6 @@ namespace Jester
             transform.localScale = localScale;
         }
 
-        private void TimestampTick()
-        {
-            if (_leaving)
-            {
-                return;
-            }
-
-            foreach (T command in jesterCommands)
-            {
-                if (Mathf.Approximately(enterTimestamp, WaveHandler.Timestamp))
-                {
-                    MoveIntoView();
-                }
-
-                if (Mathf.Approximately(command.GetTimestamp() + enterTimestamp, WaveHandler.Timestamp))
-                {
-                    OnCommandTime(command);
-                }
-            }
-
-            if (Mathf.Approximately(LeaveTime, WaveHandler.Timestamp))
-            {
-                LeaveView();
-            }
-
-            if (LineRenderer.enabled)
-            {
-                LineRenderer.SetPosition(0, transform.position);
-            }
-        }
-
         protected abstract void OnCommandTime(T command);
 
         private void Update()
@@ -89,28 +58,62 @@ namespace Jester
             if (!Mathf.Approximately(_currentTick, WaveHandler.Timestamp))
             {
                 _currentTick = WaveHandler.Timestamp;
-                TimestampTick();
+
+                if (_isMoving)
+                {
+                    return;
+                }
+
+                foreach (T command in jesterCommands)
+                {
+                    if (Mathf.Approximately(enterTimestamp, WaveHandler.Timestamp))
+                    {
+                        MoveIntoView();
+                        return;
+                    }
+
+                    if (Mathf.Abs(enterTimestamp + command.GetTimestamp() - WaveHandler.Timestamp) < 0.04f)
+                    {
+                        OnCommandTime(command);
+                    }
+                }
+
+                if (Mathf.Approximately(LeaveTime, WaveHandler.Timestamp))
+                {
+                    LeaveView();
+                    return;
+                }
+
+                if (LineRenderer.enabled)
+                {
+                    LineRenderer.SetPosition(0, transform.position);
+                }
             }
         }
 
         private void MoveIntoView()
         {
-            if (_leaving)
-            {
-                return;
-            }
-
+            _isMoving = true;
             JesterAnimator.SetMoving();
-            transform.DOLocalMoveX(transform.position.x + 2 * _dir, 2);
+            transform.DOLocalMoveX(transform.position.x + 2 * _dir, StandingJesterHandler.WalkingIn).onComplete +=
+                () =>
+                {
+                    _isMoving = false;
+                    JesterAnimator.SetIdle();
+                };
         }
 
         private void LeaveView()
         {
-            _leaving = true;
+            _isMoving = true;
             JesterAnimator.SetMoving();
-            transform.DOLocalMoveX(transform.position.x + 2 * -_dir, 0.8f);
-            AnyJesterDestroyed?.Invoke(gameObject);
-            Destroy(gameObject, 1.5f);
+            transform.DOLocalMoveX(transform.position.x + 2 * -_dir, StandingJesterHandler.WalkingOut).onComplete +=
+                () =>
+                {
+                    _isMoving = false;
+                    AnyJesterDestroyed?.Invoke(gameObject);
+                    Destroy(gameObject, 1.5f);
+                };
         }
     }
 }

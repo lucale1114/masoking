@@ -203,7 +203,7 @@ namespace Player
         IEnumerator FlashRecharge()
         {
             _dashImageCharger.enabled = true;
-            
+
             while (_chargingDash)
             {
                 _dashImageCharger.DOColor(new Color32(255, 255, 255, 160), 0.05f);
@@ -233,7 +233,6 @@ namespace Player
             currentVelocity = Vector2.ClampMagnitude(velocityVector, dashSpeed);
             rb.velocity = Vector2.zero;
             rb.velocity = currentVelocity;
-            print(currentVelocity);
             playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;

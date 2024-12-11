@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Jester.Blue;
 using Jester.Red;
 using UnityEngine;
@@ -9,6 +10,9 @@ namespace Wave.Handler
 {
     public class StandingJesterHandler : MonoBehaviour
     {
+        public const float WalkingIn = 0.8f;
+        public const float WalkingOut = 0.8f;
+
         private const float XLeft = -8.5f;
         private const float XRight = 8.5f;
 
@@ -64,7 +68,6 @@ namespace Wave.Handler
         {
             var jesterData = new BlueJesterData
             {
-                timestamp = WaveHandler.Timestamp + 0.5f,
                 randomY = true,
                 side = Sides.Random
             };
@@ -82,7 +85,8 @@ namespace Wave.Handler
                 new BlueJesterCommand()
                 {
                     action = BlueJesterActions.FireAimed,
-                    shotData = shotData
+                    shotData = shotData,
+                    timestamp = WaveHandler.Timestamp + 0.5f
                 }
             };
             _currentJesters.Add(SpawnJester(jesterData));
@@ -95,7 +99,11 @@ namespace Wave.Handler
 
             var newJester = Instantiate(redJesterPrefab, new Vector3(x, y), redJesterPrefab.transform.rotation);
             var jesterBehaviour = newJester.GetComponent<RedJesterBehaviour>();
-            jesterBehaviour.enterTimestamp = jesterData.timestamp;
+
+            var firstTimestamp = jesterData.commands.Select(jesterDataCommand => jesterDataCommand.timestamp)
+                .Prepend(float.PositiveInfinity).Min();
+
+            jesterBehaviour.enterTimestamp = firstTimestamp - WalkingIn;
             jesterBehaviour.jesterCommands = jesterData.commands;
 
             return newJester;
@@ -108,7 +116,10 @@ namespace Wave.Handler
 
             var newJester = Instantiate(blueJesterPrefab, new Vector3(x, y), blueJesterPrefab.transform.rotation);
             var jesterBehaviour = newJester.GetComponent<BlueJesterBehaviour>();
-            jesterBehaviour.enterTimestamp = jesterData.timestamp;
+            var firstTimestamp = jesterData.commands.Select(jesterDataCommand => jesterDataCommand.timestamp)
+                .Prepend(float.PositiveInfinity).Min();
+
+            jesterBehaviour.enterTimestamp = firstTimestamp - WalkingIn;
             jesterBehaviour.jesterCommands = jesterData.commands;
 
             return newJester;

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Wave.Jesters.Red;
 
@@ -8,18 +9,13 @@ namespace Jester.Red
     {
         protected override void CalculateLeaveTime()
         {
-            foreach (var command in jesterCommands)
-            {
-                var data = command.shotData;
-                var additionIfOnlyFb = 0;
-                if (data.amount == 0)
-                {
-                    additionIfOnlyFb++;
-                }
+            var largestTime = jesterCommands
+                .Select(command => command.shotData)
+                .Select(data => data.amount + (data.amount == 0 ? 1 : 0) * data.fireBetween)
+                .Prepend(0f)
+                .Max();
 
-                LeaveTime = Mathf.Max(enterTimestamp + command.timestamp + 1f,
-                    enterTimestamp + command.timestamp + (data.amount + additionIfOnlyFb) * data.fireBetween + 0.5f);
-            }
+            LeaveTime = enterTimestamp + largestTime + 0.2f;
         }
 
         protected override void OnCommandTime(RedJesterCommand command)

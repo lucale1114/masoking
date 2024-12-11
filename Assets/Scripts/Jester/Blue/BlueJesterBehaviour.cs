@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,18 +10,13 @@ namespace Jester.Blue
     {
         protected override void CalculateLeaveTime()
         {
-            foreach (var command in jesterCommands)
-            {
-                var data = command.shotData;
-                var additionIfOnlyFb = 0;
-                if (data.amount == 0)
-                {
-                    additionIfOnlyFb++;
-                }
+            var largestTime = jesterCommands
+                .Select(command => command.shotData)
+                .Select(data => data.amount + (data.amount == 0 ? 1 : 0) * data.fireBetween)
+                .Prepend(0f)
+                .Max();
 
-                LeaveTime = Mathf.Max(enterTimestamp + command.timestamp + 1f,
-                    enterTimestamp + command.timestamp + (data.amount + additionIfOnlyFb) * data.fireBetween + 0.5f);
-            }
+            LeaveTime = enterTimestamp + largestTime + 0.2f;
         }
 
         protected override void OnCommandTime(BlueJesterCommand command)
@@ -38,16 +34,16 @@ namespace Jester.Blue
                     StartCoroutine(FireStorm(data));
                     break;
                 case BlueJesterActions.FireBurst:
-                    FireBurst(data);
+                    StartCoroutine(FireBurst(data));
                     break;
                 case BlueJesterActions.FireCurved:
-                    FireCurvedShot(data);
+                    StartCoroutine(FireCurvedShot(data));
                     break;
                 case BlueJesterActions.FireWavy:
-                    FireWavyShot(data);
+                    StartCoroutine(FireWavyShot(data));
                     break;
                 case BlueJesterActions.FireRow:
-                    FireRow(data);
+                    StartCoroutine(FireRow(data));
                     break;
                 case BlueJesterActions.Snipe:
                     StartCoroutine(FireSniper(data));
@@ -63,36 +59,41 @@ namespace Jester.Blue
             for (var i = 0; i < data.amount; i++)
             {
                 JesterAnimator.TriggerFire();
+                yield return new WaitForSeconds(0.25f);
                 JesterFire.ShootBasicProjectile(data.speed, data);
                 yield return new WaitForSeconds(data.fireBetween);
             }
         }
 
         // Shots that have gravitation which flips after some time
-        private void FireCurvedShot(BlueShotDataObject data)
+        private IEnumerator FireCurvedShot(BlueShotDataObject data)
         {
             JesterAnimator.TriggerFire();
+            yield return new WaitForSeconds(0.25f);
             JesterFire.ShootCurvedShot(data.speed, data.timer, data.gravityDir, 1, data);
         }
 
         // Shots that use cosine which makes them wavy. Not well implemented and needs changes.
-        private void FireWavyShot(BlueShotDataObject data)
+        private IEnumerator FireWavyShot(BlueShotDataObject data)
         {
             JesterAnimator.TriggerFire();
+            yield return new WaitForSeconds(0.25f);
             JesterFire.ShootWavyShot(data.speed, data.frequency, data.amp, data);
         }
 
         // Fires a circular row of projectiles. Can be modified with radius and amount of shots.
-        private void FireRow(BlueShotDataObject data)
+        private IEnumerator FireRow(BlueShotDataObject data)
         {
             JesterAnimator.TriggerFire();
+            yield return new WaitForSeconds(0.25f);
             JesterFire.ShootRow(data.speed, data.radius, data.amount, data);
         }
 
         // Fires a burst shot which explodes into the amount of shots given in the 3rd argument
-        private void FireBurst(BlueShotDataObject data)
+        private IEnumerator FireBurst(BlueShotDataObject data)
         {
             JesterAnimator.TriggerFire();
+            yield return new WaitForSeconds(0.25f);
             JesterFire.ShootBurstShot(data.speed, data.timer, data.amount, data);
         }
 
@@ -101,11 +102,11 @@ namespace Jester.Blue
         {
             for (var i = 0; i < data.amount; i++)
             {
+                JesterAnimator.TriggerFire();
+                yield return new WaitForSeconds(0.25f);
                 JesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data);
                 yield return new WaitForSeconds(data.fireBetween);
             }
-
-            yield return new WaitForSeconds(3);
         }
 
         private IEnumerator FireSniper(BlueShotDataObject data)
@@ -133,6 +134,7 @@ namespace Jester.Blue
 
             yield return new WaitForSeconds(data.fireBetween);
             JesterAnimator.TriggerFire();
+            yield return new WaitForSeconds(0.25f);
             JesterFire.ShootBasicProjectile(data.speed, data, x, y);
             yield return new WaitForSeconds(0.25f);
             LineRenderer.enabled = false;
