@@ -15,8 +15,11 @@ namespace Projectile
                 if (!_isActivated)
                 {
                     _isActivated = true;
+
                     StopSpin();
-                    GetComponent<Bomb>().Activate();
+                    var bomb = GetComponent<Bomb>();
+                    bomb.SetProperties(Data.radius, Data.damage);
+                    bomb.Activate();
                 }
             }
             else

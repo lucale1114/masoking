@@ -78,6 +78,9 @@ namespace Jester.Red
         [Tooltip("Breaks on dash, otherwise bounces of the player.")]
         public bool breakable;
 
+        [Tooltip("Radius for explosion")]
+        public float radius;
+
         public float GetDamage()
         {
             return damage;
