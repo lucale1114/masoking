@@ -8,15 +8,19 @@ namespace Player
 
         [SerializeField] AudioSource soundFXObject;
         [SerializeField] AudioSource walkFX;
+        [SerializeField] AudioSource dashFX;
 
         [SerializeField] AudioClip walkClip; // Assign a walking sound clip in the inspector
         [SerializeField] AudioClip roll; // Assign a rolling sound clip in the inspector
+        [SerializeField] AudioClip dashCharge; // Assign a rolling sound clip in the inspector
+
 
         float timer = 0;
         float minTime = 0.05f;
 
 
         private bool isWalking = false;
+        private bool isDashing = false;
 
 
         public void Awake()
@@ -70,13 +74,11 @@ namespace Player
         public void PlayOnLoop()
         {
             soundFXObject.clip = roll;
-            walkFX.loop = true; // Optional: Set to `true` for continuous playback
-            walkFX.Play();
         }
 
         public void StopLoop()
         {
-            walkFX.loop = false;
+            
         }
 
 
@@ -99,6 +101,27 @@ namespace Player
             }
             isWalking = false;
             walkFX.loop = false;
+        }
+
+        public void StartDash()
+        {
+            if (!isDashing && dashFX != null && dashCharge != null)
+            {
+                isDashing = true;
+                dashFX.clip = dashCharge;
+                dashFX.loop = true; // Optional: Set to `true` for continuous playback
+                dashFX.Play();
+            }
+        }
+
+        public void StopDash()
+        {
+            if (isDashing && dashFX.isPlaying)
+            {
+                dashFX.Stop();
+            }
+            isDashing = false;
+            dashFX.loop = false;
         }
 
         public void PitchChange()
