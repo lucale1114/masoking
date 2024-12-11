@@ -10,8 +10,9 @@ namespace Jester.Blue
     {
         private BlueJesterFire _blueJesterFire;
 
-        private void Start()
+        private new void Start()
         {
+            base.Start();
             _blueJesterFire = GetComponent<BlueJesterFire>();
         }
 

@@ -1,8 +1,5 @@
 using System;
 using System.Linq;
-using Jester.Blue;
-using Unity.VisualScripting;
-using UnityEngine;
 using Wave.Jesters.Red;
 
 namespace Jester.Red
@@ -11,9 +8,9 @@ namespace Jester.Red
     {
         private RedJesterFire _redJesterFire;
 
-        private void Start()
+        private new void Start()
         {
-
+            base.Start();
             _redJesterFire = GetComponent<RedJesterFire>();
         }
 

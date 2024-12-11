@@ -23,7 +23,7 @@ namespace Jester
         private float _currentTick = -1;
         private bool _isMoving;
 
-        private void Start()
+        protected void Start()
         {
             Player = GameObject.FindGameObjectWithTag("Player");
             LineRenderer = GetComponent<LineRenderer>();
