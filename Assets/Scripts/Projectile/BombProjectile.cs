@@ -1,19 +1,23 @@
+using Jester;
 using Jester.Red;
-using Player;
 using UnityEngine;
 
 namespace Projectile
 {
-    public class BallProjectile : AbstractThrownProjectile
+    public class BombProjectile : AbstractThrownProjectile
     {
-        [SerializeField] AudioClip roll;
+        private bool _isActivated;
+
         protected override void OnUpdate(float airTime)
         {
             if (CurrentTime > Data.throwAirTime)
             {
-                RigidBody.MovePosition(Direction * (Time.deltaTime * Data.speed) + (Vector2) transform.position);
-                SoundFXManager.Instance.PlayOnLoop();
-
+                if (!_isActivated)
+                {
+                    _isActivated = true;
+                    StopSpin();
+                    GetComponent<Bomb>().Activate();
+                }
             }
             else
             {
@@ -21,10 +25,7 @@ namespace Projectile
 
                 position.y += curveHeight * Data.animationCurve.Evaluate(airTime);
                 RigidBody.MovePosition(position);
-                SoundFXManager.Instance.StopLoop();
             }
-
-            Destroy(gameObject, 4f);
         }
 
         protected override void InstantiateReticle(RedShotDataObject shotData)

@@ -1,6 +1,5 @@
 using Projectile;
 using UnityEngine;
-using Wave.Jesters.Red;
 
 namespace Jester.Red
 {
@@ -8,6 +7,7 @@ namespace Jester.Red
     {
         [SerializeField] private GameObject throwProjectilePrefab;
         [SerializeField] private GameObject throwAndRollProjectilePrefab;
+        [SerializeField] private GameObject throwAndExplodeProjectilePrefab;
 
         private GameObject _player;
 
@@ -31,6 +31,12 @@ namespace Jester.Red
         {
             var throwProjectile = Instantiate(throwAndRollProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, _player.transform.position);
+        }
+
+        public void ThrowAndExplode(RedShotDataObject shotData)
+        {
+            var throwProjectile = Instantiate(throwAndExplodeProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
+            throwProjectile.GetComponent<BombProjectile>().SetShotData(shotData, _player.transform.position);
         }
     }
 }

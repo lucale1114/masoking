@@ -3,7 +3,6 @@ using System.Linq;
 using Jester.Blue;
 using Jester.Red;
 using UnityEngine;
-using Wave.Jesters.Red;
 using Random = UnityEngine.Random;
 
 namespace Wave.Handler
