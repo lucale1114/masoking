@@ -63,7 +63,9 @@ namespace Player
             timer = 0;
 
             soundFXObject.PlayOneShot(audioClip, volume);
+        
         }
+
 
         public void PlayRandomSoundFX(AudioClip[] audioClip, float volume)
         {

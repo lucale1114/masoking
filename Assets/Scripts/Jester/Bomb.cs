@@ -1,6 +1,7 @@
 using Player;
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Jester
 {
@@ -8,21 +9,25 @@ namespace Jester
     {
         public BombJesterCollision BombJesterCollision;
 
-        public static GameObject player;
+
+        public static GameObject _player;
+        private Rigidbody2D _body;
+        private float thrust = 3;
         [SerializeField] AudioClip[] booms;
         [SerializeField] Animator animator;
 
-        [SerializeField] private float explosionRadius = 1.5f;
+        [SerializeField] private float explosionRadius = 5f;
 
         //Vector3 playerPos = Player.transform.position;
         //Vector3 bombPos = bomb.transform.position;
         void Start()
         {
             // Find the player using a tag if not assigned
-            player = GameObject.FindGameObjectWithTag("Player");
+            _player = GameObject.FindGameObjectWithTag("Player");
+            _player.GetComponent<Rigidbody2D>();
 
 
-            if (player == null)
+            if (_player == null)
             {
                 UnityEngine.Debug.LogError("Player not assigned or found!");
             }
@@ -50,18 +55,20 @@ namespace Jester
         {
             SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
 
-            if (player != null)
+            if (_player != null)
             {
                 // Calculate distance between bomb and player
                 //float distance = Vector3.Distance(transform.position, player.transform.position);
-                float sqrDistance = Vector3.SqrMagnitude(transform.position - player.transform.position);
+                float sqrDistance = Vector3.SqrMagnitude(transform.position - _player.transform.position);
 
 
                 if (sqrDistance <= explosionRadius * explosionRadius)
                 {
                     UnityEngine.Debug.Log("Player is in range of the explosion!");
                     // Apply damage
-                    HeatSystem playerHeat = player.GetComponent<HeatSystem>();
+                    HeatSystem playerHeat = _player.GetComponent<HeatSystem>();
+                    var launchDirection = (transform.position - _player.transform.position).normalized;
+                    //_player. = thrust * launchDirection;
                     if (playerHeat != null)
                     {
                         int damage = 10;
