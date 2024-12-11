@@ -77,7 +77,7 @@ namespace Jester
                 _bomb = null;
             }
 
-            Destroy(gameObject, 4f);
+            Destroy(gameObject, 2f);
         }
     }
 }

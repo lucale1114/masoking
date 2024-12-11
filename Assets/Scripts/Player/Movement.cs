@@ -179,6 +179,7 @@ namespace Player
 
         public IEnumerator ChargeDash()
         {
+            SoundFXManager.Instance.StartDash();
             SoundFXManager.Instance.StopWalking();
             IsCurrentlyDashing = true;
             IsInDashState = true;
@@ -192,6 +193,7 @@ namespace Player
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + dashIncrease, dashMaxTime);
             }
+            SoundFXManager.Instance.StopDash();
             SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
 
             power = Mathf.Max(dashMinTime, power);
