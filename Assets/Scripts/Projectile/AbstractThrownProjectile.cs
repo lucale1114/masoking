@@ -77,7 +77,7 @@ namespace Projectile
             return _damageMod;
         }
 
-        public bool CanHitThings()
+        public virtual bool CanHitThings()
         {
             return _collider.enabled;
         }

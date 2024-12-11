@@ -35,5 +35,10 @@ namespace Projectile
             Direction = (Target - transform.position).normalized;
             Reticle.transform.right = Direction;
         }
+
+        public override bool CanHitThings()
+        {
+            return false;
+        }
     }
 }
