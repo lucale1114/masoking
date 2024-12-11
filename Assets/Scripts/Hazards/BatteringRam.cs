@@ -85,9 +85,9 @@ public class BatteringRam : MonoBehaviour
             {
                 canHit = false;
                 GameObject player = collision.collider.gameObject;
-                Movement movme = player.GetComponent<Movement>();
-                player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                
+                Movement movement = player.GetComponent<Movement>();
+                movement.Knocked(0.5f, transform.forward);
+                //player.GetComponent<Rigidbody2D>().velocity = transform.forward * 500;
                 player.GetComponent<HeatSystem>().ChangeHeat(data.damage);
             }
         }
