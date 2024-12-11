@@ -112,13 +112,14 @@ namespace Misc
                 _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
                 _portrait.GetComponent<Animator>().SetFloat("HeatPercent", _heatSystem.GetCurrentHeatNormalized() * 100);
                 if (_heatSystem.GetCurrentHeatNormalized() < 0.2f) {
+                    _hands.GetComponent<Animator>().SetInteger("State", 1);
                     Hands(true, 0, true);
                     inTrouble = true;
                 }
                 else if (inTrouble)
                 {
-                    Hands(false, 0, true);
                     inTrouble = false;
+                    Hands(false, 0, true);
                 }
             };
 
@@ -257,6 +258,7 @@ namespace Misc
 
         private void Hands(bool enter, float speed, bool angry)
         {
+            Animator animator = _hands.GetComponent<Animator>();
             if (inTrouble) {
                 return;
             }
@@ -269,13 +271,11 @@ namespace Misc
             _hands.transform.DOMove(handsPosUp, 1);
             if (angry)
             {
-             _hands.GetComponent<Animator>().SetFloat("State", 1);
-             _hands.GetComponent<Animator>().speed = 1;
+             animator.speed = 1;
              return;
             }
-            _hands.GetComponent<Animator>().SetFloat("State", 0);
-            _hands.GetComponent<Animator>().speed = speed / 20;
-
+            animator.SetInteger("State", 0);
+            animator.speed = speed / 20;
         }
 
         private IEnumerator MaxHeatGained()
@@ -289,11 +289,12 @@ namespace Misc
             ChangeKingPortrait(1, true, false);
             if (ColorUtility.TryParseHtmlString("#FF0000", out Color col) && !JesterFeverHandler.JesterFever)
                 _portrait.DOColor(col, 1);
-
+                _hands.DOColor(col, 1);
             _isInMax = true;
             yield return new WaitForSeconds(5);
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color cole))
                 _portrait.DOColor(cole, 1);
+                _hands.DOColor(cole, 1);
             _isInMax = false;
             if (_heatSystem.GetCombo() >= 5)
             {
