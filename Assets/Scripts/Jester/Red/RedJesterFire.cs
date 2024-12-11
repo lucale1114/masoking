@@ -16,15 +16,20 @@ namespace Jester.Red
             _player = GameObject.FindGameObjectWithTag("Player");
         }
 
+        private Vector3 GetSpawnPoint()
+        {
+            return transform.GetChild(0).transform.position;
+        }
+
         public void Throw(RedShotDataObject shotData)
         {
-            var throwProjectile = Instantiate(throwProjectilePrefab, transform.position, Quaternion.identity);
+            var throwProjectile = Instantiate(throwProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<Pin>().SetShotData(shotData, _player.transform.position);
         }
 
         public void ThrowAndRoll(RedShotDataObject shotData)
         {
-            var throwProjectile = Instantiate(throwAndRollProjectilePrefab, transform.position, Quaternion.identity);
+            var throwProjectile = Instantiate(throwAndRollProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, _player.transform.position);
         }
     }
