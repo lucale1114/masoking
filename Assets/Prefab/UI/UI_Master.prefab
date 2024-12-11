@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 6167490263864180281}
   - component: {fileID: 8090129779701130115}
   - component: {fileID: 3927378444124308796}
+  - component: {fileID: 2896324653285533032}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -364,6 +365,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2896324653285533032
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339214805442936430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02aec299ff5c1134ead21dff70b876f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &940154307816331166
 GameObject:
   m_ObjectHideFlags: 0
