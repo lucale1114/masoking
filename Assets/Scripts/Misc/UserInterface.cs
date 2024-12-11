@@ -38,6 +38,8 @@ namespace Misc
         protected bool IsIntro;
         private Vector3 handsPosDown;
         private Vector3 handsPosUp;
+        private bool inTrouble;
+
         protected void Awake()
         {
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
@@ -109,6 +111,15 @@ namespace Misc
             {
                 _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
                 _portrait.GetComponent<Animator>().SetFloat("HeatPercent", _heatSystem.GetCurrentHeatNormalized() * 100);
+                if (_heatSystem.GetCurrentHeatNormalized() < 0.2f) {
+                    Hands(true, 0, true);
+                    inTrouble = true;
+                }
+                else if (inTrouble)
+                {
+                    Hands(false, 0, true);
+                    inTrouble = false;
+                }
             };
 
             if (!IsIntro)
@@ -233,19 +244,22 @@ namespace Misc
                     comboGotten = _heatSystem.GetCombo();
                     yield return new WaitForSeconds(0.01f);
                 }
-                Hands(true, Mathf.Clamp(comboGotten, 5, 30));
+                Hands(true, Mathf.Clamp(comboGotten, 5, 30), false);
                 yield return new WaitForSeconds(0.5f);
                 if (!_isInMax)
                 {
                     ChangeKingPortrait(0, false, false);
                 }
                 yield return new WaitForSeconds(1.5f);
-                Hands(false, 1);
+                Hands(false, 1, false);
             }
         }
 
-        private void Hands(bool enter, float speed)
+        private void Hands(bool enter, float speed, bool angry)
         {
+            if (inTrouble) {
+                return;
+            }
             if (!enter)
             {
                _hands.transform.DOMove(handsPosDown, 1);
@@ -253,6 +267,13 @@ namespace Misc
             }
 
             _hands.transform.DOMove(handsPosUp, 1);
+            if (angry)
+            {
+             _hands.GetComponent<Animator>().SetFloat("State", 1);
+             _hands.GetComponent<Animator>().speed = 1;
+             return;
+            }
+            _hands.GetComponent<Animator>().SetFloat("State", 0);
             _hands.GetComponent<Animator>().speed = speed / 20;
 
         }
