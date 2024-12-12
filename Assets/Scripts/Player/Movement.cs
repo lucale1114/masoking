@@ -8,7 +8,8 @@ namespace Player
 {
     public class Movement : MonoBehaviour
     {
-        public Action<bool> IsDashing;
+        public Action<bool, Vector3> IsDashing;
+        public Action<bool, Vector3> Bounced;
 
         [SerializeField] private float maxSpeed = 5f;
         [SerializeField] private float acceleration = 75f;
@@ -218,7 +219,7 @@ namespace Player
         {
 
             Vector2 velocityVector;
-            IsDashing?.Invoke(true);
+            IsDashing?.Invoke(true, currentVelocity);
 
             IsInDashState = false;
             _dashCoolDown = 0;
@@ -236,7 +237,7 @@ namespace Player
             playerAnimator.PlayDash(currentVelocity);
             yield return new WaitForSeconds(power);
             IsCurrentlyDashing = false;
-            IsDashing?.Invoke(false);
+            IsDashing?.Invoke(false, currentVelocity);
             yield return new WaitForSeconds(_dashCoolDown);
         }
 
@@ -258,7 +259,6 @@ namespace Player
                 }
 
                 StartCoroutine(BounceRoutine());
-
                 if (!(normal.x * currentVelocity.x >= 0 && normal.y * currentVelocity.y >= 0))
                 {
                     currentVelocity = Vector2.Reflect(currentVelocity, normal);
@@ -272,6 +272,7 @@ namespace Player
                 {
                     _numberOfWallBounces--;
                 }
+                Bounced?.Invoke(true, currentVelocity);
 
                 return;
             }
