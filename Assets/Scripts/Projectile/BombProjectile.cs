@@ -35,7 +35,6 @@ namespace Projectile
         {
             base.InstantiateReticle(shotData);
 
-            Direction = (Target - transform.position).normalized;
             Reticle.transform.right = Direction;
         }
 

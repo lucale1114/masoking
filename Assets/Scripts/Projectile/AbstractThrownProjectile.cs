@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DG.Tweening;
 using Jester.Red;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Projectile
 {
@@ -22,7 +24,7 @@ namespace Projectile
 
         private GameObject _shadow;
         protected GameObject Reticle;
-        protected GameObject ReticleFill;
+        private GameObject _reticleFill;
 
         protected float CurrentTime;
         private readonly float _damageMod = 1;
@@ -33,6 +35,7 @@ namespace Projectile
         private int _numberOfBounces;
         private bool _stopSpin;
         private Transform _sprite;
+        protected ParticleSystemRenderer ParticleSystemRenderer;
 
         private void Awake()
         {
@@ -40,7 +43,8 @@ namespace Projectile
             _sprite = transform.GetChild(0);
             _collider = GetComponentInChildren<Collider2D>();
             _collider.enabled = false;
-            _spinSpeed = -Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1);
+            ParticleSystemRenderer = GetComponentInChildren<ParticleSystemRenderer>();
+            _spinSpeed = -Math.Abs(Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1));
             StartPosition = transform.position;
         }
 
@@ -131,6 +135,27 @@ namespace Projectile
             {
                 Target.x = Random.Range(-5.0f, 4.0f);
             }
+
+            Direction = (Target - transform.position).normalized;
+
+            if (Direction.x < 0)
+            {
+                _spinSpeed = -_spinSpeed;
+
+                var localScale = transform.localScale;
+                localScale.x *= -1;
+                transform.localScale = localScale;
+
+                if (ParticleSystemRenderer)
+                {
+                    ParticleSystemRenderer.flip = new Vector3(1, 0, 0);
+                }
+            }
+
+            if (ParticleSystemRenderer)
+            {
+                ParticleSystemRenderer.enabled = false;
+            }
         }
 
         private IEnumerator InstantiateShadow()
@@ -148,9 +173,9 @@ namespace Projectile
         protected virtual void InstantiateReticle(RedShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            ReticleFill = Reticle.transform.GetChild(0).gameObject;
+            _reticleFill = Reticle.transform.GetChild(0).gameObject;
             Reticle.transform.localScale *= Data.scale;
-            ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f),
+            _reticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f),
                 (Data.throwAirTime + Data.fireBetween) * 1.75f);
             Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween + 0.1f);
         }
