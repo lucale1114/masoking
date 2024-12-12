@@ -20,7 +20,7 @@ namespace Jester
         {
             if (collision.gameObject.CompareTag("Player") && _movement.IsCurrentlyDashing)
             {
-                GetComponent<Bomb>().Activate();
+                GetComponentInChildren<Bomb>().Activate();
 
                 HasDashed = true;
                 _bomb.parent = null;

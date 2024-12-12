@@ -1,4 +1,5 @@
 using Player;
+using TMPro;
 using UnityEngine;
 
 namespace Projectile
@@ -14,7 +15,7 @@ namespace Projectile
 
         private void Start()
         {
-            _projectile = GetComponent<IProjectile>();
+            _projectile = GetComponent<IProjectile>() ?? GetComponentInParent<IProjectile>();
         }
 
         private void ReflectDebounceEnable()
