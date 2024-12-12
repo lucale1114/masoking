@@ -52,7 +52,7 @@ namespace Misc
 
             _scoreCounter = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
 
-            _waveHandler = GameObject.Find("Game").GetComponent<WaveHandler>();
+            _waveHandler = FindObjectOfType<WaveHandler>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _mashSpace.gameObject.SetActive(false);
 
@@ -187,7 +187,7 @@ namespace Misc
             GameObject.Find("SoundFXManager").GetComponent<AudioSource>().DOFade(0, 3);
 
             yield return new WaitForSeconds(0.2f);
-            
+
             JesterFeverHandler.JesterFever = false;
             winMode.SetActive(true);
             Invoke(nameof(EndScreen), 11);
