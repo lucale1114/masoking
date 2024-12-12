@@ -54,10 +54,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GradientScale: 1.44
+    - _GradientScale: 0.71
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _DistortionPower: {r: 0, g: -0.55, b: 0, a: 0}
-    - _DistortionSpeed: {r: 0.02, g: 0, b: 0, a: 0}
+    - _DistortionPower: {r: 0, g: 0.37, b: 0, a: 0}
+    - _DistortionSpeed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
