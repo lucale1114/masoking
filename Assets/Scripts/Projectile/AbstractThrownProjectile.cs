@@ -32,11 +32,13 @@ namespace Projectile
 
         private int _numberOfBounces;
         private bool _stopSpin;
+        private Transform _sprite;
 
         private void Awake()
         {
-            RigidBody = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<Collider2D>();
+            RigidBody = GetComponentInChildren<Rigidbody2D>();
+            _sprite = transform.GetChild(0);
+            _collider = GetComponentInChildren<Collider2D>();
             _collider.enabled = false;
             _spinSpeed = Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1);
             StartPosition = transform.position;
@@ -55,7 +57,7 @@ namespace Projectile
             _isOn = true;
 
             StartCoroutine(InstantiateShadow());
-            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
 
         private void Spin()
@@ -63,12 +65,15 @@ namespace Projectile
             if (_stopSpin)
             {
                 var transformRotation = transform.rotation;
-                transform.rotation = Quaternion.Euler(
+                _sprite.transform.rotation = Quaternion.Euler(
                     Vector3.MoveTowards(transformRotation.eulerAngles, new Vector3(0, 0, 355), _spinSpeed));
             }
             else
             {
-                transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+                if (_sprite)
+                {
+                    _sprite.transform.rotation *= Quaternion.Euler(0, 0, _spinSpeed);
+                }
             }
         }
 
@@ -160,7 +165,10 @@ namespace Projectile
 
                 if (airTime >= colliderActivationPercentage)
                 {
-                    _collider.enabled = true;
+                    if (_collider)
+                    {
+                        _collider.enabled = true;
+                    }
                 }
 
                 OnUpdate(airTime);

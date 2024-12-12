@@ -31,7 +31,7 @@ namespace Jester.Red
         {
             var throwProjectile = Instantiate(throwAndRollProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, _player.transform.position);
-            throwProjectile.GetComponent<SpriteRenderer>().sprite = SpriteStorage.GetThrowAndRollSprite(shotData.throwAndRollType);
+            throwProjectile.GetComponentInChildren<SpriteRenderer>().sprite = SpriteStorage.GetThrowAndRollSprite(shotData.throwAndRollType);
         }
 
         public void ThrowAndExplode(RedShotDataObject shotData)
