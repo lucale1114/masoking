@@ -16,6 +16,7 @@ namespace Jester.Red
     [Serializable]
     public class RedJesterCommand : IHasTimestamp
     {
+        [Range(0.8f, 10f)]
         public float timestamp;
         public RedJesterActions action;
         public RedShotDataObject shotData;

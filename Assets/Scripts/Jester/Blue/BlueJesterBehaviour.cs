@@ -68,7 +68,7 @@ namespace Jester.Blue
                 JesterAnimator.TriggerFire();
                 yield return new WaitForSeconds(0.25f);
                 _blueJesterFire.ShootBasicProjectile(data.speed, data);
-                yield return new WaitForSeconds(data.fireBetween);
+                yield return new WaitForSeconds(data.fireBetween - 0.25f);
             }
         }
 
@@ -112,7 +112,7 @@ namespace Jester.Blue
                 JesterAnimator.TriggerFire();
                 yield return new WaitForSeconds(0.25f);
                 _blueJesterFire.ShootBasicProjectile(Random.Range(data.speed / 1.5f, data.speed * 1.5f), data);
-                yield return new WaitForSeconds(data.fireBetween);
+                yield return new WaitForSeconds(data.fireBetween - 0.25f);
             }
         }
 
