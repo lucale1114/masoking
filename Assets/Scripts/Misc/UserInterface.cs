@@ -61,7 +61,11 @@ namespace Misc
 
             winMode = GameObject.Find("WinState");
             winMode.gameObject.SetActive(false);
-            //loseMode = GameObject.Find("LoseState");
+            loseMode = GameObject.Find("LoseState");
+            _lostMenu = GameObject.Find("LostMenu");
+            _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+            _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
+            loseMode.gameObject.SetActive(false);
 
             _pauseMenu = GameObject.Find("PauseMenu");
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
@@ -73,10 +77,7 @@ namespace Misc
             _soundMenu = GameObject.Find("SoundMenu");
             _soundMenu.SetActive(false);
 
-            _lostMenu = GameObject.Find("LostMenu");
-            _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
-            _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
-            _lostMenu.SetActive(false);
+
 
             _wonMenu = GameObject.Find("WonMenu");
             _wonMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
@@ -140,9 +141,10 @@ namespace Misc
 
                 _heatSystem.HeatDepleted += () =>
                 {
+                    GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().volume = 0;
+                    GameObject.Find("SoundFXManager").GetComponent<AudioSource>().volume = 0;
+                    loseMode.SetActive(true);
                     Time.timeScale = 0;
-
-                    _lostMenu.SetActive(true);
                 };
 
                 _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
@@ -188,7 +190,7 @@ namespace Misc
             
             JesterFeverHandler.JesterFever = false;
             winMode.SetActive(true);
-            Invoke(nameof(EndScreen), 7);
+            Invoke(nameof(EndScreen), 11);
         }
 
         private void EndScreen()
@@ -338,7 +340,7 @@ namespace Misc
         {
             if (!_lostMenu.activeSelf && !_wonMenu.activeSelf)
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) && !winMode.activeInHierarchy && !loseMode.activeInHierarchy)
                 {
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
