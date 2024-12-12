@@ -40,7 +40,7 @@ namespace Projectile
             _sprite = transform.GetChild(0);
             _collider = GetComponentInChildren<Collider2D>();
             _collider.enabled = false;
-            _spinSpeed = Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1);
+            _spinSpeed = -Random.Range(1.0f, 2.0f) * (Random.Range(0, 2) * 2 - 1);
             StartPosition = transform.position;
         }
 
@@ -66,7 +66,7 @@ namespace Projectile
             {
                 var transformRotation = transform.rotation;
                 _sprite.transform.rotation = Quaternion.Euler(
-                    Vector3.MoveTowards(transformRotation.eulerAngles, new Vector3(0, 0, 355), _spinSpeed));
+                    Vector3.MoveTowards(transformRotation.eulerAngles, new Vector3(0, 0, 5), _spinSpeed));
             }
             else
             {
