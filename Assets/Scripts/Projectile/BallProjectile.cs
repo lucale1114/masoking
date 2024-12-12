@@ -14,6 +14,10 @@ namespace Projectile
                 RigidBody.MovePosition(Direction * (Time.deltaTime * Data.speed) + (Vector2) transform.position);
                 SoundFXManager.Instance.PlayOnLoop();
 
+                if (ParticleSystemRenderer && ParticleSystemRenderer.enabled == false)
+                {
+                    ParticleSystemRenderer.enabled = true;
+                }
             }
             else
             {
@@ -31,7 +35,6 @@ namespace Projectile
         {
             base.InstantiateReticle(shotData);
 
-            Direction = (Target - transform.position).normalized;
             Reticle.transform.right = Direction;
         }
     }

@@ -14,7 +14,10 @@ namespace Projectile
             var position = Vector2.Lerp(StartPosition, Target, airTime);
 
             position.y += curveHeight * Data.animationCurve.Evaluate(airTime);
-            RigidBody.MovePosition(position);
+            if (RigidBody)
+            {
+                RigidBody.MovePosition(position);
+            }
         }
     }
 }
