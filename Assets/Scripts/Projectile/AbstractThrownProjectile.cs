@@ -147,7 +147,7 @@ namespace Projectile
             Reticle.transform.localScale *= Data.scale;
             ReticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f),
                 (Data.throwAirTime + Data.fireBetween) * 1.75f);
-            Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween);
+            Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween + 0.1f);
         }
 
         private void Update()
