@@ -25,6 +25,9 @@ namespace Misc
         public Image _comboResultText;
         private WaveHandler _waveHandler;
 
+        private GameObject winMode;
+        private GameObject loseMode;
+
         public Image _heatBar;
         public HeatSystem _heatSystem;
         public Score _scoreSystem;
@@ -56,6 +59,9 @@ namespace Misc
             _portrait = GameObject.Find("Portrait").GetComponent<Image>();
             _hands = GameObject.Find("Hands").GetComponent<Image>();
 
+            winMode = GameObject.Find("WinState");
+            winMode.gameObject.SetActive(false);
+            //loseMode = GameObject.Find("LoseState");
 
             _pauseMenu = GameObject.Find("PauseMenu");
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
@@ -129,7 +135,7 @@ namespace Misc
                 {
                     JesterFeverHandler.JesterFever = true;
                     _mashSpace.gameObject.SetActive(true);
-                    Invoke(nameof(EndGame), 10);
+                    StartCoroutine(EndGame());
                 };
 
                 _heatSystem.HeatDepleted += () =>
@@ -166,9 +172,27 @@ namespace Misc
             _hands.transform.position = handsPosDown;
         }
 
-        private void EndGame()
+        IEnumerator EndGame()
         {
+            yield return new WaitForSeconds(10);
+            for (int i = 0; i < 3; i++) {
+                Camera.main.DOOrthoSize(4.5f, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+                Camera.main.DOOrthoSize(5f, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+            GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().DOFade(0, 3);
+            GameObject.Find("SoundFXManager").GetComponent<AudioSource>().DOFade(0, 3);
+
+            yield return new WaitForSeconds(0.2f);
+            
             JesterFeverHandler.JesterFever = false;
+            winMode.SetActive(true);
+            Invoke(nameof(EndScreen), 7);
+        }
+
+        private void EndScreen()
+        {
             Time.timeScale = 0;
             _wonMenu.SetActive(true);
         }

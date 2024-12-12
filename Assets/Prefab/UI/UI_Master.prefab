@@ -6591,13 +6591,13 @@ RectTransform:
   - {fileID: 6145203142645270904}
   - {fileID: 2696413983909384993}
   - {fileID: 9195925859302794455}
-  - {fileID: 2063922616723557227}
-  - {fileID: 1458342320521088801}
   - {fileID: 4739158642391049088}
   - {fileID: 6167490263864180281}
   - {fileID: 9001681759864288465}
   - {fileID: 5676145476160708024}
   - {fileID: 6086520105055557180}
+  - {fileID: 1458342320521088801}
+  - {fileID: 2063922616723557227}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6703,6 +6703,7 @@ MonoBehaviour:
   _heatSystem: {fileID: 0}
   _scoreSystem: {fileID: 0}
   _portrait: {fileID: 0}
+  _hands: {fileID: 0}
   _mashSpace: {fileID: 0}
   _isInMax: 0
   _cancel: 0
