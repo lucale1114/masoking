@@ -338,9 +338,9 @@ namespace Misc
 
         protected void Update()
         {
-            if (!_lostMenu.activeSelf && !_wonMenu.activeSelf)
+            if (!winMode.activeSelf && !loseMode.activeSelf)
             {
-                if (Input.GetKeyDown(KeyCode.Escape) && !winMode.activeInHierarchy && !loseMode.activeInHierarchy)
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
