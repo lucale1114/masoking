@@ -25,6 +25,9 @@ namespace Misc
         public Image _comboResultText;
         private WaveHandler _waveHandler;
 
+        private GameObject winMode;
+        private GameObject loseMode;
+
         public Image _heatBar;
         public HeatSystem _heatSystem;
         public Score _scoreSystem;
@@ -49,13 +52,20 @@ namespace Misc
 
             _scoreCounter = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
 
-            _waveHandler = GameObject.Find("Game").GetComponent<WaveHandler>();
+            _waveHandler = FindObjectOfType<WaveHandler>();
             _mashSpace = GameObject.Find("MashSpace").GetComponent<TextMeshProUGUI>();
             _mashSpace.gameObject.SetActive(false);
 
             _portrait = GameObject.Find("Portrait").GetComponent<Image>();
             _hands = GameObject.Find("Hands").GetComponent<Image>();
 
+            winMode = GameObject.Find("WinState");
+            winMode.gameObject.SetActive(false);
+            loseMode = GameObject.Find("LoseState");
+            _lostMenu = GameObject.Find("LostMenu");
+            _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+            _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
+            loseMode.gameObject.SetActive(false);
 
             _pauseMenu = GameObject.Find("PauseMenu");
             _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
@@ -67,10 +77,7 @@ namespace Misc
             _soundMenu = GameObject.Find("SoundMenu");
             _soundMenu.SetActive(false);
 
-            _lostMenu = GameObject.Find("LostMenu");
-            _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
-            _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
-            _lostMenu.SetActive(false);
+
 
             _wonMenu = GameObject.Find("WonMenu");
             _wonMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
@@ -129,14 +136,15 @@ namespace Misc
                 {
                     JesterFeverHandler.JesterFever = true;
                     _mashSpace.gameObject.SetActive(true);
-                    Invoke(nameof(EndGame), 10);
+                    StartCoroutine(EndGame());
                 };
 
                 _heatSystem.HeatDepleted += () =>
                 {
+                    GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().volume = 0;
+                    GameObject.Find("SoundFXManager").GetComponent<AudioSource>().volume = 0;
+                    loseMode.SetActive(true);
                     Time.timeScale = 0;
-
-                    _lostMenu.SetActive(true);
                 };
 
                 _heatSystem.ComboEnded += comboMultiplier => { StartCoroutine(ComboFinish(comboMultiplier)); };
@@ -166,9 +174,27 @@ namespace Misc
             _hands.transform.position = handsPosDown;
         }
 
-        private void EndGame()
+        IEnumerator EndGame()
         {
+            yield return new WaitForSeconds(10);
+            for (int i = 0; i < 3; i++) {
+                Camera.main.DOOrthoSize(4.5f, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+                Camera.main.DOOrthoSize(5f, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+            GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().DOFade(0, 3);
+            GameObject.Find("SoundFXManager").GetComponent<AudioSource>().DOFade(0, 3);
+
+            yield return new WaitForSeconds(0.2f);
+
             JesterFeverHandler.JesterFever = false;
+            winMode.SetActive(true);
+            Invoke(nameof(EndScreen), 11);
+        }
+
+        private void EndScreen()
+        {
             Time.timeScale = 0;
             _wonMenu.SetActive(true);
         }
@@ -312,7 +338,7 @@ namespace Misc
 
         protected void Update()
         {
-            if (!_lostMenu.activeSelf && !_wonMenu.activeSelf)
+            if (!winMode.activeSelf && !loseMode.activeSelf)
             {
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
