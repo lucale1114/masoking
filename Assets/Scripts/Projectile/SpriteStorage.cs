@@ -1,9 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using Jester.Red;
+using Misc;
 using UnityEngine;
 
-public class SpriteStorage : MonoBehaviour
+namespace Projectile
 {
-    // Start is called before the first frame update
-    public Sprite[] knifeSprites;
+    public class SpriteStorage : Singleton<SpriteStorage>
+    {
+        [SerializeField] private Sprite[] throwAndRollSprites;
+
+        public Sprite[] knifeSprites;
+
+        public static Sprite GetThrowAndRollSprite(ThrowAndRollType type)
+        {
+            return Instance.throwAndRollSprites[(int)type];
+        }
+    }
 }

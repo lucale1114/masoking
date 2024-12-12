@@ -59,6 +59,7 @@ namespace Wave.Editors
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
                     break;
                 case RedJesterActions.ThrowAndRoll:
+                    AddProperty(property, visualElement, "shotData.throwAndRollType", "Projectile Type");
                     AddProperty(property, visualElement, "shotData.numberOfBounces", "Number of Bounces");
                     AddProperty(property, visualElement, "shotData.throwAirTime", "Air Time");
                     AddProperty(property, visualElement, "shotData.animationCurve", "Animation Curve");
