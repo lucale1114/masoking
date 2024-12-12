@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Move_glow
-  m_Shader: {fileID: -6465566751694194690, guid: 65194ed90c141164497e230eba9f3ef8, type: 3}
+  m_Name: HeatBarMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 25191c3ed3b541d4b867e03c95cf83bd, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -23,11 +23,7 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 52ab523dd70ef4b459a8cdd1ab536fd9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2D:
+    - _MainTex:
         m_Texture: {fileID: 2800000, guid: 52ab523dd70ef4b459a8cdd1ab536fd9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -45,15 +41,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _MoveX: 0.13
-    - _MoveY: 0.51
+    - _GradientScale: -2.44
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _VoriSize: 10.4
     m_Colors:
-    - _GlowColor: {r: 1, g: 0, b: 0, a: 0}
+    - _DistortionPower: {r: -0.49, g: 2.54, b: 0, a: 0}
+    - _DistortionSpeed: {r: 0.27, g: 0.07, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4816577175598935498
+--- !u!114 &4346515541293852979
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
