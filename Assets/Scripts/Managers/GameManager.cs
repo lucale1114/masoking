@@ -2,6 +2,7 @@ using Misc;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Wave.Handler;
 
 namespace Managers
 {
@@ -31,6 +32,7 @@ namespace Managers
 
         public static void LoadLevel(int buildIndex)
         {
+            WaveHandler.Timestamp = 0;
             SceneManager.LoadScene(buildIndex);
         }
 
