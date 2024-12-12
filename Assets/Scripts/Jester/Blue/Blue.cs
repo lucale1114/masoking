@@ -20,6 +20,7 @@ namespace Jester.Blue
     [Serializable]
     public class BlueJesterCommand : IHasTimestamp
     {
+        [Range(0.8f, 10f)]
         public float timestamp;
         public BlueJesterActions action;
         public BlueShotDataObject shotData;
