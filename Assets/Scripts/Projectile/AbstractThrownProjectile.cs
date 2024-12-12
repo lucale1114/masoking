@@ -64,7 +64,7 @@ namespace Projectile
             {
                 var transformRotation = transform.rotation;
                 transform.rotation = Quaternion.Euler(
-                    Vector3.MoveTowards(transformRotation.eulerAngles, new Vector3(0,0,355), _spinSpeed));
+                    Vector3.MoveTowards(transformRotation.eulerAngles, new Vector3(0, 0, 355), _spinSpeed));
             }
             else
             {
