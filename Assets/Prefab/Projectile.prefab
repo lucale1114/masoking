@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7494303468764717806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.6833, y: 0.4179, z: 0}
+  m_LocalPosition: {x: -0.082, y: 0.423, z: 0}
   m_LocalScale: {x: 0.12, y: 0.24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -309,6 +309,70 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2671720555679882154}
     m_Modifications:
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Time
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.70980394
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.3803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.70980394
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.3803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.05185318
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 0.22386974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 0.9681089
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.09420395
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.034712136
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: -0.21475886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.42554337
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: -0.21475886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031803313994635278, guid: 740331ededde7424787e8c60e4e11770, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0.1252455
+      objectReference: {fileID: 0}
     - target: {fileID: 1862837095789745428, guid: 740331ededde7424787e8c60e4e11770, type: 3}
       propertyPath: m_Name
       value: TrailKnife

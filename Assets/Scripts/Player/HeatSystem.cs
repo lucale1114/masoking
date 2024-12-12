@@ -36,7 +36,7 @@ namespace Player
         {
             _currentHeat = startHeat;
             _movement = GetComponent<Movement>();
-            _score = GameObject.Find("Game").GetComponent<Score>();
+            _score = FindObjectOfType<Score>();
             animator = GetComponent<Animator>();
 
             StartCoroutine(HeatDecayRoutine());

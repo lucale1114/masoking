@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Rolling ball
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
   Description: Throws bombs in an x pattern
@@ -23,6 +23,7 @@ MonoBehaviour:
     - timestamp: 1
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -90,6 +91,7 @@ MonoBehaviour:
     - timestamp: 5
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -161,6 +163,7 @@ MonoBehaviour:
     - timestamp: 3
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -228,6 +231,7 @@ MonoBehaviour:
     - timestamp: 7
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -299,6 +303,7 @@ MonoBehaviour:
     - timestamp: 1
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -366,6 +371,7 @@ MonoBehaviour:
     - timestamp: 5
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -437,6 +443,7 @@ MonoBehaviour:
     - timestamp: 3
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10
@@ -504,6 +511,7 @@ MonoBehaviour:
     - timestamp: 7
       action: 1
       shotData:
+        throwAndRollType: 0
         speed: 20
         scale: 1
         damage: 10

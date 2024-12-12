@@ -37,9 +37,18 @@ namespace Jester.Red
         public RedJesterCommand[] commands;
     }
 
+    public enum ThrowAndRollType
+    {
+        BowlingBall,
+        SpikedBall
+    }
+
     [Serializable]
     public class RedShotDataObject : IShotData
     {
+        [Tooltip("Throw and roll type")]
+        public ThrowAndRollType throwAndRollType;
+
         [Tooltip("Speed of the projectile. Everything uses it in floats.")]
         public float speed;
 
