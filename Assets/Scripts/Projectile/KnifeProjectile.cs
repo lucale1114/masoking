@@ -57,7 +57,7 @@ namespace Projectile
 
             if (_data.breakable)
             {
-                GetComponent<SpriteRenderer>().sprite = GameObject.Find("Game").GetComponent<SpriteStorage>().knifeSprites[0];
+                GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpriteStorage>().knifeSprites[0];
                 spinSpeed *= 0.5f;
                 transform.localScale *= 3;
                 GetComponent<Collision>().noStabbing = true;
@@ -65,7 +65,7 @@ namespace Projectile
 
             if (axe)
             {
-                GetComponent<SpriteRenderer>().sprite = GameObject.Find("Game").GetComponent<SpriteStorage>().knifeSprites[1];
+                GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpriteStorage>().knifeSprites[1];
                 transform.localScale *= 3;
                 spinSpeed *= 0.5f;
 
