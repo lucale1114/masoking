@@ -32,7 +32,6 @@ namespace Managers
 
         public static void LoadLevel(int buildIndex)
         {
-            WaveHandler.Timestamp = 0;
             SceneManager.LoadScene(buildIndex);
         }
 

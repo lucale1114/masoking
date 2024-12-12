@@ -22,14 +22,19 @@ namespace Wave.Handler
         private int _waveNumber;
         private bool _pausedByWave;
 
+        private void Awake()
+        {
+            Timestamp = 0;
+        }
+
         private void Start()
         {
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             if (debugForceWave > 0)
             {
                 _waveNumber = debugForceWave - 1;
             }
-#endif
+            #endif
 
             _standingJesterHandler = GetComponent<StandingJesterHandler>();
             _movingJesterHandler = GetComponent<MovingJesterHandler>();
