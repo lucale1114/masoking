@@ -110,7 +110,6 @@ namespace Jester
             transform.DOLocalMoveX(transform.position.x + 2 * -_dir, StandingJesterHandler.WalkingOut).onComplete +=
                 () =>
                 {
-                    _isMoving = false;
                     AnyJesterDestroyed?.Invoke(gameObject);
                     Destroy(gameObject, 1.5f);
                 };
