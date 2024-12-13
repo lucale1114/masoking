@@ -130,7 +130,7 @@ MonoBehaviour:
       shotData:
         speed: 3
         inaccuracy: 10
-        scale: 3
+        scale: 1.5
         damage: 15
         x: 0
         y: 0

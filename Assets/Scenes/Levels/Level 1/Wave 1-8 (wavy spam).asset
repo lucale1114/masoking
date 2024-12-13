@@ -26,7 +26,7 @@ MonoBehaviour:
       shotData:
         speed: 5
         inaccuracy: 0
-        scale: 1.5
+        scale: 1
         damage: 17
         x: 0
         y: 0
@@ -48,12 +48,12 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 1.3
+    - timestamp: 2.3
       action: 4
       shotData:
         speed: 5
         inaccuracy: 0
-        scale: 1.5
+        scale: 1
         damage: 17
         x: 0
         y: 0
@@ -75,12 +75,12 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 1.3
+    - timestamp: 3.3
       action: 4
       shotData:
         speed: 5
         inaccuracy: 0
-        scale: 1.5
+        scale: 1
         damage: 17
         x: 0
         y: 0
@@ -102,12 +102,12 @@ MonoBehaviour:
     y: 0.69
     randomY: 1
     commands:
-    - timestamp: 1.3
+    - timestamp: 4.3
       action: 4
       shotData:
         speed: 5
         inaccuracy: 0
-        scale: 1.5
+        scale: 1
         damage: 17
         x: 0
         y: 0
@@ -128,4 +128,3 @@ MonoBehaviour:
   green: []
   purple: []
   ram: []
-  updated: 1

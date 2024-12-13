@@ -71,7 +71,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 1.8
+    - timestamp: 3.6
       action: 3
       shotData:
         speed: 7
@@ -94,7 +94,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 1.8
+    - timestamp: 3.6
       action: 3
       shotData:
         speed: 7
@@ -121,7 +121,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 1.8
+    - timestamp: 5.4
       action: 3
       shotData:
         speed: 7
@@ -144,7 +144,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 1.8
+    - timestamp: 5.4
       action: 3
       shotData:
         speed: 7
@@ -171,7 +171,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 1.8
+    - timestamp: 7
       action: 3
       shotData:
         speed: 7
@@ -194,7 +194,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 1.8
+    - timestamp: 7
       action: 3
       shotData:
         speed: 7
@@ -221,7 +221,7 @@ MonoBehaviour:
     y: 0
     randomY: 1
     commands:
-    - timestamp: 1.8
+    - timestamp: 8.8
       action: 3
       shotData:
         speed: 7
@@ -244,7 +244,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 1.8
+    - timestamp: 8.8
       action: 3
       shotData:
         speed: 7
@@ -270,4 +270,3 @@ MonoBehaviour:
   green: []
   purple: []
   ram: []
-  updated: 1

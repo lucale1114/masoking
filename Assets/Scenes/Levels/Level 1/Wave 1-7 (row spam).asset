@@ -75,7 +75,7 @@ MonoBehaviour:
     y: -2
     randomY: 0
     commands:
-    - timestamp: 1.8
+    - timestamp: 3.6
       action: 5
       shotData:
         speed: 5
@@ -102,7 +102,7 @@ MonoBehaviour:
     y: -2
     randomY: 0
     commands:
-    - timestamp: 1.8
+    - timestamp: 3.6
       action: 5
       shotData:
         speed: 5
@@ -129,7 +129,7 @@ MonoBehaviour:
     y: 2
     randomY: 0
     commands:
-    - timestamp: 1.8
+    - timestamp: 5.4
       action: 5
       shotData:
         speed: 5
@@ -156,7 +156,7 @@ MonoBehaviour:
     y: 2
     randomY: 0
     commands:
-    - timestamp: 1.8
+    - timestamp: 5.4
       action: 5
       shotData:
         speed: 5
@@ -183,7 +183,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1.8
+    - timestamp: 7
       action: 5
       shotData:
         speed: 5
@@ -210,7 +210,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1.8
+    - timestamp: 7
       action: 5
       shotData:
         speed: 5
@@ -231,13 +231,40 @@ MonoBehaviour:
         radius: 50
         spin: 1
         straight: 0
+        numberOfBounces: 0
+        breakable: 0
+  - side: 1
+    y: -3.06
+    randomY: 0
+    commands:
+    - timestamp: 5.4
+      action: 0
+      shotData:
+        speed: 3
+        inaccuracy: 0
+        scale: 1
+        damage: 5
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 1
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
         numberOfBounces: 0
         breakable: 0
   - side: 0
     y: 0.69
     randomY: 0
     commands:
-    - timestamp: 3.8
+    - timestamp: 10
       action: 0
       shotData:
         speed: 5

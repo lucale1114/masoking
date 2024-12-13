@@ -288,7 +288,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
         radius: 0
-    - timestamp: 4.8
+    - timestamp: 4.1
       action: 0
       shotData:
         throwAndRollType: 0

@@ -44,6 +44,7 @@ namespace Wave.Editors
             AddProperty(property, visualElement, "shotData.speed", "Speed");
             AddProperty(property, visualElement, "shotData.inaccuracy", "Inaccuracy");
             AddProperty(property, visualElement, "shotData.scale", "Size");
+            AddProperty(property, visualElement, "shotData.fireBetween", "Fire Delay");
             AddProperty(property, visualElement, "shotData.damage", "Damage");
             AddProperty(property, visualElement, "shotData.x", "X");
             AddProperty(property, visualElement, "shotData.y", "Y");

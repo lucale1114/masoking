@@ -44,7 +44,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 8
+    - timestamp: 5
       action: 6
       shotData:
         speed: 40

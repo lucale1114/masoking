@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave 1-4 (snipe middle)
   m_EditorClassIdentifier: 
-  StartDelay: 2
+  StartDelay: 1.5
   SpawnBall: 0
   Description: Two snipers appear from the side and shoot at the same point.
   red: []
@@ -120,4 +120,3 @@ MonoBehaviour:
   green: []
   purple: []
   ram: []
-  updated: 1

@@ -23,6 +23,7 @@ MonoBehaviour:
     - timestamp: 0.8
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1
         damage: 8
@@ -30,7 +31,7 @@ MonoBehaviour:
         y: -0.5
         randomX: 0
         randomY: 0
-        throwAirTime: 2.7
+        throwAirTime: 2.2
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -83,411 +84,16 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 1
         numberOfBounces: 0
         breakable: 0
+        radius: 0
     - timestamp: 1.8
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1
         damage: 8
-        x: 3
-        y: -0.5
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.7
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 1
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 2.8
-      action: 0
-      shotData:
-        speed: 6
-        scale: 1
-        damage: 8
-        x: -3
-        y: -0.5
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.7
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 1
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 3.8
-      action: 0
-      shotData:
-        speed: 6
-        scale: 1
-        damage: 8
-        x: 3
-        y: -0.5
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.7
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 1
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 4.8
-      action: 0
-      shotData:
-        speed: 6
-        scale: 1
-        damage: 8
-        x: -3
-        y: -0.5
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.7
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 1
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 5.8
-      action: 0
-      shotData:
-        speed: 6
-        scale: 1
-        damage: 8
-        x: 3
-        y: -0.5
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.7
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 1
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 6.8
-      action: 0
-      shotData:
-        speed: 6
-        scale: 1
-        damage: 8
-        x: -3
-        y: -0.5
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2.7
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0.0028266907
-            inSlope: 6.705404
-            outSlope: 6.705404
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.064140715
-            value: 0.43291607
-            inSlope: 3.9951754
-            outSlope: 3.9951754
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49666667
-            value: 0.98868895
-            inSlope: 0.012347698
-            outSlope: 0.012347698
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9317484
-            value: 0.4403765
-            inSlope: -3.8355432
-            outSlope: -3.8355432
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 1
-            value: 0.0028266907
-            inSlope: -6.410835
-            outSlope: -6.410835
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 1
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 7.8
-      action: 0
-      shotData:
-        speed: 6
-        scale: 1.5
-        damage: 20
         x: 3
         y: -0.5
         randomX: 0
@@ -545,11 +151,412 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 1
         numberOfBounces: 0
         breakable: 0
+        radius: 0
+    - timestamp: 2.8
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 6
+        scale: 1
+        damage: 8
+        x: -3
+        y: -0.5
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2.2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0028266907
+            inSlope: 6.705404
+            outSlope: 6.705404
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.064140715
+            value: 0.43291607
+            inSlope: 3.9951754
+            outSlope: 3.9951754
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49666667
+            value: 0.98868895
+            inSlope: 0.012347698
+            outSlope: 0.012347698
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9317484
+            value: 0.4403765
+            inSlope: -3.8355432
+            outSlope: -3.8355432
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0028266907
+            inSlope: -6.410835
+            outSlope: -6.410835
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
+    - timestamp: 3.8
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 6
+        scale: 1
+        damage: 8
+        x: 3
+        y: -0.5
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2.2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0028266907
+            inSlope: 6.705404
+            outSlope: 6.705404
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.064140715
+            value: 0.43291607
+            inSlope: 3.9951754
+            outSlope: 3.9951754
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49666667
+            value: 0.98868895
+            inSlope: 0.012347698
+            outSlope: 0.012347698
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9317484
+            value: 0.4403765
+            inSlope: -3.8355432
+            outSlope: -3.8355432
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0028266907
+            inSlope: -6.410835
+            outSlope: -6.410835
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
+    - timestamp: 4.8
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 6
+        scale: 1
+        damage: 8
+        x: -3
+        y: -0.5
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2.2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0028266907
+            inSlope: 6.705404
+            outSlope: 6.705404
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.064140715
+            value: 0.43291607
+            inSlope: 3.9951754
+            outSlope: 3.9951754
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49666667
+            value: 0.98868895
+            inSlope: 0.012347698
+            outSlope: 0.012347698
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9317484
+            value: 0.4403765
+            inSlope: -3.8355432
+            outSlope: -3.8355432
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0028266907
+            inSlope: -6.410835
+            outSlope: -6.410835
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
+    - timestamp: 5.8
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 6
+        scale: 1
+        damage: 8
+        x: 3
+        y: -0.5
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2.2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0028266907
+            inSlope: 6.705404
+            outSlope: 6.705404
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.064140715
+            value: 0.43291607
+            inSlope: 3.9951754
+            outSlope: 3.9951754
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49666667
+            value: 0.98868895
+            inSlope: 0.012347698
+            outSlope: 0.012347698
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9317484
+            value: 0.4403765
+            inSlope: -3.8355432
+            outSlope: -3.8355432
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0028266907
+            inSlope: -6.410835
+            outSlope: -6.410835
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
+    - timestamp: 6.8
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 6
+        scale: 1
+        damage: 8
+        x: -3
+        y: -0.5
+        randomX: 0
+        randomY: 0
+        throwAirTime: 2.2
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0028266907
+            inSlope: 6.705404
+            outSlope: 6.705404
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.064140715
+            value: 0.43291607
+            inSlope: 3.9951754
+            outSlope: 3.9951754
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49666667
+            value: 0.98868895
+            inSlope: 0.012347698
+            outSlope: 0.012347698
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9317484
+            value: 0.4403765
+            inSlope: -3.8355432
+            outSlope: -3.8355432
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0028266907
+            inSlope: -6.410835
+            outSlope: -6.410835
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
+    - timestamp: 7.8
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 6
+        scale: 1.5
+        damage: 20
+        x: 3
+        y: -0.5
+        randomX: 0
+        randomY: 0
+        throwAirTime: 1.8
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0028266907
+            inSlope: 6.705404
+            outSlope: 6.705404
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.064140715
+            value: 0.43291607
+            inSlope: 3.9951754
+            outSlope: 3.9951754
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.49666667
+            value: 0.98868895
+            inSlope: 0.012347698
+            outSlope: 0.012347698
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.9317484
+            value: 0.4403765
+            inSlope: -3.8355432
+            outSlope: -3.8355432
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0.0028266907
+            inSlope: -6.410835
+            outSlope: -6.410835
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
   blue: []
   green: []
   purple: []
   ram: []
-  updated: 1
