@@ -60,21 +60,21 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 0
-    - _MoveX: 0
-    - _MoveY: 0
+    - _MoveX: 0.01
+    - _MoveY: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0
     - _SrcBlend: 1
     - _Surface: 0
-    - _Twirl: 0
+    - _Twirl: 2.28
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Color_1: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_2: {r: 0, g: 0, b: 0, a: 1}
-    - _Color_3: {r: 0, g: 0, b: 0, a: 1}
-    - _Color_4: {r: 0.6377357, g: 0.6377357, b: 0.6377357, a: 1}
+    - _Color_1: {r: 0.43372482, g: 0.36856523, b: 0.4490565, a: 1}
+    - _Color_2: {r: 0.35686275, g: 0.52156866, b: 0.63529414, a: 1}
+    - _Color_3: {r: 0.70980394, g: 0.48235297, b: 0.23529413, a: 1}
+    - _Color_4: {r: 0.69803923, g: 0.654902, b: 0.54509807, a: 1}
     - _Direction: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
