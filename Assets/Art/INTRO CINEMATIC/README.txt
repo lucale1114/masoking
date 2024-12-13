@@ -1,0 +1,9 @@
+TEXT FOR THE INTRO CINEMATIC
+Have the text scroll in like in the undertale intro ( https://www.youtube.com/watch?v=Zcjy1ynQ1tQ )
+
+IMAGE 1: In a kingdom, far far away...
+IMAGE 2: There lives a King and a Queen.
+IMAGE 3: A Masoqueen and a...
+IMAGE 4: A Masoking.
+IMAGE 5: A masochistic man who uses his power and influence in order to...
+IMAGE 6: Get hit, hot and heavy!
