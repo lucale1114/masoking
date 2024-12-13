@@ -1,18 +1,17 @@
 using Jester.Red;
-using Misc;
 using UnityEngine;
 
 namespace Projectile
 {
-    public class SpriteStorage : Singleton<SpriteStorage>
+    public class SpriteStorage : MonoBehaviour
     {
         [SerializeField] private Sprite[] throwAndRollSprites;
 
         public Sprite[] knifeSprites;
 
-        public static Sprite GetThrowAndRollSprite(ThrowAndRollType type)
+        public Sprite GetThrowAndRollSprite(ThrowAndRollType type)
         {
-            return Instance.throwAndRollSprites[(int)type];
+            return throwAndRollSprites[(int)type];
         }
     }
 }

@@ -48,7 +48,6 @@ namespace Wave.Handler
         private void LaunchNextWave()
         {
             var currentWave = _waveNumber < waveList.waves.Length ? waveList.waves[_waveNumber] : null;
-
             if (currentWave)
             {
                 Timestamp = 0;

@@ -55,7 +55,7 @@ namespace Debug
 
             if (Input.GetMouseButtonDown(0))
             {
-                UnityEngine.Debug.Log(_camera!.ScreenToWorldPoint(Input.mousePosition));
+                UnityEngine.Debug.Log(_camera!.ScreenToWorldPoint(Input.mousePosition));    
             }
         }
 
