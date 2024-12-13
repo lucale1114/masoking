@@ -15,60 +15,7 @@ MonoBehaviour:
   StartDelay: 0
   SpawnBall: 0
   Description: 
-  red:
-  - side: 0
-    y: 0
-    randomY: 0
-    commands:
-    - timestamp: 2
-      action: 2
-      shotData:
-        speed: 10
-        scale: 1
-        damage: 20
-        x: 2
-        y: 2
-        randomX: 0
-        randomY: 0
-        throwAirTime: 2
-        animationCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 1
-            outSlope: 1
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.49334848
-            value: 0.49334848
-            inSlope: 0.024545282
-            outSlope: 0.024545282
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.99279785
-            value: 0.018417358
-            inSlope: -0.95090944
-            outSlope: -0.95090944
-            tangentMode: 34
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        amount: 0
-        fireBetween: 0
-        numberOfBounces: 0
-        breakable: 0
-        radius: 1
+  red: []
   blue:
   - side: 1
     y: 2
@@ -180,32 +127,4 @@ MonoBehaviour:
         breakable: 0
   green: []
   purple: []
-  ram:
-  - timestamp: 1
-    side: 0
-    delay: 1
-    damage: 20
-    size: 1
-    launched: 0
-    launchSpeedMultiplier: 1
-    y: 0
-    x: 0
-  - timestamp: 1
-    side: 0
-    delay: 1
-    damage: 20
-    size: 1
-    launched: 1
-    launchSpeedMultiplier: 0.5
-    y: -1.4
-    x: 0
-  - timestamp: 1
-    side: 2
-    delay: 1
-    damage: 20
-    size: 1
-    launched: 0
-    launchSpeedMultiplier: 1
-    y: 1.59
-    x: 2.17
-  updated: 0
+  ram: []

@@ -143,7 +143,7 @@ namespace Jester.Blue
             JesterAnimator.TriggerFire();
             yield return new WaitForSeconds(0.25f);
             _blueJesterFire.ShootBasicProjectile(data.speed, data, x, y);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(1f);
             LineRenderer.enabled = false;
         }
     }

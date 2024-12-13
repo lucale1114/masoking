@@ -16,11 +16,9 @@ namespace Jester.Red
         protected override void CalculateLeaveTime()
         {
             LeaveTime = jesterCommands
-                .Select(command => command.timestamp +
-                                   command.shotData.amount +
-                                   (command.shotData.amount == 0 ? 1 : 0) * command.shotData.fireBetween)
+                .Select(command => 0.3f + command.timestamp)
                 .Prepend(0f)
-                .Max() + 0.3f;
+                .Max();
         }
 
         protected override void OnCommandTime(RedJesterCommand command)

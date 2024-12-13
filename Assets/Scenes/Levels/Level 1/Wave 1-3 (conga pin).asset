@@ -20,9 +20,10 @@ MonoBehaviour:
     y: -5
     randomY: 0
     commands:
-    - timestamp: 0.90000004
+    - timestamp: 1
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1
         damage: 8
@@ -83,12 +84,13 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 0.6
         numberOfBounces: 0
         breakable: 0
+        radius: 0
     - timestamp: 1.8
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1
         damage: 8
@@ -149,12 +151,13 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 0.7
         numberOfBounces: 0
         breakable: 0
+        radius: 0
     - timestamp: 2.8
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1
         damage: 8
@@ -215,12 +218,13 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 0.8
         numberOfBounces: 0
         breakable: 0
+        radius: 0
     - timestamp: 3.8
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1
         damage: 8
@@ -281,12 +285,13 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 0.9
         numberOfBounces: 0
         breakable: 0
+        radius: 0
     - timestamp: 4.8
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 6
         scale: 1.5
         damage: 30
@@ -347,11 +352,10 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 0
         numberOfBounces: 0
         breakable: 0
+        radius: 0
   blue: []
   green: []
   purple: []
   ram: []
-  updated: 1

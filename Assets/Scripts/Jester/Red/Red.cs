@@ -79,9 +79,6 @@ namespace Jester.Red
             "Amount of shots, depends on the type but should be self-explanatory. Usable for aimed, burst, row, storm.")]
         public int amount;
 
-        [Tooltip("Time in between shots for aimed and storm. For reticle based shots, when it should shoot.")]
-        public float fireBetween;
-
         [Tooltip("Number of bounces on walls")]
         public int numberOfBounces;
 
