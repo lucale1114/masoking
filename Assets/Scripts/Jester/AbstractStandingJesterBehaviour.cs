@@ -17,7 +17,6 @@ namespace Jester
 
         protected GameObject Player;
         protected JesterAnimator JesterAnimator;
-        protected LineRenderer LineRenderer;
 
         private int _dir;
         private float _currentTick = -1;
@@ -26,7 +25,6 @@ namespace Jester
         protected void Start()
         {
             Player = GameObject.FindGameObjectWithTag("Player");
-            LineRenderer = GetComponent<LineRenderer>();
             JesterAnimator = GetComponent<JesterAnimator>();
 
             if (transform.position.x < 0)
@@ -81,12 +79,6 @@ namespace Jester
                 if (Mathf.Approximately(LeaveTime, WaveHandler.Timestamp))
                 {
                     LeaveView();
-                    return;
-                }
-
-                if (LineRenderer.enabled)
-                {
-                    LineRenderer.SetPosition(0, transform.position);
                 }
             }
         }

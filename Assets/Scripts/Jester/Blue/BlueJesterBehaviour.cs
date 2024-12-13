@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,6 +10,8 @@ namespace Jester.Blue
 {
     public class BlueJesterBehaviour : AbstractStandingJesterBehaviour<BlueJesterCommand>
     {
+        [SerializeField] private GameObject _snipeLine;
+
         private BlueJesterFire _blueJesterFire;
 
         private new void Start()
@@ -143,15 +147,19 @@ namespace Jester.Blue
                 x = Random.Range(-5.0f, 4.0f);
             }
 
-            LineRenderer.enabled = true;
-            LineRenderer.SetPosition(1, new Vector3(x, y));
+            var spriteRenderer =
+                Instantiate(_snipeLine, transform.position, Quaternion.identity);
+            var lineRenderer = spriteRenderer.GetComponent<LineRenderer>();
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, new Vector3(x, y));
+            Destroy(spriteRenderer, data.fireBetween + 1f);
 
             yield return new WaitForSeconds(data.fireBetween);
+
             JesterAnimator.TriggerFire();
+
             yield return new WaitForSeconds(0.25f);
             _blueJesterFire.ShootBasicProjectile(data.speed, data, x, y);
-            yield return new WaitForSeconds(1f);
-            LineRenderer.enabled = false;
         }
     }
 }
