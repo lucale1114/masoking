@@ -340,7 +340,7 @@ namespace Misc
         {
             if (!winMode.activeSelf && !loseMode.activeSelf)
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape)    )
                 {
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
