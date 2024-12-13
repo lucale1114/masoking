@@ -85,7 +85,7 @@ namespace Wave.Handler
                 {
                     action = BlueJesterActions.FireAimed,
                     shotData = shotData,
-                    timestamp = WaveHandler.Timestamp + 0.5f
+                    timestamp = WaveHandler.Timestamp + 1f
                 }
             };
             _currentJesters.Add(SpawnJester(jesterData));
