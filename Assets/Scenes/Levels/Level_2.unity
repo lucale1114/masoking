@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Level_2
       objectReference: {fileID: 0}
+    - target: {fileID: 174983559017401304, guid: 22e8d740a19213449888dd6ec2621d98, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 1326780320230578956, guid: 22e8d740a19213449888dd6ec2621d98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
