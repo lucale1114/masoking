@@ -1,20 +1,11 @@
-using Misc;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Wave.Handler;
 
 namespace Managers
 {
-    public class GameManager : Singleton<GameManager>
+    public class GameManager : MonoBehaviour
     {
-        private static GameManager _instance;
-
-        private new void Awake()
-        {
-            base.Awake();
-        }
-
         public static void LoadMenu()
         {
             SceneManager.LoadScene(0);
