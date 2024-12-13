@@ -31,13 +31,6 @@ namespace Projectile
             }
         }
 
-        protected override void InstantiateReticle(RedShotDataObject shotData)
-        {
-            base.InstantiateReticle(shotData);
-
-            Reticle.transform.right = Direction;
-        }
-
         public override bool CanHitThings()
         {
             return false;
