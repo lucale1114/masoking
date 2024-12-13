@@ -25,13 +25,13 @@ MonoBehaviour:
       shotData:
         throwAndRollType: 0
         speed: 0
-        scale: 2
+        scale: 1.5
         damage: 20
         x: -4
-        y: -4.7
-        randomX: 1
+        y: -3.6
+        randomX: 0
         randomY: 0
-        throwAirTime: 1
+        throwAirTime: 3
         animationCurve:
           serializedVersion: 2
           m_Curve:

@@ -81,6 +81,7 @@ namespace Projectile
             {
                 _collider.enabled = true;
             }
+            transform.rotation *= Quaternion.Euler(0, 0, 1f);
 
             OnUpdate(airTime);
 
