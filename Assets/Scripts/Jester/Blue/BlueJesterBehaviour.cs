@@ -19,9 +19,16 @@ namespace Jester.Blue
         protected override void CalculateLeaveTime()
         {
             LeaveTime = jesterCommands
-                .Select(command => command.timestamp +
-                                   command.shotData.amount +
-                                   (command.shotData.amount == 0 ? 1 : 0) * command.shotData.fireBetween)
+                .Select(command =>
+                {
+                    var time = 0.3f + command.timestamp;
+                    if (command.action is BlueJesterActions.FireStorm or BlueJesterActions.FireAimed)
+                    {
+                        time += command.shotData.amount * command.shotData.fireBetween;
+                    }
+
+                    return time;
+                })
                 .Prepend(0f)
                 .Max() + 0.3f;
         }

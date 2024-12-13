@@ -38,13 +38,13 @@ MonoBehaviour:
         gravityDir: 0
         amount: 20
         speed2: 8
-        fireBetween: 0.02
+        fireBetween: 0.3
         radius: 0
         spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 1.8
+    - timestamp: 8
       action: 6
       shotData:
         speed: 40
@@ -70,4 +70,3 @@ MonoBehaviour:
   green: []
   purple: []
   ram: []
-  updated: 1
