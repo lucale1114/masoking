@@ -26,9 +26,9 @@ namespace Jester.Blue
                 .Select(command =>
                 {
                     var time = 0.3f + command.timestamp;
-                    if (command.action is BlueJesterActions.FireStorm or BlueJesterActions.FireAimed)
+                    if (command.action is BlueJesterActions.FireStorm or BlueJesterActions.FireAimed or BlueJesterActions.Snipe)
                     {
-                        time += command.shotData.amount * command.shotData.fireBetween;
+                        time += (command.shotData.amount == 0 ? 1 : command.shotData.amount) * command.shotData.fireBetween;
                     }
 
                     return time;
