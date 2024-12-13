@@ -50,18 +50,12 @@ namespace Projectile
 
         private void Start()
         {
-            Invoke(nameof(Enable), Data.fireBetween);
+            StartCoroutine(InstantiateShadow());
+            GetComponentInChildren<SpriteRenderer>().enabled = true;
+
             InstantiateReticle(Data);
             transform.localScale *= Data.scale;
             InvokeRepeating(nameof(Spin), 0, 0.005f);
-        }
-
-        private void Enable()
-        {
-            _isOn = true;
-
-            StartCoroutine(InstantiateShadow());
-            GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
 
         private void Spin()
@@ -176,33 +170,30 @@ namespace Projectile
             _reticleFill = Reticle.transform.GetChild(0).gameObject;
             Reticle.transform.localScale *= Data.scale;
             _reticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f),
-                (Data.throwAirTime + Data.fireBetween) * 1.75f);
-            Destroy(Reticle, shotData.throwAirTime + shotData.fireBetween + 0.1f);
+                (Data.throwAirTime) * 1.75f);
+            Destroy(Reticle, shotData.throwAirTime + 0.1f);
         }
 
         private void Update()
         {
-            if (_isOn)
+            CurrentTime += Time.deltaTime;
+
+            var airTime = CurrentTime / Data.throwAirTime;
+
+            if (airTime >= colliderActivationPercentage)
             {
-                CurrentTime += Time.deltaTime;
-
-                var airTime = CurrentTime / Data.throwAirTime;
-
-                if (airTime >= colliderActivationPercentage)
+                if (_collider)
                 {
-                    if (_collider)
-                    {
-                        _collider.enabled = true;
-                    }
+                    _collider.enabled = true;
                 }
+            }
 
-                OnUpdate(airTime);
+            OnUpdate(airTime);
 
 
-                if (_shadow)
-                {
-                    _shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
-                }
+            if (_shadow)
+            {
+                _shadow.transform.position = Vector2.Lerp(StartPosition, Target, airTime);
             }
         }
 
