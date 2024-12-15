@@ -1619,7 +1619,7 @@ PrefabInstance:
     - target: {fileID: 4519736414097344550, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: dashCharge
       value: 
-      objectReference: {fileID: 8300000, guid: 734ed7d8cc6e6c844b0ec7ad4a2bcd15, type: 3}
+      objectReference: {fileID: 8300000, guid: 299205799eae9a349ad006c3d2acc94f, type: 3}
     - target: {fileID: 4876307618402378224, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3390734
