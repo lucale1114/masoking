@@ -9,7 +9,7 @@ namespace Wave.Handler
         [SerializeField]
         private GameObject _batteringRam;
 
-        const float RIGHT_X = 6;
+        const float RIGHT_X = 6.25f;
         const float LEFT_X = -6;
         const float UP_Y = 5.2f;
         const float DOWN_Y = -5.2f;
@@ -46,6 +46,10 @@ namespace Wave.Handler
 
             switch (_data.side)
             {
+                case WallSides.Right:
+                    x = RIGHT_X;
+                    break;
+
                 case WallSides.Left:
                     x = LEFT_X;
                     newRam.transform.rotation = Quaternion.Euler(0, 0, 180);
