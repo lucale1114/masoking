@@ -1,0 +1,2 @@
+hit_pose_STAR och hit_pose_STAR_2 ska vara en loopande animation för när man blir träffad, 
+men _2 kan nej-sägas och inte tas med ifall det ser för kladdigt ut, finns där bara för säkerhets skull liksom
