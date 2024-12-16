@@ -24,7 +24,7 @@ namespace Jester
         private IEnumerator AnimationExplosion()
         {
             yield return new WaitForSeconds(2.8f);
-            animator.SetBool(Boom, true);
+            animator.SetTrigger(Boom);
         }
 
         public void WaitForExplosion()

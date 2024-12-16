@@ -22,6 +22,8 @@ namespace Player
         [SerializeField] private float bounceCooldown;
         [SerializeField] private float bounceAbsorption;
         [SerializeField] private int maxNumberOfWallBounces = 2;
+        [SerializeField] private float currentCharge;
+        [SerializeField] private float maxCharge = 4;
         [SerializeField] private AudioClip walk;
         [SerializeField] private AudioClip[] dash;
 
@@ -193,12 +195,21 @@ namespace Player
             {
                 yield return new WaitForSeconds(0.05f);
                 power = Mathf.Min(power + dashIncrease, dashMaxTime);
+                currentCharge += 0.09f;
+                // Check if the max charge has been reached
+                if (currentCharge >= maxCharge)
+                {
+                     // Cap the value (optional)
+                    break; // Exit the loop
+                }
             }
             SoundFXManager.Instance.StopDash();
             SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
 
             power = Mathf.Max(dashMinTime, power);
             StartCoroutine(Dash());
+
+            currentCharge = 0;
         }
 
         IEnumerator FlashRecharge()

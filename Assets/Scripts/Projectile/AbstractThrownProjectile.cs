@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Jester.Red;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Projectile
@@ -201,6 +202,8 @@ namespace Projectile
 
         private void OnDestroy()
         {
+            _shadow.transform.DOKill();
+            _reticleFill.transform.DOKill();
             Destroy(_shadow);
             Destroy(Reticle);
         }
