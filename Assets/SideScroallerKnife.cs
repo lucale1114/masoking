@@ -16,9 +16,11 @@ public class SideScroallerKnife : MonoBehaviour
         GenerateSpike();
     }
 
-    void GenerateSpike()
+    public void GenerateSpike()
     {
         GameObject KnifeIns = Instantiate(Knife, transform.position, transform.rotation);
+
+        KnifeIns.GetComponent<KnifeScrollMove>().SideScroallerKnife = this;
     }
 
     // Update is called once per frame
