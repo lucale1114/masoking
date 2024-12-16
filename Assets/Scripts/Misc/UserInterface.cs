@@ -14,6 +14,7 @@ namespace Misc
         [SerializeField] public Sprite[] kingPortraits;
         [SerializeField] public Sprite[] comboTexts;
         [SerializeField] public int[] comboArray;
+        [SerializeField] public AudioClip[] kingAudioClips;
 
         public TextMeshProUGUI _comboCounter;
         public TextMeshProUGUI _scoreCounter;
@@ -204,11 +205,13 @@ namespace Misc
             if (punch)
             {
                 _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
+                SoundFXManager.Instance.PlayRandomSoundFX(kingAudioClips, 1f);
             }
 
             if (shake)
             {
                 _portrait.transform.DOShakePosition(1, 5);
+                SoundFXManager.Instance.PlayRandomSoundFX(kingAudioClips, 1f);
             }
         }
 

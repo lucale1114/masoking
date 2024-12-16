@@ -24,7 +24,7 @@ MonoBehaviour:
   green: []
   purple: []
   ram:
-  - timestamp: 1.5
+  - timestamp: 0.5
     side: 1
     delay: 0
     damage: 15
@@ -33,7 +33,7 @@ MonoBehaviour:
     launchSpeedMultiplier: 0
     y: -2.9
     x: 0
-  - timestamp: 2.5
+  - timestamp: 1.5
     side: 0
     delay: 0
     damage: 15
