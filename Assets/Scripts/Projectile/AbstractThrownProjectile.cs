@@ -203,7 +203,7 @@ namespace Projectile
         private void OnDestroy()
         {
             _shadow.transform.DOKill();
-            _reticleFill.transform.DOKill();
+            Reticle.transform.DOKill();
             Destroy(_shadow);
             Destroy(Reticle);
         }
