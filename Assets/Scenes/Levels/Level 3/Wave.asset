@@ -31,7 +31,7 @@ MonoBehaviour:
         y: 3
         randomX: 0
         randomY: 0
-        throwAirTime: 2
+        throwAirTime: 1
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -70,12 +70,56 @@ MonoBehaviour:
         throwAndRollType: 0
         speed: 2
         scale: 2
-        damage: 10
+        damage: 15
+        x: 3
+        y: 4
+        randomX: 0
+        randomY: 0
+        throwAirTime: 1
+        animationCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1.0083313
+            value: -0.014152527
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        amount: 0
+        numberOfBounces: 0
+        breakable: 0
+        radius: 0
+  - side: 1
+    y: 3.56
+    randomY: 0
+    commands:
+    - timestamp: 5
+      action: 0
+      shotData:
+        throwAndRollType: 0
+        speed: 2
+        scale: 2
+        damage: 15
         x: 3
         y: -4
         randomX: 0
         randomY: 0
-        throwAirTime: 2
+        throwAirTime: 1
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -109,15 +153,15 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 2.5
+    - timestamp: 2
       action: 1
       shotData:
-        speed: 10
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 10
-        x: 5
-        y: 0
+        x: 0
+        y: 5
         randomX: 0
         randomY: 0
         timer: 0
@@ -132,10 +176,10 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 2
+    - timestamp: 4.5
       action: 0
       shotData:
-        speed: 10
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 10
@@ -157,22 +201,4 @@ MonoBehaviour:
         breakable: 0
   green: []
   purple: []
-  ram:
-  - timestamp: 5
-    side: 1
-    delay: 0
-    damage: 10
-    size: 2
-    launched: 0
-    launchSpeedMultiplier: 4.27
-    y: -0.61
-    x: -5
-  - timestamp: 6
-    side: 0
-    delay: 0
-    damage: 10
-    size: 2
-    launched: 0
-    launchSpeedMultiplier: 4.27
-    y: 2.16
-    x: 5
+  ram: []
