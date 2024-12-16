@@ -467,6 +467,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3544278792555356052, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c9c70ea430cbff4409eed4049918ec2c, type: 3}
     - target: {fileID: 4876307618402378224, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3390734
@@ -981,17 +985,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1525931554 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3971409191725846545, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
-  m_PrefabInstance: {fileID: 5539401480867287871}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1667875853 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
@@ -1351,6 +1344,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Level_3
       objectReference: {fileID: 0}
+    - target: {fileID: 3779023926614629067, guid: 991ae00602392084195e6e902505d007, type: 3}
+      propertyPath: waveList
+      value: 
+      objectReference: {fileID: 11400000, guid: 7800bca6e3024c14792b87e32dc9f389, type: 2}
+    - target: {fileID: 3779023926614629067, guid: 991ae00602392084195e6e902505d007, type: 3}
+      propertyPath: debugForceWave
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1407,7 +1408,7 @@ PrefabInstance:
     - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
       propertyPath: _mashSpace
       value: 
-      objectReference: {fileID: 1525931554}
+      objectReference: {fileID: 0}
     - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
       propertyPath: _heatSystem
       value: 
