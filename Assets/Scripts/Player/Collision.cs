@@ -21,7 +21,7 @@ namespace Player
                 SoundFXManager.Instance.PlaySoundFX(boom, 1f);
             }
 
-            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurrentlyDashing && intro.HaveDash)
+            if (other.gameObject.CompareTag("DestroyIntro") && movement.IsCurrentlyDashing)
 
             {
                 Destroy(other.gameObject);
