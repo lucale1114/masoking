@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8165928883618429228, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: debugForceWave
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8516990585532103575, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: m_Name
@@ -1374,6 +1374,34 @@ PrefabInstance:
       propertyPath: _comboResultText
       value: 
       objectReference: {fileID: 716701434}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f361363856c54b34b8aba1e7f27ab41d, type: 3}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 93b828acf335cf042944344f6fac8eeb, type: 3}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a2d5f1502c9613b41972c8f751a805ec, type: 3}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4774ad6204f986b468fa45a9cf4186be, type: 3}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f68b759f3152e25458c519fd1f68b7cc, type: 3}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: ComboClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: db6d261f09cb80c4ba97082b819c0f26, type: 3}
     - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: kingAudioClips.Array.size
       value: 9
