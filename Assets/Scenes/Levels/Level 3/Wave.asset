@@ -26,7 +26,7 @@ MonoBehaviour:
         throwAndRollType: 0
         speed: 2
         scale: 1
-        damage: 20
+        damage: 5
         x: -4
         y: 3
         randomX: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
         throwAndRollType: 0
         speed: 2
         scale: 2
-        damage: 15
+        damage: 5
         x: 3
         y: 4
         randomX: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
         throwAndRollType: 0
         speed: 2
         scale: 2
-        damage: 15
+        damage: 5
         x: 3
         y: -4
         randomX: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-    - timestamp: 4.5
+    - timestamp: 4
       action: 0
       shotData:
         speed: 20
