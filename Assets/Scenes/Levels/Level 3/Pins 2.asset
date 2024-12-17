@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
-  m_Name: Wave
+  m_Name: Pins 2
   m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
   Description: 
   red:
-  - side: 0
-    y: -3.56
+  - side: 1
+    y: 0
     randomY: 0
     commands:
     - timestamp: 1
@@ -26,8 +26,8 @@ MonoBehaviour:
         throwAndRollType: 0
         speed: 2
         scale: 1
-        damage: 20
-        x: -4
+        damage: 5
+        x: 3
         y: 3
         randomX: 0
         randomY: 0
@@ -36,8 +36,8 @@ MonoBehaviour:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: -0.0083351135
-            value: 0.33648682
+            time: -0.049999237
+            value: 0.21383667
             inSlope: 2
             outSlope: 2
             tangentMode: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.9666748
-            value: 0.006290436
+            time: 0.972229
+            value: 0.012577057
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -60,28 +60,24 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
         radius: 0
-  - side: 1
-    y: 3.56
-    randomY: 0
-    commands:
-    - timestamp: 3
+    - timestamp: 2.5
       action: 0
       shotData:
         throwAndRollType: 0
         speed: 2
-        scale: 2
-        damage: 15
-        x: 3
-        y: 4
+        scale: 1
+        damage: 5
+        x: -3
+        y: -4
         randomX: 0
         randomY: 0
-        throwAirTime: 1
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: 0
-            value: 0
+            time: -0.049999237
+            value: 0.21383667
             inSlope: 2
             outSlope: 2
             tangentMode: 0
@@ -89,8 +85,8 @@ MonoBehaviour:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 1.0083313
-            value: -0.014152527
+            time: 0.972229
+            value: 0.012577057
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -105,27 +101,27 @@ MonoBehaviour:
         breakable: 0
         radius: 0
   - side: 1
-    y: 3.56
+    y: 0
     randomY: 0
     commands:
-    - timestamp: 5
-      action: 0
+    - timestamp: 1.5
+      action: 2
       shotData:
         throwAndRollType: 0
         speed: 2
-        scale: 2
-        damage: 15
+        scale: 1
+        damage: 5
         x: 3
         y: -4
         randomX: 0
         randomY: 0
-        throwAirTime: 1
+        throwAirTime: 0.5
         animationCurve:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: 0
-            value: 0
+            time: -0.049999237
+            value: 0.21383667
             inSlope: 2
             outSlope: 2
             tangentMode: 0
@@ -133,8 +129,8 @@ MonoBehaviour:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 1.0083313
-            value: -0.014152527
+            time: 0.972229
+            value: 0.012577057
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -149,41 +145,18 @@ MonoBehaviour:
         breakable: 0
         radius: 0
   blue:
-  - side: 0
-    y: 0
+  - side: 1
+    y: 3.49
     randomY: 0
     commands:
-    - timestamp: 2
-      action: 1
-      shotData:
-        speed: 20
-        inaccuracy: 0
-        scale: 1
-        damage: 10
-        x: 0
-        y: 5
-        randomX: 0
-        randomY: 0
-        timer: 0
-        frequency: 0
-        amp: 0
-        gravityDir: 0
-        amount: 1
-        speed2: 0
-        fireBetween: 0
-        radius: 0
-        spin: 1
-        straight: 0
-        numberOfBounces: 0
-        breakable: 0
-    - timestamp: 4.5
+    - timestamp: 0.8
       action: 0
       shotData:
         speed: 20
-        inaccuracy: 0
+        inaccuracy: 14
         scale: 1
-        damage: 10
-        x: 5
+        damage: 5
+        x: 0
         y: 0
         randomX: 0
         randomY: 0
@@ -195,7 +168,30 @@ MonoBehaviour:
         speed2: 0
         fireBetween: 0
         radius: 0
-        spin: 1
+        spin: 0
+        straight: 0
+        numberOfBounces: 0
+        breakable: 0
+    - timestamp: 2.5
+      action: 0
+      shotData:
+        speed: 20
+        inaccuracy: 14
+        scale: 1
+        damage: 5
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 1
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
         straight: 0
         numberOfBounces: 0
         breakable: 0
