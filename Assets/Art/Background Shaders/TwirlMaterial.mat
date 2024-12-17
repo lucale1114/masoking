@@ -60,14 +60,14 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 0
-    - _MoveX: 0.01
+    - _MoveX: 0
     - _MoveY: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0
+    - _Speed: 0.45
     - _SrcBlend: 1
     - _Surface: 0
-    - _Twirl: 2.28
+    - _Twirl: 0.45
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
