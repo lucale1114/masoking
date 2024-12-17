@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6501961936636001254}
   m_Layer: 0
-  m_Name: CongaJesters
+  m_Name: YellowJesters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
