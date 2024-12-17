@@ -7,6 +7,8 @@ namespace Player
         public static SoundFXManager Instance;
 
         [SerializeField] AudioSource soundFXObject;
+        [SerializeField] AudioSource soundFXObjectNoPitch;
+
         [SerializeField] AudioSource walkFX;
         [SerializeField] AudioSource dashFX;
 
@@ -34,6 +36,13 @@ namespace Player
             if (soundFXObject == null)
             {
                 soundFXObject = GetComponent<AudioSource>();
+            }
+
+            soundFXObjectNoPitch = GetComponent<AudioSource>();
+
+            if (soundFXObjectNoPitch == null)
+            {
+                soundFXObjectNoPitch = GetComponent<AudioSource>();
             }
 
 
@@ -71,6 +80,19 @@ namespace Player
         {
             int rand = Random.Range(0, audioClip.Length);
             PlaySoundFX(audioClip[rand], volume);
+        }
+
+        public void PlayRandomSoundFXNoPitch(AudioClip[] audioClip, float volume)
+        {
+            int rand = Random.Range(0, audioClip.Length);
+            if (timer < minTime)
+            {
+                return;
+            }
+
+            timer = 0;
+
+            soundFXObjectNoPitch.PlayOneShot(audioClip[rand], volume);
         }
 
         public void PlayOnLoop()

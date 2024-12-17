@@ -1,3 +1,4 @@
+using Jester.Green;
 using Player;
 using Projectile;
 using UnityEngine;
@@ -19,18 +20,28 @@ namespace Misc
                 }
             }
 
-            if (collision.collider.CompareTag("Player"))
+            var movement = collision.collider.GetComponent<Player.Movement>();
+
+            if (collision.collider.CompareTag("Player") && !movement.IsCurrentlyDashing)
             {
-                var movement = collision.collider.GetComponent<Movement>();
+                //var movement = collision.collider.GetComponent<Movement>();
+                movement.currentVelocity = Vector2.zero;
+            }
+
+            if (collision.collider.CompareTag("Player") && movement.IsCurrentlyDashing)
+            {
+                //var movement = collision.collider.GetComponent<Movement>();
                 movement.AttemptBounce(-collision.contacts[0].normal);
             }
         }
+        
 
         private void OnCollisionStay2D(Collision2D collision)
         {
-            if (collision.collider.CompareTag("Player"))
+            var movement = collision.collider.GetComponent<Player.Movement>();
+            if (collision.collider.CompareTag("Player") && movement.IsCurrentlyDashing )
             {
-                var movement = collision.collider.GetComponent<Movement>();
+                //var movement = collision.collider.GetComponent<Movement>();
                 movement.AttemptBounce(-collision.contacts[0].normal);
             }
         }

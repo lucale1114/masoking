@@ -15,6 +15,9 @@ namespace Misc
         [SerializeField] public Sprite[] comboTexts;
         [SerializeField] public int[] comboArray;
         [SerializeField] public AudioClip[] kingAudioClips;
+        [SerializeField] public AudioClip[] ComboClips;
+
+
 
         public TextMeshProUGUI _comboCounter;
         public TextMeshProUGUI _scoreCounter;
@@ -205,13 +208,13 @@ namespace Misc
             if (punch)
             {
                 _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
-                SoundFXManager.Instance.PlayRandomSoundFX(kingAudioClips, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips, 1f);
             }
 
             if (shake)
             {
                 _portrait.transform.DOShakePosition(1, 5);
-                SoundFXManager.Instance.PlayRandomSoundFX(kingAudioClips, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips, 1f);
             }
         }
 
@@ -261,6 +264,7 @@ namespace Misc
             }
 
             _comboResultText.GetComponent<Animator>().Play("ComboTextAnimation");
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(ComboClips, 1f);
         }
 
         private IEnumerator StartingCombo()
