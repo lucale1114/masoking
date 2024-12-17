@@ -127,4 +127,22 @@ MonoBehaviour:
         breakable: 0
   green: []
   purple: []
-  ram: []
+  ram:
+  - timestamp: 2
+    side: 1
+    delay: 1
+    damage: 23
+    size: 1
+    launched: 0
+    launchSpeedMultiplier: 0
+    y: 0
+    x: 0
+  - timestamp: 2
+    side: 0
+    delay: 1
+    damage: 23
+    size: 1
+    launched: 0
+    launchSpeedMultiplier: 0
+    y: 0
+    x: 0
