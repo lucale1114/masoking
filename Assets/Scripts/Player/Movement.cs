@@ -39,9 +39,9 @@ namespace Player
         private int _numberOfWallBounces;
         private float power;
 
-        private Vector2 currentVelocity;
+        public Vector2 currentVelocity;
         private Rigidbody2D rb;
-        private Vector2 moveInput;
+        public Vector2 moveInput;
         public float knocked = 0;
 
         private float currentTimestamp = 0f;
