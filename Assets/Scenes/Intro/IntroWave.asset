@@ -12,26 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: IntroWave
   m_EditorClassIdentifier: 
-  StartDelay: 2
+  StartDelay: 5
   SpawnBall: 0
   Description: 
   red:
-  - timestamp: 4
-    side: 1
+  - side: 1
     y: 0
     randomY: 1
     commands:
-    - timestamp: 2
+    - timestamp: 1
       action: 0
       shotData:
+        throwAndRollType: 0
         speed: 10.19
-        scale: 2
+        scale: 1
         damage: 0
         x: 0
         y: 0
         randomX: 0
         randomY: 0
-        throwAirTime: 1.84
+        throwAirTime: 2
         animationCurve:
           serializedVersion: 2
           m_Curve:
@@ -57,20 +57,19 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         amount: 0
-        fireBetween: 0
         numberOfBounces: 0
         breakable: 0
+        radius: 0
   blue:
-  - timestamp: 4
-    side: 0
-    y: 0
+  - side: 1
+    y: -3.04
     randomY: 0
     commands:
     - timestamp: 2
       action: 0
       shotData:
-        speed: 4
-        inaccuracy: 50
+        speed: 10
+        inaccuracy: 19
         scale: 1
         damage: 0
         x: 0
@@ -89,25 +88,6 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  green:
-  - startPosition: {x: 10, y: 0}
-    loop: 0
-    commands:
-    - action: 0
-      destination: {x: -20, y: 0}
-      time: 15
-  purple:
-  - startPosition: {x: -10, y: 0}
-    loop: 0
-    commands:
-    - action: 0
-      destination: {x: 20, y: 0}
-      time: 15
-  ram:
-  - timestamp: 1
-    delay: 0
-    damage: 0
-    side: 0
-    y: 0
-    x: 0
-    randomY: 0
+  green: []
+  purple: []
+  ram: []

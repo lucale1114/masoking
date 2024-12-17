@@ -10,7 +10,10 @@ namespace Misc
     {
         public GameObject boardMove;
         public GameObject boardDash;
-        private float speed = 5;
+        public Transform target1;
+        public Transform target2;
+
+        private float speed = 3;
         private Rigidbody2D rbMove;
         private Rigidbody2D rbDash;
 
@@ -28,15 +31,14 @@ namespace Misc
             _portrait.enabled = false;
             _mashSpace.enabled = false;
             rbMove = boardMove.GetComponent<Rigidbody2D>();
-            
+            rbDash = boardDash.GetComponent<Rigidbody2D>();
+
         }
 
         protected new void Update()
         {
             base.Update();
             StartCoroutine(SwitchBoard());
-          
-         
         }
 
         private IEnumerator SwitchBoard()
@@ -50,12 +52,12 @@ namespace Misc
 
         private void MoveBoardMove()
         {
-            rbMove.velocity = Vector2.right * -3f;
+            rbMove.transform.position = Vector3.MoveTowards(rbMove.transform.position, target1.position, speed * Time.deltaTime);
         }
 
         private void MoveBoardDash()
         {
-            rbMove.velocity = Vector2.right * 3f;
+            rbDash.transform.position = Vector3.MoveTowards(rbDash.transform.position, target2.position, speed * Time.deltaTime);
         }
 
     }
