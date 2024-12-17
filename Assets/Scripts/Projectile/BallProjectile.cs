@@ -1,3 +1,4 @@
+using System;
 using Jester.Red;
 using Player;
 using UnityEngine;
@@ -7,10 +8,16 @@ namespace Projectile
     public class BallProjectile : AbstractThrownProjectile
     {
         [SerializeField] AudioClip roll;
+        public static Action Landed;
+        private bool landed;
         protected override void OnUpdate(float airTime)
         {
             if (CurrentTime > Data.throwAirTime)
             {
+                if (!landed) {
+                    landed = true;
+                    Landed?.Invoke();
+                }
                 RigidBody.MovePosition(Direction * (Time.deltaTime * Data.speed) + (Vector2) transform.position);
                 SoundFXManager.Instance.PlayOnLoop();
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Player;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Jester
     {
         private static readonly int Boom = Animator.StringToHash("boom");
         private static readonly int Count = Animator.StringToHash("count");
-
+        public static Action Exploded;
         [SerializeField] private AudioClip[] booms;
         [SerializeField] private Animator animator;
         [SerializeField] private float explosionRadius = 5f;
@@ -30,6 +31,7 @@ namespace Jester
         public void WaitForExplosion()
         {
             SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
+            Exploded?.Invoke();
 
             if (_player != null)
             {
