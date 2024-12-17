@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: -4396458416746694422}
   - component: {fileID: 315118431773786427}
   - component: {fileID: 7511096076424274299}
+  - component: {fileID: 7733399998935254014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -369,6 +370,8 @@ MonoBehaviour:
   bounceCooldown: 0.15
   bounceAbsorption: 0.3
   maxNumberOfWallBounces: 2
+  currentCharge: 0
+  maxCharge: 4
   walk: {fileID: 8300000, guid: 1848a6daf8f0a5e42afc0127378dbfe2, type: 3}
   dash:
   - {fileID: 8300000, guid: 642023a8ebe3cb94cbe2f0d91c646aec, type: 3}
@@ -449,6 +452,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6794ff9f43c448b1a14122e638c877ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7733399998935254014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406755913887820411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b54f35b8904b65897e217a91f5e4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kingHitAnimatorPrefab: {fileID: 592459058255338669, guid: 88c1ebe55af30da42a7e901dc1cf063c, type: 3}
+  kingHitAnimationClips:
+  - {fileID: 7400000, guid: 32f7e053a12e93f44b7d037fcf75915a, type: 2}
+  - {fileID: 7400000, guid: b0a4272fcd8227841bb206f610139b02, type: 2}
 --- !u!1001 &2970509284666771556
 PrefabInstance:
   m_ObjectHideFlags: 0
