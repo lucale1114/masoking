@@ -1,14 +1,11 @@
 using Player;
-using TMPro;
 using UnityEngine;
 
 namespace Projectile
 {
     public class Collision : MonoBehaviour
     {
-        [SerializeField] private GameObject hitVfx;
         [SerializeField] private AudioClip[] SoundFX;
-
 
         private IProjectile _projectile;
         public bool noStabbing = false;
@@ -27,7 +24,8 @@ namespace Projectile
             var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
             collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-            Instantiate(hitVfx, closestPoint, Quaternion.identity);
+            collision.gameObject.GetComponent<KingHitAnimator>().Play(closestPoint);
+
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
             Destroy(gameObject);
