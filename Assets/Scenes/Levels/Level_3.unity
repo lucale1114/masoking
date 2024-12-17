@@ -506,6 +506,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c9c70ea430cbff4409eed4049918ec2c, type: 3}
+    - target: {fileID: 4519736414097344550, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+      propertyPath: dashCharge
+      value: 
+      objectReference: {fileID: 8300000, guid: 299205799eae9a349ad006c3d2acc94f, type: 3}
     - target: {fileID: 4876307618402378224, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3390734
@@ -1377,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
       propertyPath: kingAudioClips.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
       propertyPath: kingAudioClips.Array.data[0]
@@ -1387,6 +1391,22 @@ PrefabInstance:
       propertyPath: kingAudioClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: a879388977ab8b44da035ffc9cae0e5e, type: 3}
+    - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
+      propertyPath: kingAudioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3203d1dfc38f17b4d9849038a41a3c2c, type: 3}
+    - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
+      propertyPath: kingAudioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: cafcfc4299a7f0146814fe6563df3117, type: 3}
+    - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
+      propertyPath: kingAudioClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: db6d261f09cb80c4ba97082b819c0f26, type: 3}
+    - target: {fileID: 1486006599374852200, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
+      propertyPath: kingAudioClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 41d4f967480ac8246b0f58d07ec7d10b, type: 3}
     - target: {fileID: 2569304273340057722, guid: ce5595741ae40d44eb07199d1f94da06, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5
