@@ -72,10 +72,10 @@ namespace Misc
             loseMode.gameObject.SetActive(false);
 
             _pauseMenu = GameObject.Find("PauseMenu");
-            _pauseMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
-            _pauseMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
-            _pauseMenu.transform.Find("Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
-            _pauseMenu.transform.Find("Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
+            _pauseMenu.transform.Find("Elements/Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+            _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
+            _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
+            _pauseMenu.transform.Find("Elements/Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
             _pauseMenu.SetActive(false);
 
             _soundMenu = GameObject.Find("SoundMenu");
