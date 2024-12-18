@@ -162,12 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e5e0ca24434fa44ba198014587dfa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombJesterCollision: {fileID: 7072586478284884970}
   booms:
   - {fileID: 8300000, guid: 80d10d58e82b09c4db6db861cb742faf, type: 3}
   - {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
   animator: {fileID: 4284304913946595986}
   explosionRadius: 3
+  damage: 10
 --- !u!95 &4284304913946595986
 Animator:
   serializedVersion: 5
@@ -356,8 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 20
   smack:
-  - {fileID: 8300000, guid: 8611c622f2e43cb44b3f2eecd0bba6b7, type: 3}
-  - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  - {fileID: 8300000, guid: 9b13c9ef4f8322444ba2d356130f2544, type: 3}
+  - {fileID: 8300000, guid: c93de2aa85a6ada4e90bf6d99a5bd950, type: 3}
   bombOffset: {x: 0.4, y: 0.5, z: 0}
 --- !u!114 &7072586478284884970
 MonoBehaviour:
