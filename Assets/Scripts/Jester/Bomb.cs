@@ -58,6 +58,7 @@ namespace Jester
         public void Activate()
         {
             animator.SetBool(Count, true);
+            GetComponent<SpriteRenderer>().sortingLayerID = 6;
             StartCoroutine(AnimationExplosion());
             Invoke(nameof(WaitForExplosion), 3f);
         }
