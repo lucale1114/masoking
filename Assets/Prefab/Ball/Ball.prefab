@@ -212,9 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdad6ea1af26dd4890c66b503095e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   SoundFX:
-  - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
+  - {fileID: 8300000, guid: a7cf3a2cece35194d9f1f8e41ba6541f, type: 3}
   - {fileID: 8300000, guid: 26229492279c01b48aaeb26d4c985df9, type: 3}
   noStabbing: 0
 --- !u!1001 &1999273482230285066
