@@ -846,6 +846,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &822885464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8185736622221704723, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+  m_PrefabInstance: {fileID: 2529520490319861959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917402968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1328,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1455384622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4693069112122797586, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+  m_PrefabInstance: {fileID: 2529520490319861959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1509420192
@@ -1950,6 +1972,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 375577655}
     - target: {fileID: 3469088397015652879, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+      propertyPath: _hands
+      value: 
+      objectReference: {fileID: 1455384622}
+    - target: {fileID: 3469088397015652879, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: target1
       value: 
       objectReference: {fileID: 2017791027}
@@ -1957,6 +1983,10 @@ PrefabInstance:
       propertyPath: target2
       value: 
       objectReference: {fileID: 815760376}
+    - target: {fileID: 3469088397015652879, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+      propertyPath: _portrait
+      value: 
+      objectReference: {fileID: 822885464}
     - target: {fileID: 3469088397015652879, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: boardDash
       value: 
@@ -2125,6 +2155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6022627524882045325, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.018921
+      objectReference: {fileID: 0}
     - target: {fileID: 6240916264309306529, guid: 90821b6a07f1ec646bcae8de54516ffd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2286,6 +2320,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3544278792555356052, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34c948c3280301f46aaaabbca34862c8, type: 3}
     - target: {fileID: 4519736414097344550, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: dashCharge
       value: 
