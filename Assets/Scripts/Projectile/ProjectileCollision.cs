@@ -24,7 +24,14 @@ namespace Projectile
             var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
             collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-            collision.gameObject.GetComponent<KingHitAnimator>().Play(closestPoint);
+            if (gameObject.GetComponentInParent<AbstractThrownProjectile>())
+            {
+                collision.gameObject.GetComponent<KingHitAnimator>().PlaySplash(closestPoint);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<KingHitAnimator>().PlayDirectedSplash(closestPoint, transform.position);
+            }
 
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
