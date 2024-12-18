@@ -133,11 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdad6ea1af26dd4890c66b503095e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   SoundFX:
-  - {fileID: 8300000, guid: 2ac6bfae71c4a704f8eea9f92ad1ef5e, type: 3}
-  - {fileID: 8300000, guid: 69327f783fbe1fe45b66e0a08404e30f, type: 3}
-  - {fileID: 8300000, guid: f561fd1ab22c8b643bc0fb3739fd1267, type: 3}
+  - {fileID: 8300000, guid: 6cbc6fb599c4e5f49a0a420be27a5c88, type: 3}
+  - {fileID: 8300000, guid: 16edd108de50f0049be0c18d626417f7, type: 3}
+  - {fileID: 8300000, guid: 2eb2e5a38fe8cd640ae7a535db036429, type: 3}
   noStabbing: 0
 --- !u!1 &8226887042515088013
 GameObject:
