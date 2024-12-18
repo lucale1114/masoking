@@ -51,7 +51,6 @@ MonoBehaviour:
   shadowPrefab: {fileID: 4541097288492365035, guid: 9e1976d6a35f6154a9a93d7b9040e77b, type: 3}
   colliderActivationPercentage: 0.9
   curveHeight: 5
-  booms: []
 --- !u!50 &3897231326727071061
 Rigidbody2D:
   serializedVersion: 4
@@ -92,8 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booms:
-  - {fileID: 8300000, guid: 80d10d58e82b09c4db6db861cb742faf, type: 3}
-  - {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
+  - {fileID: 8300000, guid: 0be85d41938a1214d949051b210d57dd, type: 3}
+  - {fileID: 8300000, guid: 679b8abd86aa9cf4399c70d132368c11, type: 3}
+  - {fileID: 8300000, guid: 3734b94f3212eb746a29b29b07086ffb, type: 3}
   animator: {fileID: 1931289194047530510}
   explosionRadius: 3
   damage: 10
@@ -253,10 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdad6ea1af26dd4890c66b503095e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   SoundFX:
-  - {fileID: 8300000, guid: ee24759dd81d4cf4bbd0330781f8515f, type: 3}
-  - {fileID: 8300000, guid: 26229492279c01b48aaeb26d4c985df9, type: 3}
+  - {fileID: 8300000, guid: 0be85d41938a1214d949051b210d57dd, type: 3}
+  - {fileID: 8300000, guid: 679b8abd86aa9cf4399c70d132368c11, type: 3}
+  - {fileID: 8300000, guid: 3734b94f3212eb746a29b29b07086ffb, type: 3}
   noStabbing: 0
 --- !u!1001 &2964910235643438958
 PrefabInstance:
