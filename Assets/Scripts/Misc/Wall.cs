@@ -22,7 +22,7 @@ namespace Misc
             if (collision.collider.CompareTag("Player"))
             {
                 var movement = collision.collider.GetComponent<Movement>();
-                movement.AttemptBounce(-collision.contacts[0].normal);
+               // movement.currentVelocity.x = Vector2.zero.x;
             }
         }
 
@@ -31,7 +31,7 @@ namespace Misc
             if (collision.collider.CompareTag("Player"))
             {
                 var movement = collision.collider.GetComponent<Movement>();
-                movement.AttemptBounce(-collision.contacts[0].normal);
+               
             }
         }
     }
