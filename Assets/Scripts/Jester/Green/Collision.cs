@@ -13,6 +13,7 @@ namespace Jester.Green
 
         private Collider2D triggerCollider;
         private Player.Movement movement;
+        public Animator animator;
 
         public bool Dashed => dashed;
 
@@ -34,6 +35,8 @@ namespace Jester.Green
         private void Start()
         {
             movement = FindObjectOfType<Player.Movement>();
+            animator = GetComponent<Animator>();
+
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +44,7 @@ namespace Jester.Green
             if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
             {
                 StartCoroutine(FallOver(this.gameObject, collision.transform.position));
+                animator.SetTrigger("Hit");
                 SoundFXManager.Instance.PlayRandomSoundFX(fall, 1f);
             }
 
@@ -72,6 +76,7 @@ namespace Jester.Green
             {
                 if (hasDashed != false && dashed != true)
                 {
+                    animator.SetBool("Wobble", true);
                     dashed = true;
                     // Temporarily disable Rigidbody2D to manually animate the fall
                     rb.isKinematic = true;
@@ -141,6 +146,7 @@ namespace Jester.Green
                         }
                     }
 
+
                     // Rotate the object smoothly over time
                     float elapsedTime = 0f;
                     while (elapsedTime < rotationTime)
@@ -162,6 +168,8 @@ namespace Jester.Green
                     lineRenderer.enabled = false;
                     triggerCollider.enabled = true;
                     isFalling = false;
+                    animator.SetBool("Wobble", false);
+                    animator.SetTrigger("Hit");
                     SoundFXManager.Instance.PlayRandomSoundFX(smash, 2f);
                     yield return new WaitForSeconds(0.1f);
 

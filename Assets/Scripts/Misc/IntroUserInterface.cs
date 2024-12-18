@@ -30,6 +30,10 @@ namespace Misc
             _heatSystem.enabled = false;          
             _portrait.enabled = false;
             _mashSpace.enabled = false;
+            _scoreCounter.enabled = false;
+            _hands.enabled = false;
+            
+
             rbMove = boardMove.GetComponent<Rigidbody2D>();
             rbDash = boardDash.GetComponent<Rigidbody2D>();
 
