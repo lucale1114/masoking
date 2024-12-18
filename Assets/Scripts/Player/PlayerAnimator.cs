@@ -47,5 +47,6 @@ namespace Player
             _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
             _animator.Play("KingMoveAnimation");
         }
+
     }
 }
