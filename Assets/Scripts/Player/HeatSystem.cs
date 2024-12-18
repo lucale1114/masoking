@@ -109,7 +109,7 @@ namespace Player
                 }
 
 
-                MaxHeat?.Invoke();
+                //MaxHeat?.Invoke();
                 //StartCoroutine(MaxHeatReward());
             }
         }

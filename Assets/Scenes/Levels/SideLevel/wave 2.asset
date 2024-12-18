@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
-  m_Name: wave 1
+  m_Name: wave 2
   m_EditorClassIdentifier: 
   StartDelay: 0
   SpawnBall: 0
@@ -18,13 +18,13 @@ MonoBehaviour:
   red: []
   blue:
   - side: 1
-    y: 4
+    y: -5
     randomY: 0
     commands:
     - timestamp: 1
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -45,13 +45,13 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: 3
+    y: -4
     randomY: 0
     commands:
     - timestamp: 1.5
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -72,13 +72,13 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: 2
+    y: -3
     randomY: 0
     commands:
     - timestamp: 2
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -99,13 +99,13 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: 0
+    y: -2
     randomY: 0
     commands:
     - timestamp: 2.5
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -132,7 +132,7 @@ MonoBehaviour:
     - timestamp: 3
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -153,13 +153,13 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: -2
+    y: 0
     randomY: 0
     commands:
     - timestamp: 3.5
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -180,13 +180,13 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: -3
+    y: 1
     randomY: 0
     commands:
     - timestamp: 4
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -207,13 +207,13 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: -4
+    y: 2
     randomY: 0
     commands:
     - timestamp: 4.5
       action: 0
       shotData:
-        speed: 30
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2
@@ -234,13 +234,67 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
   - side: 1
-    y: -5
+    y: 3
     randomY: 0
     commands:
     - timestamp: 5
       action: 0
       shotData:
-        speed: 30
+        speed: 20
+        inaccuracy: 0
+        scale: 1
+        damage: 2
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
+        numberOfBounces: 0
+        breakable: 0
+  - side: 1
+    y: 4
+    randomY: 0
+    commands:
+    - timestamp: 5
+      action: 0
+      shotData:
+        speed: 20
+        inaccuracy: 0
+        scale: 1
+        damage: 2
+        x: 0
+        y: 0
+        randomX: 0
+        randomY: 0
+        timer: 0
+        frequency: 0
+        amp: 0
+        gravityDir: 0
+        amount: 2
+        speed2: 0
+        fireBetween: 0
+        radius: 0
+        spin: 0
+        straight: 1
+        numberOfBounces: 0
+        breakable: 0
+  - side: 1
+    y: 5
+    randomY: 0
+    commands:
+    - timestamp: 5
+      action: 0
+      shotData:
+        speed: 20
         inaccuracy: 0
         scale: 1
         damage: 2

@@ -131,5 +131,11 @@ namespace Player
             soundFXObject.pitch = Mathf.Min(soundFXObject.pitch += 0.05f, 2f);
         }
 
+        public void StopWalkingFull()
+        {
+           walkFX.Stop();
+            walkFX.loop = false;
+        }
+
     }
 }

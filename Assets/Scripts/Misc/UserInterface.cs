@@ -132,6 +132,7 @@ namespace Misc
 
             if (!IsIntro)
             {
+                 SoundFXManager.Instance.StopWalkingFull();
                 _waveHandler.FinishedLevel += () =>
                 {
                     JesterFeverHandler.JesterFever = true;
