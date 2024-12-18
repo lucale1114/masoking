@@ -118,6 +118,7 @@ namespace Player
                 }
                 else if (currentVelocity.x * moveInput.x < 0)
                 {
+                    playerAnimator.PlayTurning(moveInput);
                     playerAnimator.PlayWindup(moveInput);
                     SoundFXManager.Instance.StartWalking();
                 }

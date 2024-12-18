@@ -207,12 +207,14 @@ namespace Misc
         {
             if (punch)
             {
+             
                 _portrait.transform.DOPunchScale(transform.localScale, 0.5f, 8, 0.5f);
                 SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips, 1f);
             }
 
             if (shake)
             {
+               
                 _portrait.transform.DOShakePosition(1, 5);
                 SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips, 1f);
             }
@@ -263,6 +265,7 @@ namespace Misc
                 }
             }
 
+           
             _comboResultText.GetComponent<Animator>().Play("ComboTextAnimation");
             SoundFXManager.Instance.PlayRandomSoundFXNoPitch(ComboClips, 1f);
         }
