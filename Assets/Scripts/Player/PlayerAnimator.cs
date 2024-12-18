@@ -8,12 +8,15 @@ namespace Player
         private static readonly int MoveY = Animator.StringToHash("moveY");
 
         private Animator _animator;
+        private Animator _dustAnimator;
 
         private Vector2 _lastNonZeroVelocity = Vector2.up;
 
         private void Start()
         {
-            _animator = GetComponent<Animator>();
+            var animators = GetComponentsInChildren<Animator>();
+            _animator = animators[0];
+            _dustAnimator = animators[1];
         }
 
         public void PlayWindup(Vector2 velocity)
@@ -21,8 +24,6 @@ namespace Player
             _lastNonZeroVelocity = velocity;
             _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
             _animator.Play("KingWindupAnimation");
-
-
         }
 
         public void PlayDash(Vector2 velocity)
@@ -48,5 +49,22 @@ namespace Player
             _animator.Play("KingMoveAnimation");
         }
 
+        public void PlayTurning(Vector2 moveInput)
+        {
+            if (_lastNonZeroVelocity.x * moveInput.x < 0)
+            {
+                var transformLocalPosition = _dustAnimator.transform.localPosition;
+                var absolutePositionX = Mathf.Abs(transformLocalPosition.x);
+                transformLocalPosition.x = moveInput.x > 0 ? -absolutePositionX : absolutePositionX;
+                _dustAnimator.transform.localPosition = transformLocalPosition;
+
+                var transformLocalScale = _dustAnimator.transform.localScale;
+                var absoluteScaleX = Mathf.Abs(transformLocalScale.x);
+                transformLocalScale.x = moveInput.x > 0 ? absoluteScaleX : -absoluteScaleX;
+                _dustAnimator.transform.localScale = transformLocalScale;
+
+                _dustAnimator.Play("KingTurnDust");
+            }
+        }
     }
 }
