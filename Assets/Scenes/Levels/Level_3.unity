@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &192107890
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -586,6 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &758434755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -831,6 +835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &1480124216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -974,6 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &1891356047
 BoxCollider2D:
   m_ObjectHideFlags: 0

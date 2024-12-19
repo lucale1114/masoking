@@ -553,6 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
   AudioClip:
   - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
   - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
@@ -976,6 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
   AudioClip:
   - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
   - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
@@ -991,6 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
   AudioClip:
   - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
   - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
@@ -1207,6 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
   AudioClip:
   - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
   - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}

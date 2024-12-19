@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: fb74220443120384383e9101fe08dc84
+=======
+guid: 422dd3219ef5f0447a46c78ff0e7e8c3
+>>>>>>> 696ca5f (Add hit vfx)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
