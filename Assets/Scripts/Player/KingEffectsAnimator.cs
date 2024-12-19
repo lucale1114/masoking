@@ -5,7 +5,8 @@ namespace Player
 {
     public class KingEffectsAnimator : MonoBehaviour
     {
-        [SerializeField] private GameObject kingHitAnimatorPrefab;
+        [SerializeField] private GameObject bloodAnimatorPrefab;
+        [SerializeField] private GameObject hitAnimatorPrefab;
         [SerializeField] private GameObject kingHitVFXPrefab;
         [SerializeField] private GameObject kingComboVFXPrefab;
 
@@ -14,14 +15,23 @@ namespace Player
             var vfx = Instantiate(kingHitVFXPrefab, closestPoint, Quaternion.identity)
                 .GetComponent<ParticleSystem>();
 
-            var instance = Instantiate(kingHitAnimatorPrefab, closestPoint, Quaternion.identity);
-            instance.transform.parent = transform;
-
-            var animator = instance.GetComponent<Animator>();
-            animator.Play("KingHit_1");
-
-            StartCoroutine(DestroyAnimatorWhenDone(animator));
             StartCoroutine(DestroyVfxWhenDone(vfx));
+
+            var blood = Instantiate(bloodAnimatorPrefab, closestPoint, Quaternion.identity);
+            blood.transform.parent = transform;
+
+            var bloodAnimator = blood.GetComponent<Animator>();
+            bloodAnimator.Play("Blood_1");
+
+            StartCoroutine(DestroyAnimatorWhenDone(bloodAnimator));
+
+            var hit = Instantiate(hitAnimatorPrefab, closestPoint, Quaternion.identity);
+            hit.transform.parent = transform;
+
+            var hitAnimator = hit.GetComponent<Animator>();
+            hitAnimator.Play($"Hit_Blunt_{Random.Range(1, 2)}");
+
+            StartCoroutine(DestroyAnimatorWhenDone(hitAnimator));
         }
 
         public void PlaySharp(Vector2 closestPoint, Vector2 direction)
@@ -29,16 +39,27 @@ namespace Player
             var vfx = Instantiate(kingHitVFXPrefab, closestPoint, Quaternion.identity)
                 .GetComponent<ParticleSystem>();
 
-            var instance = Instantiate(kingHitAnimatorPrefab, closestPoint, Quaternion.identity);
-            instance.transform.parent = transform;
-
-            instance.transform.right = direction;
-
-            var animator = instance.GetComponent<Animator>();
-            animator.Play("KingHit_2");
-
-            StartCoroutine(DestroyAnimatorWhenDone(animator));
             StartCoroutine(DestroyVfxWhenDone(vfx));
+
+            var blood = Instantiate(bloodAnimatorPrefab, closestPoint, Quaternion.identity);
+            blood.transform.parent = transform;
+
+            blood.transform.right = direction;
+
+            var bloodAnimator = blood.GetComponent<Animator>();
+            bloodAnimator.Play("Blood_2");
+
+            StartCoroutine(DestroyAnimatorWhenDone(bloodAnimator));
+
+            var hit = Instantiate(hitAnimatorPrefab, closestPoint, Quaternion.identity);
+            hit.transform.parent = transform;
+
+            hit.transform.right = -direction;
+
+            var hitAnimator = hit.GetComponent<Animator>();
+            hitAnimator.Play($"Hit_Sharp_1");
+
+            StartCoroutine(DestroyAnimatorWhenDone(hitAnimator));
         }
 
         public void PlayCombo(Vector2 closestPoint)
