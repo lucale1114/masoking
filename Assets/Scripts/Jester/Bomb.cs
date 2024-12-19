@@ -55,8 +55,6 @@ namespace Jester
         {
             animator.SetBool(Count, true);
 
-            _spriteRenderer.sortingLayerName = "Behind";
-
             StartCoroutine(AnimationExplosion(explosionRadius, damage));
         }
     }
