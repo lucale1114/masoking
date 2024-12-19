@@ -30,6 +30,8 @@ namespace Jester
 
             animator.SetTrigger(Boom);
 
+            _spriteRenderer.sortingLayerName = "InFront";
+
             yield return new WaitForSeconds(0.2f);
 
             SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
@@ -53,7 +55,7 @@ namespace Jester
         {
             animator.SetBool(Count, true);
 
-            _spriteRenderer.sortingLayerName = "InFront";
+            _spriteRenderer.sortingLayerName = "Behind";
 
             StartCoroutine(AnimationExplosion(explosionRadius, damage));
         }
