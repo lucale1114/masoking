@@ -24,20 +24,9 @@ namespace Projectile
         {
             var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
+            collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
 
-            var direction = closestPoint - (Vector2) transform.position;
-
-            var heatSystem = collision.gameObject.GetComponent<HeatSystem>();
-
-            if (gameObject.GetComponentInParent<AbstractThrownProjectile>())
-            {
-                heatSystem.ChangeHeat(damage, Blunt, closestPoint);
-            }
-            else
-            {
-                heatSystem.ChangeHeat(damage,Sharp, closestPoint, direction);
-            }
-
+            Instantiate(hitVfx, closestPoint, Quaternion.identity);
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
             Destroy(gameObject);
