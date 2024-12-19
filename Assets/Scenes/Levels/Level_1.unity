@@ -1080,6 +1080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!212 &1412839058942543149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1500,6 +1503,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!114 &4536633517805681678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,6 +1518,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!1 &5516732850031902543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,6 +1734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!4 &7501307420096303276
 Transform:
   m_ObjectHideFlags: 0

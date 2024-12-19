@@ -201,12 +201,6 @@ MonoBehaviour:
         straight: 0
         numberOfBounces: 0
         breakable: 0
-  green:
-  - startPosition: {x: -4, y: 0}
-    loop: 0
-    commands:
-    - action: 0
-      destination: {x: 0, y: 0}
-      time: 20
+  green: []
   purple: []
   ram: []

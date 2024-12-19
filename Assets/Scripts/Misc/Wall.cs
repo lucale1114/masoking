@@ -7,6 +7,7 @@ namespace Misc
 {
     public class Wall : MonoBehaviour
     {
+        [SerializeField] private AudioClip[] AudioClip;
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Projectile"))
@@ -37,6 +38,7 @@ namespace Misc
             {
                 movement = collision.collider.GetComponent<Player.Movement>();
                 movement.AttemptBounce(-collision.contacts[0].normal);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(AudioClip,1f);
 
             }
         }
