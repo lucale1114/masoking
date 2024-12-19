@@ -51,7 +51,7 @@ namespace Jester
             Destroy(gameObject);
         }
 
-        public void Activate(float explosionRadius = 5f, float damage = 10f)
+        public void Activate(float explosionRadius = 5f, float damage = 25f)
         {
             animator.SetBool(Count, true);
 

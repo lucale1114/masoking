@@ -360,9 +360,12 @@ MonoBehaviour:
   - startPosition: {x: 3.7, y: 20}
     loop: 0
     commands:
-    - action: 0
+    - action: 1
       destination: {x: 3.7, y: -20}
-      time: 11
+      time: 1.8
+    - action: 0
+      destination: {x: 3.7, y: -12}
+      time: 5
   purple: []
   ram:
   - timestamp: 1

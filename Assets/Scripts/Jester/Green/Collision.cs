@@ -51,7 +51,7 @@ namespace Jester.Green
             if (collision.gameObject.CompareTag("Player") && isFalling != true && dashed == true && beenHit != true &&
                 hasFallen != true)
             {
-                var damage = 10;
+                var damage = 40;
                 HeatSystem playerHeat = collision.gameObject.GetComponent<HeatSystem>();
 
                 if (playerHeat != null)
