@@ -42,7 +42,7 @@ namespace Jester
                     _player.GetComponent<HeatSystem>().ChangeHeat(damage);
                     //Trying to add explosion force to the player
                    // _player.GetComponent<Rigidbody2D>().AddForce(transform.up * 2, ForceMode2D.Impulse);
-   
+
                 }
             }
 
@@ -58,7 +58,7 @@ namespace Jester
         public void Activate()
         {
             animator.SetBool(Count, true);
-            GetComponent<SpriteRenderer>().sortingLayerID = 6;
+            GetComponentInChildren<SpriteRenderer>().sortingLayerName = "InFront";
             StartCoroutine(AnimationExplosion());
             Invoke(nameof(WaitForExplosion), 3f);
         }
