@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using static Player.HeatSystem.HeatSource;
 
 namespace Projectile
 {
@@ -23,14 +24,18 @@ namespace Projectile
         {
             var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
-            collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
+
+            var direction = closestPoint - (Vector2) transform.position;
+
+            var heatSystem = collision.gameObject.GetComponent<HeatSystem>();
+
             if (gameObject.GetComponentInParent<AbstractThrownProjectile>())
             {
-                collision.gameObject.GetComponent<KingHitAnimator>().PlaySplash(closestPoint);
+                heatSystem.ChangeHeat(damage, Blunt, closestPoint);
             }
             else
             {
-                collision.gameObject.GetComponent<KingHitAnimator>().PlayDirectedSplash(closestPoint, transform.position);
+                heatSystem.ChangeHeat(damage,Sharp, closestPoint, direction);
             }
 
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);

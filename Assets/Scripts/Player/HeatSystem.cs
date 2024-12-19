@@ -9,6 +9,13 @@ namespace Player
 {
     public class HeatSystem : MonoBehaviour
     {
+        public enum HeatSource
+        {
+            None,
+            Sharp,
+            Blunt
+        }
+
         public event Action HeatDepleted;
         public event Action<float> HeatChanged;
         public event Action TakenDamage;
@@ -24,7 +31,10 @@ namespace Player
 
         public bool invincible;
         public bool CanMaxHeat = true;
-        private Animator animator;
+
+        private Animator _animator;
+        private KingHitAnimator _kingHitAnimator;
+
         private float _currentHeat;
 
         private float _timeSinceLastHit;
@@ -32,12 +42,14 @@ namespace Player
         private Movement _movement;
         private Score _score;
 
+
         private void Start()
         {
             _currentHeat = startHeat;
             _movement = GetComponent<Movement>();
             _score = FindObjectOfType<Score>();
-            animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
+            _kingHitAnimator = GetComponent<KingHitAnimator>();
 
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
@@ -60,12 +72,30 @@ namespace Player
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
         }
 
-        public void ChangeHeat(float amount)
+        public void ChangeHeat(float amount,
+            HeatSource heatSource = HeatSource.None,
+            Vector2 impactPoint = default,
+            Vector2 damageDirection = default)
         {
             if (invincible)
             {
                 return;
             }
+
+            switch (heatSource)
+            {
+                case HeatSource.None:
+                    break;
+                case HeatSource.Sharp:
+                    _kingHitAnimator.PlayDirectedSplash(impactPoint, damageDirection);
+                    break;
+                case HeatSource.Blunt:
+                    _kingHitAnimator.PlaySplash(impactPoint);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(heatSource), heatSource, null);
+            }
+
             float combo = 1;
             if (amount > 0)
             {
