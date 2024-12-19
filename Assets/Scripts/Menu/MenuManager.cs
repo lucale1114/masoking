@@ -13,8 +13,10 @@ namespace Menu
         GameObject[] credits = new GameObject[3];
         GameObject creditsMenu;
         GameObject currentCredits;
-        private bool shaking;
+        GameObject soundMenu;
+        GameObject fadeOut;
 
+        private bool shaking;
         private int page = 0;
         Button backButtonC;
         Button frontButtonC;
@@ -23,16 +25,19 @@ namespace Menu
 
         private void Awake()
         {
-            GameObject.Find("PlayBtn").GetComponent<Button>().onClick.AddListener(GameManager.LoadIntro);
+            GameObject.Find("PlayBtn").GetComponent<Button>().onClick.AddListener(StartGame);
             GameObject.Find("TutorialBtn").GetComponent<Button>().onClick.AddListener(GameManager.LoadTutorial);
+            GameObject.Find("OptionsBtn").GetComponent<Button>().onClick.AddListener(OpenSounds);
             exitButton = GameObject.Find("Exit").GetComponent<Button>();
             exitButton.onClick.AddListener(GameManager.Quit);
-
+            fadeOut = GameObject.Find("FadeOut");
+            fadeOut.SetActive(false);
             backButtonC = GameObject.Find("Back").GetComponent<Button>();
             frontButtonC = GameObject.Find("Forward").GetComponent<Button>();
             creditsBtn = GameObject.Find("CreditsBtn").GetComponent<Button>();
             creditsText = GameObject.Find("CreditsText").GetComponent<TextMeshProUGUI>();
-
+            soundMenu = GameObject.Find("SoundMenu");
+            soundMenu.SetActive(false);
             credits[0] = GameObject.Find("Credits1");
             creditsMenu = GameObject.Find("Credits");
             currentCredits = credits[0];
@@ -45,11 +50,28 @@ namespace Menu
             backButtonC.GetComponent<Button>().enabled = false;
         }
 
+        private void OpenSounds()
+        {
+            soundMenu.SetActive(true);
+        }
+        private void StartGame()
+        {
+            fadeOut.SetActive(true);
+            GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().DOFade(0, 1.5f);
+            Invoke("RealStart", 2);
+        }
+
+        private void RealStart()
+        {
+            GameManager.LoadIntro();
+        }
+
         private void Update()
         {
             if (Input.GetKeyUp(KeyCode.Escape)) { 
                 creditsMenu.SetActive(false);
-            }    
+                soundMenu.SetActive(false);
+            }
         }
         public void OpenCredits() {
             creditsMenu.SetActive(true);

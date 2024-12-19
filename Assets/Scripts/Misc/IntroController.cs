@@ -35,7 +35,6 @@ namespace Misc
 
         IEnumerator AnimationGo()
         {
-            yield return new WaitForSecondsRealtime(2);
             StartCoroutine(FadeInImage(GameObject.Find("1").GetComponent<Image>()));
             yield return new WaitForSecondsRealtime(2);
             StartCoroutine(WriteOutText(texts[0]));
@@ -48,7 +47,7 @@ namespace Misc
             yield return new WaitForSecondsRealtime(2);
             StartCoroutine(FadeInImage(GameObject.Find("4").GetComponent<Image>()));
             StartCoroutine(WriteOutText(texts[3]));
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSecondsRealtime(4);
             StartCoroutine(FadeInImage(GameObject.Find("5").GetComponent<Image>()));
             StartCoroutine(WriteOutText(texts[4]));
             yield return new WaitForSecondsRealtime(4);
@@ -64,7 +63,7 @@ namespace Misc
                 introText.color = color;
                 yield return new WaitForSecondsRealtime(0.1f);
             }
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(1.8f);
             SceneManager.LoadScene(4);
         }
 
@@ -75,7 +74,7 @@ namespace Misc
                 img.color = color;
                 yield return new WaitForSecondsRealtime(0.1f);
             }
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(2.6f);
             for (int i = 0; i < 10; i++)
             {
                 Color color = img.color - new Color(0, 0, 0, 0.1f);
