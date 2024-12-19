@@ -491,10 +491,10 @@ PrefabInstance:
     - target: {fileID: 363932029421947235, guid: 22e8d740a19213449888dd6ec2621d98, type: 3}
       propertyPath: waveList
       value: 
-      objectReference: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
+      objectReference: {fileID: 11400000, guid: bba2030ebd84f3141aff1d2d39f81620, type: 2}
     - target: {fileID: 363932029421947235, guid: 22e8d740a19213449888dd6ec2621d98, type: 3}
       propertyPath: debugForceWave
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1326780320230578956, guid: 22e8d740a19213449888dd6ec2621d98, type: 3}
       propertyPath: m_LocalPosition.x
