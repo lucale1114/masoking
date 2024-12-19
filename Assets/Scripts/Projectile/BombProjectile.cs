@@ -8,7 +8,7 @@ namespace Projectile
     public class BombProjectile : AbstractThrownProjectile
     {
         private bool _isActivated;
-       
+
 
         protected override void OnUpdate(float airTime)
         {
@@ -20,8 +20,7 @@ namespace Projectile
 
                     StopSpin();
                     var bomb = GetComponent<Bomb>();
-                    bomb.SetProperties(Data.radius, Data.damage);
-                    bomb.Activate();
+                    bomb.Activate(Data.radius, Data.damage);
                 }
             }
             else
