@@ -24,7 +24,7 @@ namespace Misc
 
             if (collision.collider.CompareTag("Player") && !movement.IsCurrentlyDashing)
             {
-                var movement = collision.collider.GetComponent<Movement>();
+                movement = collision.collider.GetComponent<Player.Movement>();
                // movement.currentVelocity.x = Vector2.zero.x;
             }
         }
@@ -35,7 +35,7 @@ namespace Misc
             var movement = collision.collider.GetComponent<Player.Movement>();
             if (collision.collider.CompareTag("Player") && movement.IsCurrentlyDashing )
             {
-                var movement = collision.collider.GetComponent<Movement>();
+                movement = collision.collider.GetComponent<Player.Movement>();
                
             }
         }
