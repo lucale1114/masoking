@@ -204,6 +204,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58d917e28166eef4da883ba393db19e6, type: 3}
   - {fileID: 8300000, guid: 79a1a49144588fc43a5278673a0f1812, type: 3}
   - {fileID: 8300000, guid: 0244b612ac2d15445a12edaf1294eb9c, type: 3}
+  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   noStabbing: 0
 --- !u!82 &1409889420940386017
 AudioSource:
