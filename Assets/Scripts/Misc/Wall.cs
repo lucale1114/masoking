@@ -7,6 +7,8 @@ namespace Misc
 {
     public class Wall : MonoBehaviour
     {
+        [SerializeField] private GameObject _wallDashAnimationPrefab;
+        [SerializeField] private AudioClip[] AudioClip;
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Projectile"))
@@ -28,7 +30,7 @@ namespace Misc
                 movement.currentVelocity.x = Vector2.zero.x;
             }
         }
-        
+
 
         private void OnCollisionStay2D(Collision2D collision)
         {
@@ -37,7 +39,11 @@ namespace Misc
             {
                 movement = collision.collider.GetComponent<Player.Movement>();
                 movement.AttemptBounce(-collision.contacts[0].normal);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(AudioClip,1f);
 
+                Instantiate(_wallDashAnimationPrefab,
+                    transform.GetComponent<Collider2D>().ClosestPoint(collision.transform.position),
+                    Quaternion.identity);
             }
         }
     }

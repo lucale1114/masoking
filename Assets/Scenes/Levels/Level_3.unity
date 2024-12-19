@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &192107890
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -502,6 +504,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4519736414097344550, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+      propertyPath: soundFXObjectNoPitch
+      value: 
+      objectReference: {fileID: 1404814765}
     - target: {fileID: 4876307618402378224, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3390734
@@ -582,6 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &758434755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -791,6 +799,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1380161edd9f36746b4180a474563963, type: 3}
+--- !u!82 &1404814765 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4818331327458867374, guid: 0a282fb703cd4d347a6d022c6939778c, type: 3}
+  m_PrefabInstance: {fileID: 584897096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480124214
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &1480124216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -965,6 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f42435256cd8488b31eed5372f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
+  AudioClip: []
 --- !u!61 &1891356047
 BoxCollider2D:
   m_ObjectHideFlags: 0
