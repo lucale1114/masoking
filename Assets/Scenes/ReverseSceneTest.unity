@@ -542,6 +542,18 @@ PrefabInstance:
       propertyPath: heatDecayPerSecond
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: maxCharge
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: dashMaxTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: dashMinTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name
       value: Player
