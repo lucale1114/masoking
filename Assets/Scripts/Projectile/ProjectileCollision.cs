@@ -7,6 +7,7 @@ namespace Projectile
     public class Collision : MonoBehaviour
     {
         [SerializeField] private AudioClip[] SoundFX;
+        [SerializeField] private GameObject hitVfx;
 
         private IProjectile _projectile;
         public bool noStabbing = false;
