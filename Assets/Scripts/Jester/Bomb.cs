@@ -9,58 +9,55 @@ namespace Jester
     {
         private static readonly int Boom = Animator.StringToHash("boom");
         private static readonly int Count = Animator.StringToHash("count");
+
         public static Action Exploded;
+
         [SerializeField] private AudioClip[] booms;
         [SerializeField] private Animator animator;
-        [SerializeField] private float explosionRadius = 5f;
-        [SerializeField] private float damage = 10f;
 
         private GameObject _player;
+        private SpriteRenderer _spriteRenderer;
 
         private void Start()
         {
             _player = GameObject.Find("Player");
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
-        private IEnumerator AnimationExplosion()
+        private IEnumerator AnimationExplosion(float explosionRadius, float damage)
         {
             yield return new WaitForSeconds(2.8f);
-            animator.SetTrigger(Boom);
-        }
 
-        public void WaitForExplosion()
-        {
+            animator.SetTrigger(Boom);
+
+            _spriteRenderer.sortingLayerName = "InFront";
+
+            yield return new WaitForSeconds(0.2f);
+
             SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
+
             Exploded?.Invoke();
 
-            if (_player != null)
+            if (_player)
             {
                 var sqrDistance = Vector3.SqrMagnitude(transform.position - _player.transform.position);
 
                 if (sqrDistance <= explosionRadius * explosionRadius)
                 {
                     _player.GetComponent<HeatSystem>().ChangeHeat(damage);
-                    //Trying to add explosion force to the player
-                   // _player.GetComponent<Rigidbody2D>().AddForce(transform.up * 2, ForceMode2D.Impulse);
-   
                 }
             }
 
             Destroy(gameObject);
         }
 
-        public void SetProperties(float explosionRadius, float damage)
-        {
-            this.explosionRadius = explosionRadius;
-            this.damage = damage;
-        }
-
-        public void Activate()
+        public void Activate(float explosionRadius = 5f, float damage = 10f)
         {
             animator.SetBool(Count, true);
-            GetComponent<SpriteRenderer>().sortingLayerID = 6;
-            StartCoroutine(AnimationExplosion());
-            Invoke(nameof(WaitForExplosion), 3f);
+
+            _spriteRenderer.sortingLayerName = "Behind";
+
+            StartCoroutine(AnimationExplosion(explosionRadius, damage));
         }
     }
 }

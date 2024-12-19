@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8326049927094379611
+--- !u!114 &-8410637082175451758
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: skewed
-  m_Shader: {fileID: -6465566751694194690, guid: c3fd927e23fcd7b4c86d7c78fe995ec2, type: 3}
+  m_Name: HeatMeterMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 6a682181b25b9a8499311ef60e7a7c2d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 52ab523dd70ef4b459a8cdd1ab536fd9, type: 3}
+        m_Texture: {fileID: 2800000, guid: f887039433fe9aa40b44087e2b68d0c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -54,11 +54,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float1: 7.76
-    - _Float2: -8.05
+    - _Float: 0.06
+    - _Intensity: 2.02
+    - _MoveSpeed: 0.45
+    - _Power: 0.85
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Size: 3.6
+    - _Speed: 1.28
     m_Colors:
-    - _bottomcolor: {r: 1, g: 1, b: 1, a: 0}
-    - _topcolor: {r: 0.07924521, g: 0.067433186, b: 0.067433186, a: 0}
+    - _Color: {r: 1, g: 0, b: 0, a: 0}
+    - _VoroniColor: {r: 1, g: 0, b: 0.45237207, a: 0}
   m_BuildTextureStacks: []
