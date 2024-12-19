@@ -1,11 +1,13 @@
 using Player;
 using UnityEngine;
+using static Player.HeatSystem.HeatSource;
 
 namespace Projectile
 {
     public class Collision : MonoBehaviour
     {
         [SerializeField] private AudioClip[] SoundFX;
+        [SerializeField] private GameObject hitVfx;
 
         private IProjectile _projectile;
         public bool noStabbing = false;
@@ -24,15 +26,8 @@ namespace Projectile
             var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
             collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
-            if (gameObject.GetComponentInParent<AbstractThrownProjectile>())
-            {
-                collision.gameObject.GetComponent<KingHitAnimator>().PlaySplash(closestPoint);
-            }
-            else
-            {
-                collision.gameObject.GetComponent<KingHitAnimator>().PlayDirectedSplash(closestPoint, transform.position);
-            }
 
+            Instantiate(hitVfx, closestPoint, Quaternion.identity);
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
             Destroy(gameObject);

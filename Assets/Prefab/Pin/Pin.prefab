@@ -137,6 +137,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6cbc6fb599c4e5f49a0a420be27a5c88, type: 3}
   - {fileID: 8300000, guid: 16edd108de50f0049be0c18d626417f7, type: 3}
   - {fileID: 8300000, guid: 2eb2e5a38fe8cd640ae7a535db036429, type: 3}
+  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   noStabbing: 0
 --- !u!1 &8226887042515088013
 GameObject:

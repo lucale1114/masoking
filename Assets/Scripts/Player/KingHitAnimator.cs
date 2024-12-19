@@ -20,12 +20,11 @@ namespace Player
             StartCoroutine(DestroyWhenDone(animator));
         }
 
-        public void PlayDirectedSplash(Vector2 closestPoint, Vector2 transformPosition)
+        public void PlayDirectedSplash(Vector2 closestPoint, Vector2 direction)
         {
             var instance = Instantiate(kingHitAnimatorPrefab, closestPoint, Quaternion.identity);
             instance.transform.parent = transform;
 
-            var direction = closestPoint - transformPosition;
             instance.transform.right = direction;
 
             var animator = instance.GetComponent<Animator>();

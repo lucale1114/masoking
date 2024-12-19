@@ -35,6 +35,7 @@ namespace Player
         private float _dashCoolDown = 0.5f;
         private SpriteRenderer _dashImageCharger;
         private SpriteRenderer _plrSprite;
+        private bool SideScrollOn = false;
 
         private int _numberOfWallBounces;
         private float power;
@@ -88,6 +89,12 @@ namespace Player
                 }
             }
 
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SideScrollOn = !SideScrollOn;
+            }
+
+
             if (Input.GetAxis("Jump") == 0)
             {
                 _chargingDash = false;
@@ -111,6 +118,7 @@ namespace Player
 
             if (!IsCurrentlyDashing)
             {
+                
                 if (Mathf.Approximately(currentVelocity.magnitude, 0))
                 {
                     playerAnimator.PlayIdle();
@@ -126,6 +134,7 @@ namespace Player
                     playerAnimator.PlayMoving(currentVelocity);
                     SoundFXManager.Instance.StartWalking();
                 }
+
             }
         }
 
@@ -179,7 +188,7 @@ namespace Player
 
             currentVelocity = Vector2.ClampMagnitude(currentVelocity, maxSpeed);
 
-
+            currentVelocity += SideScrollerMovement();
 
             rb.velocity = currentVelocity; //* _dashMultiplier;
         }
@@ -190,6 +199,15 @@ namespace Player
             power = 0.3f;
             currentVelocity = dir * 5 ;
             StartCoroutine(Dash());
+        }
+
+        public Vector2 SideScrollerMovement()
+        {
+            if (SideScrollOn == true)
+            {
+                return new Vector2(-100 * Time.deltaTime, currentVelocity.y * acceleration * Time.deltaTime);
+            }
+            return Vector2.zero;
         }
 
         public IEnumerator ChargeDash()

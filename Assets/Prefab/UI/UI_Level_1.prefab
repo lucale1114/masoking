@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.602478
       objectReference: {fileID: 0}
+    - target: {fileID: 6296902637257019318, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6434373751145018207, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -4.999939
@@ -680,7 +684,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3032054464810594443}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 

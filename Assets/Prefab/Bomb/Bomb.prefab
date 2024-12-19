@@ -95,8 +95,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 679b8abd86aa9cf4399c70d132368c11, type: 3}
   - {fileID: 8300000, guid: 3734b94f3212eb746a29b29b07086ffb, type: 3}
   animator: {fileID: 1931289194047530510}
-  explosionRadius: 3
-  damage: 10
 --- !u!1 &5923859469624885417
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +255,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0be85d41938a1214d949051b210d57dd, type: 3}
   - {fileID: 8300000, guid: 679b8abd86aa9cf4399c70d132368c11, type: 3}
   - {fileID: 8300000, guid: 3734b94f3212eb746a29b29b07086ffb, type: 3}
+  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   noStabbing: 0
 --- !u!1001 &2964910235643438958
 PrefabInstance:

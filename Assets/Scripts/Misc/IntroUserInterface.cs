@@ -31,6 +31,7 @@ namespace Misc
             _portrait.enabled = false;
             _mashSpace.enabled = false;
             _scoreCounter.enabled = false;
+           
             _hands.enabled = false;
             
 
