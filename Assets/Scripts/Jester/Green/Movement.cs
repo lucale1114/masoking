@@ -7,6 +7,8 @@ namespace Jester.Green
 {
     public class Movement : MonoBehaviour
     {
+        public static event Action<GameObject> AnyJesterDestroyed;
+
         private static readonly int Idle = Animator.StringToHash("Idle");
 
         private Animator _animator;
@@ -91,6 +93,11 @@ namespace Jester.Green
         private bool IsOutOfCommands()
         {
             return _currentCommandIndex == _data.commands.Length;
+        }
+
+        private void OnDestroy()
+        {
+            AnyJesterDestroyed?.Invoke(gameObject);
         }
     }
 }

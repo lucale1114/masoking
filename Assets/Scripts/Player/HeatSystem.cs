@@ -96,11 +96,6 @@ namespace Player
                     throw new ArgumentOutOfRangeException(nameof(heatSource), heatSource, null);
             }
 
-            if (amount > 0)
-            {
-                _animator.PlayHit();
-            }
-
             float combo = 1;
             if (amount > 0)
             {
@@ -146,6 +141,15 @@ namespace Player
 
                 MaxHeat?.Invoke();
                 StartCoroutine(MaxHeatReward());
+            }
+
+            if (Mathf.Approximately(_comboMultiplier, 10))
+            {
+                _animator.PlayCombo();
+            }
+            else if (amount > 0)
+            {
+                _animator.PlayHit();
             }
         }
 
