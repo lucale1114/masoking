@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -7,7 +8,7 @@ namespace Player
     {
         private enum State
         {
-            Idle, Move, Dash, Windup
+            Idle, Move, Dash, Windup, Hit
         }
 
         private static readonly int MoveX = Animator.StringToHash("moveX");
@@ -21,6 +22,8 @@ namespace Player
         private State _currentState = State.Idle;
         private State _nextState = State.Idle;
 
+        private bool _doNotInterrupt;
+
         private void Start()
         {
             var animators = GetComponentsInChildren<Animator>();
@@ -30,7 +33,16 @@ namespace Player
 
         private void Update()
         {
-            switch (_currentState)
+            if (_doNotInterrupt)
+            {
+                if (!(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1))
+                {
+                    _doNotInterrupt = false;
+                }
+                return;
+            }
+
+            switch (_nextState)
             {
                 case State.Idle:
                     _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
@@ -54,6 +66,12 @@ namespace Player
                     _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
                     _animator.Play("KingWindupAnimation");
                     _currentState = _nextState;
+                    break;
+                case State.Hit:
+                    var randomNumber = Random.Range(1,3);
+                    _animator.Play($"KingHit_{randomNumber}");
+                    _currentState = _nextState;
+                    _doNotInterrupt = true;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -81,6 +99,11 @@ namespace Player
         {
             _lastNonZeroVelocity = velocity;
             _nextState = State.Move;
+        }
+
+        public void PlayHit()
+        {
+            _nextState = State.Hit;
         }
 
         public void PlayTurning(Vector2 moveInput)

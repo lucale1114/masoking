@@ -32,7 +32,7 @@ namespace Player
         public bool invincible;
         public bool CanMaxHeat = true;
 
-        private Animator _animator;
+        private PlayerAnimator _animator;
         private KingHitAnimator _kingHitAnimator;
 
         private float _currentHeat;
@@ -48,7 +48,7 @@ namespace Player
             _currentHeat = startHeat;
             _movement = GetComponent<Movement>();
             _score = FindObjectOfType<Score>();
-            _animator = GetComponent<Animator>();
+            _animator = GetComponent<PlayerAnimator>();
             _kingHitAnimator = GetComponent<KingHitAnimator>();
 
             StartCoroutine(HeatDecayRoutine());
@@ -94,6 +94,11 @@ namespace Player
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(heatSource), heatSource, null);
+            }
+
+            if (amount > 0)
+            {
+                _animator.PlayHit();
             }
 
             float combo = 1;
