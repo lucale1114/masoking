@@ -33,7 +33,7 @@ namespace Player
         public bool CanMaxHeat = true;
 
         private PlayerAnimator _animator;
-        private KingHitAnimator _kingHitAnimator;
+        private KingEffectsAnimator _kingEffectsAnimator;
 
         private float _currentHeat;
 
@@ -49,7 +49,7 @@ namespace Player
             _movement = GetComponent<Movement>();
             _score = FindObjectOfType<Score>();
             _animator = GetComponent<PlayerAnimator>();
-            _kingHitAnimator = GetComponent<KingHitAnimator>();
+            _kingEffectsAnimator = GetComponent<KingEffectsAnimator>();
 
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
@@ -87,10 +87,10 @@ namespace Player
                 case HeatSource.None:
                     break;
                 case HeatSource.Sharp:
-                    _kingHitAnimator.PlayDirectedSplash(impactPoint, damageDirection);
+                    _kingEffectsAnimator.PlaySharp(impactPoint, damageDirection);
                     break;
                 case HeatSource.Blunt:
-                    _kingHitAnimator.PlaySplash(impactPoint);
+                    _kingEffectsAnimator.PlayBlunt(impactPoint);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(heatSource), heatSource, null);
@@ -146,6 +146,7 @@ namespace Player
             if (Mathf.Approximately(_comboMultiplier, 10))
             {
                 _animator.PlayCombo();
+                _kingEffectsAnimator.PlayCombo(impactPoint);
             }
             else if (amount > 0)
             {

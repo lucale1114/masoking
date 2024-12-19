@@ -7,7 +7,6 @@ namespace Projectile
     public class Collision : MonoBehaviour
     {
         [SerializeField] private AudioClip[] SoundFX;
-        [SerializeField] private GameObject hitVfx;
 
         private IProjectile _projectile;
         public bool noStabbing = false;
@@ -25,9 +24,20 @@ namespace Projectile
         {
             var damage = _projectile.GetShotData().GetDamage() * _projectile.GetDamageMod();
             var closestPoint = collision.ClosestPoint(transform.position);
-            collision.gameObject.GetComponent<HeatSystem>().ChangeHeat(damage);
 
-            Instantiate(hitVfx, closestPoint, Quaternion.identity);
+            var direction = closestPoint - (Vector2) transform.position;
+
+            var heatSystem = collision.gameObject.GetComponent<HeatSystem>();
+
+            if (gameObject.GetComponentInParent<AbstractThrownProjectile>())
+            {
+                heatSystem.ChangeHeat(damage, Blunt, closestPoint);
+            }
+            else
+            {
+                heatSystem.ChangeHeat(damage,Sharp, closestPoint, direction);
+            }
+
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
             Destroy(gameObject);
