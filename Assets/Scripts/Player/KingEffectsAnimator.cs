@@ -20,7 +20,7 @@ namespace Player
             var blood = Instantiate(bloodAnimatorPrefab, closestPoint, Quaternion.identity);
             blood.transform.parent = transform;
 
-            var bloodAnimator = blood.GetComponent<Animator>();
+            var bloodAnimator = blood.GetComponentInChildren<Animator>();
             bloodAnimator.Play("Blood_1");
 
             StartCoroutine(DestroyAnimatorWhenDone(bloodAnimator));
@@ -28,7 +28,7 @@ namespace Player
             var hit = Instantiate(hitAnimatorPrefab, closestPoint, Quaternion.identity);
             hit.transform.parent = transform;
 
-            var hitAnimator = hit.GetComponent<Animator>();
+            var hitAnimator = hit.GetComponentInChildren<Animator>();
             hitAnimator.Play($"Hit_Blunt_{Random.Range(1, 2)}");
 
             StartCoroutine(DestroyAnimatorWhenDone(hitAnimator));
@@ -46,7 +46,7 @@ namespace Player
 
             blood.transform.right = direction;
 
-            var bloodAnimator = blood.GetComponent<Animator>();
+            var bloodAnimator = blood.GetComponentInChildren<Animator>();
             bloodAnimator.Play("Blood_2");
 
             StartCoroutine(DestroyAnimatorWhenDone(bloodAnimator));
@@ -56,7 +56,7 @@ namespace Player
 
             hit.transform.right = -direction;
 
-            var hitAnimator = hit.GetComponent<Animator>();
+            var hitAnimator = hit.GetComponentInChildren<Animator>();
             hitAnimator.Play($"Hit_Sharp_1");
 
             StartCoroutine(DestroyAnimatorWhenDone(hitAnimator));
@@ -72,12 +72,12 @@ namespace Player
 
         private static IEnumerator DestroyAnimatorWhenDone(Animator animator)
         {
-            while (animator!.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+            while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
             {
                 yield return new WaitForSeconds(0.1f);
             }
 
-            Destroy(animator.gameObject);
+            Destroy(animator.transform.parent.gameObject);
         }
 
         private static IEnumerator DestroyVfxWhenDone(ParticleSystem vfx)

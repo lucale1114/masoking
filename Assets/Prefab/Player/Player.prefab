@@ -467,8 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b54f35b8904b65897e217a91f5e4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodAnimatorPrefab: {fileID: 592459058255338669, guid: 88c1ebe55af30da42a7e901dc1cf063c, type: 3}
-  hitAnimatorPrefab: {fileID: 592459058255338669, guid: f0c3252ec0cd2bd4aa1faf23cf270434, type: 3}
+  bloodAnimatorPrefab: {fileID: 9199900532734303165, guid: 88c1ebe55af30da42a7e901dc1cf063c, type: 3}
+  hitAnimatorPrefab: {fileID: 7303269679788824165, guid: f0c3252ec0cd2bd4aa1faf23cf270434, type: 3}
   kingHitVFXPrefab: {fileID: 861502884106247743, guid: a139054a9ff8bd9429b7f3444a0e2b8b, type: 3}
   kingComboVFXPrefab: {fileID: 1913906330871847311, guid: 3bdab5872e9350b478cc9147656a24e1, type: 3}
 --- !u!1001 &2970509284666771556
