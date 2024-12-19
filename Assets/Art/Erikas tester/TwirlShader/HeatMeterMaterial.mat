@@ -55,14 +55,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _Float: 0.06
-    - _Intensity: 2.71
-    - _MoveSpeed: 0.39
-    - _Power: 3.81
+    - _Intensity: 0.98
+    - _MoveSpeed: -0.1
+    - _Power: 6.31
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Size: 3.7
-    - _Speed: 0.6
+    - _Size: 9.4
+    - _Speed: 0.39
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 0}
-    - _VoroniColor: {r: 1, g: 0.435849, b: 0.72570664, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _VoroniColor: {r: 1, g: 0.20316096, b: 0.19607842, a: 0}
   m_BuildTextureStacks: []

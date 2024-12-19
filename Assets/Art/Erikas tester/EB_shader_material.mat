@@ -45,9 +45,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveThreshold: 1.65
-    - _LineThickness: 0.08
-    - _Size: 4.9
+    - _DissolveThreshold: 2.22
+    - _LineThickness: 0.85
+    - _Size: 0
     m_Colors:
     - _LineColor: {r: 1, g: 0, b: 0.119402885, a: 0}
     - _ScrollSpeed: {r: 2.3, g: 8.99, b: 0, a: 0}
