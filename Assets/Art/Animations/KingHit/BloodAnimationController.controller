@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KingHit_1
+  m_Name: Blood_1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KingHitAnimationController
+  m_Name: BloodAnimationController
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -80,7 +80,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KingHit_2
+  m_Name: Blood_2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

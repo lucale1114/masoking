@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 754205413932805316}
   - component: {fileID: 5799891383770095311}
   m_Layer: 0
-  m_Name: KingHit
+  m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
