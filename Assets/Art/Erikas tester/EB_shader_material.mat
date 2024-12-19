@@ -45,12 +45,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveThreshold: 0.71
-    - _LineThickness: 0.14
-    - _Size: 9.7
+    - _DissolveThreshold: 1.65
+    - _LineThickness: 0.08
+    - _Size: 4.9
     m_Colors:
-    - _LineColor: {r: 0.3509434, g: 0.0867426, b: 0.117698595, a: 0}
-    - _ScrollSpeed: {r: 2.75, g: 8.99, b: 0, a: 0}
+    - _LineColor: {r: 1, g: 0, b: 0.119402885, a: 0}
+    - _ScrollSpeed: {r: 2.3, g: 8.99, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5547487560586631787
 MonoBehaviour:
