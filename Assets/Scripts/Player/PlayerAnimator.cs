@@ -10,7 +10,7 @@ namespace Player
 
         private enum State
         {
-            Idle, Move, Dash, Windup, Hit
+            Idle, Move, Dash, Windup, Hit, Combo
         }
 
         private static readonly int MoveX = Animator.StringToHash("moveX");
@@ -62,8 +62,11 @@ namespace Player
                     _animator.Play("KingWindupAnimation");
                     break;
                 case State.Hit:
-                    var randomNumber = Random.Range(1,3);
-                    _animator.Play($"KingHit_{randomNumber}");
+                    _animator.Play($"KingHit_{Random.Range(1,3)}");
+                    _doNotInterrupt = true;
+                    break;
+                case State.Combo:
+                    _animator.Play($"KingCombo_{Random.Range(1,2)}");
                     _doNotInterrupt = true;
                     break;
                 default:
@@ -97,6 +100,11 @@ namespace Player
         public void PlayHit()
         {
             _nextState = State.Hit;
+        }
+
+        public void PlayCombo()
+        {
+            _nextState = State.Combo;
         }
 
         public void PlayTurning(Vector2 moveInput)

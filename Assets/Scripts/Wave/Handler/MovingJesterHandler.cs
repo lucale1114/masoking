@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Jester.Blue;
 using Jester.Green;
 using Jester.Purple;
+using Jester.Red;
 using UnityEngine;
 using Movement = Jester.Green.Movement;
 
@@ -14,6 +16,20 @@ namespace Wave.Handler
         private List<GreenJesterData> _currentWaveGreenJesters;
         private List<PurpleJesterData> _currentWavePurpleJesters;
         private readonly List<GameObject> _currentJesters = new();
+
+        private void Start()
+        {
+            Movement.AnyJesterDestroyed += OnAnyJesterDestroyed;
+            Jester.Purple.Movement.AnyJesterDestroyed += OnAnyJesterDestroyed;
+        }
+
+        private void OnAnyJesterDestroyed(GameObject jester)
+        {
+            if (_currentJesters.IndexOf(jester) != -1)
+            {
+                _currentJesters.Remove(jester);
+            }
+        }
 
         public void SetCurrentWaveJesters(List<GreenJesterData> greenJesters, List<PurpleJesterData> purpleJesters)
         {
