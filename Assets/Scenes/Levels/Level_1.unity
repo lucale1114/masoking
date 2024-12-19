@@ -277,7 +277,7 @@ PrefabInstance:
     - target: {fileID: 8165928883618429228, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: waveList
       value: 
-      objectReference: {fileID: 11400000, guid: bba2030ebd84f3141aff1d2d39f81620, type: 2}
+      objectReference: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
     - target: {fileID: 8165928883618429228, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: debugForceWave
       value: 0
