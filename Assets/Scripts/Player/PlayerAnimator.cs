@@ -19,7 +19,6 @@ namespace Player
 
         private Vector2 _lastNonZeroVelocity = Vector2.up;
 
-        private State _currentState = State.Idle;
         private State _nextState = State.Idle;
 
         private bool _doNotInterrupt;
@@ -48,29 +47,24 @@ namespace Player
                     _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
                     _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
                     _animator.Play("KingIdleAnimation");
-                    _currentState = _nextState;
                     break;
                 case State.Move:
                     _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
                     _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
                     _animator.Play("KingMoveAnimation");
-                    _currentState = _nextState;
                     break;
                 case State.Dash:
                     _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
                     _animator.SetFloat(MoveY, _lastNonZeroVelocity.y);
                     _animator.Play("KingDashAnimation");
-                    _currentState = _nextState;
                     break;
                 case State.Windup:
                     _animator.SetFloat(MoveX, _lastNonZeroVelocity.x);
                     _animator.Play("KingWindupAnimation");
-                    _currentState = _nextState;
                     break;
                 case State.Hit:
                     var randomNumber = Random.Range(1,3);
                     _animator.Play($"KingHit_{randomNumber}");
-                    _currentState = _nextState;
                     _doNotInterrupt = true;
                     break;
                 default:
