@@ -51,3 +51,6 @@ TagManager:
   - name: Dash
     uniqueID: 1861707129
     locked: 0
+  - name: InFront
+    uniqueID: 3256315705
+    locked: 0

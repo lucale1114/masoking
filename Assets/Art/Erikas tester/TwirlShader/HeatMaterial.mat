@@ -54,15 +54,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Intensity: 2.25
-    - _MoveSpeed: 0.1
-    - _Power: 6.9
+    - _Intensity: 2.88
+    - _MoveSpeed: 1.24
+    - _Power: 7.43
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Size: 9.4
-    - _Speed: 7.4
+    - _Size: 13.2
+    - _Speed: 7.22
     - _Speed_1: 0.7
     m_Colors:
-    - _Color: {r: 0.81886786, g: 0.07261654, b: 0.07261654, a: 0}
-    - _VoroniColor: {r: 0, g: 0.29825068, b: 1, a: 0}
+    - _Color: {r: 0.8867924, g: 0, b: 0, a: 0}
+    - _VoroniColor: {r: 1, g: 0, b: 0.068594456, a: 0}
   m_BuildTextureStacks: []
