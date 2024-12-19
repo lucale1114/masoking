@@ -6,6 +6,8 @@ namespace Player
 {
     public class PlayerAnimator : MonoBehaviour
     {
+        [SerializeField] private GameObject kingDustPrefab;
+
         private enum State
         {
             Idle, Move, Dash, Windup, Hit
@@ -15,7 +17,6 @@ namespace Player
         private static readonly int MoveY = Animator.StringToHash("moveY");
 
         private Animator _animator;
-        private Animator _dustAnimator;
 
         private Vector2 _lastNonZeroVelocity = Vector2.up;
 
@@ -25,9 +26,7 @@ namespace Player
 
         private void Start()
         {
-            var animators = GetComponentsInChildren<Animator>();
-            _animator = animators[0];
-            _dustAnimator = animators[1];
+            _animator = GetComponent<Animator>();
         }
 
         private void Update()
@@ -104,17 +103,20 @@ namespace Player
         {
             if (_lastNonZeroVelocity.x * moveInput.x < 0)
             {
-                var transformLocalPosition = _dustAnimator.transform.localPosition;
-                var absolutePositionX = Mathf.Abs(transformLocalPosition.x);
-                transformLocalPosition.x = moveInput.x > 0 ? -absolutePositionX : absolutePositionX;
-                _dustAnimator.transform.localPosition = transformLocalPosition;
+                var instance = Instantiate(kingDustPrefab, transform.position, Quaternion.identity);
 
-                var transformLocalScale = _dustAnimator.transform.localScale;
+                var instancePosition = instance.transform.position;
+                instancePosition.x = transform.position.x - (moveInput.x > 0 ? 1f : -1f);
+                instancePosition.y = transform.position.y - 0.5f;
+
+                instance.transform.position = instancePosition;
+
+                var transformLocalScale = instance.transform.localScale;
                 var absoluteScaleX = Mathf.Abs(transformLocalScale.x);
                 transformLocalScale.x = moveInput.x > 0 ? absoluteScaleX : -absoluteScaleX;
-                _dustAnimator.transform.localScale = transformLocalScale;
+                instance.transform.localScale = transformLocalScale;
 
-                _dustAnimator.Play("KingTurnDust");
+                instance.GetComponent<Animator>().Play("KingTurnDust");
             }
         }
     }
