@@ -26,15 +26,15 @@ namespace Jester
 
         private IEnumerator AnimationExplosion(float explosionRadius, float damage)
         {
-            yield return new WaitForSeconds(2.8f);
+            yield return new WaitForSeconds(0.5f);
 
             animator.SetTrigger(Boom);
 
             _spriteRenderer.sortingLayerName = "InFront";
 
-            yield return new WaitForSeconds(0.2f);
-
             SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
+
+            yield return new WaitForSeconds(0.2f);
 
             Exploded?.Invoke();
 
