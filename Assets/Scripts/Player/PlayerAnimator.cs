@@ -10,7 +10,7 @@ namespace Player
 
         private enum State
         {
-            Idle, Move, Dash, Windup, Hit, Combo
+            Idle, Move, Dash, Windup, Hit, Combo, Turn
         }
 
         private static readonly int MoveX = Animator.StringToHash("moveX");
@@ -69,6 +69,11 @@ namespace Player
                     _animator.Play($"KingCombo_{Random.Range(1,2)}");
                     _doNotInterrupt = true;
                     break;
+                case State.Turn:
+                    _animator.SetFloat(MoveX, -_lastNonZeroVelocity.x);
+                    _animator.Play("KingWindupAnimation");
+                    _doNotInterrupt = true;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -111,6 +116,8 @@ namespace Player
         {
             if (_lastNonZeroVelocity.x * moveInput.x < 0)
             {
+                _nextState = State.Turn;
+
                 var instance = Instantiate(kingDustPrefab, transform.position, Quaternion.identity);
 
                 var instancePosition = instance.transform.position;

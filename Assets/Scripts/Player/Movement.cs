@@ -118,7 +118,7 @@ namespace Player
 
             if (!IsCurrentlyDashing)
             {
-                
+
                 if (Mathf.Approximately(currentVelocity.magnitude, 0))
                 {
                     playerAnimator.PlayIdle();
@@ -127,7 +127,6 @@ namespace Player
                 else if (currentVelocity.x * moveInput.x < 0)
                 {
                     playerAnimator.PlayTurning(moveInput);
-                    playerAnimator.PlayWindup(moveInput);
                     SoundFXManager.Instance.StartWalking();
                 }
                 else {
