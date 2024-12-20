@@ -14,7 +14,7 @@ namespace Managers
             SceneManager.LoadScene(0);
         }
 
-        public static void LoadIntro()
+        public static void LoadOpening()
         {
             SceneManager.LoadScene(1);
         }

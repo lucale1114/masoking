@@ -1,16 +1,13 @@
 using System.Collections;
 using DG.Tweening;
-using Managers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
-using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 namespace Misc
 {
-    public class IntroController : MonoBehaviour
+    public class OpeningController : MonoBehaviour
     {
         private TextMeshProUGUI introText;
         AudioSource tSound;
@@ -54,7 +51,7 @@ namespace Misc
             StartCoroutine(FadeInImage(GameObject.Find("6").GetComponent<Image>()));
             GameObject.Find("6").transform.DOPunchScale(GameObject.Find("6").transform.localScale, 0.5f, 20, 4);
             tSound.volume = 0;
-            GameObject.Find("6").GetComponent<AudioSource>().Play();    
+            GameObject.Find("6").GetComponent<AudioSource>().Play();
             StartCoroutine(WriteOutText(texts[5]));
             yield return new WaitForSecondsRealtime(4);
             for (int i = 0; i < 10; i++)
@@ -109,7 +106,7 @@ namespace Misc
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                
+
             }
         }
     }

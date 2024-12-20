@@ -237,7 +237,6 @@ namespace Misc
             else if (GameManager.CurrentLevel == 5)
             {
                 GameManager.CurrentLevel = 6;
-                print(GameManager.CurrentLevel);
             }
             else if (GameManager.CurrentLevel == 6) {
                 GameManager.CurrentLevel = 7;

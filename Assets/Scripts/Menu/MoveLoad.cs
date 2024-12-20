@@ -26,7 +26,7 @@ public class MoveLoad : MonoBehaviour
     IEnumerator LoadNextScene()
     {
         yield return new WaitForSeconds(6f);
-        print(GameManager.CurrentLevel);
+        GameManager.CurrentLevel = 3;
         GameManager.LoadLevel();
     }
 }

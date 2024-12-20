@@ -1,4 +1,5 @@
 using System.Collections;
+using Managers;
 using Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,7 +42,7 @@ namespace Player
         {
 
             yield return new WaitForSeconds(2f); // Wait for 2 seconds
-            SceneManager.LoadScene("Level_1");
+            GameManager.LoadOpening();
 
         }
     }

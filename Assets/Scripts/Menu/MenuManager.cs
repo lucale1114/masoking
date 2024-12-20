@@ -73,7 +73,7 @@ namespace Menu
 
         private void RealStart()
         {
-            GameManager.LoadIntro();
+            GameManager.LoadOpening();
         }
 
         private void Update()
