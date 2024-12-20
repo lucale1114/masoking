@@ -64,15 +64,18 @@ namespace Player
                 case State.Hit:
                     _animator.Play($"KingHit_{Random.Range(1,3)}");
                     _doNotInterrupt = true;
+                    _nextState = State.Idle;
                     break;
                 case State.Combo:
                     _animator.Play($"KingCombo_{Random.Range(1,2)}");
                     _doNotInterrupt = true;
+                    _nextState = State.Idle;
                     break;
                 case State.Turn:
                     _animator.SetFloat(MoveX, -_lastNonZeroVelocity.x);
                     _animator.Play("KingWindupAnimation");
                     _doNotInterrupt = true;
+                    _nextState = State.Idle;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -81,25 +84,42 @@ namespace Player
 
         public void PlayWindup(Vector2 velocity)
         {
+            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
+            {
+
+            }
             _lastNonZeroVelocity = velocity;
             _nextState = State.Windup;
         }
 
         public void PlayDash(Vector2 velocity)
         {
+            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
+            {
+
+            }
+
             _lastNonZeroVelocity = velocity;
             _nextState = State.Dash;
         }
 
         public void PlayIdle()
         {
+            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
+            {
+
+            }
+
             _nextState = State.Idle;
         }
 
         public void PlayMoving(Vector2 velocity)
         {
-            _lastNonZeroVelocity = velocity;
-            _nextState = State.Move;
+            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
+            {
+                _lastNonZeroVelocity = velocity;
+                _nextState = State.Move;
+            }
         }
 
         public void PlayHit()
@@ -116,7 +136,10 @@ namespace Player
         {
             if (_lastNonZeroVelocity.x * moveInput.x < 0)
             {
-                _nextState = State.Turn;
+                if (_nextState != State.Hit && _nextState != State.Combo)
+                {
+                    _nextState = State.Turn;
+                }
 
                 var instance = Instantiate(kingDustPrefab, transform.position, Quaternion.identity);
 
