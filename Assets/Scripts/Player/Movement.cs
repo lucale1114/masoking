@@ -24,6 +24,7 @@ namespace Player
         [SerializeField] private int maxNumberOfWallBounces = 2;
         [SerializeField] private float currentCharge;
         [SerializeField] private float maxCharge = 4;
+        [SerializeField] private float velocityForTurnToActivate = 4;
         [SerializeField] private AudioClip walk;
         [SerializeField] private AudioClip[] dash;
 
@@ -126,7 +127,10 @@ namespace Player
                 }
                 else if (currentVelocity.x * moveInput.x < 0)
                 {
-                    playerAnimator.PlayTurning(moveInput);
+                    if (Math.Abs(currentVelocity.x) > velocityForTurnToActivate)
+                    {
+                        playerAnimator.PlayTurning(moveInput);
+                    }
                     SoundFXManager.Instance.StartWalking();
                 }
                 else {
