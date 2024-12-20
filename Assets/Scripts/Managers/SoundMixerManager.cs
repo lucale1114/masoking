@@ -1,12 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 
 namespace Managers
 {
     public class SoundMixerManager : MonoBehaviour
     {
-        [SerializeField]
-        private AudioMixer audioMixer;
+        [SerializeField] private AudioMixer audioMixer;
+        [SerializeField] private GameObject defaultSelectedGameObject;
+
+        private void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(defaultSelectedGameObject);
+        }
 
         public void SetMasterVolume(float level)
         {

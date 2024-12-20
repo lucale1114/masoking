@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Managers;
 using TMPro;
@@ -51,6 +52,11 @@ namespace Menu
             creditsMenu.SetActive(false);
             backButtonC.GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
             backButtonC.GetComponent<Button>().enabled = false;
+        }
+
+        private void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);
         }
 
         private void OpenSounds()
