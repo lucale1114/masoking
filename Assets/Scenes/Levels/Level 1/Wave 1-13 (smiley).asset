@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: Wave 1-13 (smiley)
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   StartDelay: 0
   SpawnBall: 0
   Description: This pattern which forms a smile spawns 2 jesters from the side. One
@@ -22,7 +22,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 2
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.3
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.3999999
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.5
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.6
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -217,7 +217,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.7
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -256,7 +256,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.8
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -295,7 +295,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 3.8999999
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -334,7 +334,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 4
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -373,7 +373,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 4.1
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -412,7 +412,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 4.2000003
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -451,7 +451,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 4.3
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -490,7 +490,7 @@ MonoBehaviour:
         numberOfBounces: 0
         breakable: 0
     - timestamp: 4.4
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
@@ -533,7 +533,7 @@ MonoBehaviour:
     randomY: 0
     commands:
     - timestamp: 2
-      action: 1
+      action: 0
       shotData:
         speed: 15
         scale: 1
