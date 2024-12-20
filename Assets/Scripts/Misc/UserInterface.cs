@@ -234,12 +234,15 @@ namespace Misc
         {
             if (GameManager.CurrentLevel == 3)
             {
-                GameManager.CurrentLevel = 5;
+                GameManager.CurrentLevel = 7;
             }
             else if (GameManager.CurrentLevel == 5)
             {
                 GameManager.CurrentLevel = 6;
                 print(GameManager.CurrentLevel);
+            }
+            else if (GameManager.CurrentLevel == 6) {
+                GameManager.CurrentLevel = 7;
             }
             SceneManager.LoadScene(4);
         }
