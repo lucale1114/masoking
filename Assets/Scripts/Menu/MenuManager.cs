@@ -62,8 +62,8 @@ namespace Menu
         private void OpenSounds()
         {
             soundMenu.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(soundMenu);
         }
+
         private void StartGame()
         {
             fadeOut.SetActive(true);
