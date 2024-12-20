@@ -231,7 +231,7 @@ MonoBehaviour:
         breakable: 0
         radius: 0
     - timestamp: 4
-      action: 1
+      action: 0
       shotData:
         throwAndRollType: 0
         speed: 17
