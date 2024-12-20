@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Managers;
 using TMPro;
@@ -53,11 +54,16 @@ namespace Menu
             backButtonC.GetComponent<Button>().enabled = false;
         }
 
+        private void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);
+        }
+
         private void OpenSounds()
         {
             soundMenu.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(soundMenu);
         }
+
         private void StartGame()
         {
             fadeOut.SetActive(true);
