@@ -4,6 +4,7 @@ using Managers;
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Wave.Handler;
@@ -32,7 +33,6 @@ namespace Misc
 
         private GameObject winMode;
         private GameObject loseMode;
-        private Transform pointerHand;
         private Image madKing;
 
         public Image _heatBar;
@@ -49,11 +49,11 @@ namespace Misc
         private Vector3 handsPosDown;
         private Vector3 handsPosUp;
         private bool inTrouble;
+        private Button _restartBtn;
 
         protected void Awake()
         {
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
-            pointerHand = GameObject.Find("HandCursor").transform;
             madKing = GameObject.Find("MadKing").GetComponent<Image>();
             _comboCounter = GameObject.Find("ComboText").GetComponent<TextMeshProUGUI>();
             _comboCounter.enabled = false;
@@ -76,11 +76,13 @@ namespace Misc
             loseMode.gameObject.SetActive(false);
 
             _pauseMenu = GameObject.Find("PauseMenu");
-            _pauseMenu.transform.Find("Elements/Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+
+            _restartBtn = _pauseMenu.transform.Find("Elements/Panel/RestartBtn").GetComponent<Button>();
+            _restartBtn.onClick.AddListener(Restart);
+
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
             _pauseMenu.transform.Find("Elements/Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
-            pointerHand.transform.position = new Vector3(pointerHand.transform.position.x, _pauseMenu.transform.Find("Elements/Panel/RestartBtn").transform.position.y, 0);
 
             _pauseMenu.SetActive(false);
 
@@ -121,26 +123,22 @@ namespace Misc
 
         public void ButtonSelected1()
         {
-            pointerHand.transform.position = new Vector3(pointerHand.transform.position.x, _pauseMenu.transform.Find("Elements/Panel/RestartBtn").transform.position.y, 0);
             madKing.sprite = kingPortraits[1];
             madKing.transform.DOKill();
 
         }
         public void ButtonSelected2()
         {
-            pointerHand.transform.position = new Vector3(pointerHand.transform.position.x, _pauseMenu.transform.Find("Elements/Panel/MenuBtn").transform.position.y, 0);
             madKing.sprite = kingPortraits[1];
             madKing.transform.DOKill();
         }
         public void ButtonSelected3()
         {
-            pointerHand.transform.position = new Vector3(pointerHand.transform.position.x, _pauseMenu.transform.Find("Elements/Panel/SoundBtn").transform.position.y, 0);
             madKing.sprite = kingPortraits[1];
             madKing.transform.DOKill();
         }
         public void ButtonSelected4()
         {
-            pointerHand.transform.position = new Vector3(pointerHand.transform.position.x, _pauseMenu.transform.Find("Elements/Panel/QuitBtn").transform.position.y, 0);
             madKing.sprite = kingPortraits[0];
             madKing.transform.DOShakePosition(50, 5, 20, 90).SetUpdate(true);
         }
@@ -399,6 +397,11 @@ namespace Misc
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
                     _soundMenu.SetActive(false);
+
+                    if (_pauseMenu.activeSelf)
+                    {
+                        EventSystem.current.SetSelectedGameObject(_restartBtn.gameObject);
+                    }
                     PauseAllSources();
                 }
             }
