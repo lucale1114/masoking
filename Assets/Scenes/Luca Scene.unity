@@ -2018,7 +2018,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 247aa387e27fae84d9d58187e9458eb9, type: 2}
     - target: {fileID: 8165928883618429228, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: debugForceWave
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8516990585532103575, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: m_Name
