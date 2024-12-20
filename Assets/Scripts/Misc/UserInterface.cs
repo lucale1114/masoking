@@ -4,6 +4,7 @@ using Managers;
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Wave.Handler;
 
@@ -231,8 +232,16 @@ namespace Misc
 
         private void EndScreen()
         {
-            Time.timeScale = 0;
-            _wonMenu.SetActive(true);
+            if (GameManager.CurrentLevel == 3)
+            {
+                GameManager.CurrentLevel = 5;
+            }
+            else if (GameManager.CurrentLevel == 5)
+            {
+                GameManager.CurrentLevel = 6;
+                print(GameManager.CurrentLevel);
+            }
+            SceneManager.LoadScene(4);
         }
 
         private void ChangeKingPortrait(int index, bool punch, bool shake)

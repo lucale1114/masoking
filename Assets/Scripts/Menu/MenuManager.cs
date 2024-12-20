@@ -22,10 +22,13 @@ namespace Menu
         Button frontButtonC;
         Button creditsBtn;
         TextMeshProUGUI creditsText;
+        private Button _playBtn;
 
         private void Awake()
         {
-            GameObject.Find("PlayBtn").GetComponent<Button>().onClick.AddListener(StartGame);
+            _playBtn = GameObject.Find("PlayBtn").GetComponent<Button>();
+            _playBtn.onClick.AddListener(StartGame);
+
             GameObject.Find("TutorialBtn").GetComponent<Button>().onClick.AddListener(GameManager.LoadTutorial);
             GameObject.Find("OptionsBtn").GetComponent<Button>().onClick.AddListener(OpenSounds);
             exitButton = GameObject.Find("Exit").GetComponent<Button>();
@@ -53,6 +56,7 @@ namespace Menu
         private void OpenSounds()
         {
             soundMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(soundMenu);
         }
         private void StartGame()
         {
@@ -68,9 +72,10 @@ namespace Menu
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Escape)) { 
+            if (Input.GetKeyUp(KeyCode.Escape)) {
                 creditsMenu.SetActive(false);
                 soundMenu.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);
             }
         }
         public void OpenCredits() {
@@ -109,7 +114,7 @@ namespace Menu
             creditsText.text = "Credits " + (page + 1).ToString() + "/3";
             UpdateButtons();
         }
-    
+
         public void ButtonSelected(Image button)
         {
             Color32 color = button.color;
