@@ -83,9 +83,22 @@ namespace Menu
                 soundMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);
             }
+
+            if (creditsMenu.activeSelf)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    BackButton();
+                }
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    NextButton();
+                }
+            }
         }
         public void OpenCredits() {
             creditsMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(creditsMenu);
         }
 
         public void UpdateButtons()
@@ -111,14 +124,18 @@ namespace Menu
                 backButtonC.GetComponent<Button>().enabled = true;
             }
         }
+
         public void NextButton()
         {
-            currentCredits.SetActive(false);
-            page++;
-            currentCredits = credits[page];
-            currentCredits.SetActive(true);
-            creditsText.text = "Credits " + (page + 1).ToString() + "/3";
-            UpdateButtons();
+            if (page < 2)
+            {
+                currentCredits.SetActive(false);
+                page++;
+                currentCredits = credits[page];
+                currentCredits.SetActive(true);
+                creditsText.text = "Credits " + (page + 1).ToString() + "/3";
+                UpdateButtons();
+            }
         }
 
         public void ButtonSelected(Image button)
@@ -135,12 +152,15 @@ namespace Menu
         }
         public void BackButton()
         {
-            currentCredits.SetActive(false);
-            page--;
-            currentCredits = credits[page];
-            currentCredits.SetActive(true);
-            creditsText.text = "Credits " + (page + 1).ToString() + "/3";
-            UpdateButtons();
+            if (page > 0)
+            {
+                currentCredits.SetActive(false);
+                page--;
+                currentCredits = credits[page];
+                currentCredits.SetActive(true);
+                creditsText.text = "Credits " + (page + 1).ToString() + "/3";
+                UpdateButtons();
+            }
         }
 
         public void Entered()
