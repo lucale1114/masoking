@@ -49,8 +49,8 @@ namespace Misc
 
         private void ShakeCamera(float duration, float strength)
         {
-            _shakeTimer = duration;
-            _shakeStrength = strength;
+            _shakeTimer = duration * 2;
+            _shakeStrength = strength * 2;
             _shake = true;
         }
 

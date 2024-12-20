@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,7 +25,8 @@ public class MoveLoad : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("Level_1");
+        yield return new WaitForSeconds(6f);
+        print(GameManager.CurrentLevel);
+        GameManager.LoadLevel();
     }
 }

@@ -92,10 +92,19 @@ namespace Misc
                 introText.text += c;
             }
         }
+
+        private void DelayStart()
+        {
+            SceneManager.LoadScene(4);
+        }
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                GameObject.Find("Frames").GetComponent<Animator>().enabled = true;
+                tSound.GetComponent<AudioSource>().DOFade(0, 1);
+                GameObject.Find("6").GetComponent<AudioSource>().DOFade(0, 1);
+                Invoke("DelayStart", 3);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
