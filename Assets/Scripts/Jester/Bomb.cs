@@ -25,10 +25,10 @@ namespace Jester
         {
             _player = GameObject.Find("Player");
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            StartCoroutine(ReenableMovementAfterDelay());
+           // StartCoroutine(ReenableMovementAfterDelay());
 
         }
-
+            
         private IEnumerator AnimationExplosion(float explosionRadius, float damage)
         {
             yield return new WaitForSeconds(0.5f);
@@ -51,7 +51,7 @@ namespace Jester
                 {
                     _player.GetComponent<HeatSystem>().ChangeHeat(damage);
 
-                    movementDisableCounter++;
+                   /* movementDisableCounter++;
                     _player.GetComponent<Player.Movement>().enabled = false;
                     // Apply explosion force
                     Rigidbody2D playerRb = _player.GetComponent<Rigidbody2D>();
@@ -63,7 +63,7 @@ namespace Jester
                         playerRb.AddForce(forceDirection * explosionForce, ForceMode2D.Impulse);
 
 
-                    }
+                    }*/
 
 
                 }
