@@ -1,8 +1,11 @@
+using DG.Tweening;
 using Player;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Misc
 {
@@ -16,6 +19,7 @@ namespace Misc
         private readonly float speed = 3;
         private Rigidbody2D rbMove;
         private Rigidbody2D rbDash;
+        private GameObject _player;
 
         protected new void Awake()
         {
@@ -33,37 +37,60 @@ namespace Misc
             
 
             _hands.enabled = false;
-            
+
+            _player = GameObject.Find("Player");
+
+            _player.GetComponent<Player.Movement>().enabled = false;
 
             rbMove = boardMove.GetComponent<Rigidbody2D>();
             rbDash = boardDash.GetComponent<Rigidbody2D>();
 
+            StartCoroutine(SwitchBoard());
+            StartCoroutine(WaitSec());
+
         }
+
+
+
 
         protected new void Update()
         {
             base.Update();
-            StartCoroutine(SwitchBoard());
-           
         }
 
+      
         private IEnumerator SwitchBoard()
         {
-            yield return new WaitForSeconds(10f);
-            MoveBoardMove();
+            yield return new WaitForSeconds(7f);
+            MoveBoardMoveRigth();
+            yield return new WaitForSeconds(7f);
+            MoveBoardMoveLeft();
             yield return new WaitForSeconds(2f);
             MoveBoardDash();
             
         }
 
-        private void MoveBoardMove()
+        private IEnumerator WaitSec()
         {
-            rbMove.transform.position = Vector3.MoveTowards(rbMove.transform.position, target1.position, speed * Time.deltaTime);
+            yield return new WaitForSeconds(7f);
+            _player.GetComponent<Player.Movement>().enabled = true;
+
         }
+
+        private void MoveBoardMoveRigth()
+        {
+            rbMove.transform.DOMove(target2.position, 2f); 
+        }
+
+        private void MoveBoardMoveLeft()
+        {
+            rbMove.transform.DOMove(target1.position, 2f);
+        }
+
 
         private void MoveBoardDash()
         {
-            rbDash.transform.position = Vector3.MoveTowards(rbDash.transform.position, target2.position, speed * Time.deltaTime);
+            rbDash.transform.DOMove(target2.position, 2f);
         }
 
     }
