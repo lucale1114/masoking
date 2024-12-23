@@ -371,4 +371,5 @@ MonoBehaviour:
   smash:
   - {fileID: 8300000, guid: 80d10d58e82b09c4db6db861cb742faf, type: 3}
   - {fileID: 8300000, guid: 2b341453dd0b16848917c76f4ed96a0a, type: 3}
+  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
   animator: {fileID: 3450529342513409181}

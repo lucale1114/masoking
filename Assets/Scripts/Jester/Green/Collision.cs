@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Player;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Jester.Green
 {
@@ -10,10 +11,12 @@ namespace Jester.Green
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private AudioClip[] fall;
         [SerializeField] private AudioClip[] smash;
+        [SerializeField] private GameObject _wallDashAnimationPrefab;
 
         private Collider2D triggerCollider;
         private Player.Movement movement;
         public Animator animator;
+        private GameObject _player;
 
         public bool Dashed => dashed;
 
@@ -30,20 +33,41 @@ namespace Jester.Green
         {
             lineRenderer.enabled = false;
             triggerCollider = GetComponent<Collider2D>();
+            _player = GameObject.Find("Player");
+
         }
 
         private void Start()
         {
             movement = FindObjectOfType<Player.Movement>();
             animator = GetComponent<Animator>();
-
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player") && movement.IsCurrentlyDashing)
             {
+                
                 StartCoroutine(FallOver(this.gameObject, collision.transform.position));
+                // Get the Movement component
+                movement = collision.GetComponent<Player.Movement>();
+
+                // Get the player's Rigidbody2D
+                Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
+                if (playerRb != null)
+                {
+                    // Calculate the bounce direction (normal)
+                    Vector2 bounceDirection = (collision.transform.position - transform.position).normalized;
+
+                    // Apply the bounce velocity
+                    float bounceForce = 10f; // Adjust this value for desired bounce strength
+                    playerRb.velocity = bounceDirection * bounceForce;
+                }
+
+                // Instantiate wall dash animation at the collision point
+                Instantiate(_wallDashAnimationPrefab,
+                    transform.GetComponent<Collider2D>().ClosestPoint(collision.transform.position),
+                    Quaternion.identity);
                 animator.SetTrigger("Hit");
                 SoundFXManager.Instance.PlayRandomSoundFX(fall, 1f);
             }
@@ -74,8 +98,10 @@ namespace Jester.Green
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (rb != null)
             {
+
                 if (hasDashed != false && dashed != true)
                 {
+                    _player.GetComponent<Player.Movement>().enabled = false;
                     animator.SetBool("Wobble", true);
                     dashed = true;
                     // Temporarily disable Rigidbody2D to manually animate the fall
@@ -84,12 +110,12 @@ namespace Jester.Green
                     // Calculate the fall direction based on player position
                     Vector2 impactDirection = (gameObject.transform.position - (Vector3)playerPosition).normalized;
                     float fallAngle = impactDirection.x > 0 ? -90f : 90f; // Right or left fall
-                    float rotationTime = 0.8f; // Time it takes to fall
+                    float rotationTime = 0.5f; // Time it takes to fall
                     Quaternion startRotation = gameObject.transform.rotation;
                     Quaternion endRotation = Quaternion.Euler(0, 0, fallAngle);
 
                     float wiggleAngle = 7;
-                    float wiggleCount = 6f;
+                    float wiggleCount = 1.5f;
                     float wiggleDuration = 0.25f;
 
                     lineRenderer.enabled = true;
@@ -116,6 +142,8 @@ namespace Jester.Green
                         Vector3.right * (impactDirection.x > 0 ? 2.4f : -2.4f)); // Adjust for dash side
                     lineRenderer.SetPosition(1, transform.position);
 
+                    yield return new WaitForSeconds(0.2f);
+                    _player.GetComponent<Player.Movement>().enabled = true;
 
                     for (int i = 0; i < wiggleCount; i++)
                     {
