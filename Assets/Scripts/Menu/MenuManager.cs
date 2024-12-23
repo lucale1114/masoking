@@ -31,6 +31,7 @@ namespace Menu
         private InputAction _moveAction;
 
         private float _menuCooldown;
+        private Transform _stayButton;
 
         private void Awake()
         {
@@ -44,7 +45,7 @@ namespace Menu
             fadeOut = GameObject.Find("FadeOut");
             fadeOut.SetActive(false);
             backButtonC = GameObject.Find("Back").GetComponent<Button>();
-            exitScreen = GameObject.Find("ExitScreen"); 
+            exitScreen = GameObject.Find("ExitScreen");
             frontButtonC = GameObject.Find("Forward").GetComponent<Button>();
             creditsBtn = GameObject.Find("CreditsBtn").GetComponent<Button>();
             creditsText = GameObject.Find("CreditsText").GetComponent<TextMeshProUGUI>();
@@ -61,17 +62,21 @@ namespace Menu
             backButtonC.GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
             backButtonC.GetComponent<Button>().enabled = false;
             exitScreen.transform.Find("ExitButton").GetComponent<Button>().onClick.AddListener(GameManager.Quit);
-            exitScreen.transform.Find("StayButton").GetComponent<Button>().onClick.AddListener(Stay);
+            _stayButton = exitScreen.transform.Find("StayButton");
+            _stayButton.GetComponent<Button>().onClick.AddListener(Stay);
             exitScreen.SetActive(false);
         }
 
         private void Stay()
         {
             exitScreen.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(exitButton.gameObject);
         }
+
         private void ExitB()
         {
             exitScreen.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(_stayButton.gameObject);
         }
 
         private void Start()
