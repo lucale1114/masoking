@@ -148,9 +148,9 @@ namespace Jester.Blue
             }
 
             var spriteRenderer =
-                Instantiate(_snipeLine, transform.position, Quaternion.identity);
+                Instantiate(_snipeLine, transform.GetChild(1).position, Quaternion.identity);
             var lineRenderer = spriteRenderer.GetComponent<LineRenderer>();
-            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(0, transform.GetChild(1).position);
             lineRenderer.SetPosition(1, new Vector3(x, y));
             Destroy(spriteRenderer, data.fireBetween + 1f);
 

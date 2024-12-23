@@ -19,7 +19,7 @@ namespace Jester.Blue
 
         private Vector3 GetSpawnPoint()
         {
-            return transform.GetChild(0).transform.position;
+            return transform.GetChild(1).transform.position;
         }
 
         // Fires a basic projectile towards the player based on inaccuracy and speed. Set to 0 when using for a perfectly aimed shot.
