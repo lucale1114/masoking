@@ -149,7 +149,7 @@ MonoBehaviour:
     y: 3.49
     randomY: 0
     commands:
-    - timestamp: 0.8
+    - timestamp: 1
       action: 0
       shotData:
         speed: 20
