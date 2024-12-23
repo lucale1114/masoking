@@ -24,7 +24,7 @@ public class ShaderController : MonoBehaviour
     {
         _heatSystem = FindObjectOfType<HeatSystem>();
         _material = GetComponent<MeshRenderer>().material;
-
+/*
         _heatSystem.TakenDamage += () =>
         {
             if (!_inprogress)
@@ -32,6 +32,8 @@ public class ShaderController : MonoBehaviour
                 StartCoroutine(ChangeRoutine());
             }
         };
+
+        */
     }
 
     private IEnumerator ChangeRoutine()

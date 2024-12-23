@@ -29,10 +29,8 @@ namespace Misc
 
         private void Start()
         {
-            FindObjectOfType<HeatSystem>().TakenDamage += () =>
-            {
-                ShakeCamera(shakeDuration, shakeAmount);
-            };
+            FindObjectOfType<HeatSystem>().TakenDamage += DamageShake;
+            
             FindObjectOfType<Movement>().Bounced += (bool a, Vector3 b) =>
             { 
                 ShakeCamera(shakeDuration, shakeAmount * 2);
@@ -45,6 +43,10 @@ namespace Misc
             {
                 ShakeCamera(shakeDuration, shakeAmount);
             };
+        }
+
+        private void DamageShake(float _){
+            ShakeCamera(shakeDuration,shakeAmount);
         }
 
         private void ShakeCamera(float duration, float strength)
