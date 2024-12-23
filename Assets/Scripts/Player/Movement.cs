@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Wave.Handler;
 
 namespace Player
@@ -51,6 +52,9 @@ namespace Player
 
         private PlayerAnimator playerAnimator;
 
+        private InputAction _moveAction;
+        private InputAction _selectAction;
+
         void Start()
         {
             playerAnimator = GetComponent<PlayerAnimator>();
@@ -58,6 +62,9 @@ namespace Player
             _plrSprite = GetComponent<SpriteRenderer>();
             _dashImageCharger = transform.GetChild(0).GetComponent<SpriteRenderer>();
             _dashImageCharger.enabled = false;
+
+            _moveAction = InputSystem.actions.FindAction("Move");
+            _selectAction = InputSystem.actions.FindAction("Select");
         }
 
         void Update()
@@ -66,10 +73,9 @@ namespace Player
             {
                 _dashImageCharger.sprite = _plrSprite.sprite;
             }
-            float axisX = Input.GetAxisRaw("Horizontal");
-            float axisY = Input.GetAxisRaw("Vertical");
 
-            moveInput = new Vector2(axisX, axisY).normalized;
+            moveInput = _moveAction.ReadValue<Vector2>().normalized;
+
             if (!Mathf.Approximately(moveInput.magnitude, 0))
             {
                 _lastNonZeroMoveInput = moveInput;
@@ -77,7 +83,7 @@ namespace Player
 
             if (!IsCurrentlyDashing)
             {
-                if ((Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.Space)) && _dashCoolDown >= 0.5f)
+                if (_selectAction.IsPressed() && _dashCoolDown >= 0.5f)
                 {
                     if (!IsCurrentlyDashing)
                     {
@@ -89,12 +95,6 @@ namespace Player
                     }
                 }
             }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                SideScrollOn = !SideScrollOn;
-            }
-
 
             if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
             {

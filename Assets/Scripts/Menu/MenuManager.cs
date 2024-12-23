@@ -4,6 +4,7 @@ using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Menu
@@ -25,6 +26,11 @@ namespace Menu
         Button creditsBtn;
         TextMeshProUGUI creditsText;
         private Button _playBtn;
+
+        private InputAction _backAction;
+        private InputAction _moveAction;
+
+        private float _menuCooldown;
 
         private void Awake()
         {
@@ -68,6 +74,11 @@ namespace Menu
             exitScreen.SetActive(true);
         }
 
+        private void Start()
+        {
+            _backAction = InputSystem.actions.FindAction("Back");
+        }
+
         private void OnEnable()
         {
             EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);
@@ -92,7 +103,7 @@ namespace Menu
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton2)) {
+            if (_backAction.IsPressed()) {
                 creditsMenu.SetActive(false);
                 soundMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);
@@ -100,13 +111,26 @@ namespace Menu
 
             if (creditsMenu.activeSelf)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (_menuCooldown > 0)
                 {
-                    BackButton();
+                    _menuCooldown -= Time.deltaTime;
                 }
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                else
                 {
-                    NextButton();
+                    _moveAction = InputSystem.actions.FindAction("Move");
+                    var value = _moveAction.ReadValue<Vector2>();
+
+                    switch (value.x)
+                    {
+                        case < -0.5f:
+                            _menuCooldown = 0.5f;
+                            BackButton();
+                            break;
+                        case > 0.5f:
+                            _menuCooldown = 0.5f;
+                            NextButton();
+                            break;
+                    }
                 }
             }
         }
