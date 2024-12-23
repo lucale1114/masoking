@@ -74,9 +74,8 @@ namespace Player
                 _dashImageCharger.sprite = _plrSprite.sprite;
             }
 
-            moveInput = _moveAction.ReadValue<Vector2>().normalized;
-
-            if (!Mathf.Approximately(moveInput.magnitude, 0))
+            moveInput = new Vector2(axisX, axisY).normalized;
+            if (!Mathf.Approximately(moveInput.magnitude, 0) && knocked == 0)
             {
                 _lastNonZeroMoveInput = moveInput;
             }
@@ -200,7 +199,7 @@ namespace Player
             knocked = knockedTime;
             IsCurrentlyDashing = true;
             power = 0.3f;
-            currentVelocity = dir * 5 ;
+            _lastNonZeroMoveInput = dir * 5 ;
             StartCoroutine(Dash());
         }
 
