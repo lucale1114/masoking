@@ -22,8 +22,14 @@ namespace Misc
             GetComponent<Volume>().profile.TryGet(out _vignette);
             _vignette.intensity.value = vignetteStartIntensity;
 
-            _heatSystem.TakenDamage += () => StartCoroutine(ShakeRoutine());
+            _heatSystem.TakenDamage += Shake;
         }
+
+
+        private void Shake(float _){
+            StartCoroutine(ShakeRoutine());
+        }
+
 
         private IEnumerator ShakeRoutine()
         {
