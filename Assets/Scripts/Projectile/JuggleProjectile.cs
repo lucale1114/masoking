@@ -29,6 +29,8 @@ namespace Projectile
         protected GameObject Reticle;
         protected Vector2 Direction;
 
+        private float hits = 0;
+
         private float throwAirTime = 3f;
         public AnimationCurve animationCurve;
         public AudioClip[] audioClip;
@@ -106,7 +108,18 @@ namespace Projectile
                 Target = new Vector3(Random.Range(-4, 4), Random.Range(-5,3));
                 throwAirTime = Mathf.Clamp((StartPosition - Target).magnitude * 0.8f, 1.5f, 3f);
                 _collider.enabled = false;
-                InstantiateReticle();
+                hits++;
+                GetComponent<SpriteRenderer>().color += new Color(0.25f, 0, 0);
+                damage *= 1.25f;
+                if (hits == 5)
+                {
+                    GetComponent<Animator>().enabled = true;
+                    transform.localScale *= 3;
+                    Destroy(gameObject, 1);
+                } else
+                {
+                    InstantiateReticle();
+                }
                 return;
             }
         }
