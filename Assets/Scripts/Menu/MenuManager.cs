@@ -16,6 +16,7 @@ namespace Menu
         GameObject currentCredits;
         GameObject soundMenu;
         GameObject fadeOut;
+        GameObject exitScreen;
 
         private bool shaking;
         private int page = 0;
@@ -33,10 +34,11 @@ namespace Menu
             GameObject.Find("TutorialBtn").GetComponent<Button>().onClick.AddListener(GameManager.LoadTutorial);
             GameObject.Find("OptionsBtn").GetComponent<Button>().onClick.AddListener(OpenSounds);
             exitButton = GameObject.Find("Exit").GetComponent<Button>();
-            exitButton.onClick.AddListener(GameManager.Quit);
+            exitButton.onClick.AddListener(ExitB);
             fadeOut = GameObject.Find("FadeOut");
             fadeOut.SetActive(false);
             backButtonC = GameObject.Find("Back").GetComponent<Button>();
+            exitScreen = GameObject.Find("ExitScreen"); 
             frontButtonC = GameObject.Find("Forward").GetComponent<Button>();
             creditsBtn = GameObject.Find("CreditsBtn").GetComponent<Button>();
             creditsText = GameObject.Find("CreditsText").GetComponent<TextMeshProUGUI>();
@@ -52,6 +54,18 @@ namespace Menu
             creditsMenu.SetActive(false);
             backButtonC.GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
             backButtonC.GetComponent<Button>().enabled = false;
+            exitScreen.transform.Find("ExitButton").GetComponent<Button>().onClick.AddListener(GameManager.Quit);
+            exitScreen.transform.Find("StayButton").GetComponent<Button>().onClick.AddListener(Stay);
+            exitScreen.SetActive(false);
+        }
+
+        private void Stay()
+        {
+            exitScreen.SetActive(false);
+        }
+        private void ExitB()
+        {
+            exitScreen.SetActive(true);
         }
 
         private void OnEnable()
