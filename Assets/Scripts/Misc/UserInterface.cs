@@ -78,7 +78,7 @@ namespace Misc
             _pauseMenu = GameObject.Find("PauseMenu");
 
             _restartBtn = _pauseMenu.transform.Find("Elements/Panel/ResumeBtn").GetComponent<Button>();
-            _restartBtn.onClick.AddListener(Resume);
+            _restartBtn.onClick.AddListener(Restart);
 
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -232,7 +232,7 @@ namespace Misc
         {
             if (GameManager.CurrentLevel == 3)
             {
-                GameManager.CurrentLevel = 7;
+                GameManager.CurrentLevel = 5;
             }
             else if (GameManager.CurrentLevel == 5)
             {

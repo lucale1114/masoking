@@ -70,7 +70,7 @@ namespace Player
             float axisY = Input.GetAxisRaw("Vertical");
 
             moveInput = new Vector2(axisX, axisY).normalized;
-            if (!Mathf.Approximately(moveInput.magnitude, 0))
+            if (!Mathf.Approximately(moveInput.magnitude, 0) && knocked == 0)
             {
                 _lastNonZeroMoveInput = moveInput;
             }
@@ -200,7 +200,7 @@ namespace Player
             knocked = knockedTime;
             IsCurrentlyDashing = true;
             power = 0.3f;
-            currentVelocity = dir * 5 ;
+            _lastNonZeroMoveInput = dir * 5 ;
             StartCoroutine(Dash());
         }
 
