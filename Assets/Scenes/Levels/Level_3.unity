@@ -1313,7 +1313,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 7800bca6e3024c14792b87e32dc9f389, type: 2}
     - target: {fileID: 3779023926614629067, guid: 991ae00602392084195e6e902505d007, type: 3}
       propertyPath: debugForceWave
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4425572620293264903, guid: 991ae00602392084195e6e902505d007, type: 3}
       propertyPath: m_Enabled
