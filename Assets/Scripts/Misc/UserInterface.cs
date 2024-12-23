@@ -20,8 +20,6 @@ namespace Misc
         [SerializeField] public AudioClip[] kingAudioClips;
         [SerializeField] public AudioClip[] ComboClips;
 
-
-
         public TextMeshProUGUI _comboCounter;
         public TextMeshProUGUI _scoreCounter;
 
@@ -57,6 +55,9 @@ namespace Misc
         private bool _menuCoolDown;
         private Transform _lostMenuRestartButton;
 
+        private GameObject lightouts1;
+        private GameObject lightouts2;
+
         protected void Awake()
         {
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
@@ -86,6 +87,12 @@ namespace Misc
 
             _restartBtn = _pauseMenu.transform.Find("Elements/Panel/ResumeBtn").GetComponent<Button>();
             _restartBtn.onClick.AddListener(Restart);
+
+            lightouts1 = GameObject.Find("LightsOut2");
+            lightouts2 = GameObject.Find("Circle");
+
+            lightouts1.SetActive(false);
+            lightouts2.SetActive(false);
 
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -126,8 +133,6 @@ namespace Misc
             Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
             _soundMenu.SetActive(!_soundMenu.activeSelf);
             _pauseMenu.SetActive(false);
-
-
         }
 
         public void ButtonSelected1()
@@ -178,9 +183,8 @@ namespace Misc
                  SoundFXManager.Instance.StopWalkingFull();
                 _waveHandler.FinishedLevel += () =>
                 {
-                    JesterFeverHandler.JesterFever = true;
-                    _mashSpace.gameObject.SetActive(true);
-                    StartCoroutine(EndGame());
+                    print("finished");
+                    StartCoroutine(PreJesterFever());
                 };
 
                 _heatSystem.HeatDepleted += () =>
@@ -221,6 +225,23 @@ namespace Misc
             _backAction = UnityEngine.InputSystem.InputSystem.actions.FindAction("Back");
         }
 
+        IEnumerator PreJesterFever()
+        {
+            yield return new WaitForSeconds(1);
+            lightouts1.SetActive(true);
+            yield return new WaitForSeconds(2);
+            _heatSystem.transform.position = new Vector3(0, 0);
+            _heatSystem.transform.GetComponent<Movement>().enabled = false;
+            _heatSystem.transform.GetComponent<PlayerAnimator>().PlayRelax();
+            lightouts2.SetActive(true);
+            lightouts1.SetActive(false);
+            JesterFeverHandler.JesterFever = true;
+            yield return new WaitForSeconds(1);
+            _mashSpace.gameObject.SetActive(true);
+            lightouts2.transform.GetChild(0).GetComponent<Image>().DOColor(new Color(0, 0, 0, 0.5f), 2);
+            StartCoroutine(EndGame());
+        }
+        
         IEnumerator EndGame()
         {
             yield return new WaitForSeconds(10);
@@ -230,6 +251,7 @@ namespace Misc
                 Camera.main.DOOrthoSize(5f, 0.1f);
                 yield return new WaitForSeconds(0.1f);
             }
+            lightouts2.transform.GetChild(0).GetComponent<Image>().DOColor(lightouts2.transform.GetChild(0).GetComponent<Image>().color - new Color(0, 0, 0, 1), 2);
             GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().DOFade(0, 3);
             GameObject.Find("SoundFXManager").GetComponent<AudioSource>().DOFade(0, 3);
 
