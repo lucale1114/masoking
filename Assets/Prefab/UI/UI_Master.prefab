@@ -2336,7 +2336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67036af93d7929e42934a78fdc500a58, type: 2}
   m_sharedMaterial: {fileID: 477182753306124285, guid: 67036af93d7929e42934a78fdc500a58, type: 2}
@@ -4960,7 +4960,7 @@ GameObject:
   - component: {fileID: 1173093229128230515}
   - component: {fileID: 6857789845834539224}
   m_Layer: 5
-  m_Name: RestartBtn
+  m_Name: ResumeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
