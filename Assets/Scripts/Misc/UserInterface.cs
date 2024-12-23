@@ -55,6 +55,7 @@ namespace Misc
         private InputAction _backAction;
 
         private bool _menuCoolDown;
+        private Transform _lostMenuRestartButton;
 
         protected void Awake()
         {
@@ -76,7 +77,8 @@ namespace Misc
             winMode.gameObject.SetActive(false);
             loseMode = GameObject.Find("LoseState");
             _lostMenu = GameObject.Find("LostMenu");
-            _lostMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
+            _lostMenuRestartButton = _lostMenu.transform.Find("Panel/RestartBtn");
+            _lostMenuRestartButton.GetComponent<Button>().onClick.AddListener(Restart);
             _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             loseMode.gameObject.SetActive(false);
 
@@ -184,6 +186,7 @@ namespace Misc
                     GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().volume = 0;
                     GameObject.Find("SoundFXManager").GetComponent<AudioSource>().volume = 0;
                     loseMode.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(_lostMenuRestartButton.gameObject);
                     Time.timeScale = 0;
                 };
 

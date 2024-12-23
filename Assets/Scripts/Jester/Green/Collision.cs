@@ -32,7 +32,7 @@ namespace Jester.Green
         {
             lineRenderer.enabled = false;
             triggerCollider = GetComponent<Collider2D>();
-            _player = GameObject.Find("Player");
+           
 
         }
 
@@ -40,6 +40,7 @@ namespace Jester.Green
         {
             movement = FindObjectOfType<Player.Movement>();
             animator = GetComponent<Animator>();
+            _player = GameObject.Find("Player");
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
