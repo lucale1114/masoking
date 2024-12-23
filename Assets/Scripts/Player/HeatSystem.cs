@@ -18,7 +18,7 @@ namespace Player
 
         public event Action HeatDepleted;
         public event Action<float> HeatChanged;
-        public event Action TakenDamage;
+        public event Action<float> TakenDamage;
         public event Action<float> ComboMultiplierChanged;
         public event Action MaxHeat;
         public event Action<float> ComboEnded;
@@ -122,7 +122,7 @@ namespace Player
 
             if (amount > 0)
             {
-                TakenDamage?.Invoke();
+                TakenDamage?.Invoke(amount);
             }
 
             if (_currentHeat >= maximumHeat && CanMaxHeat)

@@ -10,7 +10,7 @@ namespace Player
 
         private enum State
         {
-            Idle, Move, Dash, Windup, Hit, Combo, Turn
+            Idle, Move, Dash, Windup, Hit, Combo, Turn, Relaxing
         }
 
         private static readonly int MoveX = Animator.StringToHash("moveX");
@@ -77,6 +77,11 @@ namespace Player
                     _doNotInterrupt = true;
                     _nextState = State.Idle;
                     break;
+                case State.Relaxing:
+                    _animator.Play("KingRelaxing");
+                    _doNotInterrupt = true;
+                    _nextState = State.Relaxing;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -125,6 +130,11 @@ namespace Player
         public void PlayHit()
         {
             _nextState = State.Hit;
+        }
+
+        public void PlayRelax()
+        {
+            _nextState = State.Relaxing;
         }
 
         public void PlayCombo()

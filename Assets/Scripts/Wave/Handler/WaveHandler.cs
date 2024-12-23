@@ -23,6 +23,7 @@ namespace Wave.Handler
 
         private int _waveNumber;
         private bool _pausedByWave;
+        private bool end;
 
         private void Awake()
         {
@@ -68,7 +69,11 @@ namespace Wave.Handler
             }
             else
             {
-                FinishedLevel?.Invoke();
+                if (!end)
+                {
+                    end = true;
+                    FinishedLevel?.Invoke();
+                }
             }
         }
 
