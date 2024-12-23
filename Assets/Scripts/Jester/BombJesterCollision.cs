@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using System.Collections;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Jester
@@ -42,7 +43,7 @@ namespace Jester
                     Vector2 bounceDirection = (collision.transform.position - transform.position).normalized;
 
                     // Apply the bounce velocity
-                    float bounceForce = 2f; // Adjust this value for desired bounce strength
+                    float bounceForce = 1.5f; // Adjust this value for desired bounce strength
                     playerRb.velocity = bounceDirection * bounceForce;
                 }
 
@@ -51,14 +52,19 @@ namespace Jester
                     transform.GetComponent<Collider2D>().ClosestPoint(collision.transform.position),
                     Quaternion.identity);
 
-                new WaitForSeconds(0.2F);
-                _player.GetComponent<Player.Movement>().enabled = true;
-
+                StartCoroutine(WaitSec());
                 HasDashed = true;
                 _bomb.parent = null;
             }
         }
+    private IEnumerator WaitSec()
+    {
+        yield return new WaitForSeconds(0.2F);
+        _player.GetComponent<Player.Movement>().enabled = true;
+
+
+    }
     }
 
-    
+
 }
