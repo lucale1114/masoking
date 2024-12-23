@@ -2,7 +2,7 @@ using Player;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using Collision = Player.Collision;
+using UnityEngine.Assertions.Must;
 
 namespace Misc
 {
@@ -13,11 +13,9 @@ namespace Misc
         public Transform target1;
         public Transform target2;
 
-        private float speed = 3;
+        private readonly float speed = 3;
         private Rigidbody2D rbMove;
         private Rigidbody2D rbDash;
-
-        public bool HaveDash { get; private set; }
 
         protected new void Awake()
         {
@@ -31,7 +29,10 @@ namespace Misc
             _portrait.enabled = false;
             _mashSpace.enabled = false;
             _scoreCounter.enabled = false;
-           
+
+            _wonMenu.Equals(false);
+            
+
             _hands.enabled = false;
             
 
@@ -44,6 +45,7 @@ namespace Misc
         {
             base.Update();
             StartCoroutine(SwitchBoard());
+           
         }
 
         private IEnumerator SwitchBoard()
