@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -21,6 +22,10 @@ namespace Misc
             "A mashochistic man who used his power in order to...",
             "Get hot, get hit, get heavy!",
         };
+
+        private InputAction _backAction;
+        private InputAction _selectAction;
+
         private void Start()
         {
             //_playableDirector = GetComponent<PlayableDirector>();
@@ -28,6 +33,9 @@ namespace Misc
             introText = GameObject.Find("Intro").GetComponent<TextMeshProUGUI>();
             tSound = GetComponent<AudioSource>();
             StartCoroutine(AnimationGo());
+
+            _backAction = UnityEngine.InputSystem.InputSystem.actions.FindAction("Back");
+            _selectAction = UnityEngine.InputSystem.InputSystem.actions.FindAction("Select");
         }
 
         IEnumerator AnimationGo()
@@ -96,17 +104,12 @@ namespace Misc
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton0))
+            if (_selectAction.IsPressed() || _backAction.IsPressed())
             {
                 GameObject.Find("Frames").GetComponent<Animator>().enabled = true;
                 tSound.GetComponent<AudioSource>().DOFade(0, 1);
                 GameObject.Find("6").GetComponent<AudioSource>().DOFade(0, 1);
                 Invoke("DelayStart", 3);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-
             }
         }
     }

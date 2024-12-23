@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿
+
+
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Wave.Handler
 {
@@ -9,16 +13,19 @@ namespace Wave.Handler
         private float _lastJesterSpawn;
         private StandingJesterHandler _standingJesterHandler;
 
+        private InputAction _selectAction;
+
         private void Start()
         {
             _standingJesterHandler = GetComponent<StandingJesterHandler>();
+            _selectAction = InputSystem.actions.FindAction("Select");
         }
 
         private void Update()
         {
             if (JesterFever)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (_selectAction.IsPressed())
                 {
                     if (!Mathf.Approximately(WaveHandler.Timestamp, _lastJesterSpawn))
                     {
