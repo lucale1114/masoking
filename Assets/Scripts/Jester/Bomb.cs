@@ -58,7 +58,7 @@ namespace Jester
                         Vector2 forceDirection = _player.transform.position - transform.position;
                          forceDirection.Normalize();
                          float explosionForce = 6f; // Adjust as needed
-                        playerRb.AddForce(forceDirection * explosionForce, ForceMode2D.Impulse);
+                        _player.GetComponent<Player.Movement>().Knocked(0.3f, forceDirection * explosionForce);
                         yield return new WaitForSeconds(0.2f);
                         _player.GetComponent<Player.Movement>().enabled = true;
 

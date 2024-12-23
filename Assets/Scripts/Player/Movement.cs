@@ -74,7 +74,7 @@ namespace Player
                 _dashImageCharger.sprite = _plrSprite.sprite;
             }
 
-            moveInput = new Vector2(axisX, axisY).normalized;
+            moveInput = _moveAction.ReadValue<Vector2>().normalized;
             if (!Mathf.Approximately(moveInput.magnitude, 0) && knocked == 0)
             {
                 _lastNonZeroMoveInput = moveInput;
