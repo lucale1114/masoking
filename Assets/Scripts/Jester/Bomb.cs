@@ -57,7 +57,7 @@ namespace Jester
                     {
                         Vector2 forceDirection = _player.transform.position - transform.position;
                          forceDirection.Normalize();
-                         float explosionForce = 10f; // Adjust as needed
+                         float explosionForce = 2f; // Adjust as needed
                         _player.GetComponent<Player.Movement>().Knocked(0.3f, forceDirection * explosionForce);
                         yield return new WaitForSeconds(0.2f);
                         _player.GetComponent<Player.Movement>().enabled = true;
@@ -72,7 +72,7 @@ namespace Jester
             Destroy(gameObject);
         }
 
-        public void Activate(float explosionRadius = 0.2f, float damage = 25f)
+        public void Activate(float explosionRadius = 1f, float damage = 25f)
         {
             animator.SetBool(Count, true);
 

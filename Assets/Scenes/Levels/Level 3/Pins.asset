@@ -207,6 +207,6 @@ MonoBehaviour:
     loop: 0
     commands:
     - action: 0
-      destination: {x: 20, y: 0}
+      destination: {x: 20, y: -4}
       time: 10
   ram: []

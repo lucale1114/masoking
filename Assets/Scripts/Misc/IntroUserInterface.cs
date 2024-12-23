@@ -24,9 +24,8 @@ namespace Misc
             base.Awake();
             _comboResultText.enabled = false;
             _comboCounter.enabled = false;
-            _heatBar.enabled = false;
-            _heatSystem.enabled = false;          
-            _portrait.enabled = false;
+           
+           
             _mashSpace.enabled = false;
             _scoreCounter.enabled = false;
 

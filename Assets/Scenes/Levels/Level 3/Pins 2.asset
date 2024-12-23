@@ -104,13 +104,13 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 1.5
+    - timestamp: 4
       action: 2
       shotData:
         throwAndRollType: 0
         speed: 2
         scale: 1
-        damage: 5
+        damage: 20
         x: 3
         y: -4
         randomX: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
         amount: 0
         numberOfBounces: 0
         breakable: 0
-        radius: 0
+        radius: 1
   blue:
   - side: 1
     y: 3.49
