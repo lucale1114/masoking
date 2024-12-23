@@ -126,6 +126,8 @@ namespace Misc
             Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
             _soundMenu.SetActive(!_soundMenu.activeSelf);
             _pauseMenu.SetActive(false);
+
+            
         }
 
         public void ButtonSelected1()
