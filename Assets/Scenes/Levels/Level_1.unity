@@ -378,11 +378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222f1990c67ad8342a6e8c57896ed869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twirlMultiplier: 5
-  speedMultiplier: 5
-  moveXMultiplier: 5
-  moveYMultiplier: 5
-  duration: 1
+  twirlMultiplier: 1
+  speedMultiplier: 1.05
+  moveXMultiplier: 1
+  moveYMultiplier: 1
+  duration: 0.2
 --- !u!1 &1093011796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5931346090368708700, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
