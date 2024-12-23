@@ -40,7 +40,13 @@ namespace Projectile
 
             SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
             SoundFXManager.Instance.PitchChange();
-            Destroy(gameObject);
+
+            var topLevelItem = gameObject.transform;
+            while (topLevelItem.parent != null)
+            {
+                topLevelItem = topLevelItem.parent;
+            }
+            Destroy(topLevelItem.gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
