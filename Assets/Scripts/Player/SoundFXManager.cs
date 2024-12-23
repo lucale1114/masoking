@@ -31,20 +31,8 @@ namespace Player
             {
                 Instance = this;
             }
-            soundFXObject = GetComponent<AudioSource>();
 
-            if (soundFXObject == null)
-            {
-                soundFXObject = GetComponent<AudioSource>();
-            }
-
-            soundFXObjectNoPitch = GetComponent<AudioSource>();
-
-            if (soundFXObjectNoPitch == null)
-            {
-                soundFXObjectNoPitch = GetComponent<AudioSource>();
-            }
-
+       
 
 
         }
@@ -93,6 +81,7 @@ namespace Player
             timer = 0;
 
             soundFXObjectNoPitch.PlayOneShot(audioClip[rand], volume);
+            
         }
 
         public void PlayOnLoop()

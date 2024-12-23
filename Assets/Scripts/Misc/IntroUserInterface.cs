@@ -21,6 +21,8 @@ namespace Misc
         private Rigidbody2D rbDash;
         private GameObject _player;
 
+        
+
         protected new void Awake()
         {
             IsIntro = true;

@@ -269,8 +269,8 @@ namespace Misc
             {
 
                 _portrait.transform.DOShakePosition(1, 5);
-                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips, 1f);
             }
+                
         }
 
         private IEnumerator ComboFinish(float combo)
@@ -375,11 +375,14 @@ namespace Misc
                 ChangeKingPortrait(2, true, false);
                 yield break;
             }
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips,1f);
             ChangeKingPortrait(1, true, false);
             if (ColorUtility.TryParseHtmlString("#FF0000", out Color col) && !JesterFeverHandler.JesterFever)
-                _portrait.DOColor(col, 1);
+
+            _portrait.DOColor(col, 1);
                 _hands.DOColor(col, 1);
             _isInMax = true;
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(kingAudioClips, 1f);
             yield return new WaitForSeconds(5);
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color cole))
                 _portrait.DOColor(cole, 1);
