@@ -77,8 +77,8 @@ namespace Misc
 
             _pauseMenu = GameObject.Find("PauseMenu");
 
-            _restartBtn = _pauseMenu.transform.Find("Elements/Panel/RestartBtn").GetComponent<Button>();
-            _restartBtn.onClick.AddListener(Restart);
+            _restartBtn = _pauseMenu.transform.Find("Elements/Panel/ResumeBtn").GetComponent<Button>();
+            _restartBtn.onClick.AddListener(Resume);
 
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -88,21 +88,21 @@ namespace Misc
 
             _soundMenu = GameObject.Find("SoundMenu");
             _soundMenu.SetActive(false);
-
-
-
-            _wonMenu = GameObject.Find("WonMenu");
-            _wonMenu.transform.Find("Panel/RestartBtn").GetComponent<Button>().onClick.AddListener(Restart);
-            _wonMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
-            _wonMenu.SetActive(false);
         }
 
-        private static void Restart()
+        public void Resume()
         {
             Time.timeScale = 1;
-            GameManager.Restart();
+            _pauseMenu.SetActive(false);
+            PauseAllSources();
         }
 
+        public void Restart()
+        {
+            Time.timeScale = 1;
+            GameManager.LoadLevel();
+
+        }
         private static void Quit()
         {
             GameManager.Quit();
