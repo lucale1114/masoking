@@ -92,7 +92,7 @@ namespace Menu
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Escape)) {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton2)) {
                 creditsMenu.SetActive(false);
                 soundMenu.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(_playBtn.gameObject);

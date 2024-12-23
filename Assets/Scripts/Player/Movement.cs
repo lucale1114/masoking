@@ -77,7 +77,7 @@ namespace Player
 
             if (!IsCurrentlyDashing)
             {
-                if (Input.GetAxis("Jump") == 1 && _dashCoolDown >= 0.5f)
+                if ((Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.Space)) && _dashCoolDown >= 0.5f)
                 {
                     if (!IsCurrentlyDashing)
                     {
@@ -96,7 +96,7 @@ namespace Player
             }
 
 
-            if (Input.GetAxis("Jump") == 0)
+            if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
             {
                 _chargingDash = false;
             }

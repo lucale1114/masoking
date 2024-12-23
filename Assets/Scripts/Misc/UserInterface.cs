@@ -391,7 +391,7 @@ namespace Misc
         {
             if (!winMode.activeSelf && !loseMode.activeSelf)
             {
-                if (Input.GetKeyDown(KeyCode.Escape)    )
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.JoystickButton0))
                 {
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);

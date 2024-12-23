@@ -96,7 +96,7 @@ namespace Misc
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 GameObject.Find("Frames").GetComponent<Animator>().enabled = true;
                 tSound.GetComponent<AudioSource>().DOFade(0, 1);
