@@ -5,6 +5,7 @@ using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Wave.Handler;
@@ -51,6 +52,10 @@ namespace Misc
         private bool inTrouble;
         private Button _restartBtn;
 
+        private InputAction _backAction;
+
+        private bool _menuCoolDown;
+
         protected void Awake()
         {
             _comboResultText = GameObject.Find("ComboResult").GetComponent<Image>();
@@ -78,7 +83,7 @@ namespace Misc
             _pauseMenu = GameObject.Find("PauseMenu");
 
             _restartBtn = _pauseMenu.transform.Find("Elements/Panel/ResumeBtn").GetComponent<Button>();
-            _restartBtn.onClick.AddListener(Resume);
+            _restartBtn.onClick.AddListener(Restart);
 
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
@@ -207,6 +212,8 @@ namespace Misc
             handsPosUp = _hands.transform.position;
             handsPosDown = _hands.transform.position - new Vector3(0, 230, 0);
             _hands.transform.position = handsPosDown;
+
+            _backAction = UnityEngine.InputSystem.InputSystem.actions.FindAction("Back");
         }
 
         IEnumerator EndGame()
@@ -232,7 +239,7 @@ namespace Misc
         {
             if (GameManager.CurrentLevel == 3)
             {
-                GameManager.CurrentLevel = 7;
+                GameManager.CurrentLevel = 5;
             }
             else if (GameManager.CurrentLevel == 5)
             {
@@ -389,10 +396,17 @@ namespace Misc
 
         protected void Update()
         {
+            if (_menuCoolDown)
+            {
+                return;
+            }
+
             if (!winMode.activeSelf && !loseMode.activeSelf)
             {
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.JoystickButton0))
+                if (_backAction.IsPressed())
                 {
+                    StartCoroutine(PauseRoutine());
+
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
                     _soundMenu.SetActive(false);
@@ -404,6 +418,14 @@ namespace Misc
                     PauseAllSources();
                 }
             }
+        }
+
+        private IEnumerator PauseRoutine()
+        {
+            _menuCoolDown = true;
+            yield return new WaitForSecondsRealtime(0.5f);
+            _menuCoolDown = false;
+
         }
 
         private void PauseAllSources()

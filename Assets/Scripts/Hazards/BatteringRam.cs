@@ -58,7 +58,7 @@ public class BatteringRam : MonoBehaviour
             transform.DOMove(_indicator.GetChild(0).position + new Vector3(1f * dirX * data.size, 1f * dirY * data.size, 0), 0.35f).SetEase(Ease.InSine).OnComplete(() =>
             {
                 canHit = false;
-                StartCoroutine("Retract");
+                StartCoroutine("Retract");  
             });
         }
            
@@ -73,7 +73,6 @@ public class BatteringRam : MonoBehaviour
             began = true;
         }
     }
-
 
     private void Update()
     {
@@ -98,6 +97,8 @@ public class BatteringRam : MonoBehaviour
     private void AllowHit()
     {
         canHit = true;
+        GetComponents<Collider2D>()[0].enabled = true;
+        GetComponents<Collider2D>()[1].enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -107,9 +108,11 @@ public class BatteringRam : MonoBehaviour
             if (collision.collider.gameObject.CompareTag("Player"))
             {
                 canHit = false;
+                GetComponents<Collider2D>()[0].enabled = false;
+                GetComponents<Collider2D>()[1].enabled = false;
                 GameObject player = collision.collider.gameObject;
                 Movement movement = player.GetComponent<Movement>();
-                movement.Knocked(0.5f, transform.up);
+                movement.Knocked(0.3f, transform.up);
                 //player.GetComponent<Rigidbody2D>().velocity = transform.forward * 500;
                 player.GetComponent<HeatSystem>().ChangeHeat(data.damage);
                 if (launchMode) { 

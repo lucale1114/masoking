@@ -4770,7 +4770,7 @@ ParticleSystemRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6872989842930177993}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4871,7 +4871,7 @@ MonoBehaviour:
   m_Scale3D: {x: 60, y: 60, z: 60}
   m_AnimatableProperties: []
   m_Particles:
-  - {fileID: 0}
+  - {fileID: 7163737805944545519}
   m_MeshSharing: 0
   m_GroupId: 0
   m_GroupMaxId: 0

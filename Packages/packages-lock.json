@@ -8,7 +8,7 @@
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
-      "hash": "847af6397eea6388150eded48ddb5c796adb44b8"
+      "hash": "f4b28b68b1e1367ac7fdc89f1e750ee7a148e325"
     },
     "com.unity.2d.animation": {
       "version": "9.1.3",
@@ -168,6 +168,15 @@
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.11.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
