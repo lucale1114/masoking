@@ -31,10 +31,6 @@ namespace Player
             {
                 Instance = this;
             }
-
-       
-
-
         }
 
         void Update()

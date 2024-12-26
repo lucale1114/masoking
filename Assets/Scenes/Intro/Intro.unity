@@ -266,7 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!1001 &367896285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,17 +635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &599611996 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2303014657451245295, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
-  m_PrefabInstance: {fileID: 853723503}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &667341311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6409753414200130031, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
@@ -670,7 +661,7 @@ MonoBehaviour:
   _scoreCounter: {fileID: 1235075541}
   _wonMenu: {fileID: 923012752}
   _comboResultText: {fileID: 0}
-  _heatBar: {fileID: 599611996}
+  _heatBar: {fileID: 1898838250}
   _heatSystem: {fileID: 1993662378}
   _scoreSystem: {fileID: 0}
   _portrait: {fileID: 845495610}
@@ -935,6 +926,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508660616509522810, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508660616509522810, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508660616509522810, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856752231059862406, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856752231059862406, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856752231059862406, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2034166153147799415, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -993,6 +1008,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3863603580333150286, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284792091747951905, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284792091747951905, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284792091747951905, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5126002480455879546, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
@@ -1336,7 +1363,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!1 &923012752 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7923390913924275786, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
@@ -1790,7 +1819,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!1 &1509420192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,7 +2124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!1 &1583695375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,6 +2266,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1898838250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6584604615871022539, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+  m_PrefabInstance: {fileID: 853723503}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1993662378 stripped

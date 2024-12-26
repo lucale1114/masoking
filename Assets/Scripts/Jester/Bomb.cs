@@ -62,7 +62,6 @@ namespace Jester
                         yield return new WaitForSeconds(0.2f);
                         _player.GetComponent<Player.Movement>().enabled = true;
 
-
                     }
 
 
@@ -71,7 +70,6 @@ namespace Jester
 
             Destroy(gameObject);
         }
-
         public void Activate(float explosionRadius = 1f, float damage = 25f)
         {
             animator.SetBool(Count, true);

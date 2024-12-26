@@ -16,7 +16,6 @@ namespace Misc
         public Transform target1;
         public Transform target2;
 
-        private readonly float speed = 3;
         private Rigidbody2D rbMove;
         private Rigidbody2D rbDash;
         private GameObject _player;
@@ -30,6 +29,7 @@ namespace Misc
             base.Awake();
             _comboResultText.enabled = false;
             _comboCounter.enabled = false;
+            _heatBar.enabled = false;
            
            
             _mashSpace.enabled = false;
