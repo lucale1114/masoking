@@ -301,7 +301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 0}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  - {fileID: 8300000, guid: a7cf3a2cece35194d9f1f8e41ba6541f, type: 3}
 --- !u!1 &5505589146939949829
 GameObject:
   m_ObjectHideFlags: 0

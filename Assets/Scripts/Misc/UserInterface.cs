@@ -440,6 +440,7 @@ namespace Misc
                     Time.timeScale = _pauseMenu.activeSelf ? 1 : 0;
                     _pauseMenu.SetActive(!_pauseMenu.activeSelf);
 
+
                     if (_soundMenu.activeSelf)
                     {
                         _soundMenu.SetActive(false);
@@ -448,9 +449,15 @@ namespace Misc
                     }
                     if (_pauseMenu.activeSelf)
                     {
+                        PauseAllSources();
                         EventSystem.current.SetSelectedGameObject(_restartBtn.gameObject);
                     }
-                    PauseAllSources();
+
+                    if (!_pauseMenu.activeSelf)
+                    {
+                        PauseAllSources();
+                    } 
+
                 }
             }
         }
