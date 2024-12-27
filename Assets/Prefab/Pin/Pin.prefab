@@ -137,7 +137,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6cbc6fb599c4e5f49a0a420be27a5c88, type: 3}
   - {fileID: 8300000, guid: 16edd108de50f0049be0c18d626417f7, type: 3}
   - {fileID: 8300000, guid: 2eb2e5a38fe8cd640ae7a535db036429, type: 3}
-  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
   noStabbing: 0
 --- !u!1 &8226887042515088013
 GameObject:
@@ -187,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticlePrefab: {fileID: 5887521283410563986, guid: 647f6615a1f27f04d92bfedf88a2f8e5, type: 3}
   shadowPrefab: {fileID: 4541097288492365035, guid: 0786f50e4ec506249843b6861b229ec1, type: 3}
-  colliderActivationPercentage: 0.9
+  colliderActivationPercentage: 0.98
   curveHeight: 5
 --- !u!50 &554608842128490279
 Rigidbody2D:
