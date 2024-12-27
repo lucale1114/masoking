@@ -57,6 +57,7 @@ namespace Misc
 
         private GameObject lightouts1;
         private GameObject lightouts2;
+        private GameObject exitScreen;
 
         protected void Awake()
         {
@@ -82,25 +83,27 @@ namespace Misc
             _lostMenuRestartButton.GetComponent<Button>().onClick.AddListener(Restart);
             _lostMenu.transform.Find("Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             loseMode.gameObject.SetActive(false);
-
+            exitScreen = GameObject.Find("ExitScreen");
+            exitScreen.SetActive(false);
             _pauseMenu = GameObject.Find("PauseMenu");
 
             _restartBtn = _pauseMenu.transform.Find("Elements/Panel/ResumeBtn").GetComponent<Button>();
-            _restartBtn.onClick.AddListener(Restart);
+            _restartBtn.onClick.AddListener(Resume);
 
             lightouts1 = GameObject.Find("LightsOut2");
-            lightouts2 = GameObject.Find("Circle");
+            lightouts2 = GameObject.Find("LightCircle");
 
             lightouts1.SetActive(false);
             lightouts2.SetActive(false);
-
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
             _pauseMenu.transform.Find("Elements/Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
-
+            exitScreen.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ReallyQuit);
+            exitScreen.transform.Find("Stay").GetComponent<Button>().onClick.AddListener(CloseExit);
             _pauseMenu.SetActive(false);
 
             _soundMenu = GameObject.Find("SoundMenu");
+            _soundMenu.transform.Find("Close").GetComponent<Button>().onClick.AddListener(QuitSound);
             _soundMenu.SetActive(false);
         }
 
@@ -111,18 +114,34 @@ namespace Misc
             PauseAllSources();
         }
 
+        private void QuitSound()
+        {
+            _soundMenu.SetActive(false);
+            _pauseMenu.SetActive(true);
+        }
+
         public void Restart()
         {
             Time.timeScale = 1;
             GameManager.LoadLevel();
 
         }
-        private static void Quit()
+        private void Quit()
         {
-            GameManager.Quit();
+            exitScreen.SetActive(true);
         }
 
-        private static void Menu()
+        private void CloseExit()
+        {
+            exitScreen.SetActive(false);
+        }
+
+        private static void ReallyQuit()
+        {
+            GameManager.Quit();
+
+        }
+        private void Menu()
         {
             Time.timeScale = 1;
             GameManager.LoadMenu();

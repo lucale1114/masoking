@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: kingAudioClips.Array.data[8]
       value: 
       objectReference: {fileID: 8300000, guid: 41d4f967480ac8246b0f58d07ec7d10b, type: 3}
+    - target: {fileID: 685098465309238738, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_Name
+      value: Stay
+      objectReference: {fileID: 0}
     - target: {fileID: 865885453751271284, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -983,6 +987,10 @@ PrefabInstance:
     - target: {fileID: 8328832447002288846, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -27.5435
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600358222977974550, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_Name
+      value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 8640988264902529172, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_ShowMaskGraphic

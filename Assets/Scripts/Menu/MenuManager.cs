@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Managers;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -50,6 +51,7 @@ namespace Menu
             creditsBtn = GameObject.Find("CreditsBtn").GetComponent<Button>();
             creditsText = GameObject.Find("CreditsText").GetComponent<TextMeshProUGUI>();
             soundMenu = GameObject.Find("SoundMenu");
+            soundMenu.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseSound);
             soundMenu.SetActive(false);
             credits[0] = GameObject.Find("Credits1");
             creditsMenu = GameObject.Find("Credits");
@@ -57,6 +59,8 @@ namespace Menu
             credits[1] = GameObject.Find("Credits2");
             credits[2] = GameObject.Find("Credits3");
             credits[1].SetActive(false);
+            creditsMenu.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseCredits);
+
             credits[2].SetActive(false);
             creditsMenu.SetActive(false);
             backButtonC.GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
@@ -92,6 +96,16 @@ namespace Menu
         private void OpenSounds()
         {
             soundMenu.SetActive(true);
+            creditsMenu.SetActive(false);
+        }
+
+        private void CloseSound()
+        {
+            soundMenu.SetActive(false);
+        }
+        private void CloseCredits()
+        {
+            creditsMenu.SetActive(false);
         }
 
         private void StartGame()
@@ -141,6 +155,7 @@ namespace Menu
         }
         public void OpenCredits() {
             creditsMenu.SetActive(true);
+            soundMenu.SetActive(false);
             EventSystem.current.SetSelectedGameObject(creditsMenu);
         }
 
