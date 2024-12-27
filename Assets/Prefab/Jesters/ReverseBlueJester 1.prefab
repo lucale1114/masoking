@@ -124,8 +124,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd54bacc4da9ac34f9b9113cf452b871, type: 3}
   - {fileID: 8300000, guid: 3c17e7f3c2d7b8548b443239dda0f51f, type: 3}
   - {fileID: 8300000, guid: f561fd1ab22c8b643bc0fb3739fd1267, type: 3}
-  chance: 0.8
-  UserInterface: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
+  chance: 0.23
 --- !u!95 &1256570226195499151
 Animator:
   serializedVersion: 5

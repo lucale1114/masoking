@@ -139,7 +139,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0d1e7c6118e0e4e49a8c306470cff3e5, type: 3}
   - {fileID: 8300000, guid: cd54bacc4da9ac34f9b9113cf452b871, type: 3}
   - {fileID: 8300000, guid: 3c17e7f3c2d7b8548b443239dda0f51f, type: 3}
-  chance: 0.5
+  chance: 0.23
 --- !u!95 &1256570226195499151
 Animator:
   serializedVersion: 5
