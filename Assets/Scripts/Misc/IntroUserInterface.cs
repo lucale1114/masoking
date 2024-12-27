@@ -20,6 +20,8 @@ namespace Misc
         private Rigidbody2D rbDash;
         private GameObject _player;
 
+        private PlayerAnimator _animator;
+
         
 
         protected new void Awake()
@@ -42,7 +44,10 @@ namespace Misc
 
             _player = GameObject.Find("Player");
 
+            
             _player.GetComponent<Player.Movement>().enabled = false;
+            _player.GetComponent<Player.PlayerAnimator>().PlayRelax();
+
 
             rbMove = boardMove.GetComponent<Rigidbody2D>();
             rbDash = boardDash.GetComponent<Rigidbody2D>();

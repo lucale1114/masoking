@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 815760376}
   - component: {fileID: 815760377}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: ToTheLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1894,7 +1894,7 @@ GameObject:
   - component: {fileID: 2017791027}
   - component: {fileID: 2017791028}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: ToTheRigth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
