@@ -19,6 +19,7 @@ namespace Misc
         [SerializeField] public int[] comboArray;
         [SerializeField] public AudioClip[] kingAudioClips;
         [SerializeField] public AudioClip[] ComboClips;
+        [SerializeField] private AudioClip Clap;
 
         public TextMeshProUGUI _comboCounter;
         public TextMeshProUGUI _scoreCounter;
@@ -376,13 +377,16 @@ namespace Misc
                     yield return new WaitForSeconds(0.01f);
                 }
                 Hands(true, Mathf.Clamp(comboGotten, 5, 30), false);
+                SoundFXManager.Instance.PlayOnLoop();
                 yield return new WaitForSeconds(0.5f);
                 if (!_isInMax)
                 {
                     ChangeKingPortrait(0, false, false);
                 }
+                SoundFXManager.Instance.StopLoop();
                 yield return new WaitForSeconds(1.5f);
                 Hands(false, 1, false);
+
             }
         }
 

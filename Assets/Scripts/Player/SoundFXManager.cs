@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Player
@@ -11,10 +12,12 @@ namespace Player
 
         [SerializeField] AudioSource walkFX;
         [SerializeField] AudioSource dashFX;
+        [SerializeField] AudioSource Claps;
 
         [SerializeField] AudioClip walkClip; // Assign a walking sound clip in the inspector
         [SerializeField] AudioClip roll; // Assign a rolling sound clip in the inspector
         [SerializeField] AudioClip dashCharge; // Assign a rolling sound clip in the inspector
+        [SerializeField] AudioClip claps;
 
 
         float timer = 0;
@@ -82,12 +85,17 @@ namespace Player
 
         public void PlayOnLoop()
         {
-            soundFXObject.clip = roll;
+
+            Claps.clip = claps;
+            Claps.loop = true;
+            Claps.volume = 0.6F;
+            Claps.Play();
         }
 
         public void StopLoop()
         {
-            
+          
+            Claps.loop = false;
         }
 
 
