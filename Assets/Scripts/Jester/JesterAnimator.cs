@@ -48,7 +48,7 @@ namespace Jester
             if (roll < chance)
             {
                 yield return new WaitForSeconds(1);
-                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(discust, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(discust, 0.7f);
             }
 
 
