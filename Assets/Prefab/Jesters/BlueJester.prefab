@@ -119,6 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f25672e3234e9cb4f741bdb43fd1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  discust:
+  - {fileID: 8300000, guid: 5f6a15fe76435264db0aba008279ecf8, type: 3}
+  - {fileID: 8300000, guid: 0d1e7c6118e0e4e49a8c306470cff3e5, type: 3}
+  - {fileID: 8300000, guid: cd54bacc4da9ac34f9b9113cf452b871, type: 3}
+  - {fileID: 8300000, guid: 3c17e7f3c2d7b8548b443239dda0f51f, type: 3}
+  chance: 0.8
+  UserInterface: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
 --- !u!95 &1256570226195499151
 Animator:
   serializedVersion: 5

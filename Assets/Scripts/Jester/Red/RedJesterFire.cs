@@ -1,3 +1,4 @@
+using Player;
 using Projectile;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Jester.Red
         [SerializeField] private GameObject throwProjectilePrefab;
         [SerializeField] private GameObject throwAndRollProjectilePrefab;
         [SerializeField] private GameObject throwAndExplodeProjectilePrefab;
+        [SerializeField] private AudioClip[] grunt;
 
         private GameObject _player;
 
@@ -25,6 +27,7 @@ namespace Jester.Red
         {
             var throwProjectile = Instantiate(throwProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<Pin>().SetShotData(shotData, _player.transform.position);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(grunt, 1f);
         }
 
         public void ThrowAndRoll(RedShotDataObject shotData)
@@ -32,12 +35,16 @@ namespace Jester.Red
             var throwProjectile = Instantiate(throwAndRollProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, _player.transform.position);
             throwProjectile.GetComponentInChildren<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetThrowAndRollSprite(shotData.throwAndRollType);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(grunt, 1f);
+
         }
 
         public void ThrowAndExplode(RedShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwAndExplodeProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<BombProjectile>().SetShotData(shotData, _player.transform.position);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(grunt, 1f);
+
         }
     }
 }

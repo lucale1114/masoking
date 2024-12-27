@@ -134,6 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f25672e3234e9cb4f741bdb43fd1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  discust:
+  - {fileID: 8300000, guid: 5f6a15fe76435264db0aba008279ecf8, type: 3}
+  - {fileID: 8300000, guid: 0d1e7c6118e0e4e49a8c306470cff3e5, type: 3}
+  - {fileID: 8300000, guid: cd54bacc4da9ac34f9b9113cf452b871, type: 3}
+  - {fileID: 8300000, guid: 3c17e7f3c2d7b8548b443239dda0f51f, type: 3}
+  chance: 0.5
+  UserInterface: {fileID: 3263428554404369224, guid: a0bdbdc2185f7b94aa5e78a3601f4fa8, type: 3}
 --- !u!95 &1256570226195499151
 Animator:
   serializedVersion: 5
@@ -288,6 +295,11 @@ MonoBehaviour:
   throwProjectilePrefab: {fileID: 8226887042515088013, guid: 3566d04f54154cd49a53d2d6429e6fc3, type: 3}
   throwAndRollProjectilePrefab: {fileID: 236290846190269531, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}
   throwAndExplodeProjectilePrefab: {fileID: 442374250887612245, guid: e2d5e55e936356c4e9342c7f8e6f9210, type: 3}
+  grunt:
+  - {fileID: 8300000, guid: 34bf5c09de534594085d59f817eb849e, type: 3}
+  - {fileID: 8300000, guid: f3d593f3b70d5c849ad644e2b4cdaab6, type: 3}
+  - {fileID: 8300000, guid: 13ba06e8c56234c4b8a1a484b7a2cec5, type: 3}
+  - {fileID: 8300000, guid: 590afb3817384b8428cca92ac6a40f3c, type: 3}
 --- !u!1 &5734307838378441611
 GameObject:
   m_ObjectHideFlags: 0

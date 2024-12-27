@@ -24,6 +24,7 @@ namespace Wave.Handler
         private int _waveNumber;
         private bool _pausedByWave;
         private bool end;
+        public bool End => end;
 
         private void Awake()
         {
