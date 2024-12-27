@@ -103,6 +103,7 @@ namespace Misc
             _pauseMenu.SetActive(false);
 
             _soundMenu = GameObject.Find("SoundMenu");
+            _soundMenu.transform.Find("Close").GetComponent<Button>().onClick.AddListener(QuitSound);
             _soundMenu.SetActive(false);
         }
 
@@ -111,6 +112,12 @@ namespace Misc
             Time.timeScale = 1;
             _pauseMenu.SetActive(false);
             PauseAllSources();
+        }
+
+        private void QuitSound()
+        {
+            _soundMenu.SetActive(false);
+            _pauseMenu.SetActive(true);
         }
 
         public void Restart()
