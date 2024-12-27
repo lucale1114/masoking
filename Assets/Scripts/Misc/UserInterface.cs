@@ -91,11 +91,10 @@ namespace Misc
             _restartBtn.onClick.AddListener(Resume);
 
             lightouts1 = GameObject.Find("LightsOut2");
-            lightouts2 = GameObject.Find("Circle");
+            lightouts2 = GameObject.Find("LightCircle");
 
             lightouts1.SetActive(false);
             lightouts2.SetActive(false);
-
             _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
             _pauseMenu.transform.Find("Elements/Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
@@ -135,7 +134,7 @@ namespace Misc
             GameManager.Quit();
 
         }
-        private static void Menu()
+        private void Menu()
         {
             Time.timeScale = 1;
             GameManager.LoadMenu();
