@@ -35,7 +35,9 @@ namespace Jester
 
             _spriteRenderer.sortingLayerName = "InFront";
 
-            SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
+            //SoundFXManager.Instance.PlayRandomSoundFX(booms, 1f);
+
+            SoundFXManager20.Instance.PlaySoundFX(SoundType.Explosion, 1f);
 
             yield return new WaitForSeconds(0.2f);
 

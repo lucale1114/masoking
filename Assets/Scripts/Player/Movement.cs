@@ -26,7 +26,6 @@ namespace Player
         [SerializeField] private float currentCharge;
         [SerializeField] private float maxCharge = 4;
         [SerializeField] private float velocityForTurnToActivate = 4;
-        [SerializeField] private AudioClip walk;
         [SerializeField] private AudioClip[] dash;
 
 
@@ -122,7 +121,9 @@ namespace Player
                 if (Mathf.Approximately(currentVelocity.magnitude, 0))
                 {
                     playerAnimator.PlayIdle();
-                    SoundFXManager.Instance.StopWalking();
+                    //SoundFXManager.Instance.StopWalking();
+                    SoundFXManager20.Instance.StopLoop(SoundType.Walk);
+
                 }
                 else if (currentVelocity.x * moveInput.x < 0)
                 {
@@ -130,11 +131,14 @@ namespace Player
                     {
                         playerAnimator.PlayTurning(moveInput);
                     }
-                    SoundFXManager.Instance.StartWalking();
+                    //SoundFXManager.Instance.StartWalking();
+                    SoundFXManager20.Instance.StartLoop(SoundType.Walk, 1f);
                 }
                 else {
                     playerAnimator.PlayMoving(currentVelocity);
-                    SoundFXManager.Instance.StartWalking();
+                    //SoundFXManager.Instance.StartWalking();
+                    SoundFXManager20.Instance.StartLoop(SoundType.Walk, 1f);
+
                 }
 
             }
@@ -214,8 +218,9 @@ namespace Player
 
         public IEnumerator ChargeDash()
         {
-            SoundFXManager.Instance.StartDash();
-            SoundFXManager.Instance.StopWalking();
+            SoundFXManager20.Instance.StartLoop(SoundType.DashCharge, 1f);
+            SoundFXManager20.Instance.StopLoop(SoundType.Walk);
+
             IsCurrentlyDashing = true;
             IsInDashState = true;
             rb.velocity = Vector2.zero;
@@ -235,8 +240,8 @@ namespace Player
                     break; // Exit the loop
                 }
             }
-            SoundFXManager.Instance.StopDash();
-            SoundFXManager.Instance.PlayRandomSoundFX(dash, 1f);
+            SoundFXManager20.Instance.StopLoop(SoundType.DashCharge);
+            SoundFXManager20.Instance.PlaySoundFX(SoundType.Dash, 1f);
 
             power = Mathf.Max(dashMinTime, power);
             StartCoroutine(Dash());
