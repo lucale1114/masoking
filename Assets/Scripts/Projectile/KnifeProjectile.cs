@@ -57,18 +57,19 @@ namespace Projectile
 
             if (_data.breakable)
             {
-                GetComponent<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().knifeSprites[0];
+                GetComponent<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetBreakableSprite();
                 spinSpeed *= 0.5f;
                 transform.localScale *= 3;
                 GetComponent<Collision>().noStabbing = true;
-            }
-
-            if (axe)
+            } else if (axe)
             {
-                GetComponent<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().knifeSprites[1];
+                GetComponent<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetAxeSprite();
                 transform.localScale *= 3;
                 spinSpeed *= 0.5f;
-
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetKnifeSprite();
             }
         }
 

@@ -20,8 +20,8 @@ namespace Player
         [SerializeField] AudioClip claps;
 
 
-        float timer = 0;
-        float minTime = 0.05f;
+       // float timer = 0;
+        //float minTime = 0.05f;
 
 
         private bool isWalking = false;
@@ -45,15 +45,13 @@ namespace Player
                 soundFXObject.pitch -= 0.1f * Time.deltaTime;
             }
 
-            timer += Time.deltaTime;
-
         }
 
         public void PlaySoundFX(AudioClip audioClip, float volume)
         {
             
 
-            timer = 0;
+      
 
             soundFXObject.PlayOneShot(audioClip, volume);
         
@@ -70,8 +68,6 @@ namespace Player
         {
             int rand = Random.Range(0, audioClip.Length);
             
-
-            timer = 0;
 
             soundFXObjectNoPitch.PlayOneShot(audioClip[rand], volume);
             

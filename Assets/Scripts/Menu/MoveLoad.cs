@@ -25,7 +25,7 @@ namespace Menu
         {
             yield return new WaitForSeconds(5f);
 
-            GameManager.LoadFirstLevel();
+            GameManager.LoadNextLevel();
         }
     }
 }
