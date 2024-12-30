@@ -354,8 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 20
   smack:
-  - {fileID: 8300000, guid: 9b13c9ef4f8322444ba2d356130f2544, type: 3}
-  - {fileID: 8300000, guid: c93de2aa85a6ada4e90bf6d99a5bd950, type: 3}
+  - {fileID: 8300000, guid: 8611c622f2e43cb44b3f2eecd0bba6b7, type: 3}
+  - {fileID: 8300000, guid: 41eea6fb8d93ed4418ac549f791689ff, type: 3}
   bombOffset: {x: 0.4, y: 0.5, z: 0}
 --- !u!114 &7072586478284884970
 MonoBehaviour:

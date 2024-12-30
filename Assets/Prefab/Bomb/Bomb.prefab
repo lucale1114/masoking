@@ -91,9 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booms:
-  - {fileID: 8300000, guid: 0be85d41938a1214d949051b210d57dd, type: 3}
-  - {fileID: 8300000, guid: 679b8abd86aa9cf4399c70d132368c11, type: 3}
-  - {fileID: 8300000, guid: 3734b94f3212eb746a29b29b07086ffb, type: 3}
+  - {fileID: 8300000, guid: fd42bab1559bdf640b9afc2268b37856, type: 3}
+  - {fileID: 8300000, guid: de961db86d7fe174babf84e12cc3153f, type: 3}
+  - {fileID: 8300000, guid: 8a73653adcf897f4ca0f2cb4bdf3bb97, type: 3}
   animator: {fileID: 1931289194047530510}
 --- !u!1 &5923859469624885417
 GameObject:
@@ -252,9 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundFX:
-  - {fileID: 8300000, guid: 0be85d41938a1214d949051b210d57dd, type: 3}
-  - {fileID: 8300000, guid: 679b8abd86aa9cf4399c70d132368c11, type: 3}
-  - {fileID: 8300000, guid: 3734b94f3212eb746a29b29b07086ffb, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   noStabbing: 0
 --- !u!1001 &2964910235643438958
 PrefabInstance:

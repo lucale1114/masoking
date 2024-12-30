@@ -39,8 +39,7 @@ namespace Misc
             {
                 movement = collision.collider.GetComponent<Player.Movement>();
                 movement.AttemptBounce(-collision.contacts[0].normal);
-                //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(AudioClip,1f);
-                SoundFXManager20.Instance.PlaySoundFX(SoundType.WallBonk, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(AudioClip,1f);
 
 
                 Instantiate(_wallDashAnimationPrefab,

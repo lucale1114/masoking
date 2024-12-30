@@ -200,11 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundFX:
-  - {fileID: 8300000, guid: 14f7a25e893dd884cbe134f400b825f6, type: 3}
-  - {fileID: 8300000, guid: 58d917e28166eef4da883ba393db19e6, type: 3}
-  - {fileID: 8300000, guid: 79a1a49144588fc43a5278673a0f1812, type: 3}
-  - {fileID: 8300000, guid: 0244b612ac2d15445a12edaf1294eb9c, type: 3}
-  hitVfx: {fileID: 2167643228973041122, guid: 412fa2329f80c4d45916f25ee62f4222, type: 3}
+  - {fileID: 8300000, guid: 2d79f53f72a807e4caa48ee09823edf4, type: 3}
+  - {fileID: 8300000, guid: 2fbfb996b2937a84396a3b2d2bc89074, type: 3}
+  - {fileID: 8300000, guid: 4bf9098d583df3940bbadd36182bda6e, type: 3}
+  - {fileID: 8300000, guid: 6f9ae4b61d43f8f45a025670001c55f2, type: 3}
   noStabbing: 0
 --- !u!82 &1409889420940386017
 AudioSource:

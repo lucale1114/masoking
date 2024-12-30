@@ -121,8 +121,7 @@ namespace Player
                 if (Mathf.Approximately(currentVelocity.magnitude, 0))
                 {
                     playerAnimator.PlayIdle();
-                    //SoundFXManager.Instance.StopWalking();
-                    SoundFXManager20.Instance.StopLoop(SoundType.Walk);
+                    SoundFXManager.Instance.StopWalking();
 
                 }
                 else if (currentVelocity.x * moveInput.x < 0)
@@ -131,13 +130,11 @@ namespace Player
                     {
                         playerAnimator.PlayTurning(moveInput);
                     }
-                    //SoundFXManager.Instance.StartWalking();
-                    SoundFXManager20.Instance.StartLoop(SoundType.Walk, 1f);
+                    SoundFXManager.Instance.StartWalking();
                 }
                 else {
                     playerAnimator.PlayMoving(currentVelocity);
-                    //SoundFXManager.Instance.StartWalking();
-                    SoundFXManager20.Instance.StartLoop(SoundType.Walk, 1f);
+                    SoundFXManager.Instance.StartWalking();
 
                 }
 
@@ -218,8 +215,10 @@ namespace Player
 
         public IEnumerator ChargeDash()
         {
-            SoundFXManager20.Instance.StartLoop(SoundType.DashCharge, 1f);
-            SoundFXManager20.Instance.StopLoop(SoundType.Walk);
+            
+            SoundFXManager.Instance.StartDash();
+            SoundFXManager.Instance.StopWalking();
+
 
             IsCurrentlyDashing = true;
             IsInDashState = true;
@@ -240,8 +239,8 @@ namespace Player
                     break; // Exit the loop
                 }
             }
-            SoundFXManager20.Instance.StopLoop(SoundType.DashCharge);
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Dash, 1f);
+            SoundFXManager.Instance.StopDash();
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(dash,1f);
 
             power = Mathf.Max(dashMinTime, power);
             StartCoroutine(Dash());

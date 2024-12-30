@@ -38,9 +38,8 @@ namespace Projectile
                 heatSystem.ChangeHeat(damage,Sharp, closestPoint, direction);
             }
 
-            //SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
-            //SoundFXManager.Instance.PitchChange();
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Slash,0.8f);
+            SoundFXManager.Instance.PlayRandomSoundFX(SoundFX, 1f);
+            SoundFXManager.Instance.PitchChange();
 
             var topLevelItem = gameObject.transform;
             while (topLevelItem.parent != null)
