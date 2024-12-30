@@ -6,6 +6,8 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
+        public static int LastLevelCompleted;
+
         public static void LoadMenu()
         {
             SceneManager.LoadScene(0);
@@ -33,7 +35,15 @@ namespace Managers
 
         public static void LoadNextLevel()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (LastLevelCompleted == 0) {
+                LastLevelCompleted = 3;
+            }
+            if (LastLevelCompleted == 6)
+            {
+                SceneManager.LoadScene(7);
+                return;
+            }
+            SceneManager.LoadScene(LastLevelCompleted + 1);
         }
 
         public static void Restart()
