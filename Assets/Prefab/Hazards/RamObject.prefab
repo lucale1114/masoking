@@ -275,6 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96832f298ee47b4fbdcaa7cc513ba49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smash:
+  - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  - {fileID: 8300000, guid: 5c9b14d6e938eff4ab4e8a448453083f, type: 3}
   data:
     timestamp: 0
     side: 0

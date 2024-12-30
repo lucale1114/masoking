@@ -9,11 +9,16 @@ namespace Misc
     {
         public GameObject boardMove;
         public GameObject boardDash;
+        public GameObject jesterTeacher;
+        private float acceleration = 0.5f;
+
         public Transform target1;
         public Transform target2;
+        public Transform target3;   
 
         private Rigidbody2D rbMove;
         private Rigidbody2D rbDash;
+        private Rigidbody2D rbTeacher;
         private GameObject _player;
 
         private PlayerAnimator _animator;
@@ -27,7 +32,7 @@ namespace Misc
             base.Awake();
             _comboResultText.enabled = false;
             _comboCounter.enabled = false;
-            _heatBar.enabled = false;
+           //_heatBar.enabled = false;
 
 
             _mashSpace.enabled = false;
@@ -47,9 +52,12 @@ namespace Misc
 
             rbMove = boardMove.GetComponent<Rigidbody2D>();
             rbDash = boardDash.GetComponent<Rigidbody2D>();
+            rbTeacher = jesterTeacher.GetComponent<Rigidbody2D>();
+
 
             StartCoroutine(SwitchBoard());
-            StartCoroutine(WaitSec());
+            
+           
 
         }
 
@@ -59,25 +67,32 @@ namespace Misc
         protected new void Update()
         {
             base.Update();
+            if (_heatSystem.beenHit == true)
+            {
+                _player.GetComponent<Movement>().enabled = true;
+
+            }
+
+            StartCoroutine(MoveJester());
         }
 
 
         private IEnumerator SwitchBoard()
         {
-            yield return new WaitForSeconds(7f);
+            
+            yield return new WaitForSeconds(10f);
             MoveBoardMoveRigth();
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(10f);
             MoveBoardMoveLeft();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(5f);
             MoveBoardDash();
 
         }
 
-        private IEnumerator WaitSec()
+        private IEnumerator MoveJester()
         {
-            yield return new WaitForSeconds(7f);
-            _player.GetComponent<Movement>().enabled = true;
-
+            yield return new WaitForSeconds(10);
+            JesterFall();
         }
 
         private void MoveBoardMoveRigth()
@@ -94,6 +109,35 @@ namespace Misc
         private void MoveBoardDash()
         {
             rbDash.transform.DOMove(target2.position, 2f);
+        }
+
+        private void JesterFall()
+        {
+            // Convert target3.position to Vector2
+            Vector2 targetPosition = target3.position; // Implicitly converts Vector3 to Vector2 by ignoring the Z axis
+
+            // Direction to target
+            Vector2 direction = (targetPosition - rbTeacher.position).normalized;
+            float gravityEffect = 20f; // Adjust gravity strength
+
+            // Apply velocity with acceleration and gravity
+            rbTeacher.velocity += direction * acceleration * Time.deltaTime;
+            rbTeacher.velocity += Vector2.down * gravityEffect * Time.deltaTime;
+
+            // Clamp speed to prevent it from getting too fast
+            float maxSpeed = 10f;
+            if (rbTeacher.velocity.magnitude > maxSpeed)
+            {
+                rbTeacher.velocity = rbTeacher.velocity.normalized * maxSpeed;
+            }
+
+            // Stop moving if close to the target
+            if (Vector2.Distance(rbTeacher.position, targetPosition) < 0.1f)
+            {
+                rbTeacher.velocity = Vector2.zero;
+                rbTeacher.MovePosition(targetPosition); // Snap the object to the target position
+            }
+
         }
 
     }

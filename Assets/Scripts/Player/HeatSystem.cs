@@ -41,6 +41,7 @@ namespace Player
         private float _comboMultiplier = 0f;
         private Movement _movement;
         private Score _score;
+        public bool beenHit = false;
         private bool _comboAnimationTriggered;
 
 
@@ -77,6 +78,7 @@ namespace Player
             HeatSource heatSource = HeatSource.None,
             Vector2 impactPoint = default,
             Vector2 damageDirection = default)
+            
         {
             if (invincible)
             {
@@ -124,6 +126,8 @@ namespace Player
             if (amount > 0)
             {
                 TakenDamage?.Invoke(amount);
+                beenHit = true;
+
             }
 
             if (_currentHeat >= maximumHeat && CanMaxHeat)
