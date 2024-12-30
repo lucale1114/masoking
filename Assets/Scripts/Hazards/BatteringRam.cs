@@ -12,6 +12,7 @@ public class BatteringRam : MonoBehaviour
     private Transform _indicator;
     private Vector3 _originalPos;
     private float _currentTick;
+    [SerializeField] AudioClip[] smash;
 
     public BatteringRamData data;
 
@@ -115,6 +116,7 @@ public class BatteringRam : MonoBehaviour
                 movement.Knocked(0.3f, transform.up);
                 //player.GetComponent<Rigidbody2D>().velocity = transform.forward * 500;
                 player.GetComponent<HeatSystem>().ChangeHeat(data.damage);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(smash, 1f);
                 if (launchMode) { 
                     Invoke("AllowHit", 0.3f);
                 }
