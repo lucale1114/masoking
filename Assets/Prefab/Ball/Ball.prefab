@@ -51,7 +51,7 @@ MonoBehaviour:
   shadowPrefab: {fileID: 4541097288492365035, guid: 9453e0617f37a0f48bae38a4cb684919, type: 3}
   colliderActivationPercentage: 0.98
   curveHeight: 5
-  roll: {fileID: 8300000, guid: 63d0a4f54142c604094b6dfd6cd58180, type: 3}
+  roll: {fileID: 0}
 --- !u!50 &2330847115074709038
 Rigidbody2D:
   serializedVersion: 4
