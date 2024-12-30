@@ -857,6 +857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a4369942389dd4aa52515f4be30de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  twirlMultiplier: 1
+  speedMultiplier: 1
 --- !u!1 &304432806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: heatDecayPerSecond
-      value: 4
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: dash.Array.data[0]
