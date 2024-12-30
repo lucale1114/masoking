@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: IntroWave2
   m_EditorClassIdentifier: 
-  StartDelay: 0
+  StartDelay: 1
   SpawnBall: 0
   Description: 
   red:
