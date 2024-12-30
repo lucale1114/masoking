@@ -41,6 +41,7 @@ namespace Player
         private float _comboMultiplier = 0f;
         private Movement _movement;
         private Score _score;
+        private float realHeatDecay;
         public bool beenHit = false;
         private bool _comboAnimationTriggered;
 
@@ -52,7 +53,7 @@ namespace Player
             _score = FindObjectOfType<Score>();
             _animator = GetComponent<PlayerAnimator>();
             _kingEffectsAnimator = GetComponent<KingEffectsAnimator>();
-
+            realHeatDecay = heatDecayPerSecond / 100;
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
         }
@@ -175,8 +176,8 @@ namespace Player
             ChangeHeat(0);
             while (true)
             {
-                yield return new WaitForSeconds(1f);
-                ChangeHeat(-heatDecayPerSecond);
+                yield return new WaitForSeconds(0.01f);
+                ChangeHeat(-realHeatDecay);
             }
         }
 
