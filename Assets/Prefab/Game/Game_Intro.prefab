@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 1204507529585830988, guid: 1b5e057761bfba447994095587852f96, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 1717593196112785143, guid: 1b5e057761bfba447994095587852f96, type: 3}
       propertyPath: waveList
       value: 

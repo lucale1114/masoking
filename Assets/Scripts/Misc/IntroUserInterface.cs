@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using Player;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Misc
 {
@@ -20,8 +21,12 @@ namespace Misc
         private Rigidbody2D rbDash;
         private Rigidbody2D rbTeacher;
         private GameObject _player;
+        bool VFx = false;
+        bool haveHit = false;
+        [SerializeField] AudioClip sad;
+        [SerializeField] AudioClip glad;
 
-        private PlayerAnimator _animator;
+        [SerializeField] protected GameObject hitFloorVfxPrefab;
 
 
 
@@ -66,10 +71,11 @@ namespace Misc
         protected new void Update()
         {
             base.Update();
-            if (_heatSystem.beenHit == true)
+            if (_heatSystem.beenHit == true && haveHit == false)
             {
                 _player.GetComponent<Movement>().enabled = true;
-
+                SoundFXManager.Instance.PlaySoundFX(glad, 1f);
+                haveHit = true;
             }
 
             StartCoroutine(MoveJester());
@@ -78,8 +84,9 @@ namespace Misc
 
         private IEnumerator SwitchBoard()
         {
-            
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(7f);
+            SoundFXManager.Instance.PlaySoundFX(sad,1f);
+            yield return new WaitForSeconds(10f);
             MoveBoardMoveRigth();
             yield return new WaitForSeconds(10f);
             MoveBoardMoveLeft();
@@ -112,6 +119,7 @@ namespace Misc
 
         private void JesterFall()
         {
+          
             // Convert target3.position to Vector2
             Vector2 targetPosition = target3.position; // Implicitly converts Vector3 to Vector2 by ignoring the Z axis
 
@@ -120,8 +128,8 @@ namespace Misc
             float gravityEffect = 20f; // Adjust gravity strength
 
             // Apply velocity with acceleration and gravity
-            rbTeacher.velocity += direction * acceleration * Time.deltaTime;
-            rbTeacher.velocity += Vector2.down * gravityEffect * Time.deltaTime;
+            rbTeacher.velocity += acceleration * Time.deltaTime * direction;
+            rbTeacher.velocity += gravityEffect * Time.deltaTime * Vector2.down  ;
 
             // Clamp speed to prevent it from getting too fast
             float maxSpeed = 10f;
@@ -135,6 +143,12 @@ namespace Misc
             {
                 rbTeacher.velocity = Vector2.zero;
                 rbTeacher.MovePosition(targetPosition); // Snap the object to the target position
+                if (VFx == false)
+                {
+                    Instantiate(hitFloorVfxPrefab, rbTeacher.transform.position, Quaternion.identity);
+                    VFx = true;
+
+                }
             }
 
         }
