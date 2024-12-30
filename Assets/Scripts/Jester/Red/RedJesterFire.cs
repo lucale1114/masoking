@@ -26,6 +26,7 @@ namespace Jester.Red
         public void Throw(RedShotDataObject shotData)
         {
             var throwProjectile = Instantiate(throwProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
+            throwProjectile.GetComponentInChildren<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetThrowSprite();
             throwProjectile.GetComponent<Pin>().SetShotData(shotData, _player.transform.position);
             SoundFXManager.Instance.PlayRandomSoundFXNoPitch(grunts, 0.7f);
         }
@@ -34,7 +35,7 @@ namespace Jester.Red
         {
             var throwProjectile = Instantiate(throwAndRollProjectilePrefab, GetSpawnPoint(), Quaternion.identity);
             throwProjectile.GetComponent<BallProjectile>().SetShotData(shotData, _player.transform.position);
-            throwProjectile.GetComponentInChildren<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetThrowAndRollSprite(shotData.throwAndRollType);
+            throwProjectile.GetComponentInChildren<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("GameController").GetComponent<SpriteStorage>().GetThrowAndRollSprite();
             SoundFXManager.Instance.PlayRandomSoundFXNoPitch(grunts, 0.7f);
 
         }
