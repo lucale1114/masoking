@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticlePrefab: {fileID: 3032857890167619206, guid: 8defc44d9ab039446a391ef5d330a132, type: 3}
   shadowPrefab: {fileID: 4541097288492365035, guid: 9453e0617f37a0f48bae38a4cb684919, type: 3}
+  hitFloorVfxPrefab: {fileID: 8907371120582773227, guid: 5725615c49190d544af7c968c359a36f, type: 3}
   colliderActivationPercentage: 0.98
   curveHeight: 5
   roll: {fileID: 0}
