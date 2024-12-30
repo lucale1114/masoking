@@ -295,10 +295,10 @@ MonoBehaviour:
   throwAndRollProjectilePrefab: {fileID: 236290846190269531, guid: 0d19d79aad15aa44abbddc11308be88d, type: 3}
   throwAndExplodeProjectilePrefab: {fileID: 442374250887612245, guid: e2d5e55e936356c4e9342c7f8e6f9210, type: 3}
   grunts:
-  - {fileID: 8300000, guid: f6cdd020badd6954bba5d56dfa4d87e8, type: 3}
-  - {fileID: 8300000, guid: aec49516775689d45b2c65fdc7335f97, type: 3}
-  - {fileID: 8300000, guid: 18f513acad0f5fc49b9221442107a77b, type: 3}
-  - {fileID: 8300000, guid: 03faa4c7e130a3c40b48c76200613b18, type: 3}
+  - {fileID: 8300000, guid: ddf43f1cf8a969f489cde4db878c7d60, type: 3}
+  - {fileID: 8300000, guid: 434a3b75c63899049b03cf46fdd08aa4, type: 3}
+  - {fileID: 8300000, guid: ddf43f1cf8a969f489cde4db878c7d60, type: 3}
+  - {fileID: 8300000, guid: 434a3b75c63899049b03cf46fdd08aa4, type: 3}
 --- !u!1 &5734307838378441611
 GameObject:
   m_ObjectHideFlags: 0
