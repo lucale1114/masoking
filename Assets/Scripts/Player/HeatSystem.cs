@@ -41,6 +41,7 @@ namespace Player
         private float _comboMultiplier = 0f;
         private Movement _movement;
         private Score _score;
+        private bool _comboAnimationTriggered;
 
 
         private void Start()
@@ -143,8 +144,9 @@ namespace Player
                 StartCoroutine(MaxHeatReward());
             }
 
-            if (Mathf.Approximately(_comboMultiplier, 10))
+            if (_comboMultiplier >= 10 && !_comboAnimationTriggered)
             {
+                _comboAnimationTriggered = true;
                 _animator.PlayCombo();
                 _kingEffectsAnimator.PlayCombo(impactPoint);
             }
@@ -185,6 +187,7 @@ namespace Player
                     ComboEnded?.Invoke(_comboMultiplier);
                     _comboMultiplier = 0f;
                     _timeSinceLastHit = 0f;
+                    _comboAnimationTriggered = false;
                 }
             }
         }

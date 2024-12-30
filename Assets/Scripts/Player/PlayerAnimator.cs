@@ -89,57 +89,49 @@ namespace Player
 
         public void PlayWindup(Vector2 velocity)
         {
-            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
-            {
-
-            }
             _lastNonZeroVelocity = velocity;
             _nextState = State.Windup;
         }
 
         public void PlayDash(Vector2 velocity)
         {
-            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
-            {
-
-            }
-
             _lastNonZeroVelocity = velocity;
             _nextState = State.Dash;
         }
 
         public void PlayIdle()
         {
-            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
-            {
-
-            }
-
             _nextState = State.Idle;
         }
 
         public void PlayMoving(Vector2 velocity)
         {
-            if (_nextState != State.Hit && _nextState != State.Combo && _nextState != State.Turn)
-            {
-                _lastNonZeroVelocity = velocity;
-                _nextState = State.Move;
-            }
+            _lastNonZeroVelocity = velocity;
+            _nextState = State.Move;
         }
 
         public void PlayHit()
         {
-            _nextState = State.Hit;
+            if (!_doNotInterrupt)
+            {
+                _nextState = State.Hit;
+            }
         }
 
         public void PlayRelax()
         {
-            _nextState = State.Relaxing;
+            if (!_doNotInterrupt)
+            {
+                _nextState = State.Relaxing;
+            }
         }
 
         public void PlayCombo()
         {
-            _nextState = State.Combo;
+            if (!_doNotInterrupt)
+            {
+                _nextState = State.Combo;
+            }
         }
 
         public void PlayTurning(Vector2 moveInput)
