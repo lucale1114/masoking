@@ -16,6 +16,8 @@ namespace Misc
         private float xSpeed;
         private float ySpeed;
 
+        public float twirlMultiplier = 1;
+        public float speedMultiplier = 1;
 
         private HeatSystem _heatSystem;
         private Material _material;
@@ -43,13 +45,13 @@ namespace Misc
             var _moveX = _material.GetFloat(MoveX);
             var _moveY = _material.GetFloat(MoveY);
 
-            _twirl = Mathf.Lerp(_twirl, baseTwirl, Time.deltaTime * 6);
+            _twirl = Mathf.Lerp(_twirl, baseTwirl, (Time.deltaTime * 6) * speedMultiplier);
             _material.SetFloat(Twirl, _twirl);
         }
 
         public void Increase(float amount){
             var _twirl = _material.GetFloat(Twirl);
-            _material.SetFloat(Twirl, _twirl + amount);
+            _material.SetFloat(Twirl, (_twirl + amount) * twirlMultiplier);
         }
     }
 }

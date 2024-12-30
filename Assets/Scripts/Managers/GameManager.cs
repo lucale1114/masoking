@@ -28,21 +28,13 @@ namespace Managers
             SceneManager.LoadScene(3);
         }
 
-        public static void LoadFirstLevel()
-        {
-            SceneManager.LoadScene(4);
-        }
-
         public static void LoadNextLevel()
         {
-            if (LastLevelCompleted == 0) {
+            if (LastLevelCompleted == 0)
+            {
                 LastLevelCompleted = 3;
             }
-            if (LastLevelCompleted == 6)
-            {
-                SceneManager.LoadScene(7);
-                return;
-            }
+
             SceneManager.LoadScene(LastLevelCompleted + 1);
         }
 

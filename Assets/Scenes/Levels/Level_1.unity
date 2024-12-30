@@ -177,10 +177,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5931346090368708700, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1093011799}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
 --- !u!1 &52710511
 GameObject:
@@ -421,6 +418,14 @@ PrefabInstance:
     - target: {fileID: 4468562019061588131, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604579735536977695, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 4230355567272475688}
+    - target: {fileID: 4604579735536977695, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4973700207214460142, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -722,7 +727,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 911a73be24b06f84c88800a0bc6b9347, type: 2}
+  - {fileID: 2100000, guid: 47c52e8c9605d514ea1492905ab4c476, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -776,34 +781,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086731957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 222f1990c67ad8342a6e8c57896ed869, type: 3}
+  m_Script: {fileID: 11500000, guid: 56a4369942389dd4aa52515f4be30de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   twirlMultiplier: 1
-  speedMultiplier: 1.05
-  moveXMultiplier: 1
-  moveYMultiplier: 1
-  duration: 0.2
---- !u!1 &1093011796 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5931346090368708700, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
-  m_PrefabInstance: {fileID: 21406762}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1093011799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093011796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf74204a8b2b894783a81b40fb31e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vignetteStartIntensity: 0.2
-  vignetteEndIntensity: 0.4
-  vignetteDuration: 0.2
+  speedMultiplier: 1
 --- !u!1 &924167678533831923
 GameObject:
   m_ObjectHideFlags: 0

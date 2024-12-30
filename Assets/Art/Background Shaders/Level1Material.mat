@@ -20,24 +20,26 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TwirlMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: db8a9f5fa60a9fe4bb10340fb503d6f2, type: 3}
+  m_Name: Level1Material
+  m_Shader: {fileID: -6465566751694194690, guid: c5f3dba3a05102c4095aa73eba40153a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHATEST_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8bcb489860c930d449ea304df4017f39, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3830a81deb5a0b2489a4e7775dbb479c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -60,23 +62,21 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 0
-    - _MoveX: 0
-    - _MoveY: 0
+    - _MoveX: 0.05
+    - _MoveY: 0.04
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Saturation: 0.7
-    - _Speed: 0
+    - _Speed: 0.09
     - _SrcBlend: 1
     - _Surface: 0
-    - _Twirl: 0
+    - _Twirl: 2.99
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Color_1: {r: 0.654902, g: 0.5921569, b: 0.67058825, a: 1}
-    - _Color_2: {r: 0.9607844, g: 0.7058824, b: 0.3137255, a: 1}
-    - _Color_3: {r: 1, g: 1, b: 0.49803925, a: 1}
-    - _Color_4: {r: 0.9450981, g: 0.9607844, b: 0.93725497, a: 1}
+    - _Color_1: {r: 0.3207547, g: 0.16695139, b: 0.13737984, a: 1}
+    - _Color_2: {r: 0.4415095, g: 0.15911002, b: 0.15911002, a: 1}
+    - _Color_3: {r: 0.5924529, g: 0.27412203, b: 0.24033463, a: 1}
+    - _Color_4: {r: 0.6528301, g: 0.257069, b: 0.24019213, a: 1}
     - _Direction: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 1.19, g: 2.95, b: 0, a: 0}
   m_BuildTextureStacks: []
