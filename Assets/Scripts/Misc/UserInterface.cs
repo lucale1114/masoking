@@ -59,6 +59,7 @@ namespace Misc
         private GameObject lightouts1;
         private GameObject lightouts2;
         private GameObject exitScreen;
+        private GameObject _masterSlider;
 
         protected void Awake()
         {
@@ -105,6 +106,7 @@ namespace Misc
 
             _soundMenu = GameObject.Find("SoundMenu");
             _soundMenu.transform.Find("Close").GetComponent<Button>().onClick.AddListener(QuitSound);
+            _masterSlider = GameObject.Find("Master Slider");
             _soundMenu.SetActive(false);
         }
 
@@ -119,6 +121,8 @@ namespace Misc
         {
             _soundMenu.SetActive(false);
             _pauseMenu.SetActive(true);
+
+            EventSystem.current.SetSelectedGameObject(_restartBtn.gameObject);
         }
 
         public void Restart()
@@ -153,6 +157,8 @@ namespace Misc
             Time.timeScale = _soundMenu.activeSelf ? 1 : 0;
             _soundMenu.SetActive(!_soundMenu.activeSelf);
             _pauseMenu.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(_masterSlider);
         }
 
         public void ButtonSelected1()
@@ -261,7 +267,7 @@ namespace Misc
             lightouts2.transform.GetChild(0).GetComponent<Image>().DOColor(new Color(0, 0, 0, 0.5f), 2);
             StartCoroutine(EndGame());
         }
-        
+
         IEnumerator EndGame()
         {
             yield return new WaitForSeconds(10);
@@ -312,7 +318,7 @@ namespace Misc
 
                 _portrait.transform.DOShakePosition(1, 5);
             }
-                
+
         }
 
         private IEnumerator ComboFinish(float combo)
@@ -479,7 +485,7 @@ namespace Misc
                     if (!_pauseMenu.activeSelf)
                     {
                         PauseAllSources();
-                    } 
+                    }
 
                 }
             }
