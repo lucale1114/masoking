@@ -8,6 +8,7 @@ namespace Menu
     public class MoveLoad : MonoBehaviour
     {
         private Rigidbody2D _rb;
+        [SerializeField] float speed = 3;
 
         private void Start()
         {
@@ -17,12 +18,12 @@ namespace Menu
 
         private void Update()
         {
-            _rb.velocity = Vector2.right * 3f;
+            _rb.velocity = Vector2.right * speed;
         }
 
         private static IEnumerator LoadNextScene()
         {
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(5f);
 
             GameManager.LoadFirstLevel();
         }
