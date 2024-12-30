@@ -68,6 +68,12 @@ namespace Jester
 
                 }
             }
+            if(_player){
+                yield return new WaitForSeconds(0.1f);
+            }
+            else {
+                yield return new WaitForSeconds(0.1f);
+            }
 
             Destroy(gameObject);
         }

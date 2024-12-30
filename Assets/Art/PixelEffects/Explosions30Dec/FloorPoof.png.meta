@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a256239dd497bd24aab3fea997f2c9eb
+guid: fcbdbace88b7f8446845a2e2a65b1296
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HitEffect_7_0
+      name: FloorPoof_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 126
-        height: 126
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca05052b164fb44e82384dee60eeabd
-      internalID: -469572198
+      spriteID: 211d6775457bed7468327bbd4d8121ae
+      internalID: 369126260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect_7_1
+      name: FloorPoof_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 0
-        width: 126
-        height: 126
+        x: 95
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31d4b520f4b42c34291d7425fa0d94cc
-      internalID: -4499347
+      spriteID: 9c91508951a33544eb73d53e532c4419
+      internalID: 648425523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect_7_2
+      name: FloorPoof_2
       rect:
         serializedVersion: 2
-        x: 252
-        y: 0
-        width: 126
-        height: 126
+        x: 190
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b325e373a6cb8d846a4a926d53f5b63d
-      internalID: -352264834
+      spriteID: b068557b6025108479acef68d81fe315
+      internalID: 576393847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect_7_3
+      name: FloorPoof_3
       rect:
         serializedVersion: 2
-        x: 378
-        y: 0
-        width: 126
-        height: 126
+        x: 285
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bcfc2041706f3a49b58ff063c8970ad
-      internalID: 1574641512
+      spriteID: fb0d01f1defbf9c4e83198c613ef71bb
+      internalID: -1597495271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect_7_4
+      name: FloorPoof_4
       rect:
         serializedVersion: 2
-        x: 504
-        y: 0
-        width: 126
-        height: 126
+        x: 380
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74221bfad6d8bd2449aed470a2dcaf4d
-      internalID: -1786728376
+      spriteID: f6ddfe467e3072844b08ba80f1c99da6
+      internalID: -822640545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect_7_5
+      name: FloorPoof_5
       rect:
         serializedVersion: 2
-        x: 630
-        y: 0
-        width: 126
-        height: 126
+        x: 475
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 988c903f608b7fc44b403f700916f34d
-      internalID: 417889175
+      spriteID: 06f593776907c354abe54b94fb80246f
+      internalID: -423062325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect_7_6
+      name: FloorPoof_6
       rect:
         serializedVersion: 2
-        x: 756
-        y: 0
-        width: 126
-        height: 126
+        x: 570
+        y: 7
+        width: 95
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 084256df4c2819a46a3ba9cb5157becf
-      internalID: -236758337
+      spriteID: 9e546b33aea3510459dc8f4efab5a436
+      internalID: 493791681
       vertices: []
       indices: 
       edges: []
@@ -254,13 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HitEffect_7_0: -469572198
-      HitEffect_7_1: -4499347
-      HitEffect_7_2: -352264834
-      HitEffect_7_3: 1574641512
-      HitEffect_7_4: -1786728376
-      HitEffect_7_5: 417889175
-      HitEffect_7_6: -236758337
+      FloorPoof_0: 369126260
+      FloorPoof_1: 648425523
+      FloorPoof_2: 576393847
+      FloorPoof_3: -1597495271
+      FloorPoof_4: -822640545
+      FloorPoof_5: -423062325
+      FloorPoof_6: 493791681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
