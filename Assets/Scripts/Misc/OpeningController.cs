@@ -1,9 +1,9 @@
 using System.Collections;
 using DG.Tweening;
+using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Misc
@@ -69,7 +69,7 @@ namespace Misc
                 yield return new WaitForSecondsRealtime(0.1f);
             }
             yield return new WaitForSecondsRealtime(1.8f);
-            SceneManager.LoadScene(4);
+            GameManager.LoadLoadingScreen();
         }
 
         IEnumerator FadeInImage(Image img)
@@ -100,7 +100,7 @@ namespace Misc
 
         private void DelayStart()
         {
-            SceneManager.LoadScene(4);
+            GameManager.LoadLoadingScreen();
         }
         private void Update()
         {

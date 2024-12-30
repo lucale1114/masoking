@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Wave.Handler
 {
@@ -33,7 +31,6 @@ namespace Wave.Handler
 
         private void Start()
         {
-            GameManager.CurrentLevel = SceneManager.GetActiveScene().buildIndex;
             #if UNITY_EDITOR
             if (debugForceWave > 0)
             {
