@@ -776,14 +776,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086731957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 222f1990c67ad8342a6e8c57896ed869, type: 3}
+  m_Script: {fileID: 11500000, guid: 56a4369942389dd4aa52515f4be30de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   twirlMultiplier: 1
-  speedMultiplier: 1.05
-  moveXMultiplier: 1
-  moveYMultiplier: 1
-  duration: 0.2
+  speedMultiplier: 1
 --- !u!1 &1093011796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5931346090368708700, guid: 57ba14eaae5e48249824a2eb775226cc, type: 3}
