@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Wave.Handler;
+using UnityEngine.SceneManagement;
 
 namespace Misc
 {
@@ -269,7 +270,8 @@ namespace Misc
 
         private void EndScreen()
         {
-            GameManager.LoadNextLevel();
+            GameManager.LastLevelCompleted = SceneManager.GetActiveScene().buildIndex;
+            GameManager.LoadLoadingScreen();
         }
 
         private void ChangeKingPortrait(int index, bool punch, bool shake)
