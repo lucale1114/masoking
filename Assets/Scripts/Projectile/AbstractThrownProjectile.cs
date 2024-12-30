@@ -37,6 +37,7 @@ namespace Projectile
         private bool _stopSpin;
         private Transform _sprite;
         protected ParticleSystemRenderer ParticleSystemRenderer;
+        protected bool HasLanded;
 
         private void Awake()
         {
@@ -185,17 +186,17 @@ namespace Projectile
             {
                 if (_collider)
                 {
-                    if (!_collider.enabled)
-                    {
-                        Instantiate(hitFloorVfxPrefab, Reticle.transform.position, Quaternion.identity);
-                    }
-
                     _collider.enabled = true;
                 }
             }
 
-            OnUpdate(airTime);
+            if (CurrentTime > Data.throwAirTime && !HasLanded)
+            {
+                HasLanded = true;
+                Instantiate(hitFloorVfxPrefab, Reticle.transform.position, Quaternion.identity);
+            }
 
+            OnUpdate(airTime);
 
             if (_shadow)
             {
