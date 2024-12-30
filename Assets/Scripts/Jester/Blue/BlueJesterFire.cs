@@ -64,7 +64,6 @@ namespace Jester.Blue
             projectileScript.SetShotData(data);
             projectileScript.player = player;
             SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-            
 
             Destroy(shot, 10);
             return projectileScript;

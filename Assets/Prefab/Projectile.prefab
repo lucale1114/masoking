@@ -200,10 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundFX:
-  - {fileID: 8300000, guid: 2d79f53f72a807e4caa48ee09823edf4, type: 3}
-  - {fileID: 8300000, guid: 2fbfb996b2937a84396a3b2d2bc89074, type: 3}
-  - {fileID: 8300000, guid: 4bf9098d583df3940bbadd36182bda6e, type: 3}
-  - {fileID: 8300000, guid: 6f9ae4b61d43f8f45a025670001c55f2, type: 3}
+  - {fileID: 8300000, guid: 4761454f9671fde42a1839c29be19f50, type: 3}
+  - {fileID: 8300000, guid: 422cad61824000e49ab66d5a96b140d3, type: 3}
+  - {fileID: 8300000, guid: 3625a90eb94e42a468b605188e9a0d04, type: 3}
+  - {fileID: 8300000, guid: b743ea45334a583498b740537292fb47, type: 3}
   noStabbing: 0
 --- !u!82 &1409889420940386017
 AudioSource:

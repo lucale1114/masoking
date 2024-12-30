@@ -51,10 +51,7 @@ namespace Player
 
         public void PlaySoundFX(AudioClip audioClip, float volume)
         {
-            if (timer < minTime)
-            {
-                return;
-            }
+            
 
             timer = 0;
 
@@ -72,10 +69,7 @@ namespace Player
         public void PlayRandomSoundFXNoPitch(AudioClip[] audioClip, float volume)
         {
             int rand = Random.Range(0, audioClip.Length);
-            if (timer < minTime)
-            {
-                return;
-            }
+            
 
             timer = 0;
 

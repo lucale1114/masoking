@@ -19,7 +19,7 @@ namespace Projectile
                     Landed?.Invoke();
                 }
                 RigidBody.MovePosition(Direction * (Time.deltaTime * Data.speed) + (Vector2) transform.position);
-                SoundFXManager.Instance.PlayOnLoop();
+                //SoundFXManager.Instance.PlayOnLoop();
 
                 if (ParticleSystemRenderer && ParticleSystemRenderer.enabled == false)
                 {

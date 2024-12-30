@@ -3,7 +3,6 @@ using System.Collections;
 using DG.Tweening;
 using Jester.Red;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Projectile
@@ -12,6 +11,7 @@ namespace Projectile
     {
         [SerializeField] private GameObject reticlePrefab;
         [SerializeField] private GameObject shadowPrefab;
+        [SerializeField] protected GameObject hitFloorVfxPrefab;
         [SerializeField] private float colliderActivationPercentage = 0.9f;
         [SerializeField] protected float curveHeight = 5f;
 
@@ -185,6 +185,11 @@ namespace Projectile
             {
                 if (_collider)
                 {
+                    if (!_collider.enabled)
+                    {
+                        Instantiate(hitFloorVfxPrefab, Reticle.transform.position, Quaternion.identity);
+                    }
+
                     _collider.enabled = true;
                 }
             }
@@ -200,7 +205,7 @@ namespace Projectile
 
         protected abstract void OnUpdate(float airTime);
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             if (_shadow)
             {

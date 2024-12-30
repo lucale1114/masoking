@@ -306,7 +306,7 @@ MonoBehaviour:
   _wallDashAnimationPrefab: {fileID: 0}
   AudioClip:
   - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
-  - {fileID: 8300000, guid: a7cf3a2cece35194d9f1f8e41ba6541f, type: 3}
+  - {fileID: 8300000, guid: 5c9b14d6e938eff4ab4e8a448453083f, type: 3}
 --- !u!1 &5505589146939949829
 GameObject:
   m_ObjectHideFlags: 0

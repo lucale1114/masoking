@@ -372,7 +372,7 @@ MonoBehaviour:
   maxNumberOfWallBounces: 2
   currentCharge: 0
   maxCharge: 0.75
-  walk: {fileID: 8300000, guid: 1848a6daf8f0a5e42afc0127378dbfe2, type: 3}
+  velocityForTurnToActivate: 4
   dash:
   - {fileID: 8300000, guid: 642023a8ebe3cb94cbe2f0d91c646aec, type: 3}
   - {fileID: 8300000, guid: 7331a6fe12a667448938847b64cc35db, type: 3}
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumHeat: 200
   startHeat: 100
-  heatDecayPerSecond: 8
+  heatDecayPerSecond: 4
   comboTimeLimit: 1.5
   comboMultiplierIncrease: 1
   invincible: 0
