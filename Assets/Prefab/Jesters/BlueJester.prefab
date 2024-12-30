@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frow:
-  - {fileID: 8300000, guid: fc30a6c61a96c054caea54ba443028a2, type: 3}
-  - {fileID: 8300000, guid: 04e1fed6714b92d4cb7df13914474958, type: 3}
-  - {fileID: 8300000, guid: 344b7b16ea0e1c1469b38b3a67af4b7b, type: 3}
+  - {fileID: 8300000, guid: ddf43f1cf8a969f489cde4db878c7d60, type: 3}
+  - {fileID: 8300000, guid: 434a3b75c63899049b03cf46fdd08aa4, type: 3}
+  - {fileID: 8300000, guid: 434a3b75c63899049b03cf46fdd08aa4, type: 3}
   projectile: {fileID: 7494303468764717806, guid: c338c8f0c4a49104b9709e21760bf2a5, type: 3}
 --- !u!114 &3118247668702375447
 MonoBehaviour:
@@ -218,7 +218,7 @@ Transform:
   m_GameObject: {fileID: 8796084886764580172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: -1.47, z: 0}
+  m_LocalPosition: {x: -0.04, y: -0.9, z: 0}
   m_LocalScale: {x: 1.54246, y: 0.578, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
