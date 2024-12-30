@@ -96,8 +96,7 @@ namespace Misc
 
             lightouts1.SetActive(false);
             lightouts2.SetActive(false);
-            _pauseMenu.transform.Find("Elements/Panel/MenuBtn").GetComponent<Button>().onClick.AddListener(Menu);
-            _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Quit);
+            _pauseMenu.transform.Find("Elements/Panel/QuitBtn").GetComponent<Button>().onClick.AddListener(Menu);
             _pauseMenu.transform.Find("Elements/Panel/SoundBtn").GetComponent<Button>().onClick.AddListener(Sound);
             exitScreen.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ReallyQuit);
             exitScreen.transform.Find("Stay").GetComponent<Button>().onClick.AddListener(CloseExit);
@@ -129,10 +128,6 @@ namespace Misc
             Time.timeScale = 1;
             GameManager.Restart();
 
-        }
-        private void Quit()
-        {
-            exitScreen.SetActive(true);
         }
 
         private void CloseExit()
