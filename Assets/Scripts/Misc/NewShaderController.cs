@@ -51,7 +51,9 @@ namespace Misc
 
         public void Increase(float amount){
             var _twirl = _material.GetFloat(Twirl);
-            _material.SetFloat(Twirl, (_twirl + amount) * twirlMultiplier);
+            _material.SetFloat(Twirl, _twirl + (amount * twirlMultiplier));
+           // var _moveX = _material.GetFloat(MoveX);
+           // _material.SetFloat(MoveX, _moveX + 0.1f);
         }
     }
 }
