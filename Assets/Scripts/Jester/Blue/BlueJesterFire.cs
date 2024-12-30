@@ -63,8 +63,7 @@ namespace Jester.Blue
             DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
             projectileScript.SetShotData(data);
             projectileScript.player = player;
-            //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Throw, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
 
             Destroy(shot, 10);
             return projectileScript;
@@ -81,8 +80,7 @@ namespace Jester.Blue
             DirectProjectile projectileScript = shot.GetComponent<DirectProjectile>();
             projectileScript.SetShotData(data);
             projectileScript.player = player;
-            //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Throw, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
 
             Destroy(shot, 10);
             return projectileScript;
@@ -91,8 +89,7 @@ namespace Jester.Blue
         public void ShootBurstShot(float speed, float time, int burst, BlueShotDataObject data)
         {
             DirectProjectile shot = ShootBasicProjectile(speed, data);
-            //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Throw, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
 
             shot.burstTimer = time;
             shot.burst = burst;
@@ -138,8 +135,7 @@ namespace Jester.Blue
                 GameObject shot = Instantiate(projectile, GetSpawnPoint(), Quaternion.Euler(new Vector3(0, 0, i)));
                 shot.GetComponent<DirectProjectile>().SetShotData(data);
                 shot.GetComponent<Rigidbody2D>().velocity = -shot.transform.up * speed;
-                //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-                SoundFXManager20.Instance.PlaySoundFX(SoundType.Throw, 1f);
+                SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
 
             }
         }
@@ -151,8 +147,7 @@ namespace Jester.Blue
             shot.axe = true;
             shot.frequency = frequency;
             shot.amp = amp;
-            //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Throw, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
 
         }
 
@@ -164,8 +159,7 @@ namespace Jester.Blue
             shot.gravityDir = dir;
             shot.axe = true;
             shot.flipAmount = wave;
-            //SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
-            SoundFXManager20.Instance.PlaySoundFX(SoundType.Throw, 1f);
+            SoundFXManager.Instance.PlayRandomSoundFXNoPitch(frow, 1f);
         }
     }
 }
