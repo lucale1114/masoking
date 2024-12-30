@@ -6,9 +6,6 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-
-        public static int CurrentLevel = 3;
-
         public static void LoadMenu()
         {
             SceneManager.LoadScene(0);
@@ -19,19 +16,29 @@ namespace Managers
             SceneManager.LoadScene(1);
         }
 
-        public static void LoadTutorial()
+        public static void LoadLoadingScreen()
         {
             SceneManager.LoadScene(2);
         }
 
-        public static void LoadLevel()
+        public static void LoadTutorial()
         {
-            SceneManager.LoadScene(CurrentLevel);
+            SceneManager.LoadScene(3);
+        }
+
+        public static void LoadFirstLevel()
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        public static void LoadNextLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public static void Restart()
         {
-            LoadLevel();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public static void Quit()

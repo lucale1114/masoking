@@ -1,11 +1,7 @@
+using System.Collections;
 using DG.Tweening;
 using Player;
-using System.Collections;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Misc
 {
@@ -22,7 +18,7 @@ namespace Misc
 
         private PlayerAnimator _animator;
 
-        
+
 
         protected new void Awake()
         {
@@ -32,21 +28,21 @@ namespace Misc
             _comboResultText.enabled = false;
             _comboCounter.enabled = false;
             _heatBar.enabled = false;
-           
-           
+
+
             _mashSpace.enabled = false;
             _scoreCounter.enabled = false;
 
             _wonMenu.Equals(false);
-            
+
 
             _hands.enabled = false;
 
             _player = GameObject.Find("Player");
 
-            
-            _player.GetComponent<Player.Movement>().enabled = false;
-            _player.GetComponent<Player.PlayerAnimator>().PlayRelax();
+
+            _player.GetComponent<Movement>().enabled = false;
+            _player.GetComponent<PlayerAnimator>().PlayRelax();
 
 
             rbMove = boardMove.GetComponent<Rigidbody2D>();
@@ -65,7 +61,7 @@ namespace Misc
             base.Update();
         }
 
-      
+
         private IEnumerator SwitchBoard()
         {
             yield return new WaitForSeconds(7f);
@@ -74,19 +70,19 @@ namespace Misc
             MoveBoardMoveLeft();
             yield return new WaitForSeconds(2f);
             MoveBoardDash();
-            
+
         }
 
         private IEnumerator WaitSec()
         {
             yield return new WaitForSeconds(7f);
-            _player.GetComponent<Player.Movement>().enabled = true;
+            _player.GetComponent<Movement>().enabled = true;
 
         }
 
         private void MoveBoardMoveRigth()
         {
-            rbMove.transform.DOMove(target2.position, 2f); 
+            rbMove.transform.DOMove(target2.position, 2f);
         }
 
         private void MoveBoardMoveLeft()
