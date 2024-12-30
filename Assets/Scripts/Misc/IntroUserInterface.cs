@@ -32,7 +32,6 @@ namespace Misc
             base.Awake();
             _comboResultText.enabled = false;
             _comboCounter.enabled = false;
-           //_heatBar.enabled = false;
 
 
             _mashSpace.enabled = false;
@@ -80,7 +79,7 @@ namespace Misc
         private IEnumerator SwitchBoard()
         {
             
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(6f);
             MoveBoardMoveRigth();
             yield return new WaitForSeconds(10f);
             MoveBoardMoveLeft();
