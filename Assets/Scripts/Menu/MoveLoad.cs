@@ -1,35 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using Managers;
 using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class MoveLoad : MonoBehaviour
+namespace Menu
 {
-
-    [SerializeField]  float speed;
-
-    Rigidbody2D rb;
-    // Start is called before the first frame update
-    void Start()
+    public class MoveLoad : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(LoadNextScene());
+        private Rigidbody2D _rb;
 
-    }
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            StartCoroutine(LoadNextScene());
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        rb.velocity = Vector2.right * speed;
-    }
+        private void Update()
+        {
+            _rb.velocity = Vector2.right * 3f;
+        }
 
-    IEnumerator LoadNextScene()
-    {
-        yield return new WaitForSeconds(5f);
-        GameManager.CurrentLevel = 3;
-        GameManager.LoadLevel();
+        private static IEnumerator LoadNextScene()
+        {
+            yield return new WaitForSeconds(6f);
+
+            GameManager.LoadFirstLevel();
+        }
     }
 }

@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Wave.Handler;
 
@@ -128,7 +127,7 @@ namespace Misc
         public void Restart()
         {
             Time.timeScale = 1;
-            GameManager.LoadLevel();
+            GameManager.Restart();
 
         }
         private void Quit()
@@ -290,18 +289,7 @@ namespace Misc
 
         private void EndScreen()
         {
-            if (GameManager.CurrentLevel == 3)
-            {
-                GameManager.CurrentLevel = 5;
-            }
-            else if (GameManager.CurrentLevel == 5)
-            {
-                GameManager.CurrentLevel = 6;
-            }
-            else if (GameManager.CurrentLevel == 6) {
-                GameManager.CurrentLevel = 7;
-            }
-            SceneManager.LoadScene(4);
+            GameManager.LoadNextLevel();
         }
 
         private void ChangeKingPortrait(int index, bool punch, bool shake)
