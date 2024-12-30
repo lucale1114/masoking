@@ -19,8 +19,8 @@ namespace Misc
             "There lives a King and a Queen.",
             "A Masoqueen and...",
             "A Masoking.",
-            "A mashochistic man who used his power in order to...",
-            "Get hot, get hit, get heavy!",
+            "A mashochistic man who used his power and influence in order to...",
+            "Get hit, get hot, get heavy!",
         };
 
         private InputAction _backAction;
