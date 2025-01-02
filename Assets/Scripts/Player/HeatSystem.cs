@@ -34,6 +34,7 @@ namespace Player
 
         private PlayerAnimator _animator;
         private KingEffectsAnimator _kingEffectsAnimator;
+        private ParticleSystem maxHeatEffect;
 
         private float _currentHeat;
 
@@ -53,6 +54,8 @@ namespace Player
             _score = FindObjectOfType<Score>();
             _animator = GetComponent<PlayerAnimator>();
             _kingEffectsAnimator = GetComponent<KingEffectsAnimator>();
+            maxHeatEffect = transform.Find("Max_Heat_Aura").GetComponent<ParticleSystem>();
+            maxHeatEffect.Stop();
             realHeatDecay = heatDecayPerSecond / 100;
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
@@ -73,6 +76,8 @@ namespace Player
 
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFeverHandler.JesterFever)
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
+                maxHeatEffect.Stop();
+
         }
 
         public void ChangeHeat(float amount,
@@ -142,6 +147,8 @@ namespace Player
                 {
                     if (ColorUtility.TryParseHtmlString("#FF0000", out Color col))
                         GetComponent<SpriteRenderer>().DOColor(col, 1);
+                        maxHeatEffect.Play();
+
                 }
 
 
