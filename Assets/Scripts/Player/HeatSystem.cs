@@ -42,7 +42,6 @@ namespace Player
         private Score _score;
         private float realHeatDecay;
         public bool beenHit = false;
-        private bool _comboAnimationTriggered;
 
         private HealthBar healthBar; // Reference to the HealthBar script
 
@@ -152,17 +151,15 @@ namespace Player
                 StartCoroutine(MaxHeatReward());
             }
 
-            // Combo multiplier and animation triggering
-            if (_comboMultiplier >= 10 && !_comboAnimationTriggered)
-            {
-                _comboAnimationTriggered = true;
-                _animator.PlayCombo();
-                _kingEffectsAnimator.PlayCombo(impactPoint);
-            }
-            else if (amount > 0)
+            if (amount > 0)
             {
                 _animator.PlayHit();
             }
+        }
+
+        public void PlayCombo()
+        {
+            _animator.PlayCombo();
         }
 
         public float GetCombo()
@@ -196,10 +193,9 @@ namespace Player
                     ComboEnded?.Invoke(_comboMultiplier);
                     _comboMultiplier = 0f;
                     _timeSinceLastHit = 0f;
-                    _comboAnimationTriggered = false;
                 }
             }
-        } 
+        }
 
         private IEnumerator MaxHeatReward()
         {
@@ -210,7 +206,7 @@ namespace Player
 
             // Example of color change on reaching max heat (optional):
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
-            {   
+            {
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
                 maxHeatEffect.Stop();
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -67,9 +68,7 @@ namespace Player
                     _nextState = State.Idle;
                     break;
                 case State.Combo:
-                    _animator.Play($"KingCombo_{Random.Range(1,3)}");
-                    _doNotInterrupt = true;
-                    _nextState = State.Idle;
+                    StartCoroutine(ComboRoutine());
                     break;
                 case State.Turn:
                     _animator.SetFloat(MoveX, -_lastNonZeroVelocity.x);
@@ -85,6 +84,14 @@ namespace Player
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private IEnumerator ComboRoutine()
+        {
+            yield return new WaitForSeconds(0.75f);
+            _animator.Play($"KingCombo_{Random.Range(1,3)}");
+            _doNotInterrupt = true;
+            _nextState = State.Idle;
         }
 
         public void PlayWindup(Vector2 velocity)

@@ -335,8 +335,11 @@ namespace Misc
                 }
             }
 
-
             _comboResultText.GetComponent<Animator>().Play("ComboTextAnimation");
+            if (combo >= 10)
+            {
+                _heatSystem.PlayCombo();
+            }
             SoundFXManager.Instance.PlayRandomSoundFXNoPitch(ComboClips, 1f);
         }
 
