@@ -259,8 +259,8 @@ namespace Misc
                 yield return new WaitForSeconds(0.1f);
             }
             lightouts2.transform.GetChild(0).GetComponent<Image>().DOColor(lightouts2.transform.GetChild(0).GetComponent<Image>().color - new Color(0, 0, 0, 1), 2);
-            GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().DOFade(0, 3);
-            GameObject.Find("SoundFXManager").GetComponent<AudioSource>().DOFade(0, 3);
+            GameObject.Find("SoundMusicManager").GetComponent<AudioSource>().DOFade(0, 1);
+            GameObject.Find("SoundFXManager").GetComponent<AudioSource>().DOFade(0, 1);
 
             yield return new WaitForSeconds(0.2f);
 
