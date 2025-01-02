@@ -1633,11 +1633,11 @@ PrefabInstance:
     - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: dash.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 33f1e3cecb36e3646a55c054ec487bba, type: 3}
+      objectReference: {fileID: 8300000, guid: 94dfa4708376ded4391b53f30b82cf4d, type: 3}
     - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: dash.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 53ea62ba0d4f2764e83d8b43db41623d, type: 3}
+      objectReference: {fileID: 8300000, guid: 00667d01ae2e12a4e9883d75d4c1ea06, type: 3}
     - target: {fileID: 8406755913887820411, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: m_Name
       value: Player
