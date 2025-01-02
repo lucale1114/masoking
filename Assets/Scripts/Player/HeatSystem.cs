@@ -42,7 +42,6 @@ namespace Player
         private Score _score;
         private float realHeatDecay;
         public bool beenHit = false;
-        private bool _comboAnimationTriggered;
 
         private HealthBar healthBar; // Reference to the HealthBar script
 
@@ -194,10 +193,9 @@ namespace Player
                     ComboEnded?.Invoke(_comboMultiplier);
                     _comboMultiplier = 0f;
                     _timeSinceLastHit = 0f;
-                    _comboAnimationTriggered = false;
                 }
             }
-        } 
+        }
 
         private IEnumerator MaxHeatReward()
         {
@@ -208,7 +206,7 @@ namespace Player
 
             // Example of color change on reaching max heat (optional):
             if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
-            {   
+            {
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
                 maxHeatEffect.Stop();
             }
