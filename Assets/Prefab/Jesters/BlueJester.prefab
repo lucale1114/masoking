@@ -120,10 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   discust:
-  - {fileID: 8300000, guid: 085d126c6d6323a4f94afd8ef043335c, type: 3}
-  - {fileID: 8300000, guid: 4361732a97e51fe429b6b7ea2c6b2dc4, type: 3}
-  - {fileID: 8300000, guid: 6c0092634ed92a0429afe0379ef08a80, type: 3}
-  - {fileID: 8300000, guid: 0b50251a3bef58840833793140e06483, type: 3}
+  - {fileID: 8300000, guid: 52f75482a11053c41a3791f262ec29a9, type: 3}
+  - {fileID: 8300000, guid: 0e90a753260d5cb47a0104b7cb7443a2, type: 3}
+  - {fileID: 8300000, guid: e8cd7ef38a6f16641bb152f8153dce2f, type: 3}
   chance: 0.23
 --- !u!95 &1256570226195499151
 Animator:
