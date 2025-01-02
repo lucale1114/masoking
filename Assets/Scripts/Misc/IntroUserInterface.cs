@@ -11,6 +11,7 @@ namespace Misc
         public GameObject boardMove;
         public GameObject boardDash;
         public GameObject jesterTeacher;
+        public GameObject circle;
         private float acceleration = 0.5f;
 
         public Transform target1;
@@ -51,6 +52,7 @@ namespace Misc
 
 
             _player.GetComponent<Movement>().enabled = false;
+            
             _player.GetComponent<PlayerAnimator>().PlayRelax();
 
 
@@ -84,26 +86,26 @@ namespace Misc
 
         private IEnumerator SwitchBoard()
         {
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(2f);
             SoundFXManager.Instance.PlaySoundFX(sad,1f);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(4f);
             MoveBoardMoveRigth();
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(8f);
             MoveBoardMoveLeft();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             MoveBoardDash();
 
         }
 
         private IEnumerator MoveJester()
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
             JesterFall();
         }
 
         private void MoveBoardMoveRigth()
         {
-            rbMove.transform.DOMove(target2.position, 2f);
+            rbMove.transform.DOMove(target2.position, 1.4f);
         }
 
         private void MoveBoardMoveLeft()

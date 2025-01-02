@@ -35,7 +35,6 @@ namespace Misc
         private GameObject loseMode;
         private Image madKing;
 
-        public Image _heatBar;
         public HeatSystem _heatSystem;
         public Score _scoreSystem;
 
@@ -165,12 +164,11 @@ namespace Misc
 
         private void Start()
         {
-            _heatBar = GameObject.Find("HeatBar").GetComponent<Image>();
+       
             _heatSystem = FindObjectOfType<HeatSystem>();
             _scoreSystem = FindObjectOfType<Score>();
             _heatSystem.HeatChanged += heat =>
             {
-                _heatBar.DOFillAmount(heat, 0.5f).SetEase(Ease.OutSine);
                 _portrait.GetComponent<Animator>().SetFloat("HeatPercent", _heatSystem.GetCurrentHeatNormalized() * 100);
                 if (_heatSystem.GetCurrentHeatNormalized() < 0.2f) {
                     _hands.GetComponent<Animator>().SetInteger("State", 1);
