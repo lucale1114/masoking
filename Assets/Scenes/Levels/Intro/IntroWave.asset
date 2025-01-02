@@ -20,7 +20,7 @@ MonoBehaviour:
     y: 0
     randomY: 0
     commands:
-    - timestamp: 5
+    - timestamp: 4
       action: 0
       shotData:
         speed: 10
@@ -62,9 +62,9 @@ MonoBehaviour:
     - timestamp: 1
       action: 0
       shotData:
-        speed: 10.19
+        speed: 10
         scale: 1
-        damage: 100
+        damage: 500
         x: 0
         y: -3
         randomX: 0

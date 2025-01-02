@@ -54,6 +54,7 @@ namespace Misc
 
 
             _hands.enabled = false;
+            _portrait.enabled = false;
 
             _player = GameObject.Find("Player");
 
@@ -61,7 +62,6 @@ namespace Misc
             _player.GetComponent<Movement>().enabled = false;
             
             _player.GetComponent<PlayerAnimator>().PlayRelax();
-
 
             rbMove = boardMove.GetComponent<Rigidbody2D>();
             rbDash = boardDash.GetComponent<Rigidbody2D>();
@@ -101,12 +101,13 @@ namespace Misc
             yield return new WaitForSeconds(2f);
             SoundFXManager.Instance.PlaySoundFX(sad,1f);
             MoveTextMoveLeft();
-            yield return new WaitForSeconds(2f);
-            MoveTextMoveRight();
             yield return new WaitForSeconds(4f);
+            MoveTextMoveRight();
             MoveBoardMoveRigth();
-            yield return new WaitForSeconds(2f);
+            MoveTextYeahMoveLeft();
+            yield return new WaitForSeconds(3);
             MoveTextMoveYeahRight();
+        
             yield return new WaitForSeconds(6f);
             MoveBoardMoveLeft();
             yield return new WaitForSeconds(2f);
@@ -125,7 +126,7 @@ namespace Misc
         {
             yield return new WaitForSeconds(7);
 
-            MoveTextYeahMoveLeft();
+            
 
         }
 
@@ -151,12 +152,12 @@ namespace Misc
 
         private void MoveTextYeahMoveLeft()
         {
-            rbYeah.transform.DOMove(targetLeftYeah.position, 2f);
+            rbYeah.transform.DOMove(targetLeftYeah.position, 1.3f);
         }
 
         private void MoveTextMoveYeahRight()
         {
-            rbYeah.transform.DOMove(targetRightYeah.position, 2f);
+            rbYeah.transform.DOMove(targetRightYeah.position, 1.3f);
         }
 
 
