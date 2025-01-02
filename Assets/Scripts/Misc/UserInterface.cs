@@ -237,6 +237,7 @@ namespace Misc
             lightouts1.SetActive(true);
             yield return new WaitForSeconds(2);
             _heatSystem.transform.position = new Vector3(0, 0);
+            _heatSystem.transform.GetComponent<Movement>().currentVelocity = Vector3.zero;
             _heatSystem.transform.GetComponent<Movement>().enabled = false;
             _heatSystem.transform.GetComponent<PlayerAnimator>().PlayRelax();
             lightouts2.SetActive(true);

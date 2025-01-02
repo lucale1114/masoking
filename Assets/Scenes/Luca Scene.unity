@@ -1342,7 +1342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: heatDecayPerSecond
-      value: 20
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3743546813347916422, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: dash.Array.data[0]
@@ -1568,7 +1568,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 584e1734a5378a344815f558d3b9a7f9, type: 2}
     - target: {fileID: 8165928883618429228, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: debugForceWave
-      value: 0
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 8516990585532103575, guid: a41a6388d73d8a7449cc50e12c398cd7, type: 3}
       propertyPath: m_Name
@@ -1599,6 +1599,8 @@ MonoBehaviour:
   vignetteStartIntensity: 0.2
   vignetteEndIntensity: 0.4
   vignetteDuration: 0.2
+  saturationLowValue: -50
+  saturationHighValue: 50
 --- !u!1 &2070350834
 GameObject:
   m_ObjectHideFlags: 0
