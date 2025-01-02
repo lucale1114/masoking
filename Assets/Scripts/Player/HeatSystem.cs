@@ -170,6 +170,11 @@ namespace Player
             return _comboMultiplier;
         }
 
+        public float GetCurrentHeatNormalized()
+        {
+            return _currentHeat / maximumHeat;
+        }
+
         private IEnumerator HeatDecayRoutine()
         {
             ChangeHeat(0);
@@ -194,12 +199,7 @@ namespace Player
                     _comboAnimationTriggered = false;
                 }
             }
-        }
-
-        public float GetCurrentHeatNormalized()
-        {
-            return _currentHeat / maximumHeat;
-        }
+        } 
 
         private IEnumerator MaxHeatReward()
         {

@@ -16,28 +16,6 @@ namespace Player
                 healthFill.localScale = new Vector3(normalizedHeat, 1f, 1f); // Scale on the X axis
             }
 
-            // Optionally, change color based on the heat level (can use SpriteRenderer or UI Image color change)
-            if (normalizedHeat >= 1f) // Max heat
-            {
-                if (healthBarRenderer != null)
-                {
-                    healthBarRenderer.color = Color.red;
-                }
-            }
-            else if (normalizedHeat <= 0f) // Empty heat
-            {
-                if (healthBarRenderer != null)
-                {
-                    healthBarRenderer.color = Color.green;
-                }
-            }
-            else // Mid-range heat
-            {
-                if (healthBarRenderer != null)
-                {
-                    healthBarRenderer.color = Color.Lerp(Color.green, Color.red, normalizedHeat);
-                }
-            }
         }
     }
 

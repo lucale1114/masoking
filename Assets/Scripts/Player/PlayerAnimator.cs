@@ -62,12 +62,12 @@ namespace Player
                     _animator.Play("KingWindupAnimation");
                     break;
                 case State.Hit:
-                    _animator.Play($"KingHit_{Random.Range(1,3)}");
+                    _animator.Play($"KingHit_{Random.Range(1,4)}");
                     _doNotInterrupt = true;
                     _nextState = State.Idle;
                     break;
                 case State.Combo:
-                    _animator.Play($"KingCombo_{Random.Range(1,2)}");
+                    _animator.Play($"KingCombo_{Random.Range(1,3)}");
                     _doNotInterrupt = true;
                     _nextState = State.Idle;
                     break;
