@@ -1201,6 +1201,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -45.075027
       objectReference: {fileID: 0}
+    - target: {fileID: 968538790458249095, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+      propertyPath: Clap
+      value: 
+      objectReference: {fileID: 8300000, guid: f23957f8e06c9f944b976624876ea02b, type: 3}
+    - target: {fileID: 968538790458249095, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+      propertyPath: kingAudioClips.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 968538790458249095, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+      propertyPath: kingAudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f68b759f3152e25458c519fd1f68b7cc, type: 3}
+    - target: {fileID: 968538790458249095, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+      propertyPath: kingAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 41d4f967480ac8246b0f58d07ec7d10b, type: 3}
     - target: {fileID: 1435083910592618434, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
       propertyPath: m_LocalScale.x
       value: 0
