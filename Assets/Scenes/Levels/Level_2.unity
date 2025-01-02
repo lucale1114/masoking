@@ -226,7 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!61 &51825674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,7 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!61 &920318566
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -930,7 +934,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!61 &1623873756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1075,7 +1081,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!61 &1731519668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1521,6 +1529,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 8609642519429110493, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
     - {fileID: 3212659419444655733, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+    - {fileID: 955400821928999910, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+    - {fileID: 6068353856551384307, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
+    - {fileID: 8600152942600524665, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7332d794dd20c46be756ad386ba987, type: 3}
@@ -1605,7 +1616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: aae2af9c71e4cfa46af648f5c2884d49, type: 3}
 --- !u!212 &1412839058942543149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1948,7 +1961,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!1 &5516732850031902543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,7 +2060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: aae2af9c71e4cfa46af648f5c2884d49, type: 3}
+  - {fileID: 8300000, guid: 506b5791d80118645b9b769adf29a5f8, type: 3}
 --- !u!114 &6717877083125875302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2059,7 +2076,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
-  AudioClip: []
+  AudioClip:
+  - {fileID: 8300000, guid: aae2af9c71e4cfa46af648f5c2884d49, type: 3}
+  - {fileID: 8300000, guid: 4e184d8499b0eb44a932c4b21da61a91, type: 3}
 --- !u!61 &7452298371978780982
 BoxCollider2D:
   m_ObjectHideFlags: 0
