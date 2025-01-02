@@ -162,6 +162,9 @@ namespace Player
             else if (amount > 0)
             {
                 _animator.PlayHit();
+                transform.localScale = new Vector3(0.25f, 0.25f, 1) * 1.4f;
+                transform.DOScaleX(0.25f, 0.35f);
+                transform.DOScaleY(0.25f, 0.35f);
             }
         }
 
