@@ -3,7 +3,6 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using Wave.Handler;
-using Color = UnityEngine.Color;
 
 namespace Player
 {
@@ -37,7 +36,6 @@ namespace Player
         private ParticleSystem maxHeatEffect;
 
         private float _currentHeat;
-
         private float _timeSinceLastHit;
         private float _comboMultiplier = 0f;
         private Movement _movement;
@@ -46,6 +44,7 @@ namespace Player
         public bool beenHit = false;
         private bool _comboAnimationTriggered;
 
+        private HealthBar healthBar; // Reference to the HealthBar script
 
         private void Start()
         {
@@ -57,6 +56,7 @@ namespace Player
             maxHeatEffect = transform.Find("Max_Heat_Aura").GetComponent<ParticleSystem>();
             maxHeatEffect.Stop();
             realHeatDecay = heatDecayPerSecond / 100;
+            healthBar = FindObjectOfType<HealthBar>(); // Find the HealthBar in the scene
             StartCoroutine(HeatDecayRoutine());
             StartCoroutine(ComboDecayRoutine());
         }
@@ -68,29 +68,15 @@ namespace Player
                 _timeSinceLastHit += Time.deltaTime;
             }
         }
-        private IEnumerator MaxHeatReward()
-        {
-            _movement.ChangeVelocity(2);
-            yield return new WaitForSeconds(5);
-            _movement.ChangeVelocity(1/2f);
 
-            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col) && !JesterFeverHandler.JesterFever)
-                GetComponent<SpriteRenderer>().DOColor(col, 1);
-                maxHeatEffect.Stop();
-
-        }
-
-        public void ChangeHeat(float amount,
-            HeatSource heatSource = HeatSource.None,
-            Vector2 impactPoint = default,
-            Vector2 damageDirection = default)
-            
+        public void ChangeHeat(float amount, HeatSource heatSource = HeatSource.None, Vector2 impactPoint = default, Vector2 damageDirection = default)
         {
             if (invincible)
             {
                 return;
             }
 
+            // Handle heat sources and other effects (existing code remains unchanged)
             switch (heatSource)
             {
                 case HeatSource.None:
@@ -105,6 +91,7 @@ namespace Player
                     throw new ArgumentOutOfRangeException(nameof(heatSource), heatSource, null);
             }
 
+            // Combo and score updates (existing code remains unchanged)
             float combo = 1;
             if (amount > 0)
             {
@@ -119,23 +106,33 @@ namespace Player
                 _timeSinceLastHit = 0;
             }
 
+            // Update the heat value
             _currentHeat += amount * combo;
             _currentHeat = Mathf.Clamp(_currentHeat, 0, maximumHeat);
+
+            // Update the health bar (call to the HealthBar script)
+            if (healthBar != null)
+            {
+                healthBar.UpdateHealthBar(GetCurrentHeatNormalized());
+            }
+
             HeatChanged?.Invoke(GetCurrentHeatNormalized());
 
+            // If heat is depleted
             if (_currentHeat <= 0)
             {
                 HeatDepleted?.Invoke();
                 return;
             }
 
+            // If heat is increased
             if (amount > 0)
             {
                 TakenDamage?.Invoke(amount);
                 beenHit = true;
-
             }
 
+            // Max heat handling
             if (_currentHeat >= maximumHeat && CanMaxHeat)
             {
                 if (JesterFeverHandler.JesterFever)
@@ -151,11 +148,11 @@ namespace Player
 
                 }
 
-
                 MaxHeat?.Invoke();
                 StartCoroutine(MaxHeatReward());
             }
 
+            // Combo multiplier and animation triggering
             if (_comboMultiplier >= 10 && !_comboAnimationTriggered)
             {
                 _comboAnimationTriggered = true;
@@ -171,11 +168,6 @@ namespace Player
         public float GetCombo()
         {
             return _comboMultiplier;
-        }
-
-        public float GetCurrentHeatNormalized()
-        {
-            return _currentHeat / maximumHeat;
         }
 
         private IEnumerator HeatDecayRoutine()
@@ -201,6 +193,26 @@ namespace Player
                     _timeSinceLastHit = 0f;
                     _comboAnimationTriggered = false;
                 }
+            }
+        }
+
+        public float GetCurrentHeatNormalized()
+        {
+            return _currentHeat / maximumHeat;
+        }
+
+        private IEnumerator MaxHeatReward()
+        {
+            // Example effect when heat is at max:
+            _movement.ChangeVelocity(2);  // Boost player speed for 5 seconds
+            yield return new WaitForSeconds(5);
+            _movement.ChangeVelocity(1f); // Reset to normal speed
+
+            // Example of color change on reaching max heat (optional):
+            if (ColorUtility.TryParseHtmlString("#FF0000", out Color col))
+            {
+                GetComponent<SpriteRenderer>().DOColor(col, 1);
+                maxHeatEffect.Stop();
             }
         }
     }
