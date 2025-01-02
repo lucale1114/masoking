@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff1f535de2b410cadff2a24dbeb5449, type: 3}
   m_Name: IntroWave
   m_EditorClassIdentifier: 
-  StartDelay: 6
+  StartDelay: 0
   SpawnBall: 0
   Description: 
   red:
@@ -23,10 +23,9 @@ MonoBehaviour:
     - timestamp: 5
       action: 0
       shotData:
-        throwAndRollType: 0
         speed: 10
         scale: 1
-        damage: 100
+        damage: 500
         x: 0
         y: 0
         randomX: 0
@@ -63,7 +62,6 @@ MonoBehaviour:
     - timestamp: 1
       action: 0
       shotData:
-        throwAndRollType: 0
         speed: 10.19
         scale: 1
         damage: 100

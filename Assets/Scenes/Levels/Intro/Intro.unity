@@ -177,8 +177,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1063760339
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 644c816015eb11f40a9bc3710a4d8526, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -408,8 +408,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1063760339
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: b6f92de029f37544fbc98ae38f49c54b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -702,6 +702,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1479246662}
     - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
+      propertyPath: startHeat
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903870218911091185, guid: 1380161edd9f36746b4180a474563963, type: 3}
       propertyPath: CanMaxHeat
       value: 0
       objectReference: {fileID: 0}
@@ -866,8 +870,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1063760339
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 22ea83cd5b4a8784287dc09e52faae42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -911,7 +915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &723226725
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1530,8 +1534,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1063760339
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 886b9a78e3b3c884799e7c5f341f45ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3002,6 +3006,10 @@ PrefabInstance:
       objectReference: {fileID: 1223549538}
     - target: {fileID: 1451563607342772451, guid: 34679bc936907c34280dd8743fa8aabc, type: 3}
       propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451563607342772451, guid: 34679bc936907c34280dd8743fa8aabc, type: 3}
+      propertyPath: m_PlaneDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1525326887935652225, guid: 34679bc936907c34280dd8743fa8aabc, type: 3}
