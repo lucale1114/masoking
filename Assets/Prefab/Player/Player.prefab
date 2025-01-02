@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFill: {fileID: 5859152554092997397}
+  healthBarRenderer: {fileID: 0}
 --- !u!1 &1790868289647657356
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,8 +846,8 @@ MonoBehaviour:
   maxCharge: 0.75
   velocityForTurnToActivate: 4
   dash:
-  - {fileID: 8300000, guid: 33f1e3cecb36e3646a55c054ec487bba, type: 3}
-  - {fileID: 8300000, guid: 53ea62ba0d4f2764e83d8b43db41623d, type: 3}
+  - {fileID: 8300000, guid: 94dfa4708376ded4391b53f30b82cf4d, type: 3}
+  - {fileID: 8300000, guid: 00667d01ae2e12a4e9883d75d4c1ea06, type: 3}
   currentVelocity: {x: 0, y: 0}
   moveInput: {x: 0, y: 0}
   knocked: 0
