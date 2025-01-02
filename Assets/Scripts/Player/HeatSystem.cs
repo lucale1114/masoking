@@ -152,17 +152,15 @@ namespace Player
                 StartCoroutine(MaxHeatReward());
             }
 
-            // Combo multiplier and animation triggering
-            if (_comboMultiplier >= 10 && !_comboAnimationTriggered)
-            {
-                _comboAnimationTriggered = true;
-                _animator.PlayCombo();
-                _kingEffectsAnimator.PlayCombo(impactPoint);
-            }
-            else if (amount > 0)
+            if (amount > 0)
             {
                 _animator.PlayHit();
             }
+        }
+
+        public void PlayCombo()
+        {
+            _animator.PlayCombo();
         }
 
         public float GetCombo()
