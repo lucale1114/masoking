@@ -4,7 +4,7 @@ using UnityEngine;
 using Player;
 using UnityEngine.Audio;
 
-public class ÄudioCrossFade : MonoBehaviour
+public class AudioCrossFade : MonoBehaviour
 {
     //
     HeatSystem heat;
