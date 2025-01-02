@@ -206,11 +206,11 @@ namespace Player
             // Example effect when heat is at max:
             _movement.ChangeVelocity(2);  // Boost player speed for 5 seconds
             yield return new WaitForSeconds(5);
-            _movement.ChangeVelocity(1f); // Reset to normal speed
+            _movement.ChangeVelocity(0.5f); // Reset to normal speed
 
             // Example of color change on reaching max heat (optional):
-            if (ColorUtility.TryParseHtmlString("#FF0000", out Color col))
-            {
+            if (ColorUtility.TryParseHtmlString("#FFFFFF", out Color col))
+            {   
                 GetComponent<SpriteRenderer>().DOColor(col, 1);
                 maxHeatEffect.Stop();
             }
