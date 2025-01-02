@@ -11,14 +11,22 @@ namespace Misc
         public GameObject boardMove;
         public GameObject boardDash;
         public GameObject jesterTeacher;
+        public GameObject Aw;
+        public GameObject Yeah;
+
         private float acceleration = 0.5f;
 
+        public Transform targetRightYeah; 
+        public Transform targetLeftYeah;
         public Transform target1;
         public Transform target2;
         public Transform target3;   
 
         private Rigidbody2D rbMove;
         private Rigidbody2D rbDash;
+        private Rigidbody2D rbYeah;
+        private Rigidbody2D rbAw;
+
         private Rigidbody2D rbTeacher;
         private GameObject _player;
         bool VFx = false;
@@ -46,20 +54,25 @@ namespace Misc
 
 
             _hands.enabled = false;
+            _portrait.enabled = false;
 
             _player = GameObject.Find("Player");
 
 
             _player.GetComponent<Movement>().enabled = false;
+            
             _player.GetComponent<PlayerAnimator>().PlayRelax();
-
 
             rbMove = boardMove.GetComponent<Rigidbody2D>();
             rbDash = boardDash.GetComponent<Rigidbody2D>();
             rbTeacher = jesterTeacher.GetComponent<Rigidbody2D>();
+            rbAw = Aw.GetComponent<Rigidbody2D>();
+            rbYeah = Yeah.GetComponent<Rigidbody2D>();
+
 
 
             StartCoroutine(SwitchBoard());
+            StartCoroutine(MoveText());
             
            
 
@@ -75,6 +88,7 @@ namespace Misc
             {
                 _player.GetComponent<Movement>().enabled = true;
                 SoundFXManager.Instance.PlaySoundFX(glad, 1f);
+                
                 haveHit = true;
             }
 
@@ -84,31 +98,66 @@ namespace Misc
 
         private IEnumerator SwitchBoard()
         {
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(2f);
             SoundFXManager.Instance.PlaySoundFX(sad,1f);
-            yield return new WaitForSeconds(10f);
+            MoveTextMoveLeft();
+            yield return new WaitForSeconds(4f);
+            MoveTextMoveRight();
             MoveBoardMoveRigth();
-            yield return new WaitForSeconds(10f);
+            MoveTextYeahMoveLeft();
+            yield return new WaitForSeconds(3);
+            MoveTextMoveYeahRight();
+        
+            yield return new WaitForSeconds(6f);
             MoveBoardMoveLeft();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
             MoveBoardDash();
 
         }
 
         private IEnumerator MoveJester()
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
             JesterFall();
+
+        }
+
+        private IEnumerator MoveText()
+        {
+            yield return new WaitForSeconds(7);
+
+            
+
         }
 
         private void MoveBoardMoveRigth()
         {
-            rbMove.transform.DOMove(target2.position, 2f);
+            rbMove.transform.DOMove(target2.position, 1.4f);
         }
 
         private void MoveBoardMoveLeft()
         {
             rbMove.transform.DOMove(target1.position, 2f);
+        }
+
+        private void MoveTextMoveLeft()
+        {
+            rbAw.transform.DOMove(targetLeftYeah.position, 2f);
+        }
+
+        private void MoveTextMoveRight()
+        {
+            rbAw.transform.DOMove(targetRightYeah.position, 2f);
+        }
+
+        private void MoveTextYeahMoveLeft()
+        {
+            rbYeah.transform.DOMove(targetLeftYeah.position, 1.3f);
+        }
+
+        private void MoveTextMoveYeahRight()
+        {
+            rbYeah.transform.DOMove(targetRightYeah.position, 1.3f);
         }
 
 
