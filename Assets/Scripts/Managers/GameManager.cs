@@ -30,7 +30,7 @@ namespace Managers
 
         public static void LoadNextLevel()
         {
-            if (LastLevelCompleted == 0 || LastLevelCompleted > 7 )
+            if (LastLevelCompleted == 0 || LastLevelCompleted < 6 )
             {
                 LastLevelCompleted = 3;
             }
