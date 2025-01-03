@@ -42,7 +42,7 @@ namespace Player
         {
 
             yield return new WaitForSeconds(2f); // Wait for 2 seconds
-            GameManager.LoadOpening();
+            GameManager.LoadNextLevel();
 
         }
     }
