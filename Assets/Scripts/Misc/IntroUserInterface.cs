@@ -98,7 +98,7 @@ namespace Misc
 
         private IEnumerator SwitchBoard()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             SoundFXManager.Instance.PlaySoundFX(sad,1f);
             MoveTextMoveLeft();
             yield return new WaitForSeconds(4f);
