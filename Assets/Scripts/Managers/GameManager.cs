@@ -30,13 +30,16 @@ namespace Managers
 
         public static void LoadNextLevel()
         {
-            if (LastLevelCompleted == 0)
+            if (LastLevelCompleted == 0 || LastLevelCompleted > 7 )
             {
                 LastLevelCompleted = 3;
             }
 
             SceneManager.LoadScene(LastLevelCompleted + 1);
+
+            
         }
+
 
         public static void Restart()
         {
