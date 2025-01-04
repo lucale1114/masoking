@@ -11,6 +11,7 @@ namespace Managers
         public static void LoadMenu()
         {
             SceneManager.LoadScene(0);
+            LastLevelCompleted = 0;
         }
 
         public static void LoadOpening()
@@ -30,7 +31,7 @@ namespace Managers
 
         public static void LoadNextLevel()
         {
-            if (LastLevelCompleted == 0 || LastLevelCompleted < 6 )
+            if (LastLevelCompleted == 0 )
             {
                 LastLevelCompleted = 3;
             }
