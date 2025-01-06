@@ -54,9 +54,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _RippleSpeed: 0.55
-    - _RippleStrength: 0.39
-    - _RipplesCount: 0.5
+    - _RippleSpeed: 0.17
+    - _RippleStrength: 0.11
+    - _RipplesCount: 0.44
     m_Colors:
     - _RippleCenter: {r: 5.47, g: -1.42, b: 0, a: 0}
   m_BuildTextureStacks: []
