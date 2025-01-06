@@ -53,6 +53,12 @@ public class AudioCrossFade : MonoBehaviour
         return heat.GetCurrentHeatNormalized();
     }
 
+    private void Mute()
+    {
+        normal.volume = 0;
+
+    }
+
     // Update is called once per frame
     void Update()
 {

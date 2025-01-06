@@ -284,6 +284,10 @@ PrefabInstance:
       value: -45.075027
       objectReference: {fileID: 0}
     - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: Clap
+      value: 
+      objectReference: {fileID: 8300000, guid: f23957f8e06c9f944b976624876ea02b, type: 3}
+    - target: {fileID: 530865664929276867, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: audioMixer
       value: 
       objectReference: {fileID: 24100000, guid: 2c55e04e778a6f540b7f28c3d15fb0e8, type: 2}
@@ -295,6 +299,10 @@ PrefabInstance:
       propertyPath: kingAudioClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: f361363856c54b34b8aba1e7f27ab41d, type: 3}
+    - target: {fileID: 1116773152022373290, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -46.99997
+      objectReference: {fileID: 0}
     - target: {fileID: 1508660616509522810, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0
@@ -521,11 +529,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8025474451727898794, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 87.000015
+      value: 87.00003
       objectReference: {fileID: 0}
     - target: {fileID: 8573732719545383113, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -138.99998
+      value: -138.99997
       objectReference: {fileID: 0}
     - target: {fileID: 8573732719545383113, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -541,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8879415306566572988, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -220.87999
+      value: -220.87997
       objectReference: {fileID: 0}
     - target: {fileID: 8893262520601054107, guid: 225645ffca7c5c747b5c053756c9a36e, type: 3}
       propertyPath: m_AnchorMax.y

@@ -38,6 +38,10 @@ namespace Player
 
         void Update()
         {
+            if (timer < minTime)
+            {
+                timer += Time.deltaTime; // Increment timer
+            }
 
             if (soundFXObject.pitch > 1)
             {
@@ -49,12 +53,15 @@ namespace Player
 
         public void PlaySoundFX(AudioClip audioClip, float volume)
         {
-            
 
-      
 
-            soundFXObject.PlayOneShot(audioClip, volume);
-        
+
+            if (timer >= minTime)
+            {
+                soundFXObject.PlayOneShot(audioClip, volume);
+                timer = 0f; // Reset timer after sound is played
+            }
+
         }
 
 
@@ -67,10 +74,13 @@ namespace Player
         public void PlayRandomSoundFXNoPitch(AudioClip[] audioClip, float volume)
         {
             int rand = Random.Range(0, audioClip.Length);
-            
 
-            soundFXObjectNoPitch.PlayOneShot(audioClip[rand], volume);
-            
+            if (timer >= minTime) // Check if sufficient time has passed
+            {
+                soundFXObjectNoPitch.PlayOneShot(audioClip[rand], volume);
+                timer = 0f; // Reset timer after sound is played
+            }
+
         }
 
         public void PlayOnLoop()
