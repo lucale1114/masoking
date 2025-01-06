@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 761237593010638231}
   - component: {fileID: 4852218657812208375}
   m_Layer: 0
-  m_Name: Reticle
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

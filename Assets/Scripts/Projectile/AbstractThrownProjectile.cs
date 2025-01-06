@@ -169,7 +169,7 @@ namespace Projectile
         protected virtual void InstantiateReticle(RedShotDataObject shotData)
         {
             Reticle = Instantiate(reticlePrefab, Target, Quaternion.identity);
-            _reticleFill = Reticle.transform.GetChild(0).gameObject;
+            _reticleFill = Reticle.transform.GetChild(0).GetChild(0).gameObject;
             Reticle.transform.localScale *= Data.scale;
             _reticleFill.transform.DOScale(new Vector3(0.95f, 0.95f, 0.95f),
                 (Data.throwAirTime) * 1.75f);
