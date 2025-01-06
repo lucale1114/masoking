@@ -283,10 +283,9 @@ GameObject:
   - component: {fileID: 6345563620636445162}
   - component: {fileID: 759968856972492955}
   - component: {fileID: 567243457449737187}
-  - component: {fileID: 1997178519217708285}
-  - component: {fileID: 7072586478284884970}
   - component: {fileID: 3011607055567451545}
   - component: {fileID: -5628673635275305502}
+  - component: {fileID: 4589390353846571010}
   m_Layer: 0
   m_Name: PurpleJester
   m_TagString: Untagged
@@ -425,36 +424,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1997178519217708285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9001677757750891510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f206c99277d617448d543245304b436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 20
-  smack:
-  - {fileID: 8300000, guid: 8611c622f2e43cb44b3f2eecd0bba6b7, type: 3}
-  - {fileID: 8300000, guid: 41eea6fb8d93ed4418ac549f791689ff, type: 3}
-  bombOffset: {x: 0.4, y: 0.5, z: 0}
---- !u!114 &7072586478284884970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9001677757750891510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ede83427d66e649925e188c42e153a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}
 --- !u!95 &3011607055567451545
 Animator:
   serializedVersion: 5
@@ -488,3 +457,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380ccebf2e304ba49898c5556ada240f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4589390353846571010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001677757750891510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15a9341c1929034c9cdd545bfaf41d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 15
+  smackSounds:
+  - {fileID: 8300000, guid: 922e0662fac91aa40819633191b66840, type: 3}
+  - {fileID: 8300000, guid: 5c9b14d6e938eff4ab4e8a448453083f, type: 3}
+  bombTransform: {fileID: 4007998119185115866}
+  wallDashAnimationPrefab: {fileID: 592459058255338669, guid: c684acfa2324d91419336ad6ad812533, type: 3}

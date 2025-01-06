@@ -20,8 +20,8 @@ namespace Player
         [SerializeField] AudioClip claps;
 
 
-       // float timer = 0;
-        //float minTime = 0.05f;
+        float timer = 0;
+        float minTime = 0.05f;
 
 
         private bool isWalking = false;

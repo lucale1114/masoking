@@ -24,25 +24,64 @@ namespace Jester
             _bomb = gameObject.transform.GetChild(0);
         }
 
+        /* private void OnTriggerEnter2D(Collider2D collision)
+         {
+             if (collision.gameObject.CompareTag("Player") && _movement.IsCurrentlyDashing)
+             {
+                 GetComponentInChildren<Bomb>().Activate();
+                 // Get the Movement component
+                 _movement = collision.GetComponent<Player.Movement>();
+
+                 _player.GetComponent<Player.Movement>().enabled = false;
+
+
+                 // Get the player's Rigidbody2D
+                 Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
+                 if (playerRb != null)
+                 {
+                     // Calculate the bounce direction (normal)
+                     Vector2 bounceDirection = (collision.transform.position - transform.position).normalized;
+
+                     // Apply the bounce velocity
+                     float bounceForce = 1.5f; // Adjust this value for desired bounce strength
+                     playerRb.velocity = bounceDirection * bounceForce;
+                 }
+
+                 // Instantiate wall dash animation at the collision point
+                 Instantiate(_wallDashAnimationPrefab,
+                     transform.GetComponent<Collider2D>().ClosestPoint(collision.transform.position),
+                     Quaternion.identity);
+
+                 StartCoroutine(WaitSec());
+                 HasDashed = true;
+                 _bomb.parent = null;
+             }
+         }*/
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player") && _movement.IsCurrentlyDashing)
             {
-                GetComponentInChildren<Bomb>().Activate();
-                // Get the Movement component
-                _movement = collision.GetComponent<Player.Movement>();
+                // Activate the bomb
+                Bomb bombScript = GetComponentInChildren<Bomb>();
+                if (bombScript != null)
+                {
+                    // Detach the bomb from the Jester
+                    _bomb.parent = null;
 
+                    // Activate the bomb to start its explosion sequence
+                    bombScript.Activate();
+                }
+
+                // Disable the player's movement temporarily
+                _movement = collision.GetComponent<Player.Movement>();
                 _player.GetComponent<Player.Movement>().enabled = false;
 
-
-                // Get the player's Rigidbody2D
+                // Apply bounce force to the player
                 Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
                 if (playerRb != null)
                 {
-                    // Calculate the bounce direction (normal)
                     Vector2 bounceDirection = (collision.transform.position - transform.position).normalized;
-
-                    // Apply the bounce velocity
                     float bounceForce = 1.5f; // Adjust this value for desired bounce strength
                     playerRb.velocity = bounceDirection * bounceForce;
                 }
@@ -52,12 +91,12 @@ namespace Jester
                     transform.GetComponent<Collider2D>().ClosestPoint(collision.transform.position),
                     Quaternion.identity);
 
+                // Set HasDashed to true and start re-enabling player movement
                 StartCoroutine(WaitSec());
                 HasDashed = true;
-                _bomb.parent = null;
             }
         }
-    private IEnumerator WaitSec()
+        private IEnumerator WaitSec()
     {
         yield return new WaitForSeconds(0.2F);
         _player.GetComponent<Player.Movement>().enabled = true;

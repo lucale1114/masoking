@@ -17,6 +17,7 @@ namespace Jester.Purple
 
         private PurpleJesterData _data;
         private int _currentCommandIndex;
+        private bool _interrupted; // To check if movement is interrupted
 
         public void SetData(PurpleJesterData data)
         {
@@ -31,6 +32,9 @@ namespace Jester.Purple
 
         private void MakeStep()
         {
+            // Check if movement is interrupted, stop further actions
+            if (_interrupted) return;
+
             if (IsOutOfCommands())
             {
                 if (_data.loop)
@@ -41,6 +45,7 @@ namespace Jester.Purple
                 {
                     Destroy(gameObject);
                 }
+                return;
             }
 
             var command = _data.commands[_currentCommandIndex];
@@ -60,11 +65,13 @@ namespace Jester.Purple
             {
                 case PurpleJesterActions.Move:
                     _animator.SetBool(Idle, false);
-                    transform.DOMove(command.destination, command.time).onComplete += () =>
-                    {
-                        _currentCommandIndex++;
-                        MakeStep();
-                    };
+                    transform.DOMove(command.destination, command.time)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() =>
+                        {
+                            _currentCommandIndex++;
+                            MakeStep();
+                        });
                     break;
                 case PurpleJesterActions.Idle:
                     StartCoroutine(IdleRoutine(command.time));
@@ -76,24 +83,39 @@ namespace Jester.Purple
 
         private IEnumerator IdleRoutine(float time)
         {
+            // Set Idle animation and wait for the idle time
             _animator.SetBool(Idle, true);
             _currentCommandIndex++;
             yield return new WaitForSeconds(time);
-            MakeStep();
+
+            // Check if interrupted before resuming
+            if (!_interrupted)
+            {
+                MakeStep();
+            }
         }
 
         private void Update()
         {
-            if (_collision && _collision.Dashed)
+            // Check if Jester has been dashed into and interrupt its movement
+            if (_collision && _collision.Dashed && !_interrupted)
             {
-                transform.DOKill();
-                _animator.SetBool(Idle, true);
+                InterruptMovement();
             }
+        }
+
+        private void InterruptMovement()
+        {
+            _interrupted = true; // Mark as interrupted
+            transform.DOKill(); // Stop any DOTween-based movement
+            _animator.SetBool(Idle, true); // Set to idle animation
+
+            // Optional: Add additional logic if needed, such as disabling other movement scripts
         }
 
         private bool IsOutOfCommands()
         {
-            return _currentCommandIndex == _data.commands.Length;
+            return _currentCommandIndex >= _data.commands.Length;
         }
 
         private void OnDestroy()
